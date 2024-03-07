@@ -32,6 +32,7 @@ function loop() {
     //ssf[1]()
     updateTemp()
     updateHTML()
+    tmp.el.test.setHTML(Decimal.randomDecimalForTesting())
     //calc(diff/1000);
     date = Date.now();
     player.offline.current = date
