@@ -53,5 +53,6 @@ function updateTemp() {
     tmp.offlineActive = player.offline.time > 1
     tmp.offlineMult = tmp.offlineActive?player.offline.time+1:1
     updatePointTemp()
+    BUILDINGS.temp()
    
 }
