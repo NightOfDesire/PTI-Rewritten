@@ -7,7 +7,7 @@ function setupHTML() {
 	setupResourcesHTML()
 	
 
-	
+	BUILDINGS.setup()
 
 		
 	tmp.el = {}
@@ -39,5 +39,5 @@ function updateHTML() {
 	//tmp.el.tab_terminal.setDisplay(!player.options.hidenav[0])
 	tmp.el.app.setDisplay(tmp.start)
 	tmp.el.loading.setDisplay(!tmp.start)
-	
+	BUILDINGS.update('points_1')
 }
