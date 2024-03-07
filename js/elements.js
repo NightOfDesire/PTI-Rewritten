@@ -4,7 +4,7 @@ function setupHTML() {
 	
 	
 	//document.getElementById("test").textContent = "No!"
-	setupResourcesHTML()
+	//setupResourcesHTML()
 	
 
 	//BUILDINGS.setup()
