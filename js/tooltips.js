@@ -65,7 +65,6 @@ function updateTooltips() {
         style.left = 0;
         tt_time = 0
     }
-
     style.opacity = tt_time;
 }
 
