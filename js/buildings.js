@@ -7,7 +7,7 @@ const BUILDINGS_DATA = {
     points_1: {
         name: "Empowerment",
 
-        get isUnlocked() { return trur },
+        get isUnlocked() { return true },
         get autoUnlocked() { return false },
         get noSpend() { return false },
 
@@ -45,7 +45,7 @@ const BUILDINGS_DATA = {
 }
 
 const BUILDINGS_ORDER = [
-    
+    'points_1'
 ]
 
 Object.keys(BUILDINGS_DATA).forEach(i => {
