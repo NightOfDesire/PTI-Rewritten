@@ -1,5 +1,5 @@
 const RESOURCES_DIS = {
-    clicks: {
+    points: {
         unl: ()=>true,
 
         desc: (gs)=>format(player.points)+"<br>"+formatGain(player.points, tmp.pointGain.mul(gs)),
