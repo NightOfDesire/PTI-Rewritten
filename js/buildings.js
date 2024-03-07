@@ -1,5 +1,5 @@
 /* BUILDINGS.JS: ORIGINAL BY AAREX AND MRREDSHARK77 */
-
+/*
 const BUILDINGS_DATA = {
    
    
@@ -173,7 +173,7 @@ const BUILDINGS = {
 // Config (custom cost, etc.)
 
 function checkBuildings() {
-    /*let b
+    let b
 
     // Mass Upgrades
     if (player.massUpg) for (let x = 1; x <= 4; x++) {
@@ -256,5 +256,5 @@ function checkBuildings() {
     if (b.amt.lte(0) && player.inf.pe && Decimal.gt(player.inf.pe,0)) {
         b.amt = E(player.inf.pe)
         player.inf.pe = undefined;
-    }*/
-}
+    }
+}*/
