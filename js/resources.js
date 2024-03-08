@@ -3,7 +3,7 @@ const RESOURCES_DIS = {
         unl: ()=>true,
         icon: "stars",
 
-        desc: (gs)=>format(player.number)+"<br>"+formatGain(player.number, tmp.numberGain.mul(gs)),
+        desc: (gs)=>format(player.number)+"<br>"+tmp.passiveNumberGain?formatGain(player.number, tmp.numberGain.mul(gs)):"(+"+format(tmp.numberGain)+"/click)"
     },
     /*rp: {
         unl: ()=>player.rp.unl||player.stellarity.gte(2.5e11),
@@ -17,7 +17,8 @@ const RESOURCES_DIS = {
     gamespeed: {
         unl: ()=>true,
         icon: "gamespeed",
-        desc: (gs)=>`<div class="orange">${formatMult(tmp.gs)}</div>`
+        class: "orange",
+        desc: (gs)=>{formatMult(tmp.gs)}
     }
 
 }
@@ -47,7 +48,7 @@ function setupResourcesHTML() {
 }
 
 function updateResourcesHTML() {
-    let gs = E(1) //tmp.gs
+    let gs = tmp.gs
 
     for (i in RESOURCES_DIS) {
         let rd = RESOURCES_DIS[i]
