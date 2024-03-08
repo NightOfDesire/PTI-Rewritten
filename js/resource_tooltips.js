@@ -11,16 +11,16 @@ const TOOLTIP_RES = {
             return h
         },
     },
-    /*rp: {
+    rp: {
         full: "Rage Power",
         desc() {
             let h = `<i>
-            Reach over <b>${format(1e15)}</b> stellarity to reset previous features for Rage Powers.
+            Count to <b>${format(1e75)}</b> to restart for Rage Powers.
             </i>`
 
             return h
         },
-    }*/
+    }
 
 }
 

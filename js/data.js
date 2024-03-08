@@ -18,7 +18,10 @@ Decimal.prototype.formatGain = function (gain, mass=false) { return formatGain(t
 function getPlayerData() {
     let s = {
         number: E(0),
-       
+        rp: {
+            points: E(0),
+            unl: false
+        },
         options: {
             font: 'Verdana',
             notation: 'standard',

@@ -5,7 +5,7 @@ const RESOURCES_DIS = {
 
         desc: (gs)=>format(player.number)+"<br>"+tmp.passiveNumberGain?formatGain(player.number, tmp.numberGain.mul(gs)):"(+"+format(tmp.numberGain)+"/click)"
     },
-    /*rp: {
+    rp: {
         unl: ()=>player.rp.unl||player.stellarity.gte(2.5e11),
         icon: "rp",
         class: "red",
@@ -13,7 +13,7 @@ const RESOURCES_DIS = {
         desc: (gs)=>format(player.rp.points,0)+"<br>"+(tmp.rp.gain.gte(1e30)?formatGain(player.rp.points, tmp.rp.gain.mul(gs)):"(+"+format(tmp.rp.gain,0)+")"),
     
         resetBtn() { FORMS.rp.reset() },
-    },*/
+    },
     gamespeed: {
         unl: ()=>true,
         icon: "gamespeed",

@@ -37,11 +37,11 @@ function resetTemp() {
    
 }
 
-/*function updateRagePowerTemp() {
+function updateRagePowerTemp() {
     if (!tmp.rp) tmp.rp = {}
     tmp.rp.gain = FORMS.rp.gain()
     tmp.rp.can = tmp.rp.gain.gte(1)
-}*/
+}
 
 function updateNumTemp() {
     tmp.numberGain = FORMS.numberGain()
@@ -52,7 +52,7 @@ function updateTemp() {
     tmp.offlineMult = tmp.offlineActive?player.offline.time+1:1
     tmp.gs = FORMS.gamespeed()
     updateNumTemp()
-    //updateRagePowerTemp()
+    updateRagePowerTemp()
     //BUILDINGS.temp()
    
 }
