@@ -99,10 +99,10 @@ function calc(dt) {
 
 function getPlayerData() {
     let s = {
-        points: E(0),
+        number: E(0),
         options: {
             font: 'Arial',
-            notation: 'standard',
+            notation: 'scientific',
            
             massDis: 0,
 
