@@ -1,6 +1,6 @@
 /* BUILDINGS.JS: ORIGINAL BY AAREX AND MRREDSHARK77 */
 
-const BUILDINGS_DATA = {
+/*const BUILDINGS_DATA = {
    
    
     
@@ -44,7 +44,6 @@ const BUILDINGS_DATA = {
         get_power: x => "+"+format(x.power)+" number gain",
         get_effect: x => "+"+format(x.effect)+" to number gain",
     },
-    
 }
 
 const BUILDINGS_ORDER = [
@@ -258,5 +257,5 @@ function checkBuildings() {
     if (b.amt.lte(0) && player.inf.pe && Decimal.gt(player.inf.pe,0)) {
         b.amt = E(player.inf.pe)
         player.inf.pe = undefined;
-    }*/
-}
+    }
+}*/
