@@ -19,13 +19,10 @@ const ST_NAMES = [
 ]
 
 const RESETS = {
-    setData() {
-        player.rp.unl = player.misc.totalNumber.gte(1e50)
-    },
     rage() {
-        FORMS.rp.doReset()
         player.rp.points = player.rp.points.add(tmp.rp.gain)
-        player.misc.totalRp = player.misc.totalRp.add(tmp.rp.gain)
+        player.rp.unl = true
+        FORMS.rp.doReset()
     }
 }
 
@@ -37,17 +34,15 @@ const FORMS = {
    },
    rp: {
     gain() {
-        let o = player.number.div(1e75).root(3.33)
+        let o = player.number.div(1e75).root(2.825)
 
         return o
     },
     reset() {
-        if (tmp.rp.can) {
-            RESETS.rage()
-        }
+        if (tmp.rp.can) RESETS.rage()
     },
     doReset() {
-        player.number = 0
+        player.number = E(0)
     }
    },
    gamespeed() {
