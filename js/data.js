@@ -212,7 +212,7 @@ function loadGame(start=true, gotNaN=false) {
     
     if (start) {
         setupHTML()
-        //setupTooltips()
+        setupTooltips()
         
 
         setInterval(save,15000)
@@ -223,7 +223,7 @@ function loadGame(start=true, gotNaN=false) {
         //let t = (Date.now() - player.offline.current)/1000
         //if (player.offline.active && t > 60) simulateTime(t)
 
-        //updateTooltipResHTML(true)
+        updateTooltipResHTML(true)
 
         document.onmousemove = e => {
             tmp.cx = e.clientX
