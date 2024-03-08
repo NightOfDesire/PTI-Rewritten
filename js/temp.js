@@ -45,6 +45,7 @@ function resetTemp() {
 
 function updateNumTemp() {
     tmp.numberGain = FORMS.numberGain()
+    tmp.passiveNumberGain = player.number.gte("e11750")
 }
 function updateTemp() {
     tmp.offlineActive = player.offline.time > 1

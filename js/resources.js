@@ -52,7 +52,7 @@ function updateResourcesHTML() {
 
     for (i in RESOURCES_DIS) {
         let rd = RESOURCES_DIS[i]
-        let unl = ! rd.unl()
+        let unl = !rd.unl()
 
         tmp.el[i+"_res_div"].setDisplay(unl)
 
