@@ -32,7 +32,6 @@ function loop() {
     //ssf[1]()
     updateTemp()
     updateHTML()
-    tmp.el.test.setHTML(Decimal.randomDecimalForTesting())
     //calc(diff/1000);
     date = Date.now();
     player.offline.current = date
@@ -41,7 +40,7 @@ function loop() {
 function turnOffline() {
 player.offline.active = !player.offline.active}
 
-function format(ex, acc=3, max=153, type=player.options.notation) {
+function format(ex, acc=4, max=100, type=player.options.notation) {
     
 
     ex = E(ex)
