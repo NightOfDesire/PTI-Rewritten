@@ -18,7 +18,7 @@ const RESOURCES_DIS = {
         unl: ()=>true,
         icon: "gamespeed",
         class: "orange",
-        desc: (gs)=>{formatMult(tmp.gs)}
+        desc: (gs)=>formatMult(tmp.gs)
     }
 
 }
