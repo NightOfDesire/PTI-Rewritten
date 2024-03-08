@@ -2,7 +2,7 @@ const TOOLTIP_RES = {
     number: {
         full: "Count",
         desc() {
-            let h = `Current count is <b>${format(player.number)}</b>.`;
+            let h = `Current count is <b>${format(player.number)}</b>.`
 
            
 
@@ -15,7 +15,7 @@ const TOOLTIP_RES = {
         full: "Rage Power",
         desc() {
             let h = `<i>
-            Count to <b>${format(75)}</b>  to restart for Rage Powers.
+            Count to <b>${format(1e75)}</b> to restart for Rage Powers.
             </i>`
 
             return h
