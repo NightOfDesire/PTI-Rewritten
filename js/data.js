@@ -35,6 +35,10 @@ function getPlayerData() {
             current: Date.now(),
             time: 0,
         },
+        misc: {
+            totalNumber: E(0),
+            totalRp: E(0)
+        },
        
         time: 0,
     }
