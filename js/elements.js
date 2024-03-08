@@ -4,7 +4,7 @@ function setupHTML() {
 	
 	
 	//document.getElementById("test").textContent = "No!"
-	setupResourcesHTML()
+	//setupResourcesHTML()
 	
 
 	//BUILDINGS.setup()
@@ -32,10 +32,10 @@ function updateHTML() {
 	tmp.mobile = window.innerWidth < 1200
 
 	 
-	if (hover_tooltip) updateTooltipResHTML()
-	
+	//if (hover_tooltip) updateTooltipResHTML()
+	tmp.el["count"].setHTML(`Count: ${format(player.number)}`)
 	//updateTabs()
-	updateResourcesHTML()
+	//updateResourcesHTML()
 	//tmp.el.tab_terminal.setDisplay(!player.options.hidenav[0])
 	//tmp.el.app.setDisplay(tmp.start)
 	//tmp.el.loading.setDisplay(!tmp.start)
