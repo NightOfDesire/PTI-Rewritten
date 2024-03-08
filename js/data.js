@@ -1,5 +1,4 @@
 function E(x){return new Decimal(x)};
-var tmp = {}
 const EINF = Decimal.dInf
 const FPS = 20
 
@@ -37,10 +36,10 @@ function getPlayerData() {
         time: 0,
     }
 
-    /*for (let x in BUILDINGS_DATA) s.build[x] = {
+    for (let x in BUILDINGS_DATA) s.build[x] = {
         amt: E(0),
         auto: false,
-    }*/
+    }
 
    
     return s
@@ -128,12 +127,13 @@ function loadGame(start=true, gotNaN=false) {
     
     if (start) {
         setupHTML()
-       
+        setupTooltips()
 
         setInterval(save,15000)
 
 
         updateHTML()
+        updateTooltipResHTML(true)
 
        
 

@@ -7,7 +7,7 @@ function setupHTML() {
 	
 	
 	//document.getElementById("test").textContent = "No!"
-	//setupResourcesHTML()
+	setupResourcesHTML()
 	
 
 }
@@ -23,7 +23,8 @@ function setupHTML() {
 function updateHTML() {
 	
 
-
-	 
-	document.getElementById("count").innerHTML = `Current count: ${format(player.number)}`
+	updateResourcesHTML()
+	
+	 if (hover_tooltip) updateTooltipResHTML()
+	
 }
