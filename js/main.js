@@ -57,7 +57,7 @@ function format(ex, acc=3, max=153, type=player.options.notation) {
                 let e = ex.log10().ceil()
                 let m = ex.div(e.eq(-1)?E(0.1):E(10).pow(e))
                 let be = e.mul(-1).max(1).log10().gte(9)
-                return neg+(be?'':m.toFixed(4))+'e'+format(e, 0, max, "sc")
+                return neg+(be?'':m.toFixed(4))+'e'+format(e, 0, max, "standard")
             } else if (e.lt(max)) {
                 let a = Math.max(Math.min(acc-e.toNumber(), acc), 0)
                 return neg+format(ex)
@@ -68,7 +68,7 @@ function format(ex, acc=3, max=153, type=player.options.notation) {
                 }
                 let m = ex.div(E(10).pow(e))
                 let be = e.log10().gte(9)
-                return neg+(be?'':m.toFixed(4))+'e'+format(e, 0, max, "sc")
+                return neg+(be?'':m.toFixed(4))+'e'+format(e, 0, max, "standard")
             }
         case "standard":
             let e3 = ex.log(1e3).floor()
