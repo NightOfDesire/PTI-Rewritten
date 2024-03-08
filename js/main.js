@@ -178,9 +178,9 @@ function formatGain(amt, gain, isMass=false) {
 function formatTime(ex,acc=2,type="s") {
     ex = E(ex)
     if (ex.gte(86400)) return format(ex.div(86400).floor(),0,12,"sc")+":"+formatTime(ex.mod(86400),acc,'d')
-    if (ex.gte(3600)||type=="d") return (ex.div(3600).gte(10)||type!="d"?"":"0")+format(ex.div(3600).floor(),0,12,"sc")+":"+formatTime(ex.mod(3600),acc,'h')
-    if (ex.gte(60)||type=="h") return (ex.div(60).gte(10)||type!="h"?"":"0")+format(ex.div(60).floor(),0,12,"sc")+":"+formatTime(ex.mod(60),acc,'m')
-    return (ex.gte(10)||type!="m" ?"":"0")+format(ex,acc,12,"sc")
+    if (ex.gte(3600)||type=="d") return (ex.div(3600).gte(10)||type!="d"?"":"0")+format(ex.div(3600).floor(),0,12,"scientific")+":"+formatTime(ex.mod(3600),acc,'h')
+    if (ex.gte(60)||type=="h") return (ex.div(60).gte(10)||type!="h"?"":"0")+format(ex.div(60).floor(),0,12,"scientific")+":"+formatTime(ex.mod(60),acc,'m')
+    return (ex.gte(10)||type!="m" ?"":"0")+format(ex,acc,12,"scientific")
 }
 
 function formatReduction(ex) { ex = E(ex); return format(E(1).sub(ex).mul(100))+"%" }
@@ -201,4 +201,4 @@ function capitalFirst(str) {
 setInterval(()=>{
     //player.points = player.points.add(tmp.pointGain.mul(tmp.gs).div(16))
     
-},62.5)
+},50)

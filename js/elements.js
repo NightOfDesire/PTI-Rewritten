@@ -1,4 +1,4 @@
-var tmp = {}
+
 
 
 function setupHTML() {
@@ -10,18 +10,9 @@ function setupHTML() {
 	//setupResourcesHTML()
 	
 
-	//BUILDINGS.setup()
-
-		
-	tmp.el = {}
-	let all = document.getElementsByTagName("*")
-	for (let i=0;i<all.length;i++) {
-		let x = all[i]
-		tmp.el[x.id] = new Element(x)
-	}
-	
-    
 }
+    
+
 
 
 /*function navhide(opt) {
@@ -32,15 +23,7 @@ function setupHTML() {
 function updateHTML() {
 	
 
-	tmp.mobile = window.innerWidth < 1200
 
 	 
-	//if (hover_tooltip) updateTooltipResHTML()
-	tmp.el["count"].setHTML(`Count: ${format(player.number)}`)
-	//updateTabs()
-	//updateResourcesHTML()
-	//tmp.el.tab_terminal.setDisplay(!player.options.hidenav[0])
-	//tmp.el.app.setDisplay(tmp.start)
-	//tmp.el.loading.setDisplay(!tmp.start)
-	//BUILDINGS.update('points_1')
+	new Element("count").setHTML(`Current count: ${format(player.number)}`)
 }

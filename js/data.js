@@ -1,5 +1,5 @@
 function E(x){return new Decimal(x)};
-
+var tmp = {}
 const EINF = Decimal.dInf
 const FPS = 20
 
