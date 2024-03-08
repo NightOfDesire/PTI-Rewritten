@@ -142,10 +142,9 @@ button {
 	height: 100%;
 }
 #wipedata {
-	position: absolute;
-	left: 40%;
-	width: 20%;
-	height: 6.66%;
+	
+	width: 15%;
+	height: 7.5%;
 }
 
 
@@ -163,7 +162,7 @@ button {
 	align-content: center;
 	justify-content: center;
 	width: 100%;
-	height: 100%;
+	height: 30%;
 	margin: 5px 0px;
 	padding-top: 40px;
 }
