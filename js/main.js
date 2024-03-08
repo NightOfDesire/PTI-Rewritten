@@ -42,7 +42,9 @@ const FORMS = {
         return o
     },
     reset() {
-        if (tmp.rp.can) RESETS.rage()
+        if (tmp.rp.can) {
+            RESETS.rage()
+        }
     },
     doReset() {
         player.number = 0

@@ -6,7 +6,7 @@ const RESOURCES_DIS = {
         desc: (gs)=>format(player.mumber)+"<br>"+formatGain(player.number, tmp.numberGain.mul(gs)),
     },
     rp: {
-        unl: ()=>player.rp.unl||player.stellarity.gte(2.5e11),
+        unl: ()=>player.rp.unl,
         icon: "rp",
         class: "red",
 
@@ -48,11 +48,11 @@ function setupResourcesHTML() {
 }
 
 function updateResourcesHTML() {
-    let gs = E(1) //tmp.gs
+    let gs = tmp.gs
 
     for (i in RESOURCES_DIS) {
         let rd = RESOURCES_DIS[i]
-        let unl = ! rd.unl()
+        let unl = rd.unl()
 
         tmp.el[i+"_res_div"].setDisplay(unl)
 
