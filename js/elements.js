@@ -4,7 +4,7 @@ function setupHTML() {
 	
 	
 	//document.getElementById("test").textContent = "No!"
-	setupResourcesHTML()
+	//setupResourcesHTML()
 	
 
 	//BUILDINGS.setup()
@@ -35,7 +35,7 @@ function updateHTML() {
 	if (hover_tooltip) updateTooltipResHTML()
 	
 	//updateTabs()
-	updateResourcesHTML()
+	//updateResourcesHTML()
 	//tmp.el.tab_terminal.setDisplay(!player.options.hidenav[0])
 	tmp.el.app.setDisplay(tmp.start)
 	tmp.el.loading.setDisplay(!tmp.start)
