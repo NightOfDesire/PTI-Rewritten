@@ -134,13 +134,13 @@ function loadGame(start=true, gotNaN=false) {
     
     if (start) {
         setupHTML()
-        //setupTooltips()
+        setupTooltips()
 
         setInterval(save,15000)
 
 
         updateHTML()
-        //updateTooltipResHTML(true)
+        updateTooltipResHTML(true)
 
        
 
