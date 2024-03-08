@@ -3,8 +3,8 @@ function setupHTML() {
 	
 	
 	
-	//document.getElementById("test").textContent = "No!"
-	setupResourcesHTML()
+	document.getElementById("test").textContent = "No!"
+	//setupResourcesHTML()
 	//BUILDINGS.setup()
 
 
