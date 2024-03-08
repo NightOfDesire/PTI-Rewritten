@@ -27,7 +27,15 @@ const RESETS = {
 }
 
 const FORMS = {
-   numberGain() {
+    number: {
+        gain() {
+            if (!tmp.passiveNumberGain) {
+                player.number = player.number.add(tmp.numberGain)
+                player.misc.totalNumber = player.misc.totalNumber.add(tmp.numberGain)
+            }
+        }
+    },
+    numberGain() {
     let x = E(1)
 
     return x
@@ -225,5 +233,6 @@ function capitalFirst(str) {
 function PassiveNumGain() {
     if (tmp.PassiveNumberGain) {
         player.number = player.number.add(tmp.numberGain.mul(tmp.gs).div(20))
+        player.misc.totalNumber = player.misc.totalNumber.add(tmp.numberGain.mul(tmp.gs).div(20))
     }
 }

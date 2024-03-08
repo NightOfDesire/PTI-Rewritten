@@ -53,6 +53,6 @@ function updateTemp() {
     tmp.gs = FORMS.gamespeed()
     updateNumTemp()
     updateRagePowerTemp()
-    //BUILDINGS.temp()
+    BUILDINGS.temp()
    
 }

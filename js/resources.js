@@ -3,7 +3,9 @@ const RESOURCES_DIS = {
         unl: ()=>true,
         icon: "stars",
 
-        desc: (gs)=>format(player.number)+"<br>"+tmp.passiveNumberGain?formatGain(player.number, Decimal.mul(tmp.numberGain, gs)):"(+"+format(tmp.numberGain)+"/click)"
+        desc: (gs)=>format(player.number)+"<br>"+tmp.passiveNumberGain?formatGain(player.number, Decimal.mul(tmp.numberGain, gs)):"(+"+format(tmp.numberGain)+"/click)",
+
+        resetBtn() { FORMS.number.gain() }
     },
     rp: {
         unl: ()=>player.rp.unl,
