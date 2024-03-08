@@ -26,5 +26,5 @@ function updateHTML() {
 	updateResourcesHTML()
 	
 	 if (hover_tooltip) updateTooltipResHTML()
-	
+	BUILDINGS.update('number_1')
 }
