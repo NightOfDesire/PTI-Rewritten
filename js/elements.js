@@ -25,5 +25,5 @@ function updateHTML() {
 
 
 	 
-	new Element("count").setHTML(`Current count: ${format(player.number)}`)
+	document.getElementById("count").innerHTML = `Current count: ${format(player.number)}`
 }
