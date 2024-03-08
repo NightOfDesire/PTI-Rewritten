@@ -23,6 +23,11 @@ const FORMS = {
     let x = E(1)
 
     return x
+   },
+   gamespeed() {
+    let x = E(0)
+    x = x.add(player.number.root(33))
+    return x
    }
 
 }
