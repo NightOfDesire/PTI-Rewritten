@@ -13,7 +13,7 @@ Decimal.prototype.modular=Decimal.prototype.mod=function (other){
     if (this.sign==-1) return this.abs().mod(other.abs());
     return this.sub(this.div(other).floor().mul(other));
 };
-
+Decimal.prototype.format = function (acc=4, max=12) { return format(this.clone(), acc, max) }
 Decimal.prototype.formatGain = function (gain, mass=false) { return formatGain(this.clone(), gain, mass) }
 
 function getPlayerData() {
