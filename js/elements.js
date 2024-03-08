@@ -8,7 +8,7 @@ function setupHTML() {
 	
 	//document.getElementById("test").textContent = "No!"
 	setupResourcesHTML()
-	BUILDINGS.setup()
+	//BUILDINGS.setup()
 
 }
     
@@ -26,5 +26,5 @@ function updateHTML() {
 	updateResourcesHTML()
 	
 	 if (hover_tooltip) updateTooltipResHTML()
-	BUILDINGS.update('number_1')
+	//BUILDINGS.update('number_1')
 }
