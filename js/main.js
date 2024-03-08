@@ -222,9 +222,8 @@ function capitalFirst(str) {
 		.map(x => x[0].toUpperCase() + x.slice(1))
 		.join(" ");
 }
-
-
-setInterval(()=>{
-    //player.points = player.points.add(tmp.pointGain.mul(tmp.gs).div(16))
-    
-},50)
+function PassiveNumGain() {
+    if (tmp.PassiveNumberGain) {
+        player.number = player.number.add(tmp.numberGain.mul(tmp.gs).div(20))
+    }
+}
