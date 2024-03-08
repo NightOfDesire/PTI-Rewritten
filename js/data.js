@@ -130,7 +130,7 @@ function loadGame(start=true, gotNaN=false) {
         setupHTML()
        
 
-        setInterval(save,60000)
+        setInterval(save,15000)
 
 
         updateHTML()
