@@ -3,10 +3,10 @@ const RESOURCES_DIS = {
         unl: ()=>true,
         icon: "stars",
 
-        desc: (gs)=>format(player.number)+"<br>"+tmp.passiveNumberGain?formatGain(player.number, tmp.numberGain.mul(gs)):"(+"+format(tmp.numberGain)+"/click)"
+        desc: (gs)=>format(player.number,0)+"<br>"+tmp.passiveNumberGain?formatGain(player.number, tmp.numberGain.mul(gs)):"(+"+format(tmp.numberGain,0)+"/click)"
     },
     rp: {
-        unl: ()=>player.rp.unl||player.number.gte(1e50),
+        unl: ()=>player.rp.unl,
         icon: "rp",
         class: "red",
 
@@ -18,7 +18,7 @@ const RESOURCES_DIS = {
         unl: ()=>true,
         icon: "gamespeed",
         class: "orange",
-        desc: (gs)=>formatMult(tmp.gs)
+        desc: ()=>formatMult(tmp.gs)
     }
 
 }

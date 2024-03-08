@@ -60,6 +60,7 @@ function loop() {
     diff = Date.now()-date;
     //ssf[1]()
     updateHTML()
+    updateTemp()
     //calc(diff/1000);
     date = Date.now();
     player.offline.current = date
