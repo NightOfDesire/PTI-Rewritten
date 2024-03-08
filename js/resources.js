@@ -6,7 +6,7 @@ const RESOURCES_DIS = {
         desc: (gs)=>format(player.number)+"<br>"+tmp.passiveNumberGain?formatGain(player.number, tmp.numberGain.mul(gs)):"(+"+format(tmp.numberGain)+"/click)"
     },
     rp: {
-        unl: ()=>player.rp.unl||player.stellarity.gte(2.5e11),
+        unl: ()=>player.rp.unl||player.number.gte(1e50),
         icon: "rp",
         class: "red",
 
