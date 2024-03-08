@@ -83,19 +83,7 @@ function calcOverflow(x,y,s,height=1) { return x.gte(s) ? x.max(1).iteratedlog(1
 
 String.prototype.corrupt = function (active=true) { return active ? this.strike() + ` <span class='corrupted_text'>[Corrupted]</span>` : this }
 
-function calc(dt) {
-    let gs = tmp.gs.mul(dt)
 
-    if (tmp.pass<=0) {
-        player.points = player.points.add(tmp.pointsGain.mul(gs))
-       }
-    tmp.pass = Math.max(0,tmp.pass-1)
-
-    player.time += dt
-
-   
-    
-}
 
 function getPlayerData() {
     let s = {
@@ -212,7 +200,7 @@ function loadGame(start=true, gotNaN=false) {
     
     if (start) {
         setupHTML()
-        //setupTooltips()
+        
         
 
         setInterval(save,15000)
@@ -223,7 +211,7 @@ function loadGame(start=true, gotNaN=false) {
         //let t = (Date.now() - player.offline.current)/1000
         //if (player.offline.active && t > 60) simulateTime(t)
 
-        //updateTooltipResHTML(true)
+        
 
         document.onmousemove = e => {
             tmp.cx = e.clientX
@@ -306,36 +294,3 @@ Decimal.prototype.addTP = function (val) {
     return Decimal.tetrate(10, e.slog(10).add(val))
 }
 
-function simulateTime(sec) {
-    let ticks = sec * FPS
-    let bonusDiff = 0
-    let player_before = clonePlayer(player,getPlayerData());
-    if (ticks > 1000) {
-        bonusDiff = (ticks - 1000) / FPS / 1000
-        ticks = 1000
-    }
-    for (let i=0; i<ticks; i++) {
-        updateTemp()
-        calc(1/FPS+bonusDiff)
-       
-    }
-
-    let h = `You were gone offline for <b>${formatTime(sec)}</b>.<br>`
-
-    let s = {
-        points: player.points.max(1).div(player_before.points.max(1)).log10()
-    }
-
-    let s2 = {
-        points: player.points.max(1).log10().max(1).div(player_before.points.max(1).log10().max(1)).log10()
-    }
-
-  
-
-    if (s2.points.gte(10)) h += `<br>Your points's exponent<sup>2</sup> is increased by <b>${s2.points.format(2)}</b>.`
-    else if (s.points.gte(10)) h += `<br>Your points's exponent is increased by <b>${s.points.format(2)}</b>.`
-
-   
-
-    
-}
