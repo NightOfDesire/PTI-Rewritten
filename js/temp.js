@@ -51,6 +51,7 @@ function updateTemp() {
     tmp.offlineMult = tmp.offlineActive?player.offline.time+1:1
     tmp.gs = FORMS.gamespeed()
     updateNumTemp()
-    updateRagePowerTemp()
+    //updateRagePowerTemp()
+    BUILDINGS.temp()
    
 }
