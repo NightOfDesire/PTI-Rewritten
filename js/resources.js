@@ -1,8 +1,8 @@
 const RESOURCES_DIS = {
-    points: {
+    number: {
         unl: ()=>true,
 
-        desc: (gs)=>format(player.points)+"<br>"+formatGain(player.points, tmp.pointGain.mul(gs)),
+        desc: (gs)=>format(player.number)+"<br>("+format(tmp.numberGain)+"/click)"
     },
     /*sm: {
         unl: ()=>player.sm.unl||player.points.gte(2.5e11),

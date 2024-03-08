@@ -19,7 +19,7 @@ const ST_NAMES = [
 ]
 
 const FORMS = {
-   pointGain() {
+   numberGain() {
     let x = E(1)
 
     return x
@@ -77,7 +77,7 @@ function format(ex, acc=3, max=153, type=player.options.notation) {
 			} else {
 				let e3_mul = e3.mul(3)
 				let ee = e3.log10().floor()
-				if (ee.gte(3000)) return "e"+format(e, acc, max, "st")
+				if (ee.gte(3000)) return "e"+format(e, acc, max, "standard")
 
 				let final = ""
 				if (e3.lt(4)) final = ["", "K", "M", "B"][Math.round(e3.toNumber())]

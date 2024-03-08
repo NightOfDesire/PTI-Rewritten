@@ -43,8 +43,8 @@ function resetTemp() {
 
 }
 
-function updatePointTemp() {
-    tmp.pointGain = FORMS.pointGain()
+function updateNumTemp() {
+    tmp.numberGain = FORMS.numberGain()
 }
  
 
@@ -52,7 +52,7 @@ function updatePointTemp() {
 function updateTemp() {
     tmp.offlineActive = player.offline.time > 1
     tmp.offlineMult = tmp.offlineActive?player.offline.time+1:1
-    updatePointTemp()
+    updateNumTemp()
     //BUILDINGS.temp()
    
 }

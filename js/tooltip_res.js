@@ -1,8 +1,8 @@
 const TOOLTIP_RES = {
-    points: {
-        full: "Points",
+    Number: {
+        full: "Count",
         desc() {
-            let h = `You have <b>${format(player.points)}</b>.`
+            let h = `Current count is <b>${format(player.number)}</b>.`
 
            
 
