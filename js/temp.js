@@ -30,9 +30,16 @@ function resetTemp() {
 
         prevSave: "",
 
-       
+       build: {}
     }
 
+
+    for (let x in BUILDINGS_DATA) tmp.build[x] = {
+        bulk: E(0),
+		total: E(0),
+		bonus: E(0),
+        effect: {},
+    }
    
    
 }
