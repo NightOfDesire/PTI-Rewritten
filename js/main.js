@@ -43,7 +43,7 @@ const FORMS = {
    },
    rp: {
     gain() {
-        let gain = player.number.div(1).root(2.825)
+        let gain = player.number.root(2.8)
 
         return gain
     },
