@@ -10,7 +10,7 @@ const BUILDINGS_DATA = {
         get isUnlocked() { return true },
         get autoUnlocked() { return player.rp.gte("1e7777") },
         get noSpend() { return false },
-
+        get beMultiplicative() { return false },
         get res() { return player.number },
         set res(v) { player.number = v },
 
@@ -26,9 +26,9 @@ const BUILDINGS_DATA = {
 
         get_cost: x => format(x) + " number",
 
-        effect(x, bonus) {
+        effect(x) {
             let pow = E(1)
-            let eff = E(1)
+            let eff = pow.mul(x)
             return {power: pow, effect: eff}
         },
 
@@ -66,6 +66,16 @@ const BUILDINGS = {
 	},
     temp() {
         if (!tmp.build) tmp.build = {}
+        for (let x in BUILDINGS_DATA) {
+            if (!tmp.build[x]) {
+                tmp.build[x] = {
+                    bulk: E(0),
+                    total: E(0),
+                    bonus: E(0),
+                    effect: {}
+                }
+            }
+        }
 		let bt = tmp.build
 
 		for (var i of BUILDINGS_ORDER) {
