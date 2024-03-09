@@ -48,7 +48,9 @@ const FORMS = {
         return gain
     },
     reset() {
-        if (tmp.rp.can) RESETS.rage()
+        if (tmp.rp.can) {
+            RESETS.rage()
+        }
     },
     doReset() {
         player.number = E(0)
