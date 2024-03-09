@@ -144,10 +144,8 @@ const BUILDINGS = {
 		}
 	},
 	update(i) {
-		let b = BUILDINGS_DATA[i], bt = {}, unl = b.isUnlocked
-        if (tmp.build[i]) {
-            bt = tmp.build[i]
-        }
+		let b = BUILDINGS_DATA[i], bt = tmp.build[i], unl = b.isUnlocked
+        
         tmp.el["building_"+i].setDisplay(unl)
 
         if (!unl) return;
