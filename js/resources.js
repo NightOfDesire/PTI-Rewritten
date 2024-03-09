@@ -8,7 +8,7 @@ const RESOURCES_DIS = {
         resetBtn() { FORMS.number.gain() }
     },
     rp: {
-        unl: ()=>true,
+        unl: ()=>player.rp.unl,
         icon: "rp",
         class: "red",
 
