@@ -23,7 +23,13 @@ const BUILDINGS_DATA = {
             return Decimal.pow(Decimal.mul(start, Decimal.pow(inc, x)), pow)
         },
         get bulk() {
-            return E(0)
+            let bulk = E(0)
+            while (this.res.gte(this.cost(this.level.add(bulk)))) {
+                if (this.res.gte(this.cost(this.level.add(bulk)))) {
+                    bulk = bulk.add(1)
+                }
+            }
+            return bulk
         },
         get_cost: x => format(x) + " number",
         effect(x) {
@@ -129,7 +135,7 @@ const BUILDINGS = {
         if (!tmp.build) {
             tmp.build = {}
         }
-        
+
 		let bt = tmp.build
 
 		for (var i of BUILDINGS_ORDER) {
