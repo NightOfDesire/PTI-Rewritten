@@ -24,11 +24,11 @@ const BUILDINGS_DATA = {
         },
         get bulk() {
             let bulk = E(0)
-            while (this.res.gte(this.cost(this.level.add(bulk)))) {
+            /*while (this.res.gte(this.cost(this.level.add(bulk)))) {
                 if (this.res.gte(this.cost(this.level.add(bulk)))) {
                     bulk = bulk.add(1)
                 }
-            }
+            }*/
             return bulk
         },
         get_cost: x => format(x) + " number",
@@ -44,7 +44,7 @@ const BUILDINGS_DATA = {
         },
         get_power: x => "+"+format(x.power)+" to number gain",
         get_effect: x => "+"+format(x.effect)+" number gain",
-    }/*
+    },
     number_2: {
         name: "Crystallize",
         get isUnlocked() { return player.rp.points.gte("1") },
@@ -108,12 +108,12 @@ const BUILDINGS_DATA = {
         },
         get_power: x => "^"+format(x.power)+" to Crystallize effect",
         get_effect: x => "^"+format(x.effect)+" Crystallize effect",
-    }*/
+    }
     
 }
 
 const BUILDINGS_ORDER = [
-    /*'number_3','number_2',*/'number_1'
+    /*'number_3','number_2','number_1'
 ]
 
 Object.keys(BUILDINGS_DATA).forEach(i => {
