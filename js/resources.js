@@ -3,7 +3,7 @@ const RESOURCES_DIS = {
         unl: ()=>true,
         icon: "stars",
 
-        desc: (gs)=>format(player.number)+"<br>"+tmp.passiveNumberGain?formatGain(player.number, Decimal.mul(tmp.numberGain, gs)):"(+"+format(tmp.numberGain)+"/click)",
+        desc: (gs)=>format(player.number)+"<br>"+(tmp.passiveNumberGain?formatGain(player.number, tmp.numberGain.mul(gs)):"(+"+format(tmp.numberGain)+"/click)"),
 
         resetBtn() { FORMS.number.gain() }
     },
@@ -13,7 +13,7 @@ const RESOURCES_DIS = {
         class: "red",
 
         desc: (gs)=>format(player.rp.points,0)+"<br>"+(tmp.rp.gain.gte(1e30)?formatGain(player.rp.points, tmp.rp.gain.mul(gs)):"(+"+format(tmp.rp.gain,0)+")"),
-    
+        
         resetBtn() { FORMS.rp.reset() },
     },
     gamespeed: {
