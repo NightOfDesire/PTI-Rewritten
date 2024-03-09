@@ -6,7 +6,6 @@ const BUILDINGS_DATA = {
     
     number_1: {
         name: "Empower",
-
         get isUnlocked() { return true },
         get autoUnlocked() { return player.rp.gte("1e100") },
         get noSpend() { return false },
@@ -14,7 +13,6 @@ const BUILDINGS_DATA = {
         get res() { return player.number },
         set res(v) { player.number = v },
         get allowPurchase() { return true },
-
         cost(x=this.level) {
             let start = E(25)
             let inc = E(1.7193)
@@ -24,21 +22,17 @@ const BUILDINGS_DATA = {
         get bulk() {
             return E(0)
         },
-
         get_cost: x => format(x) + " number",
-
         effect(x) {
             let pow = E(1)
             let eff = pow.mul(x)
             return {power: pow, effect: eff}
         },
-
         get bonus() {
             let x = E(0)
 
             return x
         },
-
         get_power: x => "+"+format(x.power)+" to number gain",
         get_effect: x => "+"+format(x.effect)+" number gain",
     },
