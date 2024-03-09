@@ -44,10 +44,10 @@ function getPlayerData() {
         build: {}
     }
 
-    for (let x in BUILDINGS_DATA) s.build[x] = {
+    for (let x in BUILDINGS_DATA) {s.build[x] = {
         amt: E(0),
         auto: false,
-    }
+    }}
    
     return s
 }
