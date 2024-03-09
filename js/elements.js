@@ -41,7 +41,7 @@ function updateHTML() {
 	tmp.el.app.setDisplay(tmp.start)
 	if (hover_tooltip) updateTooltipResHTML()
 
-	for (let n=0;n<=1;n++) {
-		BUILDINGS.update('number_'+n)
-	}
+	
+		BUILDINGS.update('number_1')
+	
 }

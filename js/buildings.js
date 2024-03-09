@@ -38,7 +38,7 @@ const BUILDINGS_DATA = {
         },
         get_power: x => "+"+format(x.power)+" to number gain",
         get_effect: x => "+"+format(x.effect)+" number gain",
-    },
+    }/*
     number_2: {
         name: "Crystallize",
         get isUnlocked() { return player.rp.points.gte("1") },
@@ -102,7 +102,7 @@ const BUILDINGS_DATA = {
         },
         get_power: x => "^"+format(x.power)+" to Crystallize effect",
         get_effect: x => "^"+format(x.effect)+" Crystallize effect",
-    }
+    }*/
     
 }
 
@@ -219,7 +219,7 @@ const BUILDINGS = {
             }
         }
 		let b = BUILDINGS_DATA[i], bt = tmp.build[i], unl = b.isUnlocked
-        
+
         tmp.el["building_"+i].setDisplay(unl)
 
         if (!unl) return;
