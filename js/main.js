@@ -54,7 +54,7 @@ const FORMS = {
     },
     doReset() {
         player.number = E(0)
-        for (let n=0;n<=3;n++) {
+        for (let n=0;n<=1;n++) {
             BUILDINGS.reset('number_'+n)
         }
     }

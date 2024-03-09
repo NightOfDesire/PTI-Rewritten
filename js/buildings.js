@@ -6,7 +6,7 @@ const BUILDINGS_DATA = {
     
     number_1: {
         name: "Empower",
-        isUnlocked() { return true },
+        get isUnlocked() { return true },
         get autoUnlocked() { return player.rp.points.gte("1e81") },
         get noSpend() { return false },
         get beMultiplicative() { return false },
@@ -41,7 +41,7 @@ const BUILDINGS_DATA = {
     },
     number_2: {
         name: "Crystallize",
-        isUnlocked() { return player.rp.points.gte("1") },
+        get isUnlocked() { return player.rp.points.gte("1") },
         get autoUnlocked() { return player.rp.points.gte("1e16") },
         get noSpend() { return false },
         get beMultiplicative() { return false },
@@ -73,7 +73,7 @@ const BUILDINGS_DATA = {
     },
     number_3: {
         name: "Obelisk",
-        isUnlocked() { return player.number.gte("1e100") },
+        get isUnlocked() { return player.number.gte("1e100") },
         get autoUnlocked() { return player.rp.points.gte("1e50")},
         get noSpend() { return false },
         get beMultiplicative() { return false },
@@ -107,7 +107,7 @@ const BUILDINGS_DATA = {
 }
 
 const BUILDINGS_ORDER = [
-    'number_3','number_2','number_1'
+    /*'number_3','number_2',*/'number_1'
 ]
 
 Object.keys(BUILDINGS_DATA).forEach(i => {
@@ -122,7 +122,7 @@ Object.keys(BUILDINGS_DATA).forEach(i => {
 const BUILDINGS = {
     tick() {
 		for (var [i, b] of Object.entries(BUILDINGS_DATA)) {
-			if (b.isUnlocked() && b.autoUnlocked && player.build[i].auto) this.buy(i, true)
+			if (b.isUnlocked && b.autoUnlocked && player.build[i].auto) this.buy(i, true)
 		}
 	},
     temp() {
@@ -218,7 +218,7 @@ const BUILDINGS = {
                 effect: {}
             }
         }
-		let b = BUILDINGS_DATA[i], bt = tmp.build[i], unl = b.isUnlocked()
+		let b = BUILDINGS_DATA[i], bt = tmp.build[i], unl = b.isUnlocked
         
         tmp.el["building_"+i].setDisplay(unl)
 
