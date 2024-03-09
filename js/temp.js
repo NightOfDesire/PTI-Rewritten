@@ -34,12 +34,12 @@ function resetTemp() {
     }
 
 
-    /*for (let x in BUILDINGS_DATA) tmp.build[x] = {
+    for (let x in BUILDINGS_DATA) tmp.build[x] = {
         bulk: E(0),
 		total: E(0),
 		bonus: E(0),
         effect: {},
-    }*/
+    }
    
    
 }
@@ -49,7 +49,7 @@ function updateRagePowerTemp() {
     tmp.rp.gain = FORMS.rp.gain()
     tmp.rp.can = tmp.rp.gain.gte(1)
 }
-/*function updateBuildingsTemp() {
+function updateBuildingsTemp() {
     if (!tmp.build) tmp.build = {}
         for (let x in BUILDINGS_DATA) {
             if (!tmp.build[x]) {
@@ -62,7 +62,7 @@ function updateRagePowerTemp() {
             }
         }
         BUILDINGS.temp()
-    }*/
+    }
 function updateNumTemp() {
     tmp.numberGain = FORMS.numberGain()
     tmp.passiveNumberGain = player.number.gte("1e11750")
@@ -73,6 +73,6 @@ function updateTemp() {
     tmp.gs = FORMS.gamespeed()
     updateNumTemp()
     updateRagePowerTemp()
-    //updateBuildingsTemp()
+    updateBuildingsTemp()
    
 }

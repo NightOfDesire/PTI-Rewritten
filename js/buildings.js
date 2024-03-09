@@ -1,5 +1,5 @@
 /* BUILDINGS.JS: ORIGINAL BY AAREX AND MRREDSHARK77 */
-/*
+
 const BUILDINGS_DATA = {
    
    
@@ -8,7 +8,7 @@ const BUILDINGS_DATA = {
         name: "Empower",
 
         get isUnlocked() { return true },
-        get autoUnlocked() { return player.rp.gte("1e7777") },
+        get autoUnlocked() { return player.rp.gte("1e100") },
         get noSpend() { return false },
         get beMultiplicative() { return false },
         get res() { return player.number },
@@ -58,7 +58,6 @@ Object.keys(BUILDINGS_DATA).forEach(i => {
 });
 
 const BUILDINGS = {
-    //Calculation
     tick() {
 		for (var [i, b] of Object.entries(BUILDINGS_DATA)) {
 			if (b.isUnlocked && b.autoUnlocked && player.build[i].auto) this.buy(i, true)
@@ -173,4 +172,3 @@ const BUILDINGS = {
 
 // Config (custom cost, etc.)
 
-*/

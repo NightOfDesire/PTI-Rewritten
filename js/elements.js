@@ -5,7 +5,7 @@ function setupHTML() {
 	
 	document.getElementById("test").textContent = "No!"
 	setupResourcesHTML()
-	//BUILDINGS.setup()
+	BUILDINGS.setup()
 
 
 
