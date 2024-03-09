@@ -12,7 +12,7 @@ const RESOURCES_DIS = {
         icon: "rp",
         class: "red",
 
-        desc: (gs)=>format(player.rp.points,0)+"<br>"+(tmp.rp.gain.gte(1e30)?formatGain(player.rp.points, tmp.rp.gain.mul(gs)):"(+"+format(tmp.rp.gain,0)+")"),
+        desc: (gs)=>format(player.rp.points,0)+"<br>"+(FORMS.rp.gain().gte(1e30)?formatGain(player.rp.points, FORMS.rp.gain().mul(gs)):"(+"+format(FORMS.rp.gain(),0)+")"),
 
         resetBtn() { FORMS.rp.reset() },
     },

@@ -46,6 +46,7 @@ function resetTemp() {
 
 function updateRagePowerTemp() {
     if (!tmp.rp) tmp.rp = {}
+    
     tmp.rp.gain = FORMS.rp.gain()
     tmp.rp.can = tmp.rp.gain.gte(1)
 }
