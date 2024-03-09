@@ -26,6 +26,14 @@ function setupHTML() {
 
 
 function updateHTML() {
+	let els = document.getElementsByTagName("*")
+	for (let i=0;i<els.length;i++) {
+		let el = els[i]
+		if (!tmp.el[el.id]) {
+			tmp.el[el.id] = new Element(el)
+		}
+
+	}
 	
 
 	updateResourcesHTML()
