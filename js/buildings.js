@@ -65,17 +65,6 @@ const BUILDINGS = {
 		}
 	},
     temp() {
-        if (!tmp.build) tmp.build = {}
-        for (let x in BUILDINGS_DATA) {
-            if (!tmp.build[x]) {
-                tmp.build[x] = {
-                    bulk: E(0),
-                    total: E(0),
-                    bonus: E(0),
-                    effect: {}
-                }
-            }
-        }
 		let bt = tmp.build
 
 		for (var i of BUILDINGS_ORDER) {
