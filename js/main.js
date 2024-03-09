@@ -37,7 +37,7 @@ const FORMS = {
     },
     numberGain() {
     let x = E(1)
-
+    x = x.add(BUILDINGS.eff('number_1'))
     return x
    },
    rp: {
@@ -51,6 +51,9 @@ const FORMS = {
     },
     doReset() {
         player.number = E(0)
+        for (let n=0;n<=3;n++) {
+            BUILDINGS.reset('number_'+n)
+        }
     }
    },
    gamespeed() {

@@ -16,6 +16,9 @@ const BUILDINGS_DATA = {
         cost(x=this.level) {
             let start = E(25)
             let inc = E(1.7193)
+            if (x.gte("25")) {
+                inc = inc.pow("1.2")
+            }
             let pow = E(1)
             return Decimal.pow(Decimal.mul(start, Decimal.pow(inc, x)), pow)
         },
@@ -36,11 +39,75 @@ const BUILDINGS_DATA = {
         get_power: x => "+"+format(x.power)+" to number gain",
         get_effect: x => "+"+format(x.effect)+" number gain",
     },
+    number_2: {
+        name: "Crystallize",
+        get isUnlocked() { return player.number.gte("1e10") },
+        get autoUnlocked() { return player.rp.points.gte("1e40") },
+        get noSpend() { return false },
+        get beMultiplicative() { return false },
+        get res() { return player.number },
+        set res(v) { player.number = v },
+        get allowPurchase() { return true },
+        cost(x=this.level) {
+            let start = E("1e10")
+            let inc = E("1.175e3")
+            let pow = E(1)
+            return Decimal.pow(Decimal.mul(start, Decimal.pow(inc, x)), pow)
+        },
+        get bulk() {
+            return E(0)
+        },
+        get_cost: x => format(x) + " number",
+        effect(x) {
+            let pow = E(2)
+            let eff = pow.mul(x).add(1).pow(BUILDINGS.eff('number_3'))
+            return {power: pow, effect: eff}
+        },
+        get bonus() {
+            let x = E(0)
+
+            return x
+        },
+        get_power: x => formatMult(x.power)+" to Empower effect",
+        get_effect: x => formatMult(x.effect)+" Empower effect",
+    },
+    number_3: {
+        name: "Obelisk",
+        get isUnlocked() { return player.number.gte("1e140")},
+        get autoUnlocked() { return player.rp.points.gte("1e125")},
+        get noSpend() { return false },
+        get beMultiplicative() { return false },
+        get res() { return player.number },
+        set res(v) { player.number = v },
+        get allowPurchase() { return true },
+        cost(x=this.level) {
+            let start = E("1e175")
+            let inc = E("e11.73")
+            let pow = E("1")
+            return Decimal.pow(Decimal.mul(start, Decimal.pow(inc, x)), pow)
+        },
+        get bulk() {
+            return E(0)
+        },
+        get_cost: x => format(x) + " number",
+        effect(x) {
+            let pow = E(1)
+            let eff = pow.mul(x).add(1)
+            return {power: pow, effect: eff}
+        },
+        get bonus() {
+            let x = E(0)
+
+            return x
+        },
+        get_power: x => "^"+format(x.power)+" to Crystallize effect",
+        get_effect: x => "^"+format(x.effect)+" Crystallize effect",
+    }
     
 }
 
 const BUILDINGS_ORDER = [
-    'number_1'
+    'number_3','number_2','number_1'
 ]
 
 Object.keys(BUILDINGS_DATA).forEach(i => {

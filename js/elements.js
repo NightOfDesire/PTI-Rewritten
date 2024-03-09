@@ -37,8 +37,11 @@ function updateHTML() {
 	
 
 	updateResourcesHTML()
-	//tmp.el.loading.setDisplay(!tmp.start)
-	//tmp.el.app.setDisplay(tmp.start)
+	tmp.el.loading.setDisplay(!tmp.start)
+	tmp.el.app.setDisplay(tmp.start)
 	if (hover_tooltip) updateTooltipResHTML()
-	BUILDINGS.update('number_1')
+
+	for (let n=0;n<=3;n++) {
+		BUILDINGS.update('number_'+n)
+	}
 }
