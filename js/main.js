@@ -43,9 +43,9 @@ const FORMS = {
    },
    rp: {
     gain() {
-        let o = player.number.div(1e75).root(2.825)
+        let gain = player.number.div(1).root(2.825)
 
-        return o
+        return gain
     },
     reset() {
         if (tmp.rp.can) RESETS.rage()

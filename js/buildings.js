@@ -41,8 +41,8 @@ const BUILDINGS_DATA = {
     },
     number_2: {
         name: "Crystallize",
-        get isUnlocked() { return player.number.gte("1e10") },
-        get autoUnlocked() { return player.rp.points.gte("1e40") },
+        get isUnlocked() { return player.rp.points.gte("1") },
+        get autoUnlocked() { return player.rp.points.gte("1e16") },
         get noSpend() { return false },
         get beMultiplicative() { return false },
         get res() { return player.number },
@@ -73,8 +73,8 @@ const BUILDINGS_DATA = {
     },
     number_3: {
         name: "Obelisk",
-        get isUnlocked() { return player.number.gte("1e140")},
-        get autoUnlocked() { return player.rp.points.gte("1e125")},
+        get isUnlocked() { return player.number.gte("1e100")},
+        get autoUnlocked() { return player.rp.points.gte("1e50")},
         get noSpend() { return false },
         get beMultiplicative() { return false },
         get res() { return player.number },
