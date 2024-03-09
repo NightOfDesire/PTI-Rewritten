@@ -38,6 +38,7 @@ const FORMS = {
     numberGain() {
     let x = E(1)
     x = x.add(BUILDINGS.eff('number_1'))
+    x = x.add(player.rp.points.pow('1.5'))
     return x
    },
    rp: {
