@@ -1,5 +1,5 @@
 /* BUILDINGS.JS: ORIGINAL BY AAREX AND MRREDSHARK77 */
-
+/*
 const BUILDINGS_DATA = {
    
    
@@ -172,3 +172,5 @@ const BUILDINGS = {
 }
 
 // Config (custom cost, etc.)
+
+*/

@@ -44,14 +44,12 @@ function getPlayerData() {
         build: {}
     }
 
-    for (let building in BUILDINGS_DATA) {
-        if (!s.build[building]) {
-            s.build[building] = {
-                amt: E(0),
-                auto: false,
-            }
+    /*for (let building in BUILDINGS_DATA) {
+        s.build[building] = {
+            amt: E(0),
+            auto: false,
         }
-    }
+    }*/
    
     return s
 }
