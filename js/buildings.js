@@ -113,7 +113,7 @@ const BUILDINGS_DATA = {
 }
 
 const BUILDINGS_ORDER = [
-    /*'number_3','number_2','number_1'
+    'number_3','number_2','number_1'
 ]
 
 Object.keys(BUILDINGS_DATA).forEach(i => {
