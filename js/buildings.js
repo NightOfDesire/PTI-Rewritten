@@ -128,7 +128,7 @@ const BUILDINGS = {
 				<div style="width: 300px">
 					<div class="resources">
 						<img src="images/${b.icon||"mark"}.png">
-						
+                        <span style="margin-left: 5px; text-align: left;"><span id="building_scale_${i}"></span>${b.name} [<span id="building_lvl_${i}"></span>]</span>
 					</div>
 				</div>
 				<button class="btn" id="building_btn_${i}" onclick="BUILDINGS.buy('${i}')" style="width: 300px"><span id="building_cost_${i}"></span></button>
@@ -158,6 +158,8 @@ const BUILDINGS = {
         if (!unl) return;
 		
         tmp.el["building_lvl_"+i].setHTML(b.level.format(0) + (bt.bonus.gt(0) ? (b.beMultiplicative ? " × " : " + ") + bt.bonus.format(0) : "")) //  + " = " + bt.total.format(0)
+        tmp.el["building_scale_"+i].setHTML(/*b.scale ? getScalingName(b.scale) : ""*/b.name)
+
        
 
         let cost = b.cost(), allow = b.allowPurchase ?? true

@@ -2,7 +2,7 @@ const TOOLTIP_RES = {
     number: {
         full: "Count",
         desc() {
-            let h = `Current count is <b>${format(player.number)}</b>.`
+            let h = `Current count is <b>${format(player.number,0)}</b>.`
 
            
 
