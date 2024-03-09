@@ -52,7 +52,7 @@ function updateRagePowerTemp() {
 
 function updateNumTemp() {
     tmp.numberGain = FORMS.numberGain()
-    tmp.passiveNumberGain = player.number.gte("e11750")
+    tmp.passiveNumberGain = player.number.gte("1e11750")
 }
 function updateTemp() {
     tmp.offlineActive = player.offline.time > 1
