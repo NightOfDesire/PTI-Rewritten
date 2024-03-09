@@ -50,19 +50,8 @@ function updateRagePowerTemp() {
     tmp.rp.can = tmp.rp.gain.gte(1)
 }
 function updateBuildingsTemp() {
-    if (!tmp.build) tmp.build = {}
-        for (let x in BUILDINGS_DATA) {
-            if (!tmp.build[x]) {
-                tmp.build[x] = {
-                    bulk: E(0),
-                    total: E(0),
-                    bonus: E(0),
-                    effect: {}
-                }
-            }
-        }
-        BUILDINGS.temp()
-    }
+    BUILDINGS.temp()
+}
 function updateNumTemp() {
     tmp.numberGain = FORMS.numberGain()
     tmp.passiveNumberGain = player.number.gte("1e11750")

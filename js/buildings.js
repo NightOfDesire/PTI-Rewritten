@@ -144,6 +144,12 @@ const BUILDINGS = {
 		}
 	},
 	update(i) {
+        if (!tmp.build[i]) tmp.build[i] = {
+            bulk: E(0),
+            total: E(0),
+            bonus: E(0),
+            effect: {}
+        }
 		let b = BUILDINGS_DATA[i], bt = tmp.build[i], unl = b.isUnlocked
         
         tmp.el["building_"+i].setDisplay(unl)
