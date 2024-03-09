@@ -13,6 +13,7 @@ const BUILDINGS_DATA = {
         get beMultiplicative() { return false },
         get res() { return player.number },
         set res(v) { player.number = v },
+        get allowPurchase() { return true },
 
         cost(x=this.level) {
             let start = E(25)
