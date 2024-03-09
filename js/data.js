@@ -41,6 +41,7 @@ function getPlayerData() {
         },
        
         time: 0,
+        build: {}
     }
 
     for (let x in BUILDINGS_DATA) s.build[x] = {
