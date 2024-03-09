@@ -7,7 +7,7 @@ const BUILDINGS_DATA = {
     number_1: {
         name: "Empower",
         get isUnlocked() { return true },
-        get autoUnlocked() { return player.rp.points.gte("1e100") },
+        get autoUnlocked() { return player.rp.points.gte("1e81") },
         get noSpend() { return false },
         get beMultiplicative() { return false },
         get res() { return player.number },
