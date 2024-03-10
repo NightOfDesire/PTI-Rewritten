@@ -73,9 +73,9 @@ const BUILDING = {
     },
     number_3: {
         name: "Obelisk",
-        get start() { return E("e20")},
-        get inc() { return E("e3.7283")},
-        get isUnlocked() { return player.number.gte("e18") },
+        get start() { return E("e13")},
+        get inc() { return E("e2.8163")},
+        get isUnlocked() { return player.number.gte("e10") },
         get autoUnlocked() { return player.rp.points.gte("e28")},
         get noSpend() { return false },
         get beMultiplicative() { return false },
