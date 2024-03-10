@@ -35,6 +35,7 @@ function getPlayerData() {
             font: 'Verdana',
             notation: 'standard',
             massDis: 0,
+            nav_hide: [],
 
      
         },
