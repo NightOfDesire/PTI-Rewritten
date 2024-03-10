@@ -16,10 +16,9 @@ const BUILDING = {
         set res(v) { player.number = v },
         get allowPurchase() { return true },
         cost(x=this.level) {
-            let start = E(25)
-            let inc = E(1.7193)
-            let pow = E(1)
-            return Decimal.pow(Decimal.mul(start, Decimal.pow(inc, x)), pow)
+            let start = this.start
+            let inc = this.inc
+            return Decimal.mul(start, Decimal.pow(inc, x))
         },
         get bulk() {
             return getNumUpgradeBulk(1)
@@ -50,8 +49,8 @@ const BUILDING = {
         set res(v) { player.number = v },
         get allowPurchase() { return true },
         cost(x=this.level) {
-            let start = E("e3")
-            let inc = E("e0.777")
+            let start = this.start
+            let inc = this.inc
             
             return Decimal.mul(start, Decimal.pow(inc, x))
         },
@@ -84,8 +83,8 @@ const BUILDING = {
         set res(v) { player.number = v },
         get allowPurchase() { return true },
         cost(x=this.level) {
-            let start = E("e25")
-            let inc = E("e3.7283")
+            let start = this.start
+            let inc = this.inc
             
             Decimal.mul(start, Decimal.pow(inc, x))
         },

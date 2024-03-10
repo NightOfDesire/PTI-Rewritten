@@ -72,6 +72,7 @@ function loop() {
     //ssf[1]()
     updateHTML()
     updateTemp()
+    BUILDINGS.tick()
     //calc(diff/1000);
     date = Date.now();
     player.offline.current = date
