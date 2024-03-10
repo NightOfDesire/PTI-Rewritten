@@ -135,6 +135,7 @@ function loadGame(start=true, gotNaN=false) {
     load(tmp.prevSave)
     
     if (start) {
+        updateTemp()
         setupHTML()
         setupTooltips()
 
