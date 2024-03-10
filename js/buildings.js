@@ -76,7 +76,7 @@ const BUILDING = {
     number_3: {
         name: "Obelisk",
         icon: 'sm',
-        get start() { return E("e13")},
+        get start() { return E("e10")},
         get inc() { return E("e2.8163")},
         get isUnlocked() { return player.number.gte("e10") },
         get autoUnlocked() { return player.rp.points.gte("e28")},
