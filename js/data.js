@@ -14,7 +14,16 @@ Decimal.prototype.modular=Decimal.prototype.mod=function (other){
 };
 Decimal.prototype.format = function (acc=4, max=12) { return format(this.clone(), acc, max) }
 Decimal.prototype.formatGain = function (gain, mass=false) { return formatGain(this.clone(), gain, mass) }
-
+Decimal.prototype.softcap = function (start, power, mode, dis=false) {
+    var x = this.clone()
+    if (!dis&&x.gte(start)) {
+        if ([0, "pow"].includes(mode)) x = x.div(start).max(1).pow(power).mul(start)
+        if ([1, "mul"].includes(mode)) x = x.sub(start).div(power).add(start)
+        if ([2, "exp"].includes(mode)) x = expMult(x.div(start), power).mul(start)
+        if ([3, "log"].includes(mode)) x = x.div(start).log(power).add(1).mul(start)
+    }
+    return x
+}
 function getPlayerData() {
     let s = {
         number: E(0),
