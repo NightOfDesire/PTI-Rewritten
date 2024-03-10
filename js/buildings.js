@@ -190,7 +190,7 @@ const BUILDINGS = {
 
     //Effect
 	eff(i, key="effect", def = E(1)) {
-        let ret
+        let ret = def.sub(1)
 		if (tmp.build && tmp.build[i]) {
             ret = tmp.build[i].effect[key] ?? def
         } else {
