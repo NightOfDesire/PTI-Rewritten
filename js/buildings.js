@@ -163,7 +163,11 @@ const BUILDINGS = {
 	},
 
     //Reset
-    reset(i) { player.build[i].amt = E(0) },
+    reset(i) { 
+        if (player.build && player.build[i]) {
+            player.build[i].amt = E(0)
+        } 
+    },
 
     //Buying
 	buy(i, max=false) {
