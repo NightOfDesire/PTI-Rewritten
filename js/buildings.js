@@ -76,7 +76,7 @@ const BUILDING = {
     number_3: {
         name: "Obelisk",
         icon: 'sm',
-        get start() { return E("e10")},
+        get start() { return E("e12")},
         get inc() { return E("e2.8163")},
         get isUnlocked() { return player.number.gte("e10") },
         get autoUnlocked() { return player.rp.points.gte("e28")},
@@ -89,7 +89,7 @@ const BUILDING = {
             let start = this.start
             let inc = this.inc
             
-            Decimal.mul(start, Decimal.pow(inc, x))
+            return Decimal.mul(start, Decimal.pow(inc, x))
         },
         get bulk() {
             return getNumUpgradeBulk(3)
