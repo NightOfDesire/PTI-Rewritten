@@ -1,6 +1,6 @@
 /* BUILDINGS.JS: ORIGINAL BY AAREX AND MRREDSHARK77 */
 
-const BUILDINGS_DATA = {
+const BUILDING = {
    
    
     
@@ -113,8 +113,8 @@ const BUILDINGS_ORDER = [
     'number_3','number_2','number_1'
 ]
 
-Object.keys(BUILDINGS_DATA).forEach(i => {
-    let b = BUILDINGS_DATA[i]
+Object.keys(BUILDING).forEach(i => {
+    let b = BUILDING[i]
 
     Object.defineProperty(b, "level", {
         get() { return player.build[i].amt },
@@ -124,7 +124,7 @@ Object.keys(BUILDINGS_DATA).forEach(i => {
 
 const BUILDINGS = {
     tick() {
-		for (var [i, b] of Object.entries(BUILDINGS_DATA)) {
+		for (var [i, b] of Object.entries(BUILDING)) {
 			if (b.isUnlocked && b.autoUnlocked && player.build[i].auto) this.buy(i, true)
 		}
 	},
@@ -136,7 +136,7 @@ const BUILDINGS = {
 		let bt = tmp.build
 
 		for (var i of BUILDINGS_ORDER) {
-            let b = BUILDINGS_DATA[i]
+            let b = BUILDING[i]
 
 			if (b.isUnlocked || b.forceEffect) {
                 let bonus = b.bonus
@@ -168,7 +168,7 @@ const BUILDINGS = {
 
     //Buying
 	buy(i, max=false) {
-        let b = BUILDINGS_DATA[i], cost = b.cost()
+        let b = BUILDING[i], cost = b.cost()
 
         if (b.res.lt(cost) || !(b.allowPurchase ?? true)) return
 
@@ -202,7 +202,7 @@ const BUILDINGS = {
 
     //DOM
 	setup() {
-		for (var [i, b] of Object.entries(BUILDINGS_DATA)) {
+		for (var [i, b] of Object.entries(BUILDING)) {
             let el = new Element("building_"+i)
 
 			if (el.el) el.setHTML(`<div class="table_center upgrade" style="width: 100%; margin-bottom: 5px;">
@@ -232,7 +232,7 @@ const BUILDINGS = {
                 effect: {}
             }
         }
-		let b = BUILDINGS_DATA[i], bt = tmp.build[i], unl = b.isUnlocked
+		let b = BUILDINGS[i], bt = tmp.build[i], unl = b.isUnlocked
 
         tmp.el["building_"+i].setDisplay(unl)
 
@@ -263,7 +263,7 @@ const BUILDINGS = {
 
 
 function getNumUpgradeBulk(i) {
-    let bulk = E(0), fp = E(1), upg = BUILDINGS_DATA["number_"+i]
+    let bulk = E(0), fp = E(1), upg = BUILDING["number_"+i]
 
     let start = upg.start, inc = upg.inc
 

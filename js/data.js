@@ -44,8 +44,8 @@ function getPlayerData() {
         build: {}
     }
 
-    for (let building in BUILDINGS_DATA) {
-        s.build[building] = {
+    for (let x in BUILDING) {
+        s.build[x] = {
             amt: E(0),
             auto: false,
         }
@@ -135,7 +135,6 @@ function loadGame(start=true, gotNaN=false) {
     load(tmp.prevSave)
     
     if (start) {
-        updateTemp()
         setupHTML()
         setupTooltips()
 
