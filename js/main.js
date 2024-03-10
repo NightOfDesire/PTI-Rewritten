@@ -48,14 +48,14 @@ const FORMS = {
         return gain
     },
     reset() {
-        if (tmp.rp.can) {
+        if (tmp.rp.can == true) {
             RESETS.rage()
         }
     },
     doReset() {
         player.number = E(0)
-        for (let n=0;n<=1;n++) {
-            BUILDINGS.reset('number_'+n)
+        for (let n=0;n<=3;n++) {
+            BUILDINGS.reset('number_'+n.toString())
         }
     }
    },
