@@ -6,6 +6,7 @@ const BUILDING = {
     
     number_1: {
         name: "Energetic",
+        icon: 'placeholder',
         get start() { return E(25)},
         get inc() { return E(1.7193)},
         get isUnlocked() { return true },
@@ -39,6 +40,7 @@ const BUILDING = {
     },
     number_2: {
         name: "Crystallize",
+        icon: 'placeholder',
         get start() { return E("e3")},
         get inc() { return E("e0.777")},
         get isUnlocked() { return player.number.gte("750") },
@@ -73,6 +75,7 @@ const BUILDING = {
     },
     number_3: {
         name: "Obelisk",
+        icon: 'sm',
         get start() { return E("e13")},
         get inc() { return E("e2.8163")},
         get isUnlocked() { return player.number.gte("e10") },

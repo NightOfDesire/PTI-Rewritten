@@ -17,6 +17,10 @@ const RESOURCES_DIS = {
 
         resetBtn() { FORMS.rp.reset() },
     },
+    //atomize: {},
+    //nm: {},
+    //dilate: {},
+    //inf: {},
     gamespeed: {
         unl: ()=>true,
         icon: "gamespeed",
