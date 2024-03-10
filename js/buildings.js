@@ -5,7 +5,7 @@ const BUILDING = {
    
     
     number_1: {
-        name: "Empower",
+        name: "Energetic",
         get start() { return E(25)},
         get inc() { return E(1.7193)},
         get isUnlocked() { return true },
@@ -26,8 +26,8 @@ const BUILDING = {
         },
         get_cost: x => format(x) + " number",
         effect(x) {
-            let pow = E(1)
-            let eff = pow.mul(x).mul(BUILDINGS.eff('number_2'))
+            let pow = E(1).mul(BUILDINGS.eff('number_2'))
+            let eff = pow.mul(x)
             return {power: pow, effect: eff}
         },
         get bonus() {
@@ -60,8 +60,8 @@ const BUILDING = {
         },
         get_cost: x => format(x) + " number",
         effect(x) {
-            let pow = E(4)
-            let eff = pow.mul(x).add(1).pow(BUILDINGS.eff('number_3'))
+            let pow = E(4).pow(BUILDINGS.eff('number_3'))
+            let eff = pow.mul(x).add(1)
             return {power: pow, effect: eff}
         },
         get bonus() {
@@ -69,12 +69,12 @@ const BUILDING = {
 
             return x
         },
-        get_power: x => "+"+formatMult(x.power)+" to Empower effect",
-        get_effect: x => formatMult(x.effect)+" Empower effect",
+        get_power: x => "+"+formatMult(x.power)+" to Energetic power",
+        get_effect: x => formatMult(x.effect)+" Energetic power",
     },
     number_3: {
         name: "Obelisk",
-        get start() { return E("e25")},
+        get start() { return E("e20")},
         get inc() { return E("e3.7283")},
         get isUnlocked() { return player.number.gte("e18") },
         get autoUnlocked() { return player.rp.points.gte("e28")},
@@ -96,6 +96,7 @@ const BUILDING = {
         effect(x) {
             let pow = E(1.33)
             let eff = pow.mul(x).add(1)
+            eff = eff.softcap("25",0.6,0)
             return {power: pow, effect: eff}
         },
         get bonus() {
@@ -103,8 +104,8 @@ const BUILDING = {
 
             return x
         },
-        get_power: x => "+^"+format(x.power)+" to Crystallize effect",
-        get_effect: x => "^"+format(x.effect)+" Crystallize effect",
+        get_power: x => "+^"+format(x.power)+" to Crystallize power",
+        get_effect: x => "^"+format(x.effect)+" Crystallize power",
     }
     
 }
@@ -232,7 +233,7 @@ const BUILDINGS = {
                 effect: {}
             }
         }
-		let b = BUILDINGS[i], bt = tmp.build[i], unl = b.isUnlocked
+		let b = BUILDING[i], bt = tmp.build[i], unl = b.isUnlocked
 
         tmp.el["building_"+i].setDisplay(unl)
 
