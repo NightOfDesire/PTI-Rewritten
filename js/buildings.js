@@ -34,7 +34,7 @@ const BUILDINGS_DATA = {
         get_cost: x => format(x) + " number",
         effect(x) {
             let pow = E(1)
-            let eff = pow.mul(x)
+            let eff = pow.mul(x).mul(BUILDINGS.eff('number_2'))
             return {power: pow, effect: eff}
         },
         get bonus() {
