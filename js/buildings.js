@@ -6,6 +6,8 @@ const BUILDINGS_DATA = {
     
     number_1: {
         name: "Empower",
+        get start() { return E(25)},
+        get inc() { return E(1.7193)},
         get isUnlocked() { return true },
         get autoUnlocked() { return player.rp.points.gte("e3.5") },
         get noSpend() { return false },
@@ -16,20 +18,11 @@ const BUILDINGS_DATA = {
         cost(x=this.level) {
             let start = E(25)
             let inc = E(1.7193)
-            if (x.gte("25")) {
-                inc = inc.pow("1.2")
-            }
             let pow = E(1)
             return Decimal.pow(Decimal.mul(start, Decimal.pow(inc, x)), pow)
         },
         get bulk() {
-            let bulk = E(0)
-            /*while (this.res.gte(this.cost(this.level.add(bulk)))) {
-                if (this.res.gte(this.cost(this.level.add(bulk)))) {
-                    bulk = bulk.add(1)
-                }
-            }*/
-            return bulk
+            return getNumUpgradeBulk(1)
         },
         get_cost: x => format(x) + " number",
         effect(x) {
@@ -47,6 +40,8 @@ const BUILDINGS_DATA = {
     },
     number_2: {
         name: "Crystallize",
+        get start() { return E("e3")},
+        get inc() { return E("e0.777")},
         get isUnlocked() { return player.number.gte("750") },
         get autoUnlocked() { return player.rp.points.gte("e8") },
         get noSpend() { return false },
@@ -57,11 +52,11 @@ const BUILDINGS_DATA = {
         cost(x=this.level) {
             let start = E("e3")
             let inc = E("e0.777")
-            let pow = E(1)
-            return Decimal.pow(Decimal.mul(start, Decimal.pow(inc, x)), pow)
+            
+            return Decimal.mul(start, Decimal.pow(inc, x))
         },
         get bulk() {
-            return E(0)
+            return getNumUpgradeBulk(2)
         },
         get_cost: x => format(x) + " number",
         effect(x) {
@@ -79,6 +74,8 @@ const BUILDINGS_DATA = {
     },
     number_3: {
         name: "Obelisk",
+        get start() { return E("e25")},
+        get inc() { return E("e3.7283")},
         get isUnlocked() { return player.number.gte("e18") },
         get autoUnlocked() { return player.rp.points.gte("e28")},
         get noSpend() { return false },
@@ -89,11 +86,11 @@ const BUILDINGS_DATA = {
         cost(x=this.level) {
             let start = E("e25")
             let inc = E("e3.7283")
-            let pow = E("1")
-            return Decimal.pow(Decimal.mul(start, Decimal.pow(inc, x)), pow)
+            
+            Decimal.mul(start, Decimal.pow(inc, x))
         },
         get bulk() {
-            return E(0)
+            return getNumUpgradeBulk(3)
         },
         get_cost: x => format(x) + " number",
         effect(x) {
@@ -263,3 +260,23 @@ const BUILDINGS = {
 
 // Config (custom cost, etc.)
 
+
+
+function getNumUpgradeBulk(i) {
+    let bulk = E(0), fp = E(1), upg = BUILDINGS_DATA[i]
+
+    let start = upg.start, inc = upg.inc
+
+
+        
+        
+        //if (i == 1 && player.ranks.rank.gte(2)) inc = inc.pow(0.8)
+        //if (i == 2 && player.ranks.rank.gte(3)) inc = inc.pow(0.8)
+        //if (i == 3 && player.ranks.rank.gte(4)) inc = inc.pow(0.8)
+        //if (player.ranks.tier.gte(3)) inc = inc.pow(0.8)
+
+        if (player.number.gte(start)) bulk = player.number.div(start).max(1).log(inc).mul(fp).add(1).floor()
+    
+
+    return bulk
+}
