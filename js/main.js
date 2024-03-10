@@ -29,7 +29,7 @@ const RESETS = {
 const FORMS = {
     number: {
         gain() {
-            if (!tmp.passiveNumberGain) {
+            if (tmp.passiveNumberGain == false) {
                 player.number = player.number.add(tmp.numberGain)
                 player.misc.totalNumber = player.misc.totalNumber.add(tmp.numberGain)
             }
@@ -55,7 +55,7 @@ const FORMS = {
     doReset() {
         player.number = E(0)
         for (let n=0;n<=3;n++) {
-            BUILDINGS.reset('number_'+n.toString())
+            BUILDINGS.reset('number_'+n)
         }
     }
    },
@@ -237,8 +237,9 @@ function capitalFirst(str) {
 		.join(" ");
 }
 function PassiveNumGain() {
-    if (tmp.PassiveNumberGain) {
+    if (tmp.PassiveNumberGain == true) {
         player.number = player.number.add(tmp.numberGain.mul(tmp.gs).div(20))
         player.misc.totalNumber = player.misc.totalNumber.add(tmp.numberGain.mul(tmp.gs).div(20))
     }
 }
+setInterval(PassiveNumGain, 50)
