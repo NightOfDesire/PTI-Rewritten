@@ -263,7 +263,7 @@ const BUILDINGS = {
 
 
 function getNumUpgradeBulk(i) {
-    let bulk = E(0), fp = E(1), upg = BUILDINGS_DATA["number_"=i]
+    let bulk = E(0), fp = E(1), upg = BUILDINGS_DATA["number_"+i]
 
     let start = upg.start, inc = upg.inc
 
