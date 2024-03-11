@@ -19,11 +19,13 @@ function setupHTML() {
 			table2 += a
 		}
 	}
+
+
 	tabs.setHTML(table)
 	stabs.setHTML(table2)
 	
 	
-	document.getElementById("test").textContent = "No!"
+	// document.getElementById("test").textContent = "No!"
 	setupResourcesHTML()
 	BUILDINGS.setup()
 
@@ -55,7 +57,7 @@ function updateTabsHTML() {
 				let stab = TABS[2][x][y]
 				//tmp.el["stab"+x+"_"+y].setDisplay(stab.unl ? stab.unl() : true)
 				//tmp.el["stab"+x+"_"+y].setClasses({btn_tab: true, [stab.style ? stab.style : "normal"]: true, choosed: y == tmp.stab[x]})
-				if (tmp.el["stab_frame"+x+"_"+y]) tmp.el["stab_frame"+x+"_"+y].setDisplay(y == tmp.stab[x])
+				// if (tmp.el["stab_frame"+x+"_"+y]) tmp.el["stab_frame"+x+"_"+y].setDisplay(y == tmp.stab[x])
 			}
 		}
 	}
