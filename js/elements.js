@@ -51,7 +51,7 @@ function updateTabsHTML() {
 		}
 
 		if (tmp.el["tab_frame"+x]) tmp.el["tab_frame"+x].setDisplay(x == tmp.tab)
-		if (TABS[2][x]) {
+		if (TABS[2][x] !== undefined) {
 			tmp.el["stabs"+x].setDisplay(x == tmp.tab)
 			if (x == tmp.tab) for (let y = 0; y < TABS[2][x].length; y++)  {
 				//let stab = TABS[2][x][y]
