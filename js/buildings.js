@@ -97,6 +97,7 @@ const BUILDING = {
         get_cost: x => format(x) + " number",
         effect(x) {
             let pow = E(1.33)
+            pow = pow.mul(BUILDINGS.eff('number_4'))
             let eff = pow.mul(x).add(1)
             eff = eff.softcap("25",0.6,0)
             return {power: pow, effect: eff}
@@ -108,12 +109,47 @@ const BUILDING = {
         },
         get_power: x => "+^"+format(x.power)+" to Crystallize power",
         get_effect: x => "^"+format(x.effect)+" Crystallize power",
+    }, number_3: {
+        name: "Darkness",
+        icon: 'nullmatter',
+        get start() { return E("e125")},
+        get inc() { return E("e25")},
+        get isUnlocked() { return player.number.gte("e100") },
+        get autoUnlocked() { return player.rp.points.gte("e50")},
+        get noSpend() { return false },
+        get beMultiplicative() { return false },
+        get res() { return player.number },
+        set res(v) { player.number = v },
+        get allowPurchase() { return true },
+        cost(x=this.level) {
+            let start = this.start
+            let inc = this.inc
+            
+            return Decimal.mul(start, Decimal.pow(inc, x))
+        },
+        get bulk() {
+            return getNumUpgradeBulk(4)
+        },
+        get_cost: x => format(x) + " number",
+        effect(x) {
+            let pow = E(0.75)
+            let eff = pow.mul(x).add(1)
+            eff = eff.softcap("100",0.4,0)
+            return {power: pow, effect: eff}
+        },
+        get bonus() {
+            let x = E(0)
+
+            return x
+        },
+        get_power: x => formatMult(x.power)+" to Obelisk power",
+        get_effect: x => formatMulti(x.effect)+" Obelisk power",
     }
     
 }
 
 const BUILDINGS_ORDER = [
-    'number_6','number_5','number_4',
+   'number_4',
     'number_3','number_2','number_1'
 ]
 
