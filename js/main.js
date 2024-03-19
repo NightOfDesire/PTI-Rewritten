@@ -243,4 +243,4 @@ function PassiveNumGain() {
         player.misc.totalNumber = player.misc.totalNumber.add(tmp.numberGain.mul(tmp.gs))
     }
 }
-setInterval(PassiveNumGain, 100)
+setInterval(PassiveNumGain, 1000)
