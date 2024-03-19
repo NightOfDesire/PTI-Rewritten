@@ -32,7 +32,7 @@ const BUILDING = {
         },
         get bonus() {
             let x = E(0)
-            x = (x.add(player.number.sub("1e1000")).pow("1e-6")).floor()
+            x = (x.add(player.number.div("1e1000")).root("e0.5")).floor()
             x = x.softcap("e33",0.05,0)
             return x
         },
