@@ -61,7 +61,7 @@ const FORMS = {
    },
    gamespeed() {
     let x = E(1)
-    x = x.add(player.number.root(125))
+    //x = x.add(player.number.root(125)).add
     return x
    }
 
