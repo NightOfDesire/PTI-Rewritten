@@ -124,6 +124,7 @@ const BUILDING = {
         cost(x=this.level) {
             let start = this.start
             let inc = this.inc
+            if (x.gte("25")) inc = inc.pow(x.root(50).add(1))
             
             return Decimal.mul(start, Decimal.pow(inc, x))
         },
@@ -143,7 +144,7 @@ const BUILDING = {
             return x
         },
         get_power: x => "+"+formatMult(x.power)+" to Obelisk power",
-        get_effect: x => formatMulti(x.effect)+" Obelisk power",
+        get_effect: x => formatMult(x.effect)+" Obelisk power",
     }
     
 }
