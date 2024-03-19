@@ -113,6 +113,7 @@ const BUILDING = {
 }
 
 const BUILDINGS_ORDER = [
+    'number_6','number_5','number_4',
     'number_3','number_2','number_1'
 ]
 
