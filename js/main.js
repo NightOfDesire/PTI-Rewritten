@@ -23,6 +23,11 @@ const RESETS = {
         player.rp.points = player.rp.points.add(tmp.rp.gain)
         player.rp.unl = true
         FORMS.rp.doReset()
+    },
+    atomize() {
+        player.am.points = player.am.points.add(tmp.am.gain)
+        player.am.unl = true
+        FORMS.am.doReset()
     }
 }
 
@@ -43,9 +48,9 @@ const FORMS = {
    },
    rp: {
     gain() {
-        let gain = player.number.root(2.8)
-
-        return gain
+        let gain = player.number.div(2.5e6).root(2.8)
+        gain = gain.mul(player.am.points.pow(10).add(1))
+        return gain.floor()
     },
     reset() {
         if (tmp.rp.can == true) {
@@ -54,9 +59,31 @@ const FORMS = {
     },
     doReset() {
         player.number = E(0)
-        for (let n=0;n<=3;n++) {
+        for (let n=0;n<=5;n++) {
             BUILDINGS.reset('number_'+n)
         }
+    },
+    see() {
+        return player.rp.unl || player.number.gte(1e5) || player.rp.points.gt(0)
+    }
+   },
+   am: {
+    gain() {
+        let gain = player.rp.points.div(9e18).root(3)
+        
+        return gain.floor()
+    },
+    reset() {
+        if (tmp.am.can == true) {
+            RESETS.atomize()
+        }
+    },
+    doReset() {
+        FORMS.rp.doReset()
+        player.rp.points = E(0)
+    },
+    see() {
+        return player.am.unl || player.rp.points.gte("e15") || player.am.points.gt(0)
     }
    },
    gamespeed() {
@@ -97,18 +124,18 @@ function format(ex, acc=4, max=100, type=player.options.notation) {
                 let e = ex.log10().ceil()
                 let m = ex.div(e.eq(-1)?E(0.1):E(10).pow(e))
                 let be = e.mul(-1).max(1).log10().gte(9)
-                return neg+(be?'':m.toFixed(4))+'e'+format(e, 0, max, "standard")
+                return neg+(be?'':m.toFixed(4))+'e'+format(e, 0, max, "scientific")
             } else if (e.lt(max)) {
                 let a = Math.max(Math.min(acc-e.toNumber(), acc), 0)
-                return neg+format(ex)
+                return neg+(a>0?ex.toFixed(a):ex.toFixed(a).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,'))
             } else {
-                if (ex.gte("eeee10")) {
+                if (ex.gte("eeeee15")) {
                     let slog = ex.slog()
                     return (slog.gte(1e9)?'':E(10).pow(slog.sub(slog.floor())).toFixed(4)) + "F" + format(slog.floor(), 0)
                 }
                 let m = ex.div(E(10).pow(e))
                 let be = e.log10().gte(9)
-                return neg+(be?'':m.toFixed(4))+'e'+format(e, 0, max, "standard")
+                return neg+(be?'':m.toFixed(4))+'e'+format(e, 0, max, "scientific")
             }
         case "standard":
             let e3 = ex.log(1e3).floor()

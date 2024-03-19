@@ -9,15 +9,22 @@ const RESOURCES_DIS = {
         //resetBtn() { FORMS.number.gain() }
     },
     rp: {
-        unl: ()=>true,
+        unl: ()=>FORMS.rp.see(),
         icon: "rp",
-        class: "red",
+        class: "corrupted_text",
 
         desc: (gs)=> (tmp.rp && tmp.rp.gain ? format(player.rp.points,0)+"<br>"+(tmp.rp.gain.gte(1e30)?formatGain(player.rp.points, tmp.rp.gain.mul(gs)):"(+"+format(tmp.rp.gain,0)+")") : " "),
 
         resetBtn() { FORMS.rp.reset() },
     },
-    //atomize: {},
+    am: {
+        unl: ()=>FORMS.am.see(),
+        icon: "atom",
+        class: "sky",
+
+        desc: (gs)=> (tmp.am && tmp.am.gain ? format(player.am.points,0)+"<br>"+(tmp.am.gain.gte(1e30)?formatGain(player.am.points, tmp.am.gain.mul(gs)):"("+format(tmp.am.gain,0)+")") : " "),
+        resetBtn() { FORMS.am.reset() },
+    },
     //nm: {},
     //dilate: {},
     //inf: {},

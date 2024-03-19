@@ -31,6 +31,10 @@ function getPlayerData() {
             points: E("e10000"),
             unl: false
         },
+        am: {
+            points: E(0),
+            unl: false
+        },
         options: {
             font: 'Verdana',
             notation: 'standard',

@@ -134,7 +134,7 @@ const BUILDING = {
         },
         get_cost: x => format(x) + " number",
         effect(x) {
-            let pow = E(1.5)
+            let pow = E(1.2)
             pow = pow.pow(BUILDINGS.eff('number_5'))
             pow = pow.softcap("e3",0.88,0)
             let eff = pow.mul(x).add(1)
@@ -150,10 +150,10 @@ const BUILDING = {
         get_effect: x => formatMult(x.effect)+" Obelisk power",
     },
     number_5: {
-        name: "Infinity",
-        icon: "inf",
-        get start() { return E("e6666")},
-        get inc() { return E("e666")},
+        name: "Dimensionalizer",
+        icon: "dimensionalizer",
+        get start() { return E("e10000")},
+        get inc() { return E("e1250")},
         get isUnlocked() {return player.number.gte("e5555")},
         get autoUnlocked() {return player.number.gte("e2.5e5")},
         get noSpend() {return false},

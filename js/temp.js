@@ -50,6 +50,11 @@ function updateRagePowerTemp() {
     tmp.rp.gain = FORMS.rp.gain()
     tmp.rp.can = tmp.rp.gain.gte(1)
 }
+function updateAtomTemp() {
+    if (!tmp.am) tmp.am = {}
+    tmp.am.gain = FORMS.am.gain()
+    tmp.am.can = tmp.am.gain.gte(1)
+}
 function updateBuildingsTemp() {
     BUILDINGS.temp()
 }
@@ -66,6 +71,7 @@ function updateTemp() {
     tmp.gs = FORMS.gamespeed()
     updateNumTemp()
     updateRagePowerTemp()
+    updateAtomTemp()
     updateBuildingsTemp()
    
 }
