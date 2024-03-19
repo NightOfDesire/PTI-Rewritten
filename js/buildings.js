@@ -142,7 +142,7 @@ const BUILDING = {
 
             return x
         },
-        get_power: x => formatMult(x.power)+" to Obelisk power",
+        get_power: x => "+"+formatMult(x.power)+" to Obelisk power",
         get_effect: x => formatMulti(x.effect)+" Obelisk power",
     }
     
