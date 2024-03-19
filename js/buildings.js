@@ -32,7 +32,7 @@ const BUILDING = {
         },
         get bonus() {
             let x = E(0)
-
+            x = x.add(player.number.sub("1e1000")).root("1000").floor()
             return x
         },
         get_power: x => "+"+format(x.power)+" to number gain",
@@ -134,6 +134,7 @@ const BUILDING = {
         get_cost: x => format(x) + " number",
         effect(x) {
             let pow = E(0.75)
+            pow = pow.pow(BUILDINGS.eff('number_5'))
             let eff = pow.mul(x).add(1)
             eff = eff.softcap("100",0.4,0)
             return {power: pow, effect: eff}
@@ -145,12 +146,46 @@ const BUILDING = {
         },
         get_power: x => "+"+formatMult(x.power)+" to Obelisk power",
         get_effect: x => formatMult(x.effect)+" Obelisk power",
+    },
+    number_5: {
+        name: "Infinity",
+        icon: "inf",
+        get start() { return E("e6666")},
+        get inc() { return E("e666")},
+        get isUnlocked() {return player.number.gte("e5555")},
+        get autoUnlocked() {return false},
+        get noSpend() {return false},
+        get beMultiplicative() {return false},
+        get res() {return player.number},
+        set res(v) {player.number=v},
+        get allowPurchase() {return true},
+        cost(x=this.level) {
+            let start = this.start
+            let inc = this.inc
+            return Decimal.mul(start, Decimal.pow(inc, x))
+        },
+        get bulk() {
+            return getNumUpgradeBulk(5)
+        },
+        get_cost: x => format(x) + " number",
+        effect(x) {
+            let pow = E(2)
+            let eff = pow.mul(x).add(1)
+            return {power: pow, effect: eff}
+        },
+        get bonus() {
+            let x = E(0)
+            
+            return x
+        },
+        get_power: x => "+^"+format(x.power)+" to Darkness Power",
+        get_effect: x => "^"+format(x.effect)+" Darkness Power"
     }
     
 }
 
 const BUILDINGS_ORDER = [
-   'number_4',
+    'number_5','number_4',
     'number_3','number_2','number_1'
 ]
 

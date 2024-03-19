@@ -84,6 +84,7 @@ function updateHTML() {
 		BUILDINGS.update('number_2')
 		BUILDINGS.update('number_3')
 		BUILDINGS.update('number_4')
+		BUILDINGS.update('number_5')
 	//}
 	
 }
