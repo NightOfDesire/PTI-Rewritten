@@ -24,6 +24,7 @@ Decimal.prototype.softcap = function (start, power, mode, dis=false) {
     }
     return x
 }
+
 function getPlayerData() {
     let s = {
         number: E(0),
