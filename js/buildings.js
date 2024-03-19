@@ -32,8 +32,8 @@ const BUILDING = {
         },
         get bonus() {
             let x = E(0)
-            x = (x.add(player.number.div("1e1000")).root("e0.5")).floor()
-            x = x.softcap("e33",0.05,0)
+            //x = (x.add(player.number.div("1e1000")).root("e0.5")).floor()
+            //x = x.softcap("e33",0.05,0)
             return x
         },
         get_power: x => "+"+format(x.power)+" to number gain",
