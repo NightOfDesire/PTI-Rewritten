@@ -133,7 +133,7 @@ const BUILDING = {
         },
         get_cost: x => format(x) + " number",
         effect(x) {
-            let pow = E(1.1)
+            let pow = E(1.5)
             pow = pow.pow(BUILDINGS.eff('number_5'))
             let eff = pow.mul(x).add(1)
             eff = eff.softcap("100",0.4,0)
@@ -153,7 +153,7 @@ const BUILDING = {
         get start() { return E("e6666")},
         get inc() { return E("e666")},
         get isUnlocked() {return player.number.gte("e5555")},
-        get autoUnlocked() {return false},
+        get autoUnlocked() {return player.number.gte("e2.5e5")},
         get noSpend() {return false},
         get beMultiplicative() {return false},
         get res() {return player.number},
