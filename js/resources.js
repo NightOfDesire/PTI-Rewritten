@@ -12,6 +12,7 @@ const RESOURCES_DIS = {
         unl: ()=>FORMS.rp.see(),
         icon: "rp",
         class: "corrupted_text",
+        imgclass: "corrupted_text",
 
         desc: (gs)=> (tmp.rp && tmp.rp.gain ? format(player.rp.points,0)+"<br>"+(tmp.rp.gain.gte(1e30)?formatGain(player.rp.points, tmp.rp.gain.mul(gs)):"(+"+format(tmp.rp.gain,0)+")") : " "),
 
@@ -49,7 +50,7 @@ function setupResourcesHTML() {
         <div id="${i}_res_div">
             <div ${i in TOOLTIP_RES ? `id="${i}_tooltip" class="tooltip ${rd.class||""}" tooltip-pos="left" tooltip-align="left" tooltip-text-align="left"` : `class="${rd.class||""}"`}>
                 <span style="margin-right: 5px; text-align: right;" id="${i}_res_desc">X</span>
-                <div><img src="images/${rd.icon||"mark"}.png" ${rd.resetBtn ? `onclick="reset_res_btn('${i}')" style="cursor: pointer;"` : ""}></div>
+                <div><img class="${rd.imgclass||""}" src="images/${rd.icon||"mark"}.png" ${rd.resetBtn ? `onclick="reset_res_btn('${i}')" style="cursor: pointer;"` : ""}></div>
             </div>
         </div>
         `
