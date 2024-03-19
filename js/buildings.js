@@ -109,7 +109,7 @@ const BUILDING = {
         },
         get_power: x => "+^"+format(x.power)+" to Crystallize power",
         get_effect: x => "^"+format(x.effect)+" Crystallize power",
-    }, number_3: {
+    }, number_4: {
         name: "Darkness",
         icon: 'nullmatter',
         get start() { return E("e125")},
