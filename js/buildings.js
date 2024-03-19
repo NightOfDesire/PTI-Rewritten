@@ -34,7 +34,6 @@ const BUILDING = {
             let x = E(0)
             x = (x.add(player.number.sub("1e1000")).pow("1e-6")).floor()
             x = x.softcap("e33",0.05,0)
-            x = x.sub(10)
             return x
         },
         get_power: x => "+"+format(x.power)+" to number gain",
