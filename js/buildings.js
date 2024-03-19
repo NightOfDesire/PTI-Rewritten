@@ -133,7 +133,7 @@ const BUILDING = {
         },
         get_cost: x => format(x) + " number",
         effect(x) {
-            let pow = E(0.75)
+            let pow = E(1.1)
             pow = pow.pow(BUILDINGS.eff('number_5'))
             let eff = pow.mul(x).add(1)
             eff = eff.softcap("100",0.4,0)
