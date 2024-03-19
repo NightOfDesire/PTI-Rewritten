@@ -238,9 +238,9 @@ function capitalFirst(str) {
 		.join(" ");
 }
 function PassiveNumGain() {
-    if (tmp.PassiveNumberGain == true) {
+    //if (tmp.PassiveNumberGain == true) {
         player.number = player.number.add(tmp.numberGain.mul(tmp.gs))
         player.misc.totalNumber = player.misc.totalNumber.add(tmp.numberGain.mul(tmp.gs))
-    }
+    //}
 }
 setInterval(PassiveNumGain, 1000)

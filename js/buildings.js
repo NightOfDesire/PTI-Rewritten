@@ -135,8 +135,9 @@ const BUILDING = {
         effect(x) {
             let pow = E(1.5)
             pow = pow.pow(BUILDINGS.eff('number_5'))
+            pow = pow.softcap("e3",0.88,0)
             let eff = pow.mul(x).add(1)
-            eff = eff.softcap("100",0.4,0)
+            eff = eff.softcap("100",0.8,0)
             return {power: pow, effect: eff}
         },
         get bonus() {
