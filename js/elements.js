@@ -79,8 +79,11 @@ function updateHTML() {
 	tmp.el.loading.setDisplay(!tmp.start)
 	tmp.el.app.setDisplay(tmp.start)
 	if (hover_tooltip) updateTooltipResHTML()
-	for (let x = 1; x <= 4; x++) {
-        BUILDINGS.update('number_'+x)
-	}
+	//for (let x = 1; x <= 4; x++) {
+        BUILDINGS.update('number_1')
+		BUILDINGS.update('number_2')
+		BUILDINGS.update('number_3')
+		BUILDINGS.update('number_4')
+	//}
 	
 }
