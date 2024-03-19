@@ -15,7 +15,7 @@ const TOOLTIP_RES = {
         full: "Rage Power",
         desc() {
             let h = `<i>
-            Count to <b>${format(2.5e6, 1)}</b> to restart for Rage Powers.
+            Count to <b>${format(2.5e3, 1, 12, "standard")}</b> to restart for Rage Powers.
             </i>`
 
             return h
@@ -25,7 +25,7 @@ const TOOLTIP_RES = {
         full: "Atom",
         desc() {
             let h = `<i>
-            Reach <b>${format(9e18, 0)}</b> to reset restart for Atoms.
+            Acquire <b>${format(9e18, 0, 12, "standard")}</b> Rage Powers to reset restart for Atoms.
             </i>`
 
             return h

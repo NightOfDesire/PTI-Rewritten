@@ -66,6 +66,7 @@ function updateTemp() {
     if (!tmp.stab) {
         tmp.stab = []
     }
+    if (player.number.gte(player.misc.totalNumber)) player.misc.totalNumber = player.number
     tmp.offlineActive = player.offline.time > 1
     tmp.offlineMult = tmp.offlineActive?player.offline.time+1:1
     tmp.gs = FORMS.gamespeed()

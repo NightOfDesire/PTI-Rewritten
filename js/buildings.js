@@ -7,7 +7,7 @@ const BUILDING = {
     number_1: {
         name: "Energetic",
         icon: 'placeholder',
-        get start() { return E(25)},
+        get start() { return E(10)},
         get inc() { return E(1.7193)},
         get isUnlocked() { return true },
         get autoUnlocked() { return player.rp.points.gte("e3.5") },
@@ -32,8 +32,9 @@ const BUILDING = {
         },
         get bonus() {
             let x = E(0)
-            x = (x.add(player.number.sub("1e1000")).root("1000")).floor()
+            x = (x.add(player.number.sub("1e1000")).pow("1e-6")).floor()
             x = x.softcap("e33",0.05,0)
+            x = x.sub(10)
             return x
         },
         get_power: x => "+"+format(x.power)+" to number gain",
@@ -42,9 +43,9 @@ const BUILDING = {
     number_2: {
         name: "Crystallize",
         icon: 'placeholder',
-        get start() { return E("e3")},
-        get inc() { return E("e0.777")},
-        get isUnlocked() { return player.number.gte("750") },
+        get start() { return E("e2.6")},
+        get inc() { return E("e0.617")},
+        get isUnlocked() { return player.misc.totalNumber.gte("500") },
         get autoUnlocked() { return player.rp.points.gte("e8") },
         get noSpend() { return false },
         get beMultiplicative() { return false },
@@ -79,7 +80,7 @@ const BUILDING = {
         icon: 'sm',
         get start() { return E("e12")},
         get inc() { return E("e2.8163")},
-        get isUnlocked() { return player.number.gte("e10") },
+        get isUnlocked() { return player.misc.totalNumber.gte("e10") },
         get autoUnlocked() { return player.rp.points.gte("e28")},
         get noSpend() { return false },
         get beMultiplicative() { return false },
@@ -115,7 +116,7 @@ const BUILDING = {
         icon: 'nullmatter',
         get start() { return E("e125")},
         get inc() { return E("e25")},
-        get isUnlocked() { return player.number.gte("e100") },
+        get isUnlocked() { return player.misc.totalNumber.gte("e100") },
         get autoUnlocked() { return player.rp.points.gte("e50")},
         get noSpend() { return false },
         get beMultiplicative() { return false },
@@ -154,7 +155,7 @@ const BUILDING = {
         icon: "dimensionalizer",
         get start() { return E("e10000")},
         get inc() { return E("e1250")},
-        get isUnlocked() {return player.number.gte("e5555")},
+        get isUnlocked() {return player.misc.totalNumber.gte("e5555")},
         get autoUnlocked() {return player.number.gte("e2.5e5")},
         get noSpend() {return false},
         get beMultiplicative() {return false},
