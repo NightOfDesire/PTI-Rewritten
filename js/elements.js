@@ -76,8 +76,8 @@ function updateHTML() {
 	
 	//updateTabsHTML()
 	updateResourcesHTML()
-	tmp.el.loading.setDisplay(!tmp.start)
-	tmp.el.app.setDisplay(tmp.start)
+	//tmp.el.loading.setDisplay(!tmp.start)
+	//tmp.el.app.setDisplay(tmp.start)
 	if (hover_tooltip) updateTooltipResHTML()
 	//for (let x = 1; x <= 4; x++) {
         BUILDINGS.update('number_1')
