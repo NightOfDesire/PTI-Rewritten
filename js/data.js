@@ -33,16 +33,11 @@ function calc(dt) {
 
     if (tmp.pass<=0) {
         player.essence = player.essence.add(tmp.essenceGain.mul(gs))
-    
+    }
 
     tmp.pass = Math.max(0,tmp.pass-1)
 
     player.time += dt
-
-   
-
-   
-    }
 }
 
 function getPlayerData() {
