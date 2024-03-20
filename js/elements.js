@@ -87,7 +87,8 @@ function updateHTML() {
 		BUILDINGS.update('number_5')
 	//}
 	tmp.el.AtomTab.setDisplay(player.am.unl)
-	tmp.el.Atomic_Mass.setHTML(`Atomic Mass: ${formatMass(player.am.atomic_mass, 0)} (${formatGain(player.am.atomic_mass, tmp.am.AMgain.mul(tmp.gs)), true})`)
-	tmp.el.AME1.setHTML(`Atomic mass raises number gain by ${format(FORMS.am.at_ma.effects.first())}`)
-	
+	tmp.el.Atomic_Mass.setHTML(`Atomic Mass: ${formatMass(player.am.atomic_mass, 0)} | ${formatGain(player.am.atomic_mass, tmp.am.AMgain.mul(tmp.gs), true)}`)
+	tmp.el["AME1"].setHTML(`Atomic mass raises number gain by ${format(tmp.am.at_ma.effect1)}`)
+	tmp.el.nsoftcap1.setHTML(`Due to excessive number, starting at ee4 number your number gain is rooted by ${format(FORMS.number.softcap1())}`)
+	tmp.el.nsoftcap1.setDisplay(player.misd.totalNumber.gte("ee3.75"))
 }

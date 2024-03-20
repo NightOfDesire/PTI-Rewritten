@@ -21,6 +21,7 @@ Decimal.prototype.softcap = function (start, power, mode, dis=false) {
         if ([1, "mul"].includes(mode)) x = x.sub(start).div(power).add(start)
         if ([2, "exp"].includes(mode)) x = expMult(x.div(start), power).mul(start)
         if ([3, "log"].includes(mode)) x = x.div(start).log(power).add(1).mul(start)
+        if ([4, "root"].includes(mode)) x = x.div(start).root(power).add(1).mul(start)
     }
     return x
 }
