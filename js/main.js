@@ -235,7 +235,7 @@ function capitalFirst(str) {
 		.map(x => x[0].toUpperCase() + x.slice(1))
 		.join(" ");
 }
-function PassiveNumGain() {
+function PassiveResGain() {
     if (tmp.start == true) {
     //if (tmp.PassiveNumberGain == true) {
         player.number = player.number.add(tmp.numberGain.mul(tmp.gs).div(15))
@@ -243,10 +243,5 @@ function PassiveNumGain() {
     //}
     }
 }
-function resourcegain() {
-    if (tmp.start == true) {
-    player.am.atomic_mass = player.am.atomic_mass.add(tmp.am.AMgain.mul(tmp.gs).div(15))
-    }
-}
-setInterval(PassiveNumGain, 1000/15)
-setInterval(resourcegain, 1000/15)
+
+setInterval(PassiveResGain, 1000/15)
