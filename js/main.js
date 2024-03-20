@@ -65,7 +65,7 @@ const FORMS = {
         }
     },
     see() {
-        return player.rp.unl || player.number.gte(1e5) || player.rp.points.gt(0)
+        return player.rp.unl || player.number.gte(1.75e3) || player.rp.points.gt(0)
     }
    },
    am: {
@@ -209,8 +209,8 @@ function formatMass(ex, acc=4) {
     if (ex.gte(5.972e27)) return format(ex.div(5.972e27), acc) + ' M⊕'
     if (ex.gte(1.619e20)) return format(ex.div(1.619e20), acc) + ' MME'
     if (ex.gte(1e6)) return format(ex.div(1e6), acc) + ' tonne'
-    if (ex.gte(1e3)) return format(ex.div(1e3), acc) + ' kg'
-    return format(ex, acc)+ ' g'
+    if (ex.gte(1e3)) return format(ex.div(1e3), acc) + 'kg'
+    return format(ex, acc)+ 'g'
 }
 
 function getMltValue(mass){
@@ -286,6 +286,11 @@ function PassiveNumGain() {
     //if (tmp.PassiveNumberGain == true) {
         player.number = player.number.add(tmp.numberGain.mul(tmp.gs))
         player.misc.totalNumber = player.misc.totalNumber.add(tmp.numberGain.mul(tmp.gs))
+        
     //}
 }
+function resourcegain() {
+    player.am.atomic_mass = player.am.atomic_mass.add(tmp.am.AMgain.mul(gs))
+}
 setInterval(PassiveNumGain, 1000)
+setInterval(resourcegain, 1000)
