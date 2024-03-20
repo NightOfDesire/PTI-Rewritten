@@ -48,6 +48,10 @@ function calc(dt) {
 function getPlayerData() {
     let s = {
         essence: E(0),
+        pres: {
+            pts: E(0),
+            unl: false
+        },
         options: {
             font: 'Verdana',
             notation: 'standard',
