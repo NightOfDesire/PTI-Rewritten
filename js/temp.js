@@ -48,7 +48,7 @@ function updateTemp() {
     if (!tmp.stab) tmp.stab = []
     if (!tmp.notify) tmp.notify = []
     if (!tmp.popup) tmp.popup = []
-    if (player.essence.gte(player.misc.hEss)) player.misc.hEas = player.essence
+    if (player.essence.gte(player.misc.hEss)) player.misc.hEss = player.essence
     tmp.offlineActive = player.offline.time > 1
     tmp.offlineMult = tmp.offlineActive?player.offline.time+1:1
     tmp.gs = FORMS.gamespeed()
