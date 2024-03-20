@@ -28,15 +28,6 @@ Decimal.prototype.softcap = function (start, power, mode, dis=false) {
 function getPlayerData() {
     let s = {
         number: E(0),
-        rp: {
-            points: E("e10000"),
-            unl: false
-        },
-        am: {
-            points: E(0),
-            unl: false,
-            atomic_mass: E(0)
-        },
         options: {
             font: 'Verdana',
             notation: 'standard',
@@ -50,19 +41,10 @@ function getPlayerData() {
             time: 0,
         },
         misc: {
-            totalNumber: E(0),
-            totalRp: E(0)
+            hNum: E(0),
         },
        
         time: 0,
-        build: {}
-    }
-
-    for (let x in BUILDING) {
-        s.build[x] = {
-            amt: E(0),
-            auto: false,
-        }
     }
    
     return s
@@ -151,13 +133,11 @@ function loadGame(start=true, gotNaN=false) {
     if (start) {
         updateTemp()
         setupHTML()
-        setupTooltips()
 
         setInterval(save,15000)
 
 
         updateHTML()
-        updateTooltipResHTML(true)
 
        
 
@@ -175,7 +155,7 @@ function loadGame(start=true, gotNaN=false) {
 
         setTimeout(()=>{
             tmp.start = true
-        },2000)
+        },3500)
 
        
 }

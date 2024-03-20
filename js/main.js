@@ -40,75 +40,16 @@ const FORMS = {
             }
         },
         softcap1() {
-            let softcap = (player.number.div("ee4").log10().root(4.44)).add(1)
+            let softcap = (player.number.div("e1250").log10().root(4.44)).add(1)
             return E(1).div(softcap)
         }
     },
     numberGain() {
     let x = E(1)
-    x = x.add(BUILDINGS.eff('number_1'))
-    x = x.mul(player.rp.points.pow('1.5').add(1))
-    x = x.pow(FORMS.am.at_ma.effects.first())
-    x = x.softcap("ee4", FORMS.number.softcap1(), 0)
+    x = x.softcap("e1250", FORMS.number.softcap1(), 0)
     return x
-   },
-   rp: {
-    gain() {
-        let gain = player.number.div(2.5e6).root(2.8)
-        gain = gain.mul(player.am.points.pow(10).add(1))
-        return gain.floor()
     },
-    reset() {
-        if (tmp.rp.can == true) {
-            RESETS.rage()
-        }
-    },
-    doReset() {
-        player.number = E(0)
-        for (let n=0;n<=5;n++) {
-            BUILDINGS.reset('number_'+n)
-        }
-    },
-    see() {
-        return player.rp.unl || player.number.gte(1.75e3) || player.rp.points.gt(0)
-    }
-   },
-   am: {
-    gain() {
-        let gain = player.rp.points.div(9e18).root(3)
-        
-        return gain.floor()
-    },
-    reset() {
-        if (tmp.am.can == true) {
-            RESETS.atomize()
-        }
-    },
-    doReset() {
-        FORMS.rp.doReset()
-        player.rp.points = E(0)
-    },
-    see() {
-        return player.am.unl || player.rp.points.gte("e15") || player.am.points.gt(0)
-    },
-    AMgain() {
-        let x = E(0)
-        if (player.am.unl) x = x.add(1)
-        x = x.add(player.am.points.log(5).pow(0.3))
 
-        return x.floor()
-    },
-    at_ma: {
-        effects: {
-            first() {
-                let eff = E(0)
-                eff = eff.add(player.am.atomic_mass.root(25).add(1))
-                eff = eff.softcap("10",0.25,0)
-                return eff
-            }
-        }
-    }
-   },
    gamespeed() {
     let x = E(1)
     //x = x.add(player.number.root(125)).add

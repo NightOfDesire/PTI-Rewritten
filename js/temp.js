@@ -63,19 +63,15 @@ function updateBuildingsTemp() {
 }
 function updateNumTemp() {
     tmp.numberGain = FORMS.numberGain()
-    tmp.passiveNumberGain = player.number.gte("1e11750")
 }
 function updateTemp() {
     if (!tmp.stab) {
         tmp.stab = []
     }
-    if (player.number.gte(player.misc.totalNumber)) player.misc.totalNumber = player.number
+    if (player.number.gte(player.misc.hNum)) player.misc.hNum = player.number
     tmp.offlineActive = player.offline.time > 1
     tmp.offlineMult = tmp.offlineActive?player.offline.time+1:1
     tmp.gs = FORMS.gamespeed()
     updateNumTemp()
-    updateRagePowerTemp()
-    updateAtomTemp()
-    updateBuildingsTemp()
    
 }
