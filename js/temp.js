@@ -34,33 +34,13 @@ function resetTemp() {
     }
 
 
-    for (let x in BUILDING) tmp.build[x] = {
-        bulk: E(0),
-		total: E(0),
-		bonus: E(0),
-        effect: {},
-    }
+
    
    
 }
 
-function updateRagePowerTemp() {
-    if (!tmp.rp) tmp.rp = {}
-    
-    tmp.rp.gain = FORMS.rp.gain()
-    tmp.rp.can = tmp.rp.gain.gte(1)
-}
-function updateAtomTemp() {
-    if (!tmp.am) tmp.am = {}
-    if (!tmp.am.at_ma) tmp.am.at_ma = {}
-    tmp.am.gain = FORMS.am.gain()
-    tmp.am.can = tmp.am.gain.gte(1)
-    tmp.am.AMgain = FORMS.am.AMgain()
-    tmp.am.at_ma.effect1 = FORMS.am.at_ma.effects.first()
-}
-function updateBuildingsTemp() {
-    BUILDINGS.temp()
-}
+
+
 function updateNumTemp() {
     tmp.numberGain = FORMS.numberGain()
 }

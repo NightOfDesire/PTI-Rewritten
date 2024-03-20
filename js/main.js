@@ -36,17 +36,16 @@ const FORMS = {
         gain() {
             if (tmp.passiveNumberGain == false) {
                 player.number = player.number.add(tmp.numberGain)
-                player.misc.totalNumber = player.misc.totalNumber.add(tmp.numberGain)
             }
         },
         softcap1() {
-            let softcap = (player.number.div("e1250").log10().root(4.44)).add(1)
-            return E(1).div(softcap)
+            let softcap = (tmp.numberGain.div("e100").root(4.44)).add(1)
+            return softcap
         }
     },
     numberGain() {
     let x = E(1)
-    x = x.softcap("e1250", FORMS.number.softcap1(), 0)
+    x = x.softcap("e100", FORMS.number.softcap1(), 4)
     return x
     },
 
@@ -240,7 +239,6 @@ function PassiveNumGain() {
     if (tmp.start == true) {
     //if (tmp.PassiveNumberGain == true) {
         player.number = player.number.add(tmp.numberGain.mul(tmp.gs).div(15))
-        player.misc.totalNumber = player.misc.totalNumber.add(tmp.numberGain.mul(tmp.gs).div(15))
         
     //}
     }
