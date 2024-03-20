@@ -27,7 +27,7 @@ const FORMS = {
             }
         },
         softcap1() {
-            let softcap = (tmp.numberGain.div("e100").root(10)).add(1)
+            let softcap = (player.number.div("e100").root(10)).add(1)
             return E(1).div(softcap)
         }
     },
