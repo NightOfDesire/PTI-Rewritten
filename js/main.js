@@ -53,7 +53,7 @@ numberSoftPower() {
 },
 pres: {
     gain() {
-        let gain = player.essence.div(100).root(2)
+        let gain = player.essence.div(25).root(2)
         
         return gain.floor()
     },
