@@ -162,7 +162,7 @@ function format(ex, acc=4, max=100, type=player.options.notation) {
 			} else {
 				let e3_mul = e3.mul(3)
 				let ee = e3.log10().floor()
-				if (ee.gte(3000)) return "e"+format(e, acc, max, "standard")
+				if (ee.gte(3000)) return "e"+format(e, acc, max, "scientific")
 
 				let final = ""
 				if (e3.lt(4)) final = ["", "K", "M", "B"][Math.round(e3.toNumber())]
