@@ -41,7 +41,7 @@ function getPlayerData() {
             time: 0,
         },
         misc: {
-            hNum: E(0),
+            hEss: E(0),
         },
        
         time: 0,
@@ -114,7 +114,7 @@ function save(){
     if (localStorage.getItem("testSave") == '') wipe()
     localStorage.setItem("testSave",str)
     tmp.prevSave = localStorage.getItem("testSave")
-    addNotify('Game saved.', 3)
+    if (tmp.saving<1) {addNotify('Game saved.', 3);tmp.saving++)
    
 }
 
