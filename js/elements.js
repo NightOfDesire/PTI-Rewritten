@@ -27,7 +27,7 @@ function updateHTML() {
 	//tmp.el.app.setDisplay(tmp.start)
     tmp.el.nsoftcap1.setDisplay(player.misc.hNum.gte("e100"))
     tmp.el.nsoftcap1.setHTML(`
-    Due to excess number, starting at e100 number number gain is divided by ${format(FORMS.number.softcap1())}!
+    Due to excess number, starting at e100 number number gain is softcapped^1! (raised by ${format(FORMS.number.softcap1())})!
     `)
     tmp.el.number.setHTML(`
     Number: ${format(player.number, 2)} | ${formatGain(player.number, tmp.numberGain.mul(tmp.gs))}

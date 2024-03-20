@@ -18,18 +18,6 @@ const ST_NAMES = [
 	]
 ]
 
-const RESETS = {
-    rage() {
-        player.rp.points = player.rp.points.add(tmp.rp.gain)
-        player.rp.unl = true
-        FORMS.rp.doReset()
-    },
-    atomize() {
-        player.am.points = player.am.points.add(tmp.am.gain)
-        player.am.unl = true
-        FORMS.am.doReset()
-    }
-}
 
 const FORMS = {
     number: {
