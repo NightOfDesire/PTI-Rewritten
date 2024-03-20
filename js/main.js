@@ -4,12 +4,12 @@ var player
 
 const ST_NAMES = [
 	null, [
-		["","U","D","T","Qa","Qt","Sx","Sp","Oc","No"],
-		["","Dc","Vg","Tg","Qag","Qtg","Sxg","Spg","Ocg","Nog"],
-		["","Ce","De","Te","Qae","Qte","Sxe","Spe","Oce","Noe"],
-       // ["","U","D","T","Qd","Qn","Sx","Sp","Oc","No"],
-       // ["","De","Vg","Tg","qg","Qg","sg","Sg","Og","Ng"],
-       // ["","Ce","Du","Tr","Qa","Qi","Se","Si","Ot","Ni"]
+	   // ["","U","D","T","Qa","Qt","Sx","Sp","Oc","No"],
+	   // ["","Dc","Vg","Tg","Qag","Qtg","Sxg","Spg","Ocg","Nog"],
+	   // ["","Ce","De","Te","Qae","Qte","Sxe","Spe","Oce","Noe"],
+       ["","U","D","T","Qd","Qn","Sx","Sp","Oc","No"],
+       ["","De","Vg","Tg","qg","Qg","sg","Sg","Og","Ng"],
+       ["","Ce","Du","Tr","Qa","Qi","Se","Si","Ot","Ni"]
 	],[
 		["","Mi","Mc","Na","Pi","Fm","At","Zp","Yc","Xo"],
 		["","Me","Du","Tr","Te","Pe","He","Hp","Ot","En"],
@@ -171,7 +171,7 @@ function format(ex, acc=4, max=100, type=player.options.notation) {
 				if (ee.gte(3000)) return "e"+format(e, acc, max, "scientific")
 
 				let final = ""
-				if (e3.lt(4)) final = ["", "K", "M", "B"][Math.round(e3.toNumber())]
+				if (e3.lt(4)) final = ["", "k", "M", "B"][Math.round(e3.toNumber())]
 				else {
 					let ee3 = Math.floor(e3.log(1e3).toNumber())
 					if (ee3 < 100) ee3 = Math.max(ee3 - 1, 0)
