@@ -153,7 +153,7 @@ function format(ex, acc=4, max=100, type=player.options.notation) {
                 let a = Math.max(Math.min(acc-e.toNumber(), acc), 0)
                 return neg+(a>0?ex.toFixed(a):ex.toFixed(a).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,'))
             } else {
-                if (ex.gte("eeeee15")) {
+                if (ex.gte("eeee10")) {
                     let slog = ex.slog()
                     return (slog.gte(1e9)?'':E(10).pow(slog.sub(slog.floor())).toFixed(4)) + "F" + format(slog.floor(), 0)
                 }
@@ -199,24 +199,24 @@ function format(ex, acc=4, max=100, type=player.options.notation) {
 
 const ARV = ['mlt','mgv','giv','tev','pev','exv','zev','yov']
 
-function formatMass(ex, acc=4) {
+function formatMass(ex) {
     let md = player.options.massDis
     ex = E(ex)
-    if (md == 1) return format(ex, acc) + ' g'
+    if (md == 1) return format(ex) + ' g'
     else if (md == 2) return format(ex.div(1.5e56).max(1).log10().div(1e9), acc) + ' mlt'
     else if (md == 3) {
-        return  ex.gte('ee14979') ? formatARV(ex, acc) : ex.gte('1.5e1000000056') ? format(ex.div(1.5e56).max(1).log10().div(1e9), acc) + ' mlt' : format(ex, acc) + ' g'
+        return  ex.gte('ee14979') ? formatARV(ex) : ex.gte('1.5e1000000056') ? format(ex.div(1.5e56).max(1).log10().div(1e9)) + ' mlt' : format(ex) + ' g'
     }
 
     if (ex.gte(E(1.5e56).mul('ee9'))) return formatARV(ex)
-    if (ex.gte(1.5e56)) return format(ex.div(1.5e56), acc) + ' uni'
-    if (ex.gte(2.9835e45)) return format(ex.div(2.9835e45), acc) + ' MMWG'
-    if (ex.gte(1.989e33)) return format(ex.div(1.989e33), acc) + ' M☉'
-    if (ex.gte(5.972e27)) return format(ex.div(5.972e27), acc) + ' M⊕'
-    if (ex.gte(1.619e20)) return format(ex.div(1.619e20), acc) + ' MME'
-    if (ex.gte(1e6)) return format(ex.div(1e6), acc) + ' tonne'
-    if (ex.gte(1e3)) return format(ex.div(1e3), acc) + 'kg'
-    return format(ex, acc)+ 'g'
+    if (ex.gte(1.5e56)) return format(ex.div(1.5e56)) + ' uni'
+    if (ex.gte(2.9835e45)) return format(ex.div(2.9835e45)) + ' MMWG'
+    if (ex.gte(1.989e33)) return format(ex.div(1.989e33)) + ' M☉'
+    if (ex.gte(5.972e27)) return format(ex.div(5.972e27)) + ' M⊕'
+    if (ex.gte(1.619e20)) return format(ex.div(1.619e20)) + ' MME'
+    if (ex.gte(1e6)) return format(ex.div(1e6)) + ' tonne'
+    if (ex.gte(1e3)) return format(ex.div(1e3)) + 'kg'
+    return format(ex)+ 'g'
 }
 
 function getMltValue(mass){
@@ -289,14 +289,18 @@ function capitalFirst(str) {
 		.join(" ");
 }
 function PassiveNumGain() {
+    if (tmp.start == true) {
     //if (tmp.PassiveNumberGain == true) {
         player.number = player.number.add(tmp.numberGain.mul(tmp.gs))
         player.misc.totalNumber = player.misc.totalNumber.add(tmp.numberGain.mul(tmp.gs))
         
     //}
+    }
 }
 function resourcegain() {
+    if (tmp.start == true) {
     player.am.atomic_mass = player.am.atomic_mass.add(tmp.am.AMgain.mul(gs))
+    }
 }
 setInterval(PassiveNumGain, 1000)
 setInterval(resourcegain, 1000)
