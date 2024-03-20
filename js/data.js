@@ -25,6 +25,26 @@ Decimal.prototype.softcap = function (start, power, mode, dis=false) {
     }
     return x
 }
+
+
+function calc(dt) {
+    let gs = tmp.gs.mul(dt)
+   
+
+    if (tmp.pass<=0) {
+        player.essence = player.essence.add(tmp.essenceGain.mul(gs))
+       
+
+    tmp.pass = Math.max(0,tmp.pass-1)
+
+    player.time += dt
+
+   
+
+   
+    }
+}
+
 function getPlayerData() {
     let s = {
         essence: E(0),
@@ -145,6 +165,9 @@ function loadGame(start=true, gotNaN=false) {
        
         }
        
+        let t = (Date.now() - player.offline.current)/1000
+        if (player.offline.active && t > 60) simulateTime(t)
+
        
         document.onmousemove = e => {
             tmp.cx = e.clientX
@@ -200,4 +223,41 @@ function findNaN(obj, str=false, data=getPlayerData(), node='player') {
 Decimal.prototype.addTP = function (val) {
     var e = this.clone()
     return Decimal.tetrate(10, e.slog(10).add(val))
+}
+
+
+
+function simulateTime(sec) {
+    let ticks = sec * FPS
+    let bonusDiff = 0
+    let player_before = clonePlayer(player,getPlayerData());
+    if (ticks > 1000) {
+        bonusDiff = (ticks - 1000) / FPS / 1000
+        ticks = 1000
+    }
+    for (let i=0; i<ticks; i++) {
+        updateTemp()
+        calc(1/FPS+bonusDiff)
+    }
+
+    let h = `You were gone offline for <b>${formatTime(sec)}</b>.<br>`
+
+    let s = {
+        essence: player.essence.max(1).div(player_before.essence.max(1)).log10(),
+       
+    }
+
+    let s2 = {
+        essence: player.essence.max(1).log10().max(1).div(player_before.essence.max(1).log10().max(1)).log10(),
+
+    }
+
+   
+
+    if (s2.essence.gte(10)) h += `<br>Your Essence's exponent<sup>2</sup> is increased by <b>${s2.essence.format(2)}</b>.`
+    else if (s.essence.gte(10)) h += `<br>Your Essence's exponent is increased by <b>${s.essence.format(2)}</b>.`
+
+   
+
+    createPopup(h,'offline')
 }

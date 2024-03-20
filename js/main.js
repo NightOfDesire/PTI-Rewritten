@@ -74,7 +74,7 @@ function loop() {
     //ssf[1]()
     updateHTML()
     updateTemp()
-    //calc(diff/1000);
+    calc(diff/1000);
     date = Date.now();
     player.offline.current = date
 }
@@ -239,10 +239,4 @@ function capitalFirst(str) {
 		.map(x => x[0].toUpperCase() + x.slice(1))
 		.join(" ");
 }
-function PassiveResGain() {
-    if (tmp.start == true) {
-        player.essence = player.essence.add(tmp.essenceGain.mul(tmp.gs).div(15))
-    }
-}
 
-setInterval(PassiveResGain, 1000/15)
