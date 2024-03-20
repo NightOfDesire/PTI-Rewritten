@@ -45,9 +45,9 @@ function updateNumTemp() {
     tmp.numberGain = FORMS.numberGain()
 }
 function updateTemp() {
-    if (!tmp.stab) {
-        tmp.stab = []
-    }
+    if (!tmp.stab) tmp.stab = []
+    if (!tmp.notify) tmp.notify = []
+    if (!tmp.popup) tmp.popup = []
     if (player.number.gte(player.misc.hNum)) player.misc.hNum = player.number
     tmp.offlineActive = player.offline.time > 1
     tmp.offlineMult = tmp.offlineActive?player.offline.time+1:1
