@@ -22,8 +22,8 @@ const ST_NAMES = [
 const FORMS = {
     essence: {
         softcap1() {
-            let softcap = (player.essence.div("e100").root(10)).add(1)
-            return E(1).div(softcap)
+            let softcap = E(0.3)//(player.essence.div("e100").root(10)).add(1)
+            return softcap
         }
     },
     essenceGain() {
