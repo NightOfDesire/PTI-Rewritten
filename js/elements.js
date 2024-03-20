@@ -89,6 +89,5 @@ function updateHTML() {
 	tmp.el.AtomTab.setDisplay(player.am.unl)
 	tmp.el.Atomic_Mass.setHTML(`Atomic Mass: ${formatMass(player.am.atomic_mass, 0)} | ${formatGain(player.am.atomic_mass, tmp.am.AMgain.mul(tmp.gs), true)}`)
 	tmp.el["AME1"].setHTML(`Atomic mass raises number gain by ${format(FORMS.am.at_ma.effects.first())}`)
-	tmp.el.nsoftcap1.setHTML(`Due to excessive number, starting at e10,000 number gain is rooted by ${format(FORMS.number.softcap1())}`)
 	tmp.el.nsoftcap1.setDisplay(player.misc.totalNumber.gte("ee3.75"))
 }

@@ -49,7 +49,7 @@ const FORMS = {
     x = x.add(BUILDINGS.eff('number_1'))
     x = x.mul(player.rp.points.pow('1.5').add(1))
     x = x.pow(FORMS.am.at_ma.effects.first())
-    x = x.softcap("ee4", FORMS.number.softcap1(), 4)
+    x = x.softcap(FORMS.numberSoftGain, FORMS.numberSoftPower(), 0)
     return x
    },
    rp: {
@@ -113,7 +113,15 @@ const FORMS = {
     let x = E(1)
     //x = x.add(player.number.root(125)).add
     return x
-   }
+   },
+   numberSoftGain() {
+    let s = E("ee4")
+    return s.min(/*FORMS.massSoftGain2()||*/1/0).max(1)
+},
+numberSoftPower() {
+    let p = E(1/3)
+    return E(1).div(p.add(1))
+},
 
 }
 
@@ -290,16 +298,16 @@ function capitalFirst(str) {
 function PassiveNumGain() {
     if (tmp.start == true) {
     //if (tmp.PassiveNumberGain == true) {
-        player.number = player.number.add(tmp.numberGain.mul(tmp.gs))
-        player.misc.totalNumber = player.misc.totalNumber.add(tmp.numberGain.mul(tmp.gs))
+        player.number = player.number.add(tmp.numberGain.mul(tmp.gs).div(15))
+        player.misc.totalNumber = player.misc.totalNumber.add(tmp.numberGain.mul(tmp.gs).div(15))
         
     //}
     }
 }
 function resourcegain() {
     if (tmp.start == true) {
-    player.am.atomic_mass = player.am.atomic_mass.add(tmp.am.AMgain.mul(gs))
+    player.am.atomic_mass = player.am.atomic_mass.add(tmp.am.AMgain.mul(tmp.gs).div(15))
     }
 }
-setInterval(PassiveNumGain, 1000)
-setInterval(resourcegain, 1000)
+setInterval(PassiveNumGain, 1000/15)
+setInterval(resourcegain, 1000/15)
