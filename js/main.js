@@ -44,6 +44,7 @@ const FORMS = {
     let x = E(1)
     x = x.add(BUILDINGS.eff('number_1'))
     x = x.mul(player.rp.points.pow('1.5').add(1))
+    x = x.pow(FORMS.am.at_ma.effects[1]())
     return x
    },
    rp: {
@@ -84,6 +85,23 @@ const FORMS = {
     },
     see() {
         return player.am.unl || player.rp.points.gte("e15") || player.am.points.gt(0)
+    },
+    AMgain() {
+        let x = E(0)
+        if (player.rp.unl) x = x.add(1)
+        x = x.add(player.am.points.log(100).pow(0.3).pow((player.am.points.div(100).root(15).add(1))).add(1))
+
+        return x.floor()
+    },
+    at_ma: {
+        effects: {
+            1() {
+                let eff = E(0)
+                eff = eff.add(player.am.atomic_mass.root(25))
+                eff = eff.softcap("10",0.25,0)
+                return eff
+            }
+        }
     }
    },
    gamespeed() {

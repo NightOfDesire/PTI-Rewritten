@@ -171,7 +171,7 @@ const BUILDING = {
         },
         get_cost: x => format(x) + " number",
         effect(x) {
-            let pow = E(2)
+            let pow = E(4)
             let eff = pow.mul(x).add(1)
             return {power: pow, effect: eff}
         },

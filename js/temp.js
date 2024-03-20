@@ -54,6 +54,7 @@ function updateAtomTemp() {
     if (!tmp.am) tmp.am = {}
     tmp.am.gain = FORMS.am.gain()
     tmp.am.can = tmp.am.gain.gte(1)
+    tmp.am.AMgain = FORMS.am.AMgain()
 }
 function updateBuildingsTemp() {
     BUILDINGS.temp()

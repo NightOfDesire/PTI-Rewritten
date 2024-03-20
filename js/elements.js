@@ -86,5 +86,8 @@ function updateHTML() {
 		BUILDINGS.update('number_4')
 		BUILDINGS.update('number_5')
 	//}
+	tmp.el.AtomTab.setDisplay(player.am.unl)
+	tmp.el.Atomic_Mass.setHTML(`Atomic Mass: ${format(player.am.atomic_mass, 0)} (${formatGain(player.am.atomic_mass, tmp.am.AMgain.mul(tmp.gs)), true})`)
+	tmp.el.AME1.setHTML(`Atomic mass raises number gain by ${format(FORMS.am.at_ma.effects[1]())}`)
 	
 }

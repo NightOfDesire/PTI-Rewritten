@@ -34,15 +34,14 @@ function getPlayerData() {
         },
         am: {
             points: E(0),
-            unl: false
+            unl: false,
+            atomic_mass: E(0)
         },
         options: {
             font: 'Verdana',
             notation: 'standard',
             massDis: 0,
             nav_hide: [],
-
-     
         },
        
         offline: {
