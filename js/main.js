@@ -40,8 +40,7 @@ const FORMS = {
             }
         },
         softcap1() {
-            let start = "1e10000"
-            let softcap = player.number.div("1e10000").log(100).root(4.44)
+            let softcap = (player.number.div("ee4").log10().root(4.44)).add(1)
             return softcap
         }
     },
@@ -50,7 +49,7 @@ const FORMS = {
     x = x.add(BUILDINGS.eff('number_1'))
     x = x.mul(player.rp.points.pow('1.5').add(1))
     x = x.pow(FORMS.am.at_ma.effects.first())
-    //x = x.softcap("1e10000", FORMS.number.softcap1(), 4)
+    x = x.softcap("ee4", FORMS.number.softcap1(), 4)
     return x
    },
    rp: {
@@ -95,7 +94,7 @@ const FORMS = {
     AMgain() {
         let x = E(0)
         if (player.am.unl) x = x.add(1)
-        x = x.add(player.am.points.log(100).pow(0.3).pow((player.am.points.div(100).root(15).add(1))).add(1))
+        x = x.add(player.am.points.log(5).pow(0.3))
 
         return x.floor()
     },
