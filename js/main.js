@@ -41,7 +41,7 @@ const FORMS = {
         },
         softcap1() {
             let softcap = (player.number.div("ee4").log10().root(4.44)).add(1)
-            return softcap
+            return E(1).div(softcap)
         }
     },
     numberGain() {
@@ -49,7 +49,7 @@ const FORMS = {
     x = x.add(BUILDINGS.eff('number_1'))
     x = x.mul(player.rp.points.pow('1.5').add(1))
     x = x.pow(FORMS.am.at_ma.effects.first())
-    x = x.softcap(FORMS.numberSoftGain(), FORMS.numberSoftPower(), 0)
+    x = x.softcap("ee4", FORMS.number.softcap1(), 0)
     return x
    },
    rp: {
