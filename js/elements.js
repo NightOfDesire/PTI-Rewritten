@@ -23,13 +23,9 @@ function updateHTML() {
 		}
 
 	}
-	//tmp.el.loading.setDisplay(!tmp.start)
-	//tmp.el.app.setDisplay(tmp.start)
-    tmp.el.nsoftcap1.setDisplay(player.misc.hNum.gte("e100"))
-    tmp.el.nsoftcap1.setHTML(`
-    Due to excess number, starting at e100 number number gain is softcapped^1! (raised by ${format(FORMS.number.softcap1())})!
-    `)
-    tmp.el.number.setHTML(`
-    Number: ${format(player.number, 2)} | ${formatGain(player.number, tmp.numberGain.mul(tmp.gs))}
+	tmp.el.loading.setDisplay(!tmp.start)
+	tmp.el.app.setDisplay(tmp.start)
+    tmp.el.Essence.setHTML(`
+    <img src="images/essence.png>Essence: ${format(player.essence, 0)} | ${formatGain(player.essence, tmp.essenceGain.mul(tmp.gs))}
     `)
 }

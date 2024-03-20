@@ -41,8 +41,8 @@ function resetTemp() {
 
 
 
-function updateNumTemp() {
-    tmp.numberGain = FORMS.numberGain()
+function updateEssenceTemp() {
+    tmp.essenceGain = FORMS.essenceGain()
 }
 function updateTemp() {
     if (!tmp.stab) tmp.stab = []
@@ -52,6 +52,6 @@ function updateTemp() {
     tmp.offlineActive = player.offline.time > 1
     tmp.offlineMult = tmp.offlineActive?player.offline.time+1:1
     tmp.gs = FORMS.gamespeed()
-    updateNumTemp()
+    updateEssenceTemp()
    
 }

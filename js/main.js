@@ -20,20 +20,15 @@ const ST_NAMES = [
 
 
 const FORMS = {
-    number: {
-        gain() {
-            if (tmp.passiveNumberGain == false) {
-                player.number = player.number.add(tmp.numberGain)
-            }
-        },
+    essence: {
         softcap1() {
-            let softcap = (player.number.div("e100").root(10)).add(1)
+            let softcap = (player.essence.div("e100").root(10)).add(1)
             return E(1).div(softcap)
         }
     },
-    numberGain() {
+    essenceGain() {
     let x = E(1)
-    x = x.softcap("e100", FORMS.number.softcap1(), 0)
+    x = x.softcap("e100", FORMS.essence.softcap1(), 0)
     return x
     },
 
@@ -225,10 +220,7 @@ function capitalFirst(str) {
 }
 function PassiveResGain() {
     if (tmp.start == true) {
-    //if (tmp.PassiveNumberGain == true) {
-        player.number = player.number.add(tmp.numberGain.mul(tmp.gs).div(15))
-        
-    //}
+        player.essence = player.essence.add(tmp.essenceGain.mul(tmp.gs).div(15))
     }
 }
 
