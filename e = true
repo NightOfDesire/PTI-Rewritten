@@ -1,0 +1,88 @@
+GIT(1)                 Git Manual                 GIT(1)
+
+NNAAMMEE
+       git - the stupid content tracker
+
+SSYYNNOOPPSSIISS
+       _g_i_t [--version] [--help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p|--paginate|-P|--no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           [--super-prefix=<path>]
+           <command> [<args>]
+
+DDEESSCCRRIIPPTTIIOONN
+       Git is a fast, scalable, distributed revision
+       control system with an unusually rich command set
+       that provides both high-level operations and full
+       access to internals.
+
+       See ggiittttuuttoorriiaall(7) to get started, then see
+       ggiitteevveerryyddaayy(7) for a useful minimum set of
+       commands. The GGiitt UUsseerr’’ss MMaannuuaall[1] has a more
+       in-depth introduction.
+
+       After you mastered the basic concepts, you can
+       come back to this page to learn what commands Git
+       offers. You can learn more about individual Git
+       commands with "git help command". ggiittccllii(7)
+       manual page gives you an overview of the
+       command-line command syntax.
+
+       A formatted and hyperlinked copy of the latest
+       Git documentation can be viewed at
+       hhttttppss::////ggiitt..ggiitthhuubb..iioo//hhttmmllddooccss//ggiitt..hhttmmll or
+       hhttttppss::////ggiitt--ssccmm..ccoomm//ddooccss.
+
+OOPPTTIIOONNSS
+       --version
+           Prints the Git suite version that the _g_i_t
+           program came from.
+
+       --help
+           Prints the synopsis and a list of the most
+           commonly used commands. If the option ----aallll
+           or --aa is given then all available commands
+           are printed. If a Git command is named this
+           option will bring up the manual page for that
+           command.
+
+           Other options are available to control how
+           the manual page is displayed. See ggiitt--hheellpp(1)
+           for more information, because ggiitt ----hheellpp ......
+           is converted internally into ggiitt hheellpp .......
+
+       -C <path>
+           Run as if git was started in _<_p_a_t_h_> instead
+           of the current working directory. When
+           multiple --CC options are given, each
+           subsequent non-absolute --CC <<ppaatthh>> is
+           interpreted relative to the preceding --CC
+           <<ppaatthh>>. If _<_p_a_t_h_> is present but empty, e.g.
+           --CC """", then the current working directory is
+           left unchanged.
+
+           This option affects options that expect path
+           name like ----ggiitt--ddiirr and ----wwoorrkk--ttrreeee in that
+           their interpretations of the path names would
+           be made relative to the working directory
+           caused by the --CC option. For example the
+           following invocations are equivalent:
+
+               git --git-dir=a.git --work-tree=b -C c status
+               git --git-dir=c/a.git --work-tree=c/b status
+
+       -c <name>=<value>
+           Pass a configuration parameter to the
+           command. The value given will override values
+           from configuration files. The <name> is
+           expected in the same format as listed by _g_i_t
+           _c_o_n_f_i_g (subkeys separated by dots).
+
+           Note that omitting the == in ggiitt --cc ffoooo..bbaarr
+           ......  is allowed and sets ffoooo..bbaarr to the
+           boolean true value (just like [[ffoooo]]bbaarr would
+           in a config file). Including the equals but
+           with an empty value (like ggiitt --cc ffoooo..bbaarr==
+           ......) sets ffoooo..bbaarr to the empty string which
+           ggiitt ccoonnffiigg ----ttyyp
