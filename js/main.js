@@ -44,7 +44,7 @@ const FORMS = {
     let x = E(1)
     x = x.add(BUILDINGS.eff('number_1'))
     x = x.mul(player.rp.points.pow('1.5').add(1))
-    x = x.pow(FORMS.am.at_ma.effects[1]())
+    x = x.pow(FORMS.am.at_ma.effects.first())
     return x
    },
    rp: {
@@ -95,9 +95,9 @@ const FORMS = {
     },
     at_ma: {
         effects: {
-            1() {
+            first() {
                 let eff = E(0)
-                eff = eff.add(player.am.atomic_mass.root(25))
+                eff = eff.add(player.am.atomic_mass.root(25).add(1))
                 eff = eff.softcap("10",0.25,0)
                 return eff
             }
@@ -193,24 +193,24 @@ function format(ex, acc=4, max=100, type=player.options.notation) {
 
 const ARV = ['mlt','mgv','giv','tev','pev','exv','zev','yov']
 
-function formatMass(ex) {
+function formatMass(ex, acc=4) {
     let md = player.options.massDis
     ex = E(ex)
-    if (md == 1) return format(ex) + ' g'
-    else if (md == 2) return format(ex.div(1.5e56).max(1).log10().div(1e9)) + ' mlt'
+    if (md == 1) return format(ex, acc) + ' g'
+    else if (md == 2) return format(ex.div(1.5e56).max(1).log10().div(1e9), acc) + ' mlt'
     else if (md == 3) {
-        return  ex.gte('ee14979') ? formatARV(ex) : ex.gte('1.5e1000000056') ? format(ex.div(1.5e56).max(1).log10().div(1e9)) + ' mlt' : format(ex) + ' g'
+        return  ex.gte('ee14979') ? formatARV(ex, acc) : ex.gte('1.5e1000000056') ? format(ex.div(1.5e56).max(1).log10().div(1e9), acc) + ' mlt' : format(ex, acc) + ' g'
     }
 
     if (ex.gte(E(1.5e56).mul('ee9'))) return formatARV(ex)
-    if (ex.gte(1.5e56)) return format(ex.div(1.5e56)) + ' uni'
-    if (ex.gte(2.9835e45)) return format(ex.div(2.9835e45)) + ' MMWG'
-    if (ex.gte(1.989e33)) return format(ex.div(1.989e33)) + ' M☉'
-    if (ex.gte(5.972e27)) return format(ex.div(5.972e27)) + ' M⊕'
-    if (ex.gte(1.619e20)) return format(ex.div(1.619e20)) + ' MME'
-    if (ex.gte(1e6)) return format(ex.div(1e6)) + ' tonne'
-    if (ex.gte(1e3)) return format(ex.div(1e3)) + ' kg'
-    return format(ex) + ' g'
+    if (ex.gte(1.5e56)) return format(ex.div(1.5e56), acc) + ' uni'
+    if (ex.gte(2.9835e45)) return format(ex.div(2.9835e45), acc) + ' MMWG'
+    if (ex.gte(1.989e33)) return format(ex.div(1.989e33), acc) + ' M☉'
+    if (ex.gte(5.972e27)) return format(ex.div(5.972e27), acc) + ' M⊕'
+    if (ex.gte(1.619e20)) return format(ex.div(1.619e20), acc) + ' MME'
+    if (ex.gte(1e6)) return format(ex.div(1e6), acc) + ' tonne'
+    if (ex.gte(1e3)) return format(ex.div(1e3), acc) + ' kg'
+    return format(ex, acc)+ ' g'
 }
 
 function getMltValue(mass){
