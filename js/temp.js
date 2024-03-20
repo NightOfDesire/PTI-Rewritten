@@ -44,6 +44,11 @@ function resetTemp() {
 function updateEssenceTemp() {
     tmp.essenceGain = FORMS.essenceGain()
 }
+function updatePrestigeTemp() {
+    if (!tmp.pres) tmp.pres = {}
+    tmp.pres.gain = FORMS.pres.gain()
+    tmp.pres.can = tmp.pres.gain.gte(1)
+}
 function updateTemp() {
     if (!tmp.stab) tmp.stab = []
     if (!tmp.notify) tmp.notify = []
@@ -53,5 +58,6 @@ function updateTemp() {
     tmp.offlineMult = tmp.offlineActive?player.offline.time+1:1
     tmp.gs = FORMS.gamespeed()
     updateEssenceTemp()
+    updatePrestigeTemp()
    
 }

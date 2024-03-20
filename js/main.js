@@ -17,7 +17,13 @@ const ST_NAMES = [
 		["","Hc","DHe","THt","TeH","PHc","HHe","HpH","OHt","EHc"]
 	]
 ]
-
+const RESETS = {
+    prestige() {
+        addNotify(`Prestiged for +${format(tmp.pres.gain)} Prestige Shards`)
+        player.pres.pts = player.pres.pts.add(tmp.pres.gain)
+        player.pres.unl = true
+    }
+}
 
 const FORMS = {
     essence: {
@@ -45,6 +51,21 @@ numberSoftPower() {
     let p = E(1/3)
     return E(1).div(p.add(1))
 },
+pres: {
+    gain() {
+        let gain = player.essence.div(100).root(2)
+        
+        return gain.floor()
+    },
+    reset() {
+        if (tmp.pres.can) {
+            RESETS.prestige()
+        }
+    },
+    doReset() {
+        player.essence = E(0)
+    }
+}
 
 }
 
