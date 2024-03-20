@@ -114,6 +114,7 @@ function save(){
     if (localStorage.getItem("testSave") == '') wipe()
     localStorage.setItem("testSave",str)
     tmp.prevSave = localStorage.getItem("testSave")
+    addNotify('Game saved.', 3)
    
 }
 
@@ -155,7 +156,7 @@ function loadGame(start=true, gotNaN=false) {
 
         setTimeout(()=>{
             tmp.start = true
-        },3500)
+        },2000)
 
        
 }

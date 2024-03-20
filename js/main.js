@@ -39,13 +39,13 @@ const FORMS = {
             }
         },
         softcap1() {
-            let softcap = (tmp.numberGain.div("e100").root(4.44)).add(1)
-            return softcap
+            let softcap = (tmp.numberGain.div("e100").root(10)).add(1)
+            return E(1).div(softcap)
         }
     },
     numberGain() {
     let x = E(1)
-    x = x.softcap("e100", FORMS.number.softcap1(), 4)
+    x = x.softcap("e100", FORMS.number.softcap1(), 0)
     return x
     },
 
@@ -70,7 +70,6 @@ function loop() {
     //ssf[1]()
     updateHTML()
     updateTemp()
-    BUILDINGS.tick()
     //calc(diff/1000);
     date = Date.now();
     player.offline.current = date
@@ -91,6 +90,7 @@ function format(ex, acc=4, max=100, type=player.options.notation) {
     let e = ex.log10().floor()
     switch (type) {
         case "scientific":
+
             if (ex.log10().lt(Math.min(-acc,0)) && acc > 1) {
                 let e = ex.log10().ceil()
                 let m = ex.div(e.eq(-1)?E(0.1):E(10).pow(e))
@@ -226,7 +226,7 @@ function formatReduction(ex) { ex = E(ex); return format(E(1).sub(ex).mul(100))+
 
 function formatPercent(ex) { ex = E(ex); return format(ex.mul(100))+"%" }
 
-function formatMult(ex,acc=4) { ex = E(ex); return ex.gte(1)?"×"+ex.format(acc):"/"+ex.pow(-1).format(acc)}
+function formatMult(ex,acc=4) { ex = E(ex); return "×"+ex.format(acc)}
 
 function capitalFirst(str) {
 	if (str=="" || str==" ") return str
