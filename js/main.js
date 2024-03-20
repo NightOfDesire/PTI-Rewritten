@@ -49,7 +49,7 @@ const FORMS = {
     x = x.add(BUILDINGS.eff('number_1'))
     x = x.mul(player.rp.points.pow('1.5').add(1))
     x = x.pow(FORMS.am.at_ma.effects.first())
-    x = x.softcap(FORMS.numberSoftGain, FORMS.numberSoftPower(), 0)
+    x = x.softcap(FORMS.numberSoftGain(), FORMS.numberSoftPower(), 0)
     return x
    },
    rp: {
