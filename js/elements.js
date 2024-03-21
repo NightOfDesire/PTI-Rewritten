@@ -23,8 +23,8 @@ function updateHTML() {
 		}
 
 	}
-	//tmp.el.loading.setDisplay(!tmp.start)
-	//tmp.el.app.setDisplay(tmp.start)
+	tmp.el.loading.setDisplay(!tmp.start)
+	tmp.el.app.setDisplay(tmp.start)
     tmp.el.Essence.setHTML(`
     <img src="images/essence.png"><br>Essence: ${format(player.essence)} ${formatGain(player.essence, tmp.essenceGain.mul(tmp.gs))}   <br> <br> <br>
     `)
