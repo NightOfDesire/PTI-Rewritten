@@ -37,7 +37,7 @@ const FORMS = {
     let x = E(1)
     x = x.add(player.pres.pts.pow(1.5))
     if (player.ranks.rank.gte(1)) x = x.mul(3)
-    if (player.ranks.rank.gte(2)) x = x.mul(RANKS.effects.rank[1]())
+    if (player.ranks.rank.gte(2)) x = x.mul(RANKS.effects.rank[2]())
     x = x.softcap("e100", 0.3, 0)
     return x
     },
@@ -59,7 +59,7 @@ pres: {
     gain() {
         let gain = player.essence.div(17.5).root(1.7)
         if (player.ranks.rank.gte(1)) gain = gain.pow(1.25)
-        
+
         return gain.floor()
     },
     reset() {

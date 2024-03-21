@@ -37,7 +37,7 @@ const RANKS = {
     },
     effects: {
         rank: {
-            '1'() {
+            '2'() {
                 let ret = player.ranks.rank.pow(2).pow(0.8)
 
                 return ret
