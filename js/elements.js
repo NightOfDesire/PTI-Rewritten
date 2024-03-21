@@ -12,6 +12,8 @@ function setupHTML() {
 		let x = all[i]
 		tmp.el[x.id] = new Element(x)
 	}
+
+	setupModsHTML()
 }
 
 function updateHTML() {
@@ -23,6 +25,7 @@ function updateHTML() {
 		}
 
 	}
+	updateModsHTML()
 	tmp.el.loading.setDisplay(!tmp.start)
 	tmp.el.app.setDisplay(tmp.start)
     tmp.el.Essence.setHTML(`
