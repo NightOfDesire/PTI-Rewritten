@@ -57,7 +57,7 @@ function createPopup(text, id, txtButton) {
 
     const textButton = document.createElement('button')
     textButton.className = 'btn'
-    textButton.innerText = txtButton||"Ok"
+    textButton.innerText = txtButton||"THANKS!!"
     textButton.onclick = () => {
         popups[popups.indexOf(id)] = undefined
         updatePopupIndex()
@@ -85,7 +85,7 @@ function createConfirm(text, id, yesFunction, noFunction) {
 
     const yesButton = document.createElement('button')
     yesButton.className = 'btn'
-    yesButton.innerText = "Yes"
+    yesButton.innerText = "YEAHH"
     yesButton.onclick = () => {
         popups[popups.indexOf(id)] = undefined
         updatePopupIndex()
@@ -95,7 +95,7 @@ function createConfirm(text, id, yesFunction, noFunction) {
 
     const noButton = document.createElement('button')
     noButton.className = 'btn'
-    noButton.innerText = "No"
+    noButton.innerText = "HELL NAW"
     noButton.onclick = () => {
         popups[popups.indexOf(id)] = undefined
         updatePopupIndex()
