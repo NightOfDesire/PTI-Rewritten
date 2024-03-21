@@ -49,7 +49,7 @@ const FORMS = {
             return softcap
         }
     },
-    pres: {
+    presScs: {
         soft1start() {
             let start = E("e18")
 
@@ -57,7 +57,7 @@ const FORMS = {
         },
         soft1pow() {
             let softcap = E(0.625)
-            
+
             return softcap
         }
     },
@@ -90,7 +90,7 @@ pres: {
         let gain = player.essence.div(17.5).root(1.7)
         if (player.ranks.rank.gte(1)) gain = gain.pow(1.25)
         if (player.ranks.rank.gte(10)) gain = gain.mul(RANKS.effects.rank[10]())
-        gain = gain.softcap(FORMS.pres.soft1start(), FORMS.pres.soft1pow(), 0)
+        gain = gain.softcap(FORMS.presScs.soft1start(), FORMS.presScs.soft1pow(), 0)
         return gain.floor()
     },
     reset() {
