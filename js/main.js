@@ -75,7 +75,7 @@ pres: {
     gain() {
         let gain = player.essence.div(17.5).root(1.7)
         if (player.ranks.rank.gte(1)) gain = gain.pow(1.25)
-        if (player.ranks.rank.gte(10)) gain = gain.mul(RANKS.effects.rank[10])
+        if (player.ranks.rank.gte(10)) gain = gain.mul(RANKS.effects.rank[10]())
         return gain.floor()
     },
     reset() {
