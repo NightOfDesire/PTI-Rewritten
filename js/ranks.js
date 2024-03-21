@@ -18,8 +18,8 @@ const RANKS = {
     },
     reqs : {
         rank(x=player.ranks.rank) {
-            let base = E("10000")
-            let inc = E(4.738)
+            let base = E("275000")
+            let inc = E(6.716)
             inc = inc.pow(x.div(50).add(1))
             let req = Decimal.mul(base, Decimal.pow(inc, x))
             return req
@@ -34,7 +34,9 @@ const RANKS = {
 }
 
 function updateRanksHTML() {
-
+    tmp.el.rank.setHTML(`
+    Rank <b>${format(player.ranks.rank, 0)}</b>
+    `)
     tmp.el.rankup.setHTML(`
     Reset your progress but rank up. ${RANKS.text[player.ranks.rank.add(1)] ? 'At rank ' + format(player.ranks.rank.add(1), 0) + ' - ' + RANKS.text[player.ranks.rank.add(1)] : ''}
     <br>Need: ${format(RANKS.reqs.rank())} Essence
