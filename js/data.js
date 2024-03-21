@@ -168,6 +168,81 @@ function save(){
    
 }
 
+function exporty() {
+    let str = btoa(JSON.stringify(player))
+    if (findNaN(str, true)) {
+        addNotify("Error Exporting, because it got NaNed")
+        return
+    }
+    save();
+    let file = new Blob([str], {type: "text/plain"})
+    window.URL = window.URL || window.webkitURL;
+    let a = document.createElement("a")
+    a.href = window.URL.createObjectURL(file)
+    a.download = "Incremental Mass Rewritten Save - "+new Date().toGMTString()+".txt"
+    a.click()
+}
+
+function export_copy() {
+    let str = btoa(JSON.stringify(player))
+    if (findNaN(str, true)) {
+        addNotify("Error Exporting, because it got NaNed")
+        return
+    }
+
+    let copyText = document.getElementById('copy')
+    copyText.value = str
+    copyText.style.visibility = "visible"
+    copyText.select();
+    document.execCommand("copy");
+    copyText.style.visibility = "hidden"
+    addNotify("Copied to Clipboard")
+}
+
+function importy() {
+    createPrompt("Paste in your save WARNING: WILL OVERWRITE YOUR CURRENT SAVE",'import',loadgame=>{
+        let st = ""
+        if (loadgame.length <= 100) st = convertStringIntoAGY(loadgame)
+        if (ssf[2](loadgame)) return
+        if (st == 'OJY$VFe*b') {
+            addNotify('monke<br><img style="width: 100%; height: 100%" src="https://i.kym-cdn.com/photos/images/original/001/132/314/cbc.jpg">')
+            return
+        }
+        else if (st == 'p4H)pb{v2y5?g!') {
+            addNotify('2+2=5<br><img src="https://cdn2.penguin.com.au/authors/400/106175au.jpg">')
+            return
+        }
+        else if (st == 'L5{W*oI.NhA-lE)C1#e') {
+            addNotify('<img src="https://steamuserimages-a.akamaihd.net/ugc/83721257582613769/22687C6536A50ADB3489A721A264E0EF506A89B3/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false">',6)
+            return
+        }
+        else if (st == 'a+F4gro<?/Sd') {
+            addNotify('YOU ARE CURSED FOREVER!!!')
+            player.options.font = 'Wingding'
+            return
+        }
+        if (loadgame != null) {
+            let keep = player
+            try {
+                setTimeout(()=>{
+                    if (findNaN(loadgame, true)) {
+                        addNotify("Error Importing, because it got NaNed")
+                        return
+                    }
+                    load(loadgame)
+                    save()
+                    resetTemp()
+                    loadGame(false)
+                    location.reload()
+                }, 200)
+            } catch (error) {
+                addNotify("Error Importing")
+                player = keep
+            }
+        }
+    })
+}
+
 function load(x){
     if(typeof x == "string" & x != ''){
         loadPlayer(JSON.parse(atob(x)))
@@ -175,6 +250,8 @@ function load(x){
         wipe()
     }
 }
+
+
 
 function loadGame(start=true, gotNaN=false) {
     if (!gotNaN) tmp.prevSave = localStorage.getItem("testSave")
