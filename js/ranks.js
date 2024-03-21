@@ -37,10 +37,10 @@ function updateRanksHTML() {
     tmp.el.rank.setHTML(`
     Rank <b>${format(player.ranks.rank, 0)}</b>
     `)
-    tmp.el.rankup.setHTML(`
+    /*tmp.el.rankup.setHTML(`
     Reset your progress but rank up. ${RANKS.text[player.ranks.rank.add(1)] ? 'At rank ' + format(player.ranks.rank.add(1), 0) + ' - ' + RANKS.text[player.ranks.rank.add(1)] : ''}
     <br>Need: ${format(RANKS.reqs.rank())} Essence
-    `)
+    `)*/
 
 }
 
