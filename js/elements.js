@@ -28,7 +28,7 @@ function updateHTML() {
     tmp.el.Essence.setHTML(`
     <br>Essence: ${format(player.essence)} ${formatGain(player.essence, tmp.essenceGain.mul(tmp.gs))}   <br> <br> <br>
     `)
-	tmp.el.prestige.setDisplay(!tmp.pres.auto)
+	tmp.el.Prestige.setDisplay(!tmp.pres.auto)
 	tmp.el.EssSoft1.setDisplay(player.misc.hEss.gte("e33"))
 	tmp.el.EssSoft1.setHTML(`Due to enstable essence, after ${format(FORMS.essence.soft1start())} essence, the gain will be softcapped!<br>`)
 	tmp.el.EssSoft2.setDisplay(player.misc.hEss.gte("e363"))
@@ -37,7 +37,7 @@ function updateHTML() {
 	tmp.el.RankTab.setDisplay(player.misc.hEss.gte(2.5e5))
 	tmp.el.Prestige.setHTML(tmp.pres.can?`<i><b>Prestige</b> and reset your essence for <b>Prestige Shards</b></i>`:`<i>Locked.</i>`)
 	tmp.el.prespts.setHTML(`
-	<br>Prestige Shards: ${format(player.pres.pts)} ${tmp.pres.auto ? formatGain(player.pres.pts, tmp.pres.gain.mul(tmp.gs)) : `(+${format(tmp.pres.gain)})`}
+<br>Prestige Shards: ${format(player.pres.pts)} ${tmp.pres.auto ? formatGain(player.pres.pts, tmp.pres.gain.mul(tmp.gs)) : `(+${format(tmp.pres.gain)})`}
 	<br>Effect: ${formatMult(player.pres.pts.pow(1.4).add(1))} Essence
 	`)
 	//if (player.misc.hEss.gte('1e100')) player.MODIFIERS.unl = true
