@@ -3,7 +3,7 @@ function setupHTML() {
 	
 	
 	
-
+	setupModsHTML()
 
 
 	tmp.el = {}
@@ -13,7 +13,7 @@ function setupHTML() {
 		tmp.el[x.id] = new Element(x)
 	}
 
-	setupModsHTML()
+	
 }
 
 function updateHTML() {
