@@ -19,7 +19,7 @@ const ST_NAMES = [
 ]
 const RESETS = {
     prestige() {
-        addNotify(`Prestiged at ${format(player.essence)} Essence for +${format(tmp.pres.gain)} Prestige Shards`)
+        addNotify(`Prestiged at ${format(player.essence)} Essence for +${format(tmp.pres.gain)} Prestige Shards`, 1)
         player.pres.pts = player.pres.pts.add(tmp.pres.gain)
         FORMS.pres.doReset()
         player.pres.unl = true
@@ -55,8 +55,8 @@ numberSoftPower() {
 },
 pres: {
     gain() {
-        let gain = player.essence.div(25).root(2)
-        
+        let gain = player.essence.div(25).root(1.7)
+        if (player.ranks.rank.gte(1)) gain = gain.pow(1.1)
         return gain.floor()
     },
     reset() {
