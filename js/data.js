@@ -203,7 +203,7 @@ function importy() {
     createPrompt("Paste in your save WARNING: WILL OVERWRITE YOUR CURRENT SAVE",'import',loadgame=>{
         let st = ""
         if (loadgame.length <= 100) st = convertStringIntoAGY(loadgame)
-        if (ssf[2](loadgame)) return
+        //if (ssf[2](loadgame)) return
         if (st == 'OJY$VFe*b') {
             addNotify('monke<br><img style="width: 100%; height: 100%" src="https://i.kym-cdn.com/photos/images/original/001/132/314/cbc.jpg">')
             return
