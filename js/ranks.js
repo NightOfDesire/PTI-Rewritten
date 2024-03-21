@@ -29,13 +29,19 @@ const RANKS = {
     },
     desc: {
         rank: {
-            '1': "Prestige Shard gain is raised by 1.15, gain twice as much Essence",
+            '1': "Prestige Shard gain is raised by 1.25, gain thrice as much Essence",
             '2': "Essence is boosted by [(x^2)^0.8].",
             '5': "Automatically generate prestige shards."
         }
     },
     effects: {
-        
+        rank: {
+            '1'() {
+                let ret = player.ranks.rank.pow(2).pow(0.8)
+
+                return ret
+            }
+        }
     },
     names: ['rank']
 }
