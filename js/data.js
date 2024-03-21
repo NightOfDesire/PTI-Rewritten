@@ -72,6 +72,11 @@ function getPlayerData() {
             pts: E(0),
             unl: false
         },
+        eclipse: {
+            active: false,
+            best: E(0),
+            shards: E(0)
+        },
         options: {
             font: 'Verdana',
             notation: 'standard',
