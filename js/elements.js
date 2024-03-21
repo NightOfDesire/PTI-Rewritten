@@ -31,7 +31,7 @@ function updateHTML() {
 
 	tmp.el.Prestige.setHTML(tmp.pres.can?`<i><b>Prestige</b> and reset your essence for +<b>${format(tmp.pres.gain)} Prestige Shards</i>`:`<i>Locked.</i>`)
 	tmp.el.prespts.setHTML(`
-	<br>Prestige Shards: ${format(player.pres.pts)} (${formatGain(tmp.pres.gain)})
+	<br>Prestige Shards: ${format(player.pres.pts)} ${formatGain(tmp.pres.gain, 0)}
 	`)
 
 
