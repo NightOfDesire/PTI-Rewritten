@@ -26,7 +26,9 @@ const RANKS = {
         }
     },
     text: {
-        "1": `Prestige Shard gain is raised by 1.15, ${formatMult(2)} Essence`
+        "1": `Prestige Shard gain is raised by 1.15, ${formatMult(2)} Essence`,
+        "2": `Essence is boosted by [(x^2)^0.8].`,
+        "5": `Automatically generate prestige shards.`
     },
     effects: {
         
