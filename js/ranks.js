@@ -1,12 +1,13 @@
 const RANKS = {
     reset(type) {
         switch(type) {
-            case "rank": 
-            if (tmp.ranks[type].can) {
+            case "tier": 
+            if (tmp.ranks.tier.can) {
                 player.essence = E(0)
                 player.pres.pts = E(0)
-                player.ranks[type] = player.ranks.rank.add(1)
-                addNotify(`Ranked up to ${format(player.ranks.rank.add(1), 0)}.`, 1)
+                player.ranks.rank = E(0)
+                player.ranks.tier = player.ranks.tier.add(1)
+                addNotify(`Tiered up to ${format(player.ranks.tier.add(1), 0)}.`, 1)
             }
             default:
                 if (tmp.ranks[type].can) {
