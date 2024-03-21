@@ -14,7 +14,7 @@
         <script src="js/popups.js"></script>
         <script src="js/iconify-icon.min.js"></script>
         <script src="js/ranks.js"></script>
-        <script src="js/mods.js"></script>
+        <script src="js/eclipse.js"></script>
         <script src="https://js.sentry-cdn.com/0c5bfd06471329b2b5d51eac3ae466f3.min.js" crossorigin="anonymous"></script>
 
         <style>
@@ -32,22 +32,25 @@
         <input id="copy" style="position: absolute; top: 0; left: 0; user-select: all; visibility: hidden;">
         <div id="loading" class="table_center">PTI v1.0<br>Loading..<br>fun fact: the game is in one single GUI! have fun!</div>
         <div id="app">
+            <div id="Eclipse_Active"></div>
             <div id="scs">
                 <softcap id="EssSoft1" class="red"></softcap>
                 <softcap id="EssSoft2" class="magenta"></softcap>
             </div>
             <div class="table_center yellow" id="Essence">Essence: 0</div>
             <tab id="PresTab">
+                <p class="line"></p>
                 <button id="Prestige" class="btn sky" onclick="FORMS.pres.reset()" style="min-width: 15%"></button>
                 <div id="prespts" class="sky"></div>
             </tab>
             <tab id="RankTab">
+                <p class="line"></p>
                 <div class="table_center charged_text" id="rank"></div>
                 <button id="rankup" onclick="RANKS.reset('rank')" class="btn charged_text"></button>
             </tab>
-            <tab id="Mods">
+            <tab id="Solarity">
                 <p class="line"></p>
-                <div id="mods_table"></div>
+                <button id="Activate_Eclipse" onclick="ECLIPSE.ACTIVATE()" class="red">?????</button>
             </tab>
         </div>
     

@@ -3,7 +3,7 @@ function setupHTML() {
 	
 	
 	
-	setupModsHTML()
+	//setupModsHTML()
 
 
 	tmp.el = {}
@@ -25,7 +25,7 @@ function updateHTML() {
 		}
 
 	}
-	updateModsHTML()
+	//updateModsHTML()
 	tmp.el.loading.setDisplay(!tmp.start)
 	tmp.el.app.setDisplay(tmp.start)
     tmp.el.Essence.setHTML(`
@@ -47,4 +47,5 @@ function updateHTML() {
 
 
 	updateRanksHTML()
+	updateEclipseHTML()
 }
