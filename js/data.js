@@ -52,6 +52,7 @@ function calc(dt) {
 
     if (tmp.pass<=0) {
         player.essence = player.essence.add(tmp.essenceGain.mul(gs))
+        (tmp.passivePres ? player.pres.pts = player.pres.pts.asd(tmp.pres.gain.mul(gs)): null)
     }
 
     tmp.pass = Math.max(0,tmp.pass-1)
@@ -281,7 +282,7 @@ function simulateTime(sec) {
 
     let s2 = {
         essence: player.essence.max(1).log10().max(1).div(player_before.essence.max(1).log10().max(1)).log10(),
-
+        prespts: player.pres.pts.max(1).log10().max(1).div(player_before.pres.pts.max(1).log10().max(1)).log10()
     }
 
    
