@@ -25,10 +25,12 @@ const RANKS = {
             return req
         }
     },
-    text: {
-        "1": `Prestige Shard gain is raised by 1.15, ${formatMult(2)} Essence`,
-        "2": `Essence is boosted by [(x^2)^0.8].`,
-        "5": `Automatically generate prestige shards.`
+    desc: {
+        rank: {
+            '1': "Prestige Shard gain is raised by 1.15, gain twice as much Essence",
+            '2': "Essence is boosted by [(x^2)^0.8].",
+            '4': "Automatically generate prestige shards."
+        }
     },
     effects: {
         
@@ -41,7 +43,7 @@ function updateRanksHTML() {
     Rank <b>${format(player.ranks.rank, 0)}</b>
     `)
     tmp.el.rankup.setHTML(`
-    Reset your progress but rank up. ${/*RANKS.text[player.ranks.rank.add(1)] ? 'At rank ' + format(player.ranks.rank.add(1), 0) + ' - ' + RANKS.text[player.ranks.rank.add(1)] : */''}
+    Reset your progress but rank up. ${RANKS.desc.rank[player.ranks.rank.add(1)] ? 'At rank ' + format(player.ranks.rank.add(1), 0) + ' - ' + RANKS.desc.rank[player.ranks.rank.add(1)] : ''}
     <br>Need: ${format(RANKS.reqs.rank())} Essence
     `)
 
