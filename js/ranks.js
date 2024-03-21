@@ -52,7 +52,8 @@ function updateRanksHTML() {
 
 function updateRanksTemp() {
     if (!tmp.ranks) tmp.ranks = {}
-    for (var name in RANKS.names) {
+    for (let n in RANKS.names) {
+        let name = RANKS.names[n]
         tmp.ranks[name] = {
             can: player.essence.gte(RANKS.reqs[name]()),
         }
