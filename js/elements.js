@@ -28,6 +28,7 @@ function updateHTML() {
     tmp.el.Essence.setHTML(`
     <br>Essence: ${format(player.essence)} ${formatGain(player.essence, tmp.essenceGain.mul(tmp.gs))}   <br> <br> <br>
     `)
+	tmp.el.prestige.setDisplay(!tmp.pres.auto)
 	tmp.el.EssSoft1.setDisplay(player.misc.hEss.gte("e33"))
 	tmp.el.EssSoft1.setHTML(`Due to enstable essence, after ${format(FORMS.essence.soft1start())} essence, the gain will be softcapped!`)
 	tmp.el.EssSoft2.setDisplay(player.misc.hEss.gte("e363"))
