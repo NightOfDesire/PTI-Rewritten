@@ -44,7 +44,7 @@ const RANKS = {
                 return ret
             },
             '10'() {
-                let ret = player.essence.log10().root(10).add(1)
+                let ret = (player.essence.log10().root(10)).add(1)
 
                 return ret
             }
