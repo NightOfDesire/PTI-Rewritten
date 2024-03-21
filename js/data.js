@@ -29,6 +29,7 @@ Decimal.prototype.softcap = function (start, power, mode, dis=false) {
 
 function calc(dt) {
     let gs = tmp.gs.mul(dt)
+    if (!tmp.pass) tmp.pass = 0
    
 
     if (tmp.pass<=0) {
