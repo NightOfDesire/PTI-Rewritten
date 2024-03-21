@@ -19,8 +19,9 @@ const ST_NAMES = [
 ]
 const RESETS = {
     prestige() {
-        addNotify(`Prestiged for +${format(tmp.pres.gain)} Prestige Shards`)
+        addNotify(`Prestiged at ${format(player.essence)} Essence for +${format(tmp.pres.gain)} Prestige Shards`)
         player.pres.pts = player.pres.pts.add(tmp.pres.gain)
+        FORMS.pres.doReset()
         player.pres.unl = true
     }
 }
@@ -34,6 +35,7 @@ const FORMS = {
     },
     essenceGain() {
     let x = E(1)
+    x = x.add(player.pres.pts.pow(1.15))
     x = x.softcap("e100", FORMS.essence.softcap1(), 0)
     return x
     },
