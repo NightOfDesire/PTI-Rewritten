@@ -60,5 +60,6 @@ function updateTemp() {
     tmp.gs = FORMS.gamespeed()
     updateEssenceTemp()
     updatePrestigeTemp()
+    updateRanksTemp()
    
 }

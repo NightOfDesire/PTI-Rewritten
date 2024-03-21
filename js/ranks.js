@@ -22,6 +22,7 @@ const RANKS = {
             let inc = E(6.716)
             inc = inc.pow(x.div(50).add(1))
             let req = Decimal.mul(base, Decimal.pow(inc, x))
+            
             return req
         }
     },
