@@ -35,7 +35,7 @@ const FORMS = {
     },
     essenceGain() {
     let x = E(1)
-    x = x.add(player.pres.pts.pow(1.3))
+    x = x.add(player.pres.pts.pow(1.5))
     if (player.ranks.rank.gte(1)) x = x.mul(3)
     if (player.ranks.rank.gte(2)) x = x.mul(RANKS.effects.rank[1]())
     x = x.softcap("e100", FORMS.essence.softcap1(), 0)
