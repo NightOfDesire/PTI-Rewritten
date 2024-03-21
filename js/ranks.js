@@ -30,7 +30,7 @@ const RANKS = {
         rank: {
             '1': "Prestige Shard gain is raised by 1.15, gain twice as much Essence",
             '2': "Essence is boosted by [(x^2)^0.8].",
-            '4': "Automatically generate prestige shards."
+            '5': "Automatically generate prestige shards."
         }
     },
     effects: {
@@ -40,9 +40,7 @@ const RANKS = {
 }
 
 function updateRanksHTML() {
-    tmp.el.rank.setHTML(`
-    Rank <b>${format(player.ranks.rank, 0)}</b>
-    `)
+    tmp.el.rank.setHTML(`Rank: <b>${format(player.ranks.rank, 0)}</b>`)
     tmp.el.rankup.setHTML(`
     Reset your progress but rank up. ${RANKS.desc.rank[player.ranks.rank.add(1)] ? 'At rank ' + format(player.ranks.rank.add(1), 0) + ' - ' + RANKS.desc.rank[player.ranks.rank.add(1)] : ''}
     <br>Need: ${format(RANKS.reqs.rank())} Essence
@@ -52,10 +50,7 @@ function updateRanksHTML() {
 
 function updateRanksTemp() {
     if (!tmp.ranks) tmp.ranks = {}
-    for (let n = 0; n < RANKS.names.length; n++) {
-        let name = RANKS.names[n]
-        tmp.ranks[name] = {
-            can: player.essence.gte(RANKS.reqs[name]()),
+        tmp.ranks.rank = {
+            can: player.essence.gte(RANKS.reqs.rank()),
         }
-    }
 }
