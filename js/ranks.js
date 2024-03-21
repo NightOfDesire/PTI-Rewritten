@@ -25,3 +25,5 @@ function updateRanksHTML() {
     `)
 
 }
+
+setInterval(updateRanksHTML, 50)
