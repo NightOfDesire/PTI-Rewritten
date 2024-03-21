@@ -28,6 +28,10 @@ function updateHTML() {
     tmp.el.Essence.setHTML(`
     <br>Essence: ${format(player.essence)} ${formatGain(player.essence, tmp.essenceGain.mul(tmp.gs))}   <br> <br> <br>
     `)
+	tmp.el.EssSoft1.setDisplay(player.misc.hEss.gte(1e33))
+	tmp.el.EssSoft1.setHTML(`Due to enstable essence, after 1De (1e33) essence, the gain will be softcapped!`)
+	tmp.el.EssSoft2.setDisplay(player.misc.hEss.gte(1e213))
+	tmp.el.EssSoft2.setHTML(`Due to excessive strange essence, starting at 1VgCe (1e363) essence, the gain will be softcapped^2!`)
 	tmp.el.PresTab.setDisplay(player.essence.gte(25) || player.pres.unl)
 	tmp.el.RankTab.setDisplay(player.misc.hEss.gte(2.5e5))
 	tmp.el.Prestige.setHTML(tmp.pres.can?`<i><b>Prestige</b> and reset your essence for <b>Prestige Shards</b></i>`:`<i>Locked.</i>`)

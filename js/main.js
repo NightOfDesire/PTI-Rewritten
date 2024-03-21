@@ -29,8 +29,14 @@ const RESETS = {
 const FORMS = {
     essence: {
         softcap1() {
-            let softcap = E(0.3)//(player.essence.div("e100").root(10)).add(1)
-            return softcap
+            let start = E("e33")
+            let softcap = E(0.8)//(player.essence.div("e100").root(10)).add(1)
+            return {start: start, power: softcap}
+        },
+        softcap2() {
+            let start = E("e363")
+            let softcap = E(0.5)
+            return {start: start, power: softcap}
         }
     },
     essenceGain() {
@@ -38,7 +44,9 @@ const FORMS = {
     x = x.add(player.pres.pts.pow(1.5))
     if (player.ranks.rank.gte(1)) x = x.mul(3)
     if (player.ranks.rank.gte(2)) x = x.mul(RANKS.effects.rank[2]())
-    x = x.softcap("e100", 0.3, 0)
+    x = x.softcap(FORMS.essence.softcap1.start, FORMS.essence.softcap1.power, 0)
+    x = x.softcap(FORMS.essence.softcap2.start, FORMS.essence.softcap2.power, 0)
+
     return x
     },
 
