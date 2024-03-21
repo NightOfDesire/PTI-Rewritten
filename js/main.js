@@ -30,7 +30,7 @@ const FORMS = {
     essence: {
         soft1start() {
             let start = E("e33")
-
+            if (MODS.active(1)) start = E(0)
             return start
         },
         soft1pow() {
