@@ -21,7 +21,7 @@ const RANKS = {
 function updateRanksHTML() {
 
     tmp.el.rankup.setHTML(`
-    Reset your progress but rank up. ${RANKS.text[player.ranks.rank.add(1)] ? `At rank ${format(player.ranks.rank.add(1), 0)} - ${RANKS.text[player.ranks.rank.add(1)]}` : ""}
+    Reset your progress but rank up. ${RANKS.text[player.ranks.rank.add(1)] ? 'At rank ' + format(player.ranks.rank.add(1), 0) + '- ' + ' ' + RANKS.text[player.ranks.rank.add(1)] : ''}
     `)
 
 }
