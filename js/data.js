@@ -89,6 +89,12 @@ function getPlayerData() {
         },
        
         time: 0,
+        MODIFIERS: {
+            active: 0,
+            chosen: 0,
+            unl: false,
+            comps: {}
+        }
     }
    
     return s

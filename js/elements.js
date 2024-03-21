@@ -39,6 +39,7 @@ function updateHTML() {
 	<br>Prestige Shards: ${format(player.pres.pts)} ${tmp.pres.auto ? formatGain(player.pres.pts, tmp.pres.gain.mul(tmp.gs)) : `(+${format(tmp.pres.gain)})`}
 	<br>Effect: ${formatMult(player.pres.pts.pow(1.4).add(1))} Essence
 	`)
+	//if (player.misc.hEss.gte('1e100')) player.MODIFIERS.unl = true
 
 
 	updateRanksHTML()
