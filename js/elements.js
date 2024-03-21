@@ -37,5 +37,5 @@ function updateHTML() {
 	`)
 
 
-	//updateRanksHTML()
+	updateRanksHTML()
 }
