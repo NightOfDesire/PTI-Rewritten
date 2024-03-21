@@ -28,9 +28,9 @@ function updateHTML() {
     tmp.el.Essence.setHTML(`
     <br>Essence: ${format(player.essence)} ${formatGain(player.essence, tmp.essenceGain.mul(tmp.gs))}   <br> <br> <br>
     `)
-	tmp.el.EssSoft1.setDisplay(player.misc.hEss.gte(1e33))
+	tmp.el.EssSoft1.setDisplay(player.misc.hEss.gte("e33"))
 	tmp.el.EssSoft1.setHTML(`Due to enstable essence, after ${format(FORMS.essence.soft1start())} essence, the gain will be softcapped!`)
-	tmp.el.EssSoft2.setDisplay(player.misc.hEss.gte(1e213))
+	tmp.el.EssSoft2.setDisplay(player.misc.hEss.gte("e363"))
 	tmp.el.EssSoft2.setHTML(`Due to excessive strange essence, starting at ${format(FORMS.essence.soft2start())} essence, the gain will be softcapped^2!`)
 	tmp.el.PresTab.setDisplay(player.essence.gte(25) || player.pres.unl)
 	tmp.el.RankTab.setDisplay(player.misc.hEss.gte(2.5e5))
