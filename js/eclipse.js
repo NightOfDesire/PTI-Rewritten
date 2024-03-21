@@ -1,6 +1,9 @@
 const ECLIPSE = {
     activate() {
-        player.eclipse.active ? this.DEACTIVATE() : this.ACTIVATE()
+        if (player.eclipse.active) {
+            ECLIPSE.DEACTIVATE()
+        } 
+        ECLIPSE.ACTIVATE()
     },
     ACTIVATE() {
         player.essence = E(0)
