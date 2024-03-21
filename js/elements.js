@@ -28,7 +28,8 @@ function updateHTML() {
     tmp.el.Essence.setHTML(`
     <br>Essence: ${format(player.essence)} ${formatGain(player.essence, tmp.essenceGain.mul(tmp.gs))}   <br> <br> <br>
     `)
-
+	tmp.el.PresTab.setDisplay(player.essence.gte(25) || player.pres.unl)
+	tmp.el.RankTab.setDisplay(player.misc.hEss.gte(2.5e5))
 	tmp.el.Prestige.setHTML(tmp.pres.can?`<i><b>Prestige</b> and reset your essence for <b>Prestige Shards</b></i>`:`<i>Locked.</i>`)
 	tmp.el.prespts.setHTML(`
 	<br>Prestige Shards: ${format(player.pres.pts)} ${formatGain(tmp.pres.gain, 0)}
