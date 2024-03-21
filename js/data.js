@@ -52,7 +52,9 @@ function calc(dt) {
 
     if (tmp.pass<=0) {
         player.essence = player.essence.add(tmp.essenceGain.mul(gs))
-        if (tmp.passivePres) player.pres.pts = player.pres.pts.asd(tmp.pres.gain.mul(gs))
+        if (tmp.passivePres) {
+            player.pres.pts = player.pres.pts.add(tmp.pres.gain.mul(gs))
+        }
     }
 
     tmp.pass = Math.max(0,tmp.pass-1)
