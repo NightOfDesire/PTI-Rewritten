@@ -52,7 +52,8 @@ function calc(dt) {
 
     if (tmp.pass<=0) {
         player.essence = player.essence.add(tmp.essenceGain.mul(gs))
-        if (tmp.passivePres) {
+        
+        if (tmp.passivePres == true) {
             player.pres.pts = player.pres.pts.add(tmp.pres.gain.mul(gs))
         }
     }
