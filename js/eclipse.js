@@ -10,6 +10,7 @@ const ECLIPSE = {
             if (player.essence.gte('1.5e21')) {
                 player.eclipse.shards = player.eclipse.shards.add(ECLIPSE.shardGain())
             }
+            if (player.essence.gte(player.eclipse.score)) player.eclipse.score = player.essence
             player.eclipse.active = false
             addNotify(`It feels much colder now.. and your resources appear to be back to normal.`,10)
         }
@@ -27,7 +28,7 @@ const ECLIPSE = {
 
 function updateEclipseHTML() {
 
-    
+
     if (player.ranks.rank.gte(15)) player.eclipse.unl = true
     tmp.el.EclipsalShards.setHTML(`
     Eclipsal Shards: ${format(player.eclipse.shards)}<br>
