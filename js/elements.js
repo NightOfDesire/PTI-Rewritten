@@ -57,9 +57,8 @@ function updateHTML() {
 	`)
 	//if (player.misc.hEss.gte('1e100')) player.MODIFIERS.unl = true
 
-
-	updateRanksHTML()
-	updateEclipseHTML()
+	if (player.tab == "RankTab") updateRanksHTML()
+	if (player.tab == "EclipseTab") updateEclipseHTML()
 	TABS.update()
 	TAB_TERMINAL.refresh()
 }
