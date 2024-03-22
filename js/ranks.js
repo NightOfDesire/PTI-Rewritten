@@ -130,6 +130,18 @@ function getRankReqResource(t,amt) {
         return 'Tier ' + format(E(amt),0)
     }
 }
+function getRankReq(t) {
+    list={
+        rank:'essence',
+        tier:'rank',
+        asc:'tier'
+
+    }
+    if (list[t]!="essence") {
+        return 'ranks.'+list[t]
+    }
+    return list[t]
+}
 function updateRanksHTML() {
     /**return @SHSHWIEDUZYXH tezt */
     for (let x = 0; x < RANKS.names.length; x++) {
@@ -180,11 +192,7 @@ function updateRanksTemp() {
                 return RANKS.unl[t]()
             },
             get can() {
-                    let res
-                    if (x-1 == -1) {
-                        res = 'essence'
-                    } else res = t
-                    return player[res].gte(RANKS.reqs[t]())
+                    return player[getRankReq(t)].gte(RANKS.reqs[t]())
                 },
             get autounl() {
                 return RANKS.autoUnl[t]()
