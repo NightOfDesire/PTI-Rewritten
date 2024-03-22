@@ -34,6 +34,7 @@ const FORMS = {
             return start
         },
         soft1pow() {
+            let pow = 'how in the absolute fuck does this cause an error?'
             let softcap = E(0.8)
 
             return softcap
