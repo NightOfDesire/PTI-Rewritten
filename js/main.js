@@ -99,6 +99,7 @@ const FORMS = {
     if (player.ranks.rank.gte(2)) x = x.mul(RANKS.effects.rank[2]())
     
     if (ECLIPSE.ACTIVE() == false && player.eclipse.shards.gte(1) == true) x = x.mul(5)
+    if (player.ranks.rank.gte(13)) x = x.pow(1.02)
     x = x.pow(FORMS.eclipse.shardeffs[1]())
     x = x.softcap(FORMS.essence.soft1start(), FORMS.essence.soft2pow(), 0)
     x = x.softcap(FORMS.essence.soft2start(), FORMS.essence.soft2pow(), 0)
