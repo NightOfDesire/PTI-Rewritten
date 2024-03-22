@@ -78,7 +78,7 @@ function getPlayerData() {
             shards: E(0),
             unl: false
         },
-        void: {
+        abyss: {
             consumed: false,
             unl: false,
             essence: E(0),

@@ -55,7 +55,7 @@ const RANKS = {
         },
         tier: {
             '1': "Essence first softcap starts later based on tier.",
-            '2': "Unlock auto rank, <p class='void_text'>EMBRACE THE DARKNESS</p>"
+            '2': "Unlock auto rank, <br><p class='void_text'>EMBRACE THE DARKNESS</p>"
         }
     },
     effects: {
