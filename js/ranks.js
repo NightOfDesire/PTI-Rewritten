@@ -29,13 +29,13 @@ const RANKS = {
             let inc = E(10)
             inc = inc.pow(x.div(17.5).add(1))
             if (x.gte("8")) inc = inc.pow(1.33)
-            if (x.gte("15")) inc = inc.pow(1.25)
-            if (x.gte("22")) inc = inc.mul(1.2)
+            if (x.gte("15")) inc = inc.pow(1.1375)
+            if (x.gte("22")) inc = inc.mul(15)
             let req = Decimal.mul(base, Decimal.pow(inc, x))
             return req
         },
         tier(x=player.ranks.tier) {
-            let base = E("15")
+            let base = E("13")
             let inc = E("1.2")
             inc = inc.pow(x.div(20).add(1))
 
