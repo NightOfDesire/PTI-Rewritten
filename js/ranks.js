@@ -98,6 +98,6 @@ function updateRanksTemp() {
     if (!tmp.ranks) tmp.ranks = {}
     tmp.ranks.rank = {}
     tmp.ranks.tier = {}
-    tmp.ranks.rank.can = player.essence.gte(RANKS.reqs.rank()),
+    tmp.ranks.rank.can = player.essence.gte(RANKS.reqs.rank())
     tmp.ranks.tier.can = player.ranks.rank.gte(RANKS.reqs.tier())
 }
