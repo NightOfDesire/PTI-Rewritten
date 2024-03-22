@@ -1,7 +1,7 @@
 const ABYSS = {
     update() {
 
-        tmp.el.SUMMONDARKNESS.setHTML(
+        tmp.el["SUMMONDARKNESS"].setHTML(
             player.abyss.active ? (player.essence.lte(5e6) ? `Go Back To The Light` : `Embrace the darkness for +${format(ABYSS.VoidEssGain())} <b>Void Essence</b>`) : 'Summon The Darkness'
         )
         player.abyss.unl = player.ranks.tier.gte(2) || player.misc.hEss.gte(1e45) || ABYSS.active()
@@ -15,7 +15,7 @@ const ABYSS = {
                 player.abyss.essence = player.abyss.essence.add(ABYSS.VoidEssGain())
                 addNotify(`Embraced for +${format(ABYSS.VoidEssGain())} <b>Void Essence</b>`)
             }
-            FOEMS.tierReset()
+            FORMS.tierReset()
             player.abyss.active = false
         } else {
             FORMS.tierReset()
