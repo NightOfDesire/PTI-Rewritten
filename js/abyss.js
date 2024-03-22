@@ -9,8 +9,8 @@ const ABYSS = {
     active() {
         return player.abyss.active
     },
-    summon(active=player.abyss.active) {
-        if (active) {
+    summon() {
+        if (ABYSS.active()) {
             if (player.essence.gte(5e6)) {
                 player.abyss.essence = player.abyss.essence.add(ABYSS.VoidEssGain())
                 addNotify(`Embraced for +${format(ABYSS.VoidEssGain())} <b>Void Essence</b>`)
