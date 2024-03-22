@@ -35,7 +35,7 @@ const RANKS = {
             '2': "Essence is boosted by rank [(x^2)^0.8].",
             '5': "Automatically generate prestige shards.",
             '10': "Essence boosts PS by x(log10(essence)^0.1)+1",
-            '15': 'Unlock modifiers'
+            '15': 'Unlock ????? <p class="corrupted_text2"></p>'
         }
     },
     effects: {
