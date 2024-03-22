@@ -31,7 +31,7 @@ const TAB_TERMINAL = {
         tmp.el.Tab_Terminal.setHTML(h)
     },
     open() {
-        playwr.tabterm.open = !player.tabterm.open
+        player.tabterm.open = !player.tabterm.open
     },
     refresh() {
         tmp.el.Open_TT.setHTML(player.tabterm.open ? "Exit tab terminal" : "Open tab terminal")
