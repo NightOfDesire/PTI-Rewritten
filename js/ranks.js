@@ -42,7 +42,16 @@ const RANKS = {
         tier(x=player.ranks.tier) {
             let base = E("13")
             let inc = E("1.2")
-            inc = inc.pow(x.div(20).add(1))
+            inc = inc.pow(x.div(15).add(1))
+
+            let req = Decimal.mul(base, Decimal.pow(inc, x))
+
+            return req.floor()
+        },
+        asc(x=player.ranks.asc) {
+            let base = E("15")
+            let inc = E("1.15")
+            inc = inc.pow(x.div(12.5).add(1))
 
             let req = Decimal.mul(base, Decimal.pow(inc, x))
 
