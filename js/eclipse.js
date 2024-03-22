@@ -26,6 +26,8 @@ const ECLIPSE = {
 }
 
 function updateEclipseHTML() {
+
+    
     if (player.ranks.rank.gte(15)) player.eclipse.unl = true
     tmp.el.EclipsalShards.setHTML(`
     Eclipsal Shards: ${format(player.eclipse.shards)}<br>
