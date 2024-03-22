@@ -8,13 +8,13 @@ const RANKS = {
                     player.ranks.rank = E(0)
                     player.ranks.tier = player.ranks.tier.add(1)
                 }
-            } else {
+            } else if (type == "rank") {
                 if (tmp.ranks.rank.can) {
                     player.essence = E(0)
                     player.pres.pts = E(0)
                     player.ranks.rank = player.ranks.rank.add(1)
                 }
-            }
+            } else return
 
     },
     reqs : {
