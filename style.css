@@ -198,12 +198,12 @@ button {
 }
 .void_text {
 	color: #222;
-	animation: void_text 2s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+	animation: void_text 4s cubic-bezier(0.37, 0, 0.63, 1) infinite;
 }
 .void_text2 {
 	content: " <i>[DARKNESS EMBRACES ALL]</i>";
 	color: #222;
-	animation: void_text 2s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+	animation: void_text 4s cubic-bezier(0.37, 0, 0.63, 1) infinite;
 }
 
 @keyframes corrupted_text {
@@ -225,7 +225,7 @@ button {
 		text-shadow: -2px -2px 0px black, 2px 2px 0px black;
 	}
 	25% {
-		text-shadow: -2px 2px 0px blaxk, 2px -2px 0px black;
+		text-shadow: -2px 2px 0px black, 2px -2px 0px black;
 	}
 	50% {
 		text-shadow: 2px 2px 0px black, -2px -2px 0px black;

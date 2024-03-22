@@ -55,7 +55,7 @@ const RANKS = {
         },
         tier: {
             '1': "Essence first softcap starts later based on tier.",
-            '2': "Unlock auto rank, <br><p class='void_text'>EMBRACE THE DARKNESS</p>"
+            '2': "Tier boosts eclipsal shards, <br><p class='void_text'>EMBRACE THE DARKNESS</p>"
         }
     },
     effects: {
@@ -74,6 +74,11 @@ const RANKS = {
         tier: {
             '1'() {
                 let ret = player.ranks.tier.div(25).add(1)
+
+                return ret
+            },
+            '2'() {
+                let ret = player.ranks.tier.div(3).pow(0.8).add(1)
 
                 return ret
             }

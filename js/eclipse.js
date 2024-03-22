@@ -22,6 +22,7 @@ const ECLIPSE = {
         let o1 = E(1.5e21)
         let o2 = E(0.2)
         let sg = player.essence.div(o1).pow(o2)
+        if (player.ranks.tier.gte(2)) sg = sg.mul(RANKS.effects.tier[2]())
         return sg
     }
 }
