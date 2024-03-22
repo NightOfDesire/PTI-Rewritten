@@ -109,7 +109,7 @@ function updateRanksHTML() {
             }
         }
         tmp.el[rn].setHTML(`${fn}: <b>${format(player.ranks[rn],0)}</b><br>`)
-        tmp.el[rn+"up"].setHTML(desc)
+        tmp.el[rn+"up"].setHTML(d)
         tmp.el[rn].setDisplay(RANKS.unl[rn]())
         tmp.el[rn].setDisplay(RANKS.unl[rn]())
     }
