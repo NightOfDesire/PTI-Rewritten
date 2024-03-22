@@ -96,11 +96,13 @@ function updateRanksHTML() {
         tmp.ranks.rank.auto ? `AUTO: ON`: `AUTO: OFF`
     ).setDisplay(tmp.ranks.rank.autounl)
     tmp.
-    tmp.el.tier.setHTML(`Tier: <b>${format(player.ranks.tier, 0)}</b><br>`).setDisplay(player.eclipse.shards.gte(1))
+    tmp.el.tier.setHTML(`Tier: <b>${format(player.ranks.tier, 0)}</b><br>`)
+    tmp.el.tier.setDisplay(player.eclipse.shards.gte(1))
     tmp.el.tierup.setHTML(`
     Reset your progress, but tier up. ${RANKS.desc.tier[player.ranks.tier.add(1)] ? `At tier ` + format(player.ranks.tier.add(1),0) + ' - ' + RANKS.desc.tier[player.ranks.tier.add(1)] : ''}
     <br>Need: Rank ${format(RANKS.reqs.tier(),0)}
-    `).setDisplay(player.eclipse.shards.gte(1))
+    `)
+    tmp.el.tierup.setDisplay(player.eclipse.shards.gte(1))
 
 
     /*for (let i = 0; i < RANKS["names"].length; i++) {
@@ -132,5 +134,5 @@ function updateRanksTemp() {
     tmp.ranks.rank.can = player.essence.gte(RANKS.reqs.rank())
     tmp.ranks.tier.can = player.ranks.rank.gte(RANKS.reqs.tier())
     tmp.ranks.rank.autounl = player.ranks.tier.gte(2)
-    tmp.el['rank_auto'].setAttr('onclick',`if (tmp.ranks.rank.autounl) tmp.ranka.rank.auto = !tmp.ranks.rank.auto`)
+    //tmp.el['rank_auto'].setAttr('onclick',`if (tmp.ranks.rank.autounl) tmp.ranka.rank.auto = !tmp.ranks.rank.auto`)
 }

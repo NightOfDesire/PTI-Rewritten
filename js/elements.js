@@ -11,8 +11,7 @@ function setupHTML() {
 		let type = RANKS.names[i]
 		table += `
 		<div id="${type}" class="charged_text"></div>
-		<button id="${type}up" onclick="RANKS.reset('${type}')" class="btn" style="max-width: 300px; max-height: 200px;"></button>
-		<button id="${type}_auto"></button>
+		<button id="${type}up" onclick="RANKS.reset('${type}')" class="btn" style="min-width: 250px; min-height: 130px;"></button>
 		`
 	}
 	rank_table.setHTML(table)
