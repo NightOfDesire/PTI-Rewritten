@@ -30,7 +30,7 @@ const TAB_TERMINAL = {
         let html = ''
         for (let i=0;i<TABS.list.length; i++) {
             html += `
-            <button id="CT_${TABS.list[i]}" onclick="TABS.choose('${TABS.list[i]})'" class="${TAB_TERMINAL.classes[TABS.list[i]]||""}">Open ${TABS.list[i]} Tab</div>`
+            <button id="CT_${TABS.list[i]}" onclick="TABS.choose('${TABS.list[i]}')" class="${TAB_TERMINAL.classes[TABS.list[i]]||""}">Open ${TABS.list[i]} Tab</div>`
             new Element('Tab_Terminal').setHTML(html)
         }
     },
