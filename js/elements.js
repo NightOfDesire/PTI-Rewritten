@@ -61,4 +61,5 @@ function updateHTML() {
 	if (player.tab == "EclipseTab") updateEclipseHTML()
 	TABS.update()
 	TAB_TERMINAL.refresh()
+	updateSettingsHTML()
 }

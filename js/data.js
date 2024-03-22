@@ -78,6 +78,13 @@ function getPlayerData() {
             shards: E(0),
             unl: false
         },
+        void: {
+            consumed: false,
+            unl: false,
+            essence: E(0),
+            oddities: E(0),
+            power: E(0)
+        },
         options: {
             font: 'Verdana',
             notation: 'standard',

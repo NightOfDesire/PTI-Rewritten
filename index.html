@@ -16,6 +16,7 @@
         <script src="js/ranks.js"></script>
         <script src="js/eclipse.js"></script>
         <script src="js/tabs.js"></script>
+        <script src="js/settingsstuff.js"></script>
         <script src="https://js.sentry-cdn.com/0c5bfd06471329b2b5d51eac3ae466f3.min.js" crossorigin="anonymous"></script>
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@600&display=swap');
@@ -54,12 +55,28 @@
                 <!--<div class="table_center charged_text" id="rank"></div>
                 <button id="rankup" onclick="RANKS.reset('rank')" class="btn charged_text"></button>-->
             </div>
-            <div class="table_center" id="EclipseTab">
+            <div id="EclipseTab">
                 <p class="line"></p>
                 <p id="test"></p>
                 <button id="Activate_Eclipse" onclick="ECLIPSE.ACTIVATE()" class="orange">?????</button>
                 <div id="EclipsalShards" class="red"></div>
                 <div>Upon the first eclipse exit with a reward, you gain x5 Essence while outside of eclipse, and unlock Tiers</div>
+            </div>
+            <div id="VoidTab">
+                <p class="line"></p>
+                <div id="VoidEssence"></div>
+                <div id="VoidPower"></div>
+            </div>
+            <div id="SettingsTab">
+                <p class="line"></p>
+                <div id="DataButtons" style="padding: 10px">
+                    <button class="btn sky" onclick="wipe()">Wipe Data</button>
+                    <button class="btn sky" onclick="export_copy()">Export Data To Clipboard</button>
+                    <button class="btn sky" onclick="importy()">Import Save</button>
+                </div>
+                <p class="line"></p>
+                <br>
+                <div id="ptime"></div>
             </div>
         </div>
     

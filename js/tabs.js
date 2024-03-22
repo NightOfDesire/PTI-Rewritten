@@ -16,14 +16,16 @@ const TABS = {
         tmp.el.CT_Eclipse.setDisplay(player.ranks.rank.gte(15) || player.eclipse.unl)
     },
     list: [
-        "Main","Pres","Rank","Eclipse"
+        "Main","Pres","Rank","Eclipse","Void","Settings"
     ]
 }
 
 const TAB_TERMINAL = {
     classes: {
         Pres: 'charged_text',
-        Eclipse: 'orange'
+        Eclipse: 'orange',
+        Void: "corrupted_text",
+        Settings: 'magenta'
     },
     setup() {
         let html = ''

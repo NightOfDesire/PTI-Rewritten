@@ -48,7 +48,8 @@ const RANKS = {
             '15': 'Unlock ????? <p class="corrupted_text2"></p>'
         },
         tier: {
-            '1': "Essence first softcap starts later based on tier."
+            '1': "Essence first softcap starts later based on tier.",
+            '2': "Unlock auto rank, <p class='corrupted_text2'></p>EMBRACE THE DARKNESS<p class='corrupted_text2'></p>"
         }
     },
     effects: {
