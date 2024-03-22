@@ -25,10 +25,7 @@
 
     </head>
     <body onload="loadGame()">
-        <button class="btn table_center" onclick="wipe()">wipe data</button>
-        <button class="btn table_center" onclick="export_copy()">export save to clipboard</button>
-        <button class="btn table_center" onclick="importy()">import save</button>
-        <p id="test"></p>
+        <p id="topEssence"></p>
         <div id="notify" class="hide"></div>
         <div id="popups"></div>
         <input id="copy" style="position: absolute; top: 0; left: 0; user-select: all; visibility: hidden;">
@@ -52,7 +49,7 @@
             </div>
             <div id="RankTab">
                 <p class="line"></p>
-                <div class="table_center" id="rank_table"></div>
+                <div id="rank_table"></div>
                 <!--<div class="table_center charged_text" id="rank"></div>
                 <button id="rankup" onclick="RANKS.reset('rank')" class="btn charged_text"></button>-->
             </div>
