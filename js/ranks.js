@@ -84,7 +84,7 @@ function updateRanksHTML() {
     `)
 
 
-    /*for (let i = 0; i < RANKS.names.length; i++) {
+    /*for (let i = 0; i < RANKS["names"].length; i++) {
         let type = RANKS.names[i]
         tmp.el[type].setHTML(`${RANKS.fullnames[i]}: <b>${format(player.ranks[type],0)}</b>`)
         tmp.el[type+"up"].setHTML(`
@@ -98,5 +98,8 @@ function updateRanksTemp() {
     if (!tmp.ranks) tmp.ranks = {}
         tmp.ranks.rank = {
             can: player.essence.gte(RANKS.reqs.rank()),
+        }
+        tmp.ranks.tier = {
+            can: player.tank.gte(RANKS.reqs.tier())
         }
 }
