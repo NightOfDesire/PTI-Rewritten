@@ -19,13 +19,16 @@ const TABS = {
         "Main","Pres","Rank","Eclipse"
     ]
 }
-const COLORS = ['green','sky','yellow','red','magenta','cyan','gray']
 const TAB_TERMINAL = {
+    classes: {
+        Pres: 'charged_text',
+        Eclipse: 'orange'
+    },
     setup() {
         let html = ''
         for (let i=0;i<TABS.list.length; i++) {
             html += `
-            <button id="CT_${TABS.list[i]}" onclick="TABS.choose('${TABS.list[i]})'" class="${COLORS[Math.floor(Math.random()*COLORS.length-1)]}">Open ${TABS.list[i]} Tab</div>`
+            <button id="CT_${TABS.list[i]}" onclick="TABS.choose('${TABS.list[i]})'" class="${TAB_TERMINAL.classes[TABS.list[i]]||""}">Open ${TABS.list[i]} Tab</div>`
             new Element('Tab_Terminal').setHTML(html)
         }
     },
