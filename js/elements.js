@@ -14,7 +14,8 @@ function setupHTML() {
 		<button id="${type}up" class="btn charged_text"></button>
 		`
 	}
-	rank_table.setHTML(`table`)
+	rank_table.setHTML(table)
+	table = ''
 	tmp.el = {}
 	let all = document.getElementsByTagName("*")
 	for (let i=0;i<all.length;i++) {
