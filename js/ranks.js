@@ -91,6 +91,7 @@ function updateRanksHTML() {
     Reset your progress, but rank up. ${RANKS.desc.rank[player.ranks.rank.add(1)] ? 'At rank ' + format(player.ranks.rank.add(1), 0) + ' - ' + RANKS.desc.rank[player.ranks.rank.add(1)] : ''}
     <br>Need: ${format(RANKS.reqs.rank())} Essence<br><br>
     `)
+    
     tmp.el.rank_auto.setHTML(
         tmp.ranks.rank.autounl ? (tmp.ranks.rank.auto ? `AUTO: ON`: `AUTO: OFF`) : ''
     )
@@ -130,4 +131,9 @@ function updateRanksTemp() {
     tmp.ranks.rank.can = player.essence.gte(RANKS.reqs.rank())
     tmp.ranks.tier.can = player.ranks.rank.gte(RANKS.reqs.tier())
     tmp.ranks.rank.autounl = player.ranks.tier.gte(2)
+    for (let x = 0; x < RANKS["names"].length; x++) {
+        let t = RANKS.names[x]
+
+        tmp.el[t+'_auto'].setAttr('onclick',`if (tmp.ranks[${t}].autounl) tmp.ranks[${t}].auto = !tmp.ranks[${t}].auto`)
+    }
 }
