@@ -58,7 +58,7 @@ const FORMS = {
             },
             '2'() {
                 let pow = player.eclipse.shards.pow(2.25).root(1.15)
-                pow = pow.softcap('100',)
+                pow = pow.softcap('100', 0.5, 0)
                 return pow
             }
         }
