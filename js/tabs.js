@@ -10,6 +10,9 @@ const TABS = {
             let tab = TABS.list[index]+"Tab"
             tmp.el[tab].setDisplay(player.tab == tab)
         }
+        tmp.el.CT_Pres.setDisplay(player.misc.hEss.gte(15))
+        tmp.el.CT_Rank.setDisplay(player.misc.hEss.gte(2.5e5))
+        tmp.el.CT_Eclipse.setDisplay(player.ranks.rank.gte(15) || player.eclipse.unl)
     },
     list: [
         "Main","Pres","Rank","Eclipse"
