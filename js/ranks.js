@@ -56,14 +56,16 @@ const RANKS = {
             '5': "Automatically generate prestige shards.",
             '10': "Essence boosts PS by x(log10(essence+1)^0.1)+1",
             '13': "Essence is raised by 1.02",
-            '15': 'Unlock ????? <p class="corrupted_text2"></p>'
+            '15': 'Unlock ????? <p class="corrupted_text2"></p>',
+            '1e4': "Placeholder"
         },
         tier: {
             '1': "Essence first softcap starts later based on tier.",
-            '2': "Tier boosts eclipsal shards, <br><p class='void_text'>EMBRACE THE DARKNESS</p>"
+            '2': "Tier boosts eclipsal shards, <br><p class='void_text'>EMBRACE THE DARKNESS</p>",
+            '1e4': "Placeholder"
         },
         asc: {
-            '1': "Placeholder"
+            '1e4': "Placeholder"
         }
     },
     effects: {
@@ -89,7 +91,7 @@ const RANKS = {
                 let ret = player.ranks.tier.div(3).pow(0.8).add(1)
 
                 return ret
-            }
+            },
         },
         asc: {
 
@@ -110,7 +112,15 @@ const RANKS = {
     fullnames: ['Rank','Tier','Asc'],
 }
 
-
+function getRankReqResource(t,amt) {
+    if (t == "rank") {
+        return format(E(amt)) + 'Essence'
+    } else if (t == "tier") {
+        return 'Rank' + format(E(amt),0)
+    } else if (t == "asc") {
+        return 'Tier' + format(E(amt),0)
+    }
+}
 function updateRanksHTML() {
     /**return @SHSHWIEDUZYXH tezt */
     for (let x = 0; x < RANKS.names.length; x++) {
@@ -120,7 +130,7 @@ function updateRanksHTML() {
         let d = ""
         for (let i = 0; i < k.length; i++) {
             if (player.ranks[rn].lt(k[i])) {
-                d = `${fn} up, but reset all your progress. At ${RANKS.fullnames[x]} ${format(k[i],0)} - ${RANKS.desc[rn][k[i]]}`
+                d = `${fn} up, but reset all your progress. At ${RANKS.fullnames[x]} ${format(k[i],0)} - ${RANKS.desc[rn][k[i]]}<br>Need: ${getRankReqResource(rn, RANKS.reqs[rn]())}`
             }
         }
         tmp.el[rn].setHTML(`${fn}: <b>${format(player.ranks[rn],0)}</b><br>`)
