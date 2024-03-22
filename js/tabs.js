@@ -3,6 +3,7 @@ const TABS = {
         let new_tab = id+"Tab"
         if (player.tab != new_tab) {
             player.tab = new_tab
+            player.tabterm.open = false
         }
     },
     update() {
@@ -21,14 +22,12 @@ const TABS = {
 const COLORS = ['green','sky','yellow','red','magenta','cyan','gray']
 const TAB_TERMINAL = {
     setup() {
-        let h = 'div class="table_cener">'
+        let html = ''
         for (let i=0;i<TABS.list.length; i++) {
-    
-            h += `
+            html += `
             <button id="CT_${TABS.list[i]}" onclick="TABS.choose(${TABS.list[i]}) class="${COLORS[Math.floor(Math.random()*COLORS.length-1)]}">Open ${TABS.list[i]} Tab</div>`
+            new Element('Tab_Terminal').setHTML(html)
         }
-        h += "</div>"
-        tmp.el.Tab_Terminal.setHTML(h)
     },
     open() {
         player.tabterm.open = !player.tabterm.open
