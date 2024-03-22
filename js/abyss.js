@@ -1,6 +1,6 @@
 const ABYSS = {
     update() {
-        //v1.2's main feature!
+
         tmp.el.SUMMONDARKNESS.setHTML(
             player.abyss.active ? (player.essence.lte(5e6) ? `Go Back To The Light` : `Embrace the darkness for +${format(ABYSS.VoidEssGain())} <b>Void Essence</b>`) : 'Summon The Darkness'
         )
