@@ -14,6 +14,10 @@ const RANKS = {
                     player.pres.pts = E(0)
                     player.ranks.rank = player.ranks.rank.add(1)
                 }
+            } else if (type == "asc") {
+                if (tmp.ranks.asc.can) {
+
+                }
             } else return
 
     },
@@ -57,6 +61,9 @@ const RANKS = {
         tier: {
             '1': "Essence first softcap starts later based on tier.",
             '2': "Tier boosts eclipsal shards, <br><p class='void_text'>EMBRACE THE DARKNESS</p>"
+        },
+        asc: {
+            '1': "Placeholder"
         }
     },
     effects: {
@@ -83,16 +90,24 @@ const RANKS = {
 
                 return ret
             }
+        },
+        asc: {
+
         }
     },
     unl: {
-        rank : () => true,
-        tier : () => player.eclipse.shards.gte(1) || player.eclipse.score.gte(1.5e21) || player.abyss.unl
+        rank() {return true},
+        tier() {return player.eclipse.shards.gte(1) || player.eclipse.score.gte(1.5e21) || player.abyss.unl},
+        asc() {return player.abyss.power.gte(50)}
             
-        
     },
-    names: ['rank','tier'],
-    fullnames: ['Rank','Tier'],
+    autoUnl: {
+        rank() {return player.tier.gte(2)},
+        tier() {return player.abyss.power.gte(35)},
+        asc() {return false}
+    },
+    names: ['rank','tier','asc'],
+    fullnames: ['Rank','Tier','Asc'],
 }
 
 
@@ -106,7 +121,6 @@ function updateRanksHTML() {
         for (let i = 0; i < k.length; i++) {
             if (player.ranks[rn].lt(k[i])) {
                 d = `${fn} up, but reset all your progress. At ${RANKS.fullnames[x]} ${format(k[i],0)} - ${RANKS.desc[rn][k[i]]}`
-                break
             }
         }
         tmp.el[rn].setHTML(`${fn}: <b>${format(player.ranks[rn],0)}</b><br>`)
@@ -142,17 +156,25 @@ function updateRanksTemp() {
     if (!tmp.ranks) tmp.ranks = {}
     for (let x = 0; x < RANKS["names"].length; x++) {
         let t = RANKS.names[x]
-        if (!tmp.ranks[t]) {
             tmp.ranks[t] = {
-                unl: false,
-                can: false,
-                autounl: false,
-                auto: false
-            }
+            get unl() {
+                return RANKS.unl[t]()
+            },
+            get can() {
+                    let res
+                    if (x-1 == -1) {
+                        res = 'essence'
+                    } else res = t
+                    return player[res].gte(RANKS.reqs[t]())
+                },
+            get autounl() {
+                return RANKS.autoUnl[t]()
+            },
+            auto: false
         }
     }
-    tmp.ranks.rank.can = player.essence.gte(RANKS.reqs.rank())
-    tmp.ranks.tier.can = player.ranks.rank.gte(RANKS.reqs.tier())
-    tmp.ranks.rank.autounl = player.ranks.tier.gte(2)
+    //tmp.ranks.rank.can = player.essence.gte(RANKS.reqs.rank())
+    //tmp.ranks.tier.can = player.ranks.rank.gte(RANKS.reqs.tier())
+    //tmp.ranks.rank.autounl = player.ranks.tier.gte(2)
 }
 /**@param s */
