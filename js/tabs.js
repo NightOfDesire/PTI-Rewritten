@@ -19,6 +19,7 @@ const TABS = {
         "Main","Pres","Rank","Eclipse"
     ]
 }
+
 const TAB_TERMINAL = {
     classes: {
         Pres: 'charged_text',
