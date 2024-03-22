@@ -32,7 +32,7 @@ const FORMS = {
             let start = E("e33")
             start = start.pow(RANKS.effects.tier[1]())
             if (ECLIPSE.ACTIVE()) start = E("1e13")
-            if (ABYSS.active()) start = 0
+            if (ABYSS.active()) start = 1
             return E(start)
         },
         soft1pow() {
