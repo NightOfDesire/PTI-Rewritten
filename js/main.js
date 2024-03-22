@@ -52,14 +52,14 @@ const FORMS = {
     eclipse: {
         shardeffs: {
             '1'() {
-                let pow = (player.eclipse.shards.pow(0.1).root(4)).add(1)
-                pow = pow.softcap("10", 0.75, 0)
-                return pow
+                let eff = (player.eclipse.shards.pow(0.1).root(4)).add(1)
+                eff = eff.softcap("10", 0.75, 0)
+                return eff
             },
             '2'() {
-                let pow = player.eclipse.shards.pow(2.25).root(1.15)
-                pow = pow.softcap('100', 0.5, 0)
-                return pow
+                let eff = player.eclipse.shards.pow(2.25).root(1.15)
+                eff = pow.softcap('35', 0.5, 0)
+                return eff
             }
         }
     },
