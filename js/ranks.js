@@ -73,6 +73,7 @@ const RANKS = {
 
 
 function updateRanksHTML() {
+    tmp.el.test.setHTML(`{${documentt.getElementById('rankup').style.width}, ${document.getElementById('rankup').style.height}}`)
     tmp.el.rank.setHTML(`Rank: <b>${format(player.ranks.rank, 0)}</b>`)
     tmp.el.rankup.setHTML(`<br>
     Reset your progress, but rank up. ${RANKS.desc.rank[player.ranks.rank.add(1)] ? 'At rank ' + format(player.ranks.rank.add(1), 0) + ' - ' + RANKS.desc.rank[player.ranks.rank.add(1)] : ''}
