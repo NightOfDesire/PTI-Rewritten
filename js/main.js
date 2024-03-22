@@ -60,7 +60,7 @@ const FORMS = {
                 return r
             },
             '2'() {
-                let r = player.eclipse.shards.pow(1.667).root(1.15)
+                let r = player.eclipse.shards.pow(1.667).root(1.2)
 
                 r = r.softcap('35', 0.5, 0)
 
