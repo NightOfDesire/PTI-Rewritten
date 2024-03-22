@@ -66,7 +66,7 @@ function getPlayerData() {
         ranks: {
             rank: E(0),
             tier: E(0),
-            tetr: E(0)
+            asc: E(0),
         },
         pres: {
             pts: E(0),
