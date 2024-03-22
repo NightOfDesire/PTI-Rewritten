@@ -100,6 +100,6 @@ function updateRanksTemp() {
             can: player.essence.gte(RANKS.reqs.rank()),
         }
         tmp.ranks.tier = {
-            can: player.tank.gte(RANKS.reqs.tier())
+            can: player.ranks.rank.gte(RANKS.reqs.tier())
         }
 }
