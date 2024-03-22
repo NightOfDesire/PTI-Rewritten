@@ -71,6 +71,7 @@ const RANKS = {
     fullnames: ['Rank','Tier'],
 }
 
+
 function updateRanksHTML() {
     tmp.el.rank.setHTML(`Rank: <b>${format(player.ranks.rank, 0)}</b>`)
     tmp.el.rankup.setHTML(`<br>
