@@ -19,7 +19,7 @@ const ST_NAMES = [
 ]
 const RESETS = {
     prestige() {
-        addNotify(`Prestiged at ${format(player.essence)} Essence for +${format(tmp.pres.gain)} Prestige Shards`, 1)
+        //addNotify(`Prestiged at ${format(player.essence)} Essence for +${format(tmp.pres.gain)} Prestige Shards`, 1)
         player.pres.pts = player.pres.pts.add(tmp.pres.gain)
         FORMS.pres.doReset()
         player.pres.unl = true
@@ -63,7 +63,7 @@ const FORMS = {
     },
     essenceGain() {
     let x = E(1)
-    x = x.add(player.pres.pts.pow(1.5))
+    x = x.add(player.pres.pts.pow(1.4))
     if (player.ranks.rank.gte(1)) x = x.mul(3)
     if (player.ranks.rank.gte(2)) x = x.mul(RANKS.effects.rank[2]())
     if (ECLIPSE.ACTIVE()) x = x.div(10)
