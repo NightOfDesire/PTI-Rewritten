@@ -34,7 +34,7 @@ const FORMS = {
             return start
         },
         soft1pow() {
-            let pow = 'how in the absolute fuck does this cause an error?'
+            //let pow = 'how in the absolute fuck does this cause an error?'
             let softcap = E(0.8)
 
             return softcap
@@ -54,12 +54,16 @@ const FORMS = {
         shardeffs: {
             '1'() {
                 let eff = (player.eclipse.shards.pow(0.1).root(4)).add(1)
+
                 eff = eff.softcap("10", 0.75, 0)
+
                 return eff
             },
             '2'() {
                 let eff = player.eclipse.shards.pow(2.25).root(1.15)
+
                 eff = eff.softcap('35', 0.5, 0)
+
                 return eff
             }
         }
