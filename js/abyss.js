@@ -15,10 +15,11 @@ const ABYSS = {
                 player.abyss.essence = player.abyss.essence.add(ABYSS.VoidEssGain())
                 addNotify(`Embraced for +${format(ABYSS.VoidEssGain())} <b>Void Essence</b>`)
             }
+            
             FORMS.tierReset()
             player.abyss.active = false
         } else {
-            
+
             FORMS.tierReset()
             player.abyss.active = true
 
