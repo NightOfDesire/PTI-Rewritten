@@ -74,8 +74,9 @@ function getPlayerData() {
         },
         eclipse: {
             active: false,
-            best: E(0),
-            shards: E(0)
+            score: E(0),
+            shards: E(0),
+            unl: false
         },
         options: {
             font: 'Verdana',
