@@ -10,7 +10,7 @@ const TABS = {
 
         for (let t=0;t<TABS["list"].length;t++) {
 
-            let tab = TABS[t]+"Tab"
+            let tab = TABS.list[t]+"Tab"
 
             tmp.el[tab].setDisplay(player.tab == tab)
 
