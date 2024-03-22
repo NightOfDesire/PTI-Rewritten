@@ -1,20 +1,21 @@
 const RANKS = {
     reset(type) {
-        switch(type) {
-            case "tier": 
-            if (tmp.ranks.tier.can) {
-                player.essence = E(0)
-                player.pres.pts = E(0)
-                player.ranks.rank = E(0)
-                player.ranks.tier = player.ranks.tier.add(1)
-            }
-            default:
-                if (tmp.ranks[type].can) {
+        
+            if (type == "tier") {
+                if (tmp.ranks.tier.can) {
+                    player.essence = E(0)
+                    player.pres.pts = E(0)
+                    player.ranks.rank = E(0)
+                    player.ranks.tier = player.ranks.tier.add(1)
+                }
+            } else {
+                if (tmp.ranks.rank.can) {
                     player.essence = E(0)
                     player.pres.pts = E(0)
                     player.ranks.rank = player.ranks.rank.add(1)
                 }
-        }
+            }
+
     },
     reqs : {
         rank(x=player.ranks.rank) {
