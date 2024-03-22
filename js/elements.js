@@ -5,7 +5,7 @@ function setupHTML() {
 	
 	//setupModsHTML()
 
-
+	TAB_TERMINAL.setup()
 	tmp.el = {}
 	let all = document.getElementsByTagName("*")
 	for (let i=0;i<all.length;i++) {
@@ -38,7 +38,7 @@ function updateHTML() {
 
 
 
-	
+
 	tmp.el.EssSoft2.setHTML(`Due to excessive strange essence, starting at ${format(FORMS.essence.soft2start())} essence, the gain will be softcapped^2!<br>`)
 	tmp.el.Prestige.setHTML(tmp.pres.can?`<i><b>Prestige</b> and reset your essence for <b>Prestige Shards</b></i>`:`<i>Locked.</i>`)
 	tmp.el.prespts.setHTML(`
@@ -52,5 +52,4 @@ function updateHTML() {
 	updateEclipseHTML()
 	TABS.update()
 	TAB_TERMINAL.refresh()
-	TAB_TERMINAL.setup()
 }
