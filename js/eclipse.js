@@ -27,7 +27,7 @@ const ECLIPSE = {
 
 function updateEclipseHTML() {
     if (player.ranks.rank.gte(15)) player.eclipse.unl = true
-    tmp.el.CT3.setDisplay(player.eclipse.unl || player.ranks.rank.gte(15))
+    tmp.el.CT_Eclipse.setDisplay(player.eclipse.unl || player.ranks.rank.gte(15))
     tmp.el.EclipsalShards.setHTML(`
     Eclipsal Shards: ${format(player.eclipse.shards)}<br>
     Effects: essence is raised by ${format(FORMS.eclipse.shardeffs[1]())}<br>

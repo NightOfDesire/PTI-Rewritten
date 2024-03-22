@@ -22,7 +22,7 @@ const TAB_TERMINAL = {
         for (let i=0;i<TABS.list.length; i++) {
     
             h += `
-            <button onclick="TABS.choose(${TABS.list[i]}) class="${COLORS[Math.floor(Math.random()*COLORS.length-1)]}">Open ${TABS.list[i]} Tab</div>`
+            <button id="CT_${TABS.list[i]}" onclick="TABS.choose(${TABS.list[i]}) class="${COLORS[Math.floor(Math.random()*COLORS.length-1)]}">Open ${TABS.list[i]} Tab</div>`
         }
         h += "</div>"
         tmp.el.Tab_Terminal.setHTML(h)
