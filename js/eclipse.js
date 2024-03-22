@@ -26,6 +26,10 @@ const ECLIPSE = {
 }
 
 function updateEclipseHTML() {
+    tmp.el.EclipsalShards.setHTML(`
+    Eclipsal Shards: ${format(player.eclipse.shards)}<br>
+    Effects: essence is raised by ${format(FORMS.eclipse.shardeffs[1]())}<br>
+    Rank requirement increment is decreased by ${format(FORMS.eclipse.shardeffs[2]())}`)
     document.body.style.backgroundColor = `${player.eclipse.active ? "orange" : "hsl(0, 0%, 7%)"}`
     tmp.el.Activate_Eclipse.setHTML(!player.eclipse.active ? `?????` : (player.essence.lt('1e20') ? `?????` : `Undo the Eclipse for +${format(ECLIPSE.shardGain())} <b>Eclipsal Shards</b>`))
     tmp.el.Eclipse_Active.setHTML(ECLIPSE.ACTIVE() ? `<p class="corrupted_text">ECLIPSE ACTIVE</p>` : ``)

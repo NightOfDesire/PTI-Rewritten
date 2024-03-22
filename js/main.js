@@ -49,6 +49,20 @@ const FORMS = {
             return softcap
         }
     },
+    eclipse: {
+        shardeffs: {
+            '1'() {
+                let pow = (player.eclipse.shards.pow(0.1).root(4)).add(1)
+                pow = pow.softcap("10", 0.75, 0)
+                return poe
+            },
+            '2'() {
+                let pow = player.eclipse.shards.pow(2.25).root(1.15)
+                pow = pow.softcap('100',)
+                return pow
+            }
+        }
+    },
     presScs: {
         soft1start() {
             let start = E("e18")
