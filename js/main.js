@@ -80,6 +80,16 @@ const FORMS = {
             let softcap = E(0.5)
 
             return softcap
+        },
+        soft2start() {
+            let start = E("e40")
+            
+            return start
+        },
+        soft2pow() {
+            let softcap = E(0.6)
+
+            return softcap
         }
     },
     essenceGain() {
