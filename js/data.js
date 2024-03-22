@@ -90,6 +90,7 @@ function getPlayerData() {
             notation: 'standard',
             massDis: 0,
             nav_hide: [],
+            sci_start: E(12)
         },
        
         offline: {

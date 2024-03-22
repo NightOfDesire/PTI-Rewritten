@@ -123,11 +123,11 @@ const RANKS = {
 
 function getRankReqResource(t,amt) {
     if (t == "rank") {
-        return format(E(amt)) + 'Essence'
+        return format(E(amt)) + ' Essence'
     } else if (t == "tier") {
-        return 'Rank' + format(E(amt),0)
+        return 'Rank ' + format(E(amt),0)
     } else if (t == "asc") {
-        return 'Tier' + format(E(amt),0)
+        return 'Tier ' + format(E(amt),0)
     }
 }
 function updateRanksHTML() {
@@ -139,7 +139,7 @@ function updateRanksHTML() {
         let d = ""
         for (let i = 0; i < k.length; i++) {
             if (player.ranks[rn].lt(k[i])) {
-                d = `${fn} up, but reset all your progress. At ${RANKS.fullnames[x]} ${format(k[i],0)} - ${RANKS.desc[rn][k[i]]}<br>Need: ${getRankReqResource(rn, RANKS.reqs[rn]())}`
+                d = `${fn} up, but reset all your progress. At ${RANKS.fullnames[x]} ${format(k[i],0)} - ${RANKS.desc[rn][k[i]]}<br>Requires ${getRankReqResource(rn, RANKS.reqs[rn]())}`
             }
         }
         tmp.el[rn].setHTML(`${fn}: <b>${format(player.ranks[rn],0)}</b><br>`)
