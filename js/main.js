@@ -74,7 +74,7 @@ const FORMS = {
             return start
         },
         soft1pow() {
-            let softcap = E(0.625)
+            let softcap = E(0.5)
 
             return softcap
         }

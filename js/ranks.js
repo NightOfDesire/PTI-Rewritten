@@ -34,7 +34,7 @@ const RANKS = {
             '1': "Prestige Shard gain is raised by 1.25, gain thrice as much Essence",
             '2': "Essence is boosted by rank [(x^2)^0.8].",
             '5': "Automatically generate prestige shards.",
-            '10': "Essence boosts PS by x(log10(essence)^0.1)+1",
+            '10': "Essence boosts PS by x(log10(essence+1)^0.1)+1",
             '15': 'Unlock ????? <p class="corrupted_text2"></p>'
         }
     },
@@ -46,7 +46,7 @@ const RANKS = {
                 return ret
             },
             '10'() {
-                let ret = (player.essence.log10().root(10)).add(1)
+                let ret = (player.essence.add(1).log10().root(10)).add(1)
 
                 return ret
             }
