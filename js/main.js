@@ -32,11 +32,12 @@ const FORMS = {
             let start = E("e33")
             start = start.pow(RANKS.effects.tier[1]())
             if (ECLIPSE.ACTIVE()) start = E("1e13")
+            if (ABYSS.active()) start = E(0)
             return start
         },
         soft1pow() {
-            //let pow = 'how in the absolute fuck does this cause an error?'
             let softcap = E(0.8)
+            if (ABYSS.active()) softcap = E(0.6)
 
             return softcap
         },
@@ -60,6 +61,7 @@ const FORMS = {
                 if (ECLIPSE.ACTIVE()) {
                     if (r.gte(1.1)) r = 1.1
                 }
+                if (ABYSS.active()) return E(1)
                 return r
             },
             '2'() {
@@ -70,6 +72,11 @@ const FORMS = {
                 return r
             }
         }
+    },
+    tierReset() {
+        player.essence = E(0)
+        player.pres.pts = E(0)
+        player.ranks.rank = E(0)
     },
     presScs: {
         soft1start() {
@@ -127,6 +134,7 @@ pres: {
         if (player.ranks.rank.gte(1)) gain = gain.pow(1.25)
         if (player.ranks.rank.gte(10)) gain = gain.mul(RANKS.effects.rank[10]())
         if (ECLIPSE.ACTIVE()) gain = gain.pow(0.7)
+        if (ABYSS.active()) gain = gain.root(3)
         gain = gain.softcap(FORMS.presScs.soft1start(), FORMS.presScs.soft1pow(), 0)
         return gain.floor()
     },
@@ -161,7 +169,7 @@ function loop() {
 function turnOffline() {
 player.offline.active = !player.offline.active}
 
-function format(ex, acc=4, max=100, type=player.options.notation) {
+function format(ex, acc=4, max=9, type=player.options.notation) {
     
 
     ex = E(ex)

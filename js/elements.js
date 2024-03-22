@@ -36,6 +36,7 @@ function updateHTML() {
 
 	}
 	//updateModsHTML()
+	ABYSS.update()
 	tmp.el.loading.setDisplay(!tmp.start)
 	tmp.el.app.setDisplay(tmp.start)
     tmp.el.Essence.setHTML(`

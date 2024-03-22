@@ -79,7 +79,7 @@ function getPlayerData() {
             unl: false
         },
         abyss: {
-            consumed: false,
+            active: false,
             unl: false,
             essence: E(0),
             oddities: E(0),
