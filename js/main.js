@@ -53,8 +53,8 @@ const FORMS = {
     eclipse: {
         shardeffs: {
             '1'() {
-                let r = (player.eclipse.shards.pow(0.35).root(6))
-                r = r.softcap("10", 0.75, 0)
+                let r = (player.eclipse.shards.mul(2).pow(0.35).root(6))
+                r = r.softcap("10", 0.5, 0)
                 if (r.lt(1)) r = E(1)
                 if (ECLIPSE.ACTIVE()) {
                     if (r.gte(1.1)) r = 1.1

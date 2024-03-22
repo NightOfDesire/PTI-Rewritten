@@ -3,7 +3,6 @@ const TABS = {
         let new_tab = id+"Tab"
         if (player.tab != new_tab) {
             player.tab = new_tab
-            player.tabterm.open = false
         }
     },
     update() {
