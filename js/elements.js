@@ -52,7 +52,7 @@ function updateHTML() {
 	tmp.el.EssSoft2.setHTML(`Due to excessive strange essence, starting at ${format(FORMS.essence.soft2start())} essence, the gain will be softcapped^2!<br>`)
 	tmp.el.Prestige.setHTML(tmp.pres.can?`<i><b>Prestige</b> and reset your essence for <b>Prestige Shards</b></i>`:`<i>Locked.</i>`)
 	tmp.el.prespts.setHTML(`
-<br>Prestige Shards: ${format(player.pres.pts)} ${tmp.pres.auto ? formatGain(player.pres.pts, tmp.pres.gain.mul(tmp.gs)) : `(+${format(tmp.pres.gain)})`}
+	<br>Prestige Shards: ${format(player.pres.pts)} ${tmp.pres.auto ? formatGain(player.pres.pts, tmp.pres.gain.mul(tmp.gs)) : `(+${format(tmp.pres.gain)})`}
 	<br>Effect: ${formatMult(FORMS.pres.effect())} Essence
 	`)
 	//if (player.misc.hEss.gte('1e100')) player.MODIFIERS.unl = true

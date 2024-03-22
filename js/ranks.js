@@ -73,20 +73,24 @@ const RANKS = {
 }
 
 function updateRanksHTML() {
-    /*tmp.el.rank.setHTML(`Rank: <b>${format(player.ranks.rank, 0)}</b>`)
+    tmp.el.rank.setHTML(`Rank: <b>${format(player.ranks.rank, 0)}</b>`)
     tmp.el.rankup.setHTML(`
-    Reset your progress but rank up. ${RANKS.desc.rank[player.ranks.rank.add(1)] ? 'At rank ' + format(player.ranks.rank.add(1), 0) + ' - ' + RANKS.desc.rank[player.ranks.rank.add(1)] : ''}
+    Reset your progress, but rank up. ${RANKS.desc.rank[player.ranks.rank.add(1)] ? 'At rank ' + format(player.ranks.rank.add(1), 0) + ' - ' + RANKS.desc.rank[player.ranks.rank.add(1)] : ''}
     <br>Need: ${format(RANKS.reqs.rank())} Essence
-    `)*/
+    `)
+    tmp.el.tier.setHTML(`Tier: <b>${format(player.ranks.tier, 0)}</b>`)
+    tmp.el.tierup.setHTML(`
+    Reset your progress, but tier up. ${RANKS.desc.tier[player.ranks.tier.add(1)] ? `At tier ` + format(player.ranks.tier.add(1),0) + ' - ' + RANKS.desc.tier[player.ranks.tier.add(1)] : ''}
+    `)
 
 
-    for (let i = 0; i < RANKS.names.length; i++) {
+    /*for (let i = 0; i < RANKS.names.length; i++) {
         let type = RANKS.names[i]
         tmp.el[type].setHTML(`${RANKS.fullnames[i]}: <b>${format(player.ranks[type],0)}</b>`)
         tmp.el[type+"up"].setHTML(`
         Reset your progress but ${type} up. ${RANKS.desc[type[player.ranks[type].add(1)]] ? `At ${type} ` + format(player.ranks[type].add(1),0) + " - " + RANKS.desc[type[player.ranks[type].add(1)]] : ''}
         `)
-    }
+    }*/
 
 }
 
