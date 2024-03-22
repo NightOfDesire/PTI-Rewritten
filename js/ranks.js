@@ -7,7 +7,6 @@ const RANKS = {
                 player.pres.pts = E(0)
                 player.ranks.rank = E(0)
                 player.ranks.tier = player.ranks.tier.add(1)
-                addNotify(`Tiered up to ${format(player.ranks.tier.add(1), 0)}.`, 1)
             }
             default:
                 if (tmp.ranks[type].can) {
@@ -29,8 +28,8 @@ const RANKS = {
             return req
         },
         tier(x=player.ranks.tier) {
-            let base = E("14")
-            let inc = E("1.25")
+            let base = E("15")
+            let inc = E("1.2")
             inc = inc.pow(x.div(20).add(1))
 
             let req = Decimal.mul(base, Decimal.pow(inc, x))
@@ -74,12 +73,12 @@ const RANKS = {
 
 function updateRanksHTML() {
     tmp.el.rank.setHTML(`Rank: <b>${format(player.ranks.rank, 0)}</b>`)
-    tmp.el.rankup.setHTML(`
+    tmp.el.rankup.setHTML(`<br>
     Reset your progress, but rank up. ${RANKS.desc.rank[player.ranks.rank.add(1)] ? 'At rank ' + format(player.ranks.rank.add(1), 0) + ' - ' + RANKS.desc.rank[player.ranks.rank.add(1)] : ''}
     <br>Need: ${format(RANKS.reqs.rank())} Essence<br><br>
     `)
     tmp.el.tier.setHTML(`Tier: <b>${format(player.ranks.tier, 0)}</b>`)
-    tmp.el.tierup.setHTML(`
+    tmp.el.tierup.setHTML(`<br>
     Reset your progress, but tier up. ${RANKS.desc.tier[player.ranks.tier.add(1)] ? `At tier ` + format(player.ranks.tier.add(1),0) + ' - ' + RANKS.desc.tier[player.ranks.tier.add(1)] : ''}
     <br>Need: Rank ${format(RANKS.reqs.tier(),0)}
     `)
