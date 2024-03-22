@@ -101,7 +101,7 @@ function getPlayerData() {
             unl: false,
             comps: {}
         },
-        tab : "Main",
+        tab : "MainTab",
         tabterm: {
             open: false
         },

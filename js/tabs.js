@@ -7,8 +7,8 @@ const TABS = {
         }
     },
     update() {
-        for (index = 0;index<TABS.list.length;index++) {
-            let tab = TABS.list[index]+"Tab"
+        for (let t in TABS.list) {
+            let tab = t+"Tab"
             tmp.el[tab].setDisplay(player.tab == tab)
         }
         tmp.el.CT_Pres.setDisplay(player.misc.hEss.gte(15))
