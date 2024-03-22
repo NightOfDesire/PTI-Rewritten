@@ -1,11 +1,20 @@
 function setupHTML() {
 	
-	
+	let table = ''
 	
 	
 	//setupModsHTML()
 
 	TAB_TERMINAL.setup()
+	let rank_table = new Element('rank_table')
+	for (let i = 0; i < RANKS.names.length; i++) {
+		let type = RANKS.names[i]
+		table += `
+		<div id="${type}" class="charged_text"></div>
+		<button id="${type}up" class="btn charged_text"></button>
+		`
+	}
+	rank_table.setHTML(`table`)
 	tmp.el = {}
 	let all = document.getElementsByTagName("*")
 	for (let i=0;i<all.length;i++) {

@@ -27,6 +27,15 @@ const RANKS = {
             if (x.gte("22")) inc = inc.mul(1.2)
             let req = Decimal.mul(base, Decimal.pow(inc, x))
             return req
+        },
+        tier(x=player.ranks.tier) {
+            let base = E("14")
+            let inc = E("1.25")
+            inc = inc.pow(x.div(20).add(1))
+
+            let req = Decimal.mul(base, Decimal.pow(inc, x))
+
+            return req.floor()
         }
     },
     desc: {
@@ -37,6 +46,9 @@ const RANKS = {
             '10': "Essence boosts PS by x(log10(essence+1)^0.1)+1",
             '13': "Essence is raised by 1.02",
             '15': 'Unlock ????? <p class="corrupted_text2"></p>'
+        },
+        tier: {
+            '1': "Essence first softcap is weaker based on tier."
         }
     },
     effects: {
@@ -51,17 +63,30 @@ const RANKS = {
 
                 return ret
             }
+        },
+        tier: {
+
         }
     },
-    names: ['rank']
+    names: ['rank','tier'],
+    fullnames: ['Rank','Tier'],
 }
 
 function updateRanksHTML() {
-    tmp.el.rank.setHTML(`Rank: <b>${format(player.ranks.rank, 0)}</b>`)
+    /*tmp.el.rank.setHTML(`Rank: <b>${format(player.ranks.rank, 0)}</b>`)
     tmp.el.rankup.setHTML(`
     Reset your progress but rank up. ${RANKS.desc.rank[player.ranks.rank.add(1)] ? 'At rank ' + format(player.ranks.rank.add(1), 0) + ' - ' + RANKS.desc.rank[player.ranks.rank.add(1)] : ''}
     <br>Need: ${format(RANKS.reqs.rank())} Essence
-    `)
+    `)*/
+
+
+    for (let i = 0; i < RANKS.names.length; i++) {
+        let type = RANKS.names[i]
+        tmp.el[type].setHTML(`${RANKS.fullnames[i]}: <b>${format(player.ranks[type],0)}</b>`)
+        tmp.el[type+"up"].setHTML(`
+        Reset your progress but ${type} up. ${RANKS.desc[type[player.ranks[type].add(1)]] ? `At ${type} ` + format(player.ranks[type].add(1),0) + " - " + RANKS.desc[type[player.ranks[type].add(1)]] : ''}
+        `)
+    }
 
 }
 
