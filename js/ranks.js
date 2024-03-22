@@ -32,6 +32,7 @@ const RANKS = {
             if (x.gte("15")) inc = inc.pow(1.1375)
             if (x.gte("22")) inc = inc.mul(15)
             let req = Decimal.mul(base, Decimal.pow(inc, x))
+            if (ABYSS.active()) req = req.pow(1.3)
             return req
         },
         tier(x=player.ranks.tier) {

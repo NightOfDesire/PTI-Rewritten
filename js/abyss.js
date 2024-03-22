@@ -11,7 +11,7 @@ const ABYSS = {
     },
     summon() {
         if (ABYSS.active()) {
-            if (player.essence.gte(5e6)) {
+            if (player.essence.gte(5e7)) {
                 player.abyss.essence = player.abyss.essence.add(ABYSS.VoidEssGain())
                 addNotify(`Embraced for +${format(ABYSS.VoidEssGain())} <b>Void Essence</b>`)
             }
@@ -26,7 +26,7 @@ const ABYSS = {
         }
     },
     VoidEssGain() {
-        let gain = player.essence.div(5e6).root(2).pow(0.95)
+        let gain = player.essence.div(5e7).root(2).pow(0.95)
 
         return gain
     }
