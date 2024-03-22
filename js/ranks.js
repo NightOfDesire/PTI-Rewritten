@@ -23,8 +23,8 @@ const RANKS = {
             let inc = E(10)
             inc = inc.pow(x.div(17.5).add(1))
             if (x.gte("8")) inc = inc.pow(1.33)
-            if (x.gte("17")) inc = inc.pow(1.25)
-            inc = inc.sub(FORMS.eclipse.shardeffs[2]())
+            if (x.gte("15")) inc = inc.pow(1.25)
+            if (x.gte("22")) inc = inc.mul(1.2)
             let req = Decimal.mul(base, Decimal.pow(inc, x))
             return req
         }
