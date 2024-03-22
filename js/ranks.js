@@ -92,10 +92,6 @@ function updateRanksHTML() {
     <br>Need: ${format(RANKS.reqs.rank())} Essence<br><br>
     `)
     
-    tmp.el.rank_auto.setHTML(
-        tmp.ranks.rank.auto ? `AUTO: ON`: `AUTO: OFF`
-    ).setDisplay(tmp.ranks.rank.autounl)
-    tmp.
     tmp.el.tier.setHTML(`Tier: <b>${format(player.ranks.tier, 0)}</b><br>`)
     tmp.el.tier.setDisplay(player.eclipse.shards.gte(1))
     tmp.el.tierup.setHTML(`
