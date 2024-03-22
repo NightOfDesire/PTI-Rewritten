@@ -30,6 +30,7 @@ const FORMS = {
     essence: {
         soft1start() {
             let start = E("e33")
+            start = start.pow(RANKS.effects.tier[1]())
             if (ECLIPSE.ACTIVE()) start = E("1e13")
             return start
         },
