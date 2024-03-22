@@ -33,7 +33,7 @@
         <input id="copy" style="position: absolute; top: 0; left: 0; user-select: all; visibility: hidden;">
         <div id="loading" class="table_center">Path To Infinity v1.1.x<br>Loading..<br>fun fact: the game is in one single GUI! have fun with scrolling lolol</div>
         <div id="app">
-            <terminal id="Tab_Terminal" style="min-width: 100px; min-height: 150px"></terminal>
+            <div id="Tab_Terminal" style="min-width: 100px; min-height: 150px"></div>
             <button class="btn table_center green" onclick="TAB_TERMINAL.open()" id="Open_TT"></button>
             <div id="MainTab">
                 <div id="Eclipse_Active"></div>
@@ -43,21 +43,21 @@
                 </div>
                 <div class="table_center yellow" id="Essence">Essence: 0</div>
             </div>
-            <tab id="PresTab">
+            <div id="PresTab">
                 <p class="line"></p>
                 <button id="Prestige" class="btn sky" onclick="FORMS.pres.reset()" style="min-width: 15%"></button>
                 <div id="prespts" class="sky"></div>
-            </tab>
-            <tab id="RankTab">
+            </div>
+            <div id="RankTab">
                 <p class="line"></p>
                 <div class="table_center charged_text" id="rank"></div>
                 <button id="rankup" onclick="RANKS.reset('rank')" class="btn charged_text"></button>
-            </tab>
-            <tab id="EclipseTab">
+            </div>
+            <div id="EclipseTab">
                 <p class="line"></p>
                 <button id="Activate_Eclipse" onclick="ECLIPSE.ACTIVATE()" class="red">?????</button>
                 <div id="EclipsalShards" class="red"></div>
-            </tab>
+            </div>
         </div>
     
     </body>
