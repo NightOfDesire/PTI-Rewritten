@@ -14,6 +14,7 @@ const TABS = {
         tmp.el.CT_Pres.setDisplay(player.misc.hEss.gte(15))
         tmp.el.CT_Rank.setDisplay(player.misc.hEss.gte(2.5e5))
         tmp.el.CT_Eclipse.setDisplay(player.ranks.rank.gte(15) || player.eclipse.unl)
+        tmp.el.CT_Void.setDisplay(player.void.unl || player.tier.gte(2))
     },
     list: [
         "Main","Pres","Rank","Eclipse","Void","Settings"
@@ -24,7 +25,7 @@ const TAB_TERMINAL = {
     classes: {
         Pres: 'charged_text',
         Eclipse: 'orange',
-        Void: "corrupted_text",
+        Void: "void_text",
         Settings: 'magenta'
     },
     setup() {

@@ -12,6 +12,7 @@ function setupHTML() {
 		table += `
 		<div id="${type}" class="charged_text"></div>
 		<button id="${type}up" onclick="RANKS.reset('${type}')" class="btn charged_text" style="max-width: 300px; max-height: 200px;"></button>
+		<button id="${type}_auto" onclick="if (tmp.ranks[type].autounl) tmp.ranks[type].auto = !tmp.ranks[type].auto"></button>
 		`
 	}
 	rank_table.setHTML(table)

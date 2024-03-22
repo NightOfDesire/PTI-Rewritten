@@ -17,6 +17,12 @@ const RANKS = {
             } else return
 
     },
+    tick() {
+        for (let x = 0; x < RANKS["names"].length; x++) {
+            let t = RANKS.names[x]
+            if (t.auto) RANKS.reset(t)
+        }
+    },
     reqs : {
         rank(x=player.ranks.rank) {
             let base = E("4e5")
@@ -49,7 +55,7 @@ const RANKS = {
         },
         tier: {
             '1': "Essence first softcap starts later based on tier.",
-            '2': "Unlock auto rank, <p class='corrupted_text2'></p>EMBRACE THE DARKNESS<p class='corrupted_text2'></p>"
+            '2': "Unlock auto rank, <p class='void_text'>EMBRACE THE DARKNESS</p>"
         }
     },
     effects: {
@@ -85,6 +91,9 @@ function updateRanksHTML() {
     Reset your progress, but rank up. ${RANKS.desc.rank[player.ranks.rank.add(1)] ? 'At rank ' + format(player.ranks.rank.add(1), 0) + ' - ' + RANKS.desc.rank[player.ranks.rank.add(1)] : ''}
     <br>Need: ${format(RANKS.reqs.rank())} Essence<br><br>
     `)
+    tmp.el.rank_auto.setHTML(
+        tmp.ranks.rank.autounl ? (tmp.ranks.rank.auto ? `AUTO: ON`: `AUTO: OFF`) : ''
+    )
     tmp.el.tier.setHTML(`Tier: <b>${format(player.ranks.tier, 0)}</b><br>`)
     tmp.el.tierup.setHTML(`
     Reset your progress, but tier up. ${RANKS.desc.tier[player.ranks.tier.add(1)] ? `At tier ` + format(player.ranks.tier.add(1),0) + ' - ' + RANKS.desc.tier[player.ranks.tier.add(1)] : ''}
@@ -103,9 +112,22 @@ function updateRanksHTML() {
 }
 
 function updateRanksTemp() {
+    RANKS.tick()
     if (!tmp.ranks) tmp.ranks = {}
+    for (let x = 0; x < RANKS["names"].length; x++) {
+        let t = RANKS.names[x]
+        if (!tmp.ranks[t]) {
+            tmp.ranks[t] = {
+                unl: false,
+                can: false,
+                autounl: false,
+                auto: false
+            }
+        }
+    }
     //tmp.ranks.rank = {}
     //tmp.ranks.tier = {}
-    tmp.ranks.rank = {can : player.essence.gte(RANKS.reqs.rank())}
-    tmp.ranks.tier = {can : player.ranks.rank.gte(RANKS.reqs.tier())}
+    tmp.ranks.rank.can = player.essence.gte(RANKS.reqs.rank())
+    tmp.ranks.tier.can = player.ranks.rank.gte(RANKS.reqs.tier())
+    tmp.ranks.rank.autounl = player.ranks.tier.gte(2)
 }
