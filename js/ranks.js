@@ -132,9 +132,5 @@ function updateRanksTemp() {
     tmp.ranks.rank.can = player.essence.gte(RANKS.reqs.rank())
     tmp.ranks.tier.can = player.ranks.rank.gte(RANKS.reqs.tier())
     tmp.ranks.rank.autounl = player.ranks.tier.gte(2)
-    for (let x = 0; x < RANKS["names"].length; x++) {
-        let t = RANKS.names[x]
-
         tmp.el['rank_auto'].setAttr('onclick',`if (tmp.ranks.rank.autounl) tmp.ranka.rank.auto = !tmp.ranks.rank.auto`)
-    }
 }
