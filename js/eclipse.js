@@ -1,10 +1,4 @@
 const ECLIPSE = {
-    activate() {
-        if (player.eclipse.active) {
-            ECLIPSE.DEACTIVATE()
-        } 
-        ECLIPSE.ACTIVATE()
-    },
     ACTIVATE() {
         if (!player.eclipse.active) {
         player.essence = E(0)
