@@ -11,7 +11,7 @@ function setupHTML() {
 		let type = RANKS.names[i]
 		table += `
 		<div id="${type}" class="charged_text"></div>
-		<button id="${type}up" class="btn charged_text"></button>
+		<button id="${type}up" class="btn charged_text" style="max-width: 150px; max-height: 195px;"></button>
 		`
 	}
 	rank_table.setHTML(table)
