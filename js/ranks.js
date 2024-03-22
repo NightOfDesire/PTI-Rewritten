@@ -96,11 +96,11 @@ function updateRanksHTML() {
         tmp.ranks.rank.auto ? `AUTO: ON`: `AUTO: OFF`
     ).setDisplay(tmp.ranks.rank.autounl)
     tmp.
-    tmp.el.tier.setHTML(`Tier: <b>${format(player.ranks.tier, 0)}</b><br>`)
+    tmp.el.tier.setHTML(`Tier: <b>${format(player.ranks.tier, 0)}</b><br>`).setDisplay(player.eclipse.shards.gte(1))
     tmp.el.tierup.setHTML(`
     Reset your progress, but tier up. ${RANKS.desc.tier[player.ranks.tier.add(1)] ? `At tier ` + format(player.ranks.tier.add(1),0) + ' - ' + RANKS.desc.tier[player.ranks.tier.add(1)] : ''}
     <br>Need: Rank ${format(RANKS.reqs.tier(),0)}
-    `)
+    `).setDisplay(player.eclipse.shards.gte(1))
 
 
     /*for (let i = 0; i < RANKS["names"].length; i++) {
