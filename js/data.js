@@ -100,7 +100,11 @@ function getPlayerData() {
             chosen: 0,
             unl: false,
             comps: {}
-        }
+        },
+        tab : "Main",
+        tabterm: {
+            open: false
+        },
     }
    
     return s

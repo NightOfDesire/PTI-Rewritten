@@ -32,12 +32,15 @@
         <input id="copy" style="position: absolute; top: 0; left: 0; user-select: all; visibility: hidden;">
         <div id="loading" class="table_center">Path To Infinity v1.1.x<br>Loading..<br>fun fact: the game is in one single GUI! have fun with scrolling lolol</div>
         <div id="app">
-            <div id="Eclipse_Active"></div>
-            <div id="scs">
-                <softcap id="EssSoft1" class="red"></softcap>
-                <softcap id="EssSoft2" class="magenta"></softcap>
+            <button class="btn table_center green" onclick="TAB_TERMINAL.open()" id="Open_TT"></button>
+            <div id="MainTab">
+                <div id="Eclipse_Active"></div>
+                <div id="scs">
+                    <softcap id="EssSoft1" class="red"></softcap>
+                    <softcap id="EssSoft2" class="magenta"></softcap>
+                </div>
+                <div class="table_center yellow" id="Essence">Essence: 0</div>
             </div>
-            <div class="table_center yellow" id="Essence">Essence: 0</div>
             <tab id="PresTab">
                 <p class="line"></p>
                 <button id="Prestige" class="btn sky" onclick="FORMS.pres.reset()" style="min-width: 15%"></button>
