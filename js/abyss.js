@@ -15,8 +15,8 @@ const ABYSS = {
                 player.abyss.essence = player.abyss.essence.add(ABYSS.VoidEssGain())
                 addNotify(`Embraced for +${format(ABYSS.VoidEssGain())} <b>Void Essence</b>`)
             }
-
-            
+            /** */
+            /** */
             player.abyss.active = false
         } else {
 
