@@ -53,9 +53,12 @@ const FORMS = {
     eclipse: {
         shardeffs: {
             '1'() {
-                let r = (player.eclipse.shards.pow(0.15).root(6))
+                let r = (player.eclipse.shards.pow(0.35).root(6))
                 r = r.softcap("10", 0.75, 0)
                 if (r.lt(1)) r = E(1)
+                if (ECLIPSE.active()) {
+                    if (r.gte(1.1)) r = 1.1
+                }
                 return r
             },
             '2'() {
@@ -84,7 +87,7 @@ const FORMS = {
     x = x.add(player.pres.pts.pow(1.4))
     if (player.ranks.rank.gte(1)) x = x.mul(3)
     if (player.ranks.rank.gte(2)) x = x.mul(RANKS.effects.rank[2]())
-    if (!ECLIPSE.ACTIVE()) x = x.pow(FORMS.eclipse.shardeffs[1]())
+    x = x.pow(FORMS.eclipse.shardeffs[1]())
     x = x.softcap(FORMS.essence.soft1start(), FORMS.essence.soft2pow(), 0)
     x = x.softcap(FORMS.essence.soft2start(), FORMS.essence.soft2pow(), 0)
 

@@ -31,7 +31,7 @@ function updateEclipseHTML() {
     tmp.el.EclipsalShards.setHTML(`
     Eclipsal Shards: ${format(player.eclipse.shards)}<br>
     Effects: essence is raised by ${format(FORMS.eclipse.shardeffs[1]())}<br>
-    <b>EFFECTS WORK WHILE OUTSIDE OF ECLIPSE</b>
+    <b>EFFECTS ONLY WORK AT FULL POWER WHILE OUTSIDE OF ECLIPSE</b>
     `)
     document.body.style.backgroundColor = `${player.eclipse.active ? "orange" : "hsl(0, 0%, 7%)"}`
     tmp.el.Activate_Eclipse.setHTML(!player.eclipse.active ? `?????` : (player.essence.lt('1.5e21') ? `Back out of ?????` : `Undo the Eclipse for +${format(ECLIPSE.shardGain())} <b>Eclipsal Shards</b>`))
