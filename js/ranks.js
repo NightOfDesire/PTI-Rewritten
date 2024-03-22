@@ -84,6 +84,12 @@ const RANKS = {
             }
         }
     },
+    unl: {
+        rank : () => true,
+        tier : () => player.eclipse.shards.gte(1) || player.eclipse.score.gte(1.5e21) || player.abyss.unl
+            
+        
+    },
     names: ['rank','tier'],
     fullnames: ['Rank','Tier'],
 }
@@ -91,7 +97,23 @@ const RANKS = {
 
 function updateRanksHTML() {
     /**return @SHSHWIEDUZYXH tezt */
-    tmp.el.rank.setHTML(`Rank: <b>${format(player.ranks.rank, 0)}</b><br>`)
+    for (let x = 0; x < RANKS.names.length; x++) {
+        let rn = RANKS.names[x]
+        let fn = RANKS.fullnames[x]
+        let k = Object.keys(RANKS.desc[rn])
+        let d = ""
+        for (let i = 0; i < k.length; i++) {
+            if (player.ranks[rn].lt(k[i])) {
+                d = `${fn} up, but reset all your progress. At ${RANKS.fullnames[x]} ${format(k[i],0)} - ${RANKS.desc[rn][k[i]]}`
+                break
+            }
+        }
+        tmp.el[rn].setHTML(`${fn}: <b>${format(player.ranks[rn],0)}</b><br>`)
+        tmp.el[rn+"up"].setHTML(desc)
+        tmp.el[rn].setDisplay(RANKS.unl[rn]())
+        tmp.el[rn].setDisplay(RANKS.unl[rn]())
+    }
+    /*tmp.el.rank.setHTML(`Rank: <b>${format(player.ranks.rank, 0)}</b><br>`)
     tmp.el.rankup.setHTML(`
     Reset your progress, but rank up. ${RANKS.desc.rank[player.ranks.rank.add(1)] ? 'At rank ' + format(player.ranks.rank.add(1), 0) + ' - ' + RANKS.desc.rank[player.ranks.rank.add(1)] : ''}
     <br>Need: ${format(RANKS.reqs.rank())} Essence<br><br>
@@ -104,7 +126,6 @@ function updateRanksHTML() {
     <br>Need: Rank ${format(RANKS.reqs.tier(),0)}
     `)
     tmp.el.tierup.setDisplay(player.eclipse.shards.gte(1))
-
 
     /*for (let i = 0; i < RANKS["names"].length; i++) {
         let type = RANKS.names[i]
