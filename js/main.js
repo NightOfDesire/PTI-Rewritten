@@ -32,8 +32,8 @@ const FORMS = {
             let start = E("e33")
             start = start.pow(RANKS.effects.tier[1]())
             if (ECLIPSE.ACTIVE()) start = E("1e13")
-            if (ABYSS.active()) start = E(0)
-            return start
+            if (ABYSS.active()) start = 0
+            return E(start)
         },
         soft1pow() {
             let softcap = E(0.8)
@@ -61,8 +61,8 @@ const FORMS = {
                 if (ECLIPSE.ACTIVE()) {
                     if (r.gte(1.1)) r = 1.1
                 }
-                if (ABYSS.active()) return E(1)
-                return r
+                if (ABYSS.active()) r = 1
+                return E(r)
             },
             '2'() {
                 let r = player.eclipse.shards.root(4)
