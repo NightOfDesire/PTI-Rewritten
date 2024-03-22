@@ -47,7 +47,7 @@ const RANKS = {
             '15': 'Unlock ????? <p class="corrupted_text2"></p>'
         },
         tier: {
-            '1': "Essence first softcap is weaker based on tier."
+            '1': "Essence first softcap starts later based on tier."
         }
     },
     effects: {
