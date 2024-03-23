@@ -154,7 +154,8 @@ function updateRanksHTML() {
         let fn = RANKS.fullnames[x]
         tmp.el[rn+"_div"].setDisplay(unl)
         tmp.el[rn].setDisplay(unl)
-        tmp.el[rn+"_btn"].setDisplay(btn)
+        /** */
+        tmp.el[rn+"_btn"].setDisplay(unl)
         /*if (unl) {
             for (let i = 0; i < k.length; i++) {
                 if (player.ranks[rn].lt(k[i])) {

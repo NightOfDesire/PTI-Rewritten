@@ -11,7 +11,7 @@ function setupHTML() {
 		table += `
 		<div id="${rn}_div">
 		<span id="${rn}" class="charged_text"></div>
-		<button id="${rn}_btn" onclick="RANKS.reset('${rn}')" class="btn" style="min-width: 250px; min-height: 130px;"><p id="${rn}_msg">Reset your progress, but ${rn} up for a powerful boost. </p><p id="${rn}_desc"></p></button>
+		<button id="${rn}_btn" onclick="RANKS.reset('${rn}')" class="btn" style="min-width: 250px; min-height: 130px;"><span id="${rn}_msg">Reset your progress, but ${rn} up for a powerful boost. </span><span id="${rn}_desc"></span></button>
 		</div>
 		`
 	}
@@ -62,7 +62,7 @@ function updateHTML() {
 	tmp.el.EssSoft2.setDisplay(player.misc.hEss.gte("e110"))
 	tmp.el.EssSoft2.setHTML(`Due to excessive strange essence, starting at ${format(FORMS.essence.soft2start())} essence, the gain will be softcapped^2!<br>`)
 	/** */
-	tmp.el.PresSoft1.setHTML(`Due to excess Prestige Shards, starting at ${format(FORMS.presScs.soft1start())} PS their gain is softcapped!`)
+	tmp.el.PresSoft1.setHTML(`<br>Due to excess Prestige Shards, starting at ${format(FORMS.presScs.soft1start())} PS their gain is softcapped!`)
 	tmp.el.PresSoft1.setDisplay(player.misc.hPres.gte("e10"))
 	/** */
 	tmp.el.PresSoft2.setHTML(`Due to high amounts of fragile shards, starting at ${format(FORMS.presScs.soft2start())} PS their gain is softcapped^2`)

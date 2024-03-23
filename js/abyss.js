@@ -30,7 +30,7 @@ const ABYSS = {
         }
     },
     VoidPower() {
-        let vp = player.abyss.score.sub(5e6).div(1e7).root(5).pow(0.3)
+        let vp = player.abyss.score.div(1e7).root(5).pow(0.3)
         vp = vp.softcap(0.25, 0.4, 0)
         if (player.abyss.score.lt(5e6)) vp = E(0)
         if (vp.gte(1)) vp = E(1)
@@ -44,7 +44,7 @@ const ABYSS = {
         },
         effect1() {
             let eff = player.abyss.essence.div(100).pow(0.2).add(1)
-            eff = eff.softcap(1.8, 0.3, 0)
+            eff = eff.softcap(1.3, 0.2, 0)
             if (player.abyss.essence.lt(10)) eff = E(1)
             return eff
         },
