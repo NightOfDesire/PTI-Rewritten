@@ -5,7 +5,10 @@ const RANKS = {
             tier: 'ranks.rank',
             asc: 'ranks.tier'
         }
-        if (player[reqlist[rn]].gte(RANKS.reqs[rn]())) {
+        let x = RANKS["names"].indexOf(rn)
+        if (
+            RANKS.names[x-1] ? (player.ranks[RANKS.names[x-1]].gte(RANKS.reqs[rn]()) ) : (player.essence.gte(RANKS.reqs[rn]()))
+        ) {
             let reset = true
             if (reset) this.doReset[rn]()
             player.ranks[rn] = player.ranks[rn].add(1)
@@ -149,7 +152,7 @@ function updateRanksHTML() {
         let rn = RANKS.names[x]
         let unl = RANKS.unl[rn]()
         let fn = RANKS.fullnames[x]
-        
+        tmp.el[rn+"_div"].setDisplay(unl)
         /*if (unl) {
             for (let i = 0; i < k.length; i++) {
                 if (player.ranks[rn].lt(k[i])) {
@@ -167,10 +170,9 @@ function updateRanksHTML() {
                     break
                 }
             }
+            tmp.el[rn].setHTML(`${fn} <b>${format(player.ranks[rn],0)}</b><br>`)
+            tmp.el[rn+"_desc"].setHTML(desc)
         }
-        tmp.el[rn+"_div"].setDisplay(unl)
-        tmp.el[rn].setHTML(`${fn} <b>${format(player.ranks[rn],0)}</b><br>`)
-        tmp.el[rn+"_desc"].setHTML(desc)
     }
     /*tmp.el.rank.setHTML(`Rank: <b>${format(player.ranks.rank, 0)}</b><br>`)
     tmp.el.rankup.setHTML(`
