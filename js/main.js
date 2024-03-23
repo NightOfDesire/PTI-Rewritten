@@ -4,12 +4,12 @@ var player
 
 const ST_NAMES = [
 	null, [
-	   // ["","U","D","T","Qa","Qt","Sx","Sp","Oc","No"],
-	   // ["","Dc","Vg","Tg","Qag","Qtg","Sxg","Spg","Ocg","Nog"],
-	   // ["","Ce","De","Te","Qae","Qte","Sxe","Spe","Oce","Noe"],
-       ["","U","D","T","Qd","Qn","Sx","Sp","Oc","No"],
+	   ["","U","D","T","Qa","Qt","Sx","Sp","Oc","No"],
+	   ["","Dc","Vg","Tg","Qag","Qtg","Sxg","Spg","Ocg","Nog"],
+	   ["","Ce","De","Te","Qae","Qte","Sxe","Spe","Oce","Noe"],
+       /*["","U","D","T","Qd","Qn","Sx","Sp","Oc","No"],
        ["","De","Vg","Tg","qg","Qg","sg","Sg","Og","Ng"],
-       ["","Ce","Du","Tr","Qa","Qi","Se","Si","Ot","Ni"]
+       ["","Ce","Du","Tr","Qa","Qi","Se","Si","Ot","Ni"]*/
 	],[
 		["","Mi","Mc","Na","Pi","Fm","At","Zp","Yc","Xo"],
 		["","Me","Du","Tr","Te","Pe","He","Hp","Ot","En"],
