@@ -48,7 +48,7 @@ function updatePrestigeTemp() {
     if (!tmp.pres) tmp.pres = {}
     tmp.pres.gain = FORMS.pres.gain()
     tmp.pres.can = tmp.pres.gain.gte(1)
-    tmp.pres.auto = player.ranks.rank.gte(5)
+    tmp.pres.auto = player.ranks.rank.gte(5) || player.abyss.unl
 }
 function updateTemp() {
     if (!tmp.stab) tmp.stab = []
