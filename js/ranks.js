@@ -110,12 +110,12 @@ const RANKS = {
     unl: {
         rank() {return true},
         tier() {return player.eclipse.shards.gte(1) || player.eclipse.score.gte(1.5e21) || player.abyss.unl},
-        asc() {return player.abyss.power.gte(50)}
+        asc() {return player.abyss.power.gte(0.4)}
             
     },
     autoUnl: {
         rank() {return player.tier.gte(2)},
-        tier() {return player.abyss.power.gte(35)},
+        tier() {return player.abyss.power.gte(0.2)},
         asc() {return false}
     },
     names: ['rank','tier','asc'],
