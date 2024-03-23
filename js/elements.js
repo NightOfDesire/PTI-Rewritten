@@ -11,10 +11,7 @@ function setupHTML() {
 		table += `
 		<div id="${rn}_div">
 		<span id="${rn}" class="charged_text"></div>
-		<button id="${rn}_btn" onclick="RANKS.reset('${rn}')" class="btn" style="min-width: 250px; min-height: 130px;">
-		<span id="${rn}_msg">Reset your progress, but ${rn} up for a powerful boost.</span>
-		<span id="${rn}_desc"></span>
-		</button>
+		<button id="${rn}_btn" onclick="RANKS.reset('${rn}')" class="btn" style="min-width: 250px; min-height: 130px;"><p id="${rn}_msg">Reset your progress, but ${rn} up for a powerful boost. </p><p id="${rn}_desc"></p></button>
 		</div>
 		`
 	}
