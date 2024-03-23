@@ -1,18 +1,15 @@
 const RANKS = {
     reset(rn) {
-        let req;
-        for (let x = 0; x < RANKS.names.length; x++) {
-            if (RANKS.names[x-1]) {
-                req = `player.ranks[${RANKS.names[x-1]}]`
-            } else {
-                req = `player.essence`
-            }
-        }
-        if (req.gte(RANKS.reqs[rn]())) {
+        if (player[RANKS.resources[rn]].gte(RANKS.reqs[rn]())) {
             let reset = true
             if (reset) this.doReset[rn]()
             player.ranks[rn] = player.ranks[rn].add(1)
         }
+    },
+    resources: {
+        rank: 'essence',
+        tier: 'rank',
+        asc: 'tier'
     },
     tick() {
         for (let x = 0; x < RANKS.names.length; x++) {
