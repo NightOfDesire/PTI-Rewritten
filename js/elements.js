@@ -14,6 +14,17 @@ function setupHTML() {
 		<button id="${type}up" onclick="RANKS.reset('${type}')" class="btn" style="min-width: 250px; min-height: 130px;"></button>
 		`
 	}
+	/*for (let x = 0; x < RANKS.names.length; x++) {
+		let rn = RANKS.names[x]
+		table += `<div style="width: 300px" id="ranks_div_${x}">
+			<button id="ranks_auto_${x}" class="btn" style="width: 80px;" onclick="RANKS.autoSwitch('${rn}')">OFF</button>
+			<span id="ranks_scale_${x}""></span>${RANKS.fullNames[x]} <h4 id="ranks_amt_${x}">X</h4><br><br>
+			<button onclick="RANKS.reset('${rn}')" class="btn reset" id="ranks_${x}">
+				Reset your ${x>0?RANKS.fullNames[x-1]+"s":'mass and upgrades'}, but ${RANKS.fullNames[x]} up.<span id="ranks_desc_${x}"></span><br>
+				Req: <span id="ranks_req_${x}">X</span>
+			</button>
+		</div>`
+	}*/
 	rank_table.setHTML(table)
 	table = ''
 	tmp.el = {}
