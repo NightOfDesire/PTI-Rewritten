@@ -6,9 +6,9 @@ const RANKS = {
         }
     },
     tick() {
-        for (let x = 0; x < RANKS["names"].length; x++) {
+        for (let x = 0; x < RANKS.names.length; x++) {
             let t = RANKS.names[x]
-            if (t.auto) RANKS.reset(t)
+            if (player.autoranks[t]) RANKS.reset(t)
         }
     },
     doReset: {
@@ -181,19 +181,17 @@ function updateRanksHTML() {
 function updateRanksTemp() {
     RANKS.tick()
     if (!tmp.ranks) tmp.ranks = {}
-    for (let x = 0; x < RANKS["names"].length; x++) {
-        let t = RANKS.names[x]
-            tmp.ranks[t] = {
-            get unl() {
-                return RANKS.unl[t]()
-            },
-            get can() {
-                return ( RANKS.names[x-1] ? player.ranks[RANKS.names[x-1]].gte(RANKS.reqs[RANKS.names[x]]) : player.essence.gte(RANKS.reqs[RANKS.names[x]]) )
-            },
-            get autounl() {
-                return RANKS.autoUnl[t]()
-            },
+    for (let x = 0; x < RANKS.names.length; x++) {
+        let rn = RANKS.names[x]
+        if (!tmp.ranks[rn]) tmp.ranks[rn] = {
+            can: false,
+            autouml: false
         }
+    }
+    for (let x = 0; x < RANKS.names.length; x++) {
+        let t = RANKS.names[x]
+        tmp.ranks[t].can = (RANKS.names[x-1] ? player.ranks[RANKS.names[x-1]].gte(RANKS.reqs[RANKS.names[x]]) : player.essence.gte(RANKS.reqs[RANKS.names[x]]) )
+        tmp.ranks[t].autounl = RANKS.autoUnl[t]()
     }
     //tmp.ranks.rank.can = player.essence.gte(RANKS.reqs.rank())
     //tmp.ranks.tier.can = player.ranks.rank.gte(RANKS.reqs.tier())
