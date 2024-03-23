@@ -85,7 +85,7 @@ const RANKS = {
     },
     unl: {
         rank() {
-            return player.ranks.tier.gte(2)
+            return player.misc.hEss.gte(2.5e5)
         },
         tier() {
             return player.eclipse.shards.gte(1) || player.eclipse.score.gte(1.5e21) || player.abyss.unl
