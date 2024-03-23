@@ -146,7 +146,7 @@ const RANKS = {
     names: ['rank','tier','asc'],
     fullnames: ['Rank','Tier','Asc'],
     stabs: [ 'main','rewards'],
-    stabnames: {
+    fstabs: {
         main: 'Main',
         rewards: 'Rewards'
     },

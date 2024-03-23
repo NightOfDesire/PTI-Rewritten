@@ -31,7 +31,7 @@ function setupHTML() {
 	table = ""
 	for (let x = 0; x < RANKS.stabs.length; x++)  {
 		let id = RANKS.stabs[x]
-		let fullnames = RANKS.fstabs[x]
+		let fullname = RANKS.fstabs[x]
 		table += `<button id="choose_rank_stab_${id}">${fullname}</button>`
 
 	}
