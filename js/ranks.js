@@ -188,7 +188,7 @@ function updateRanksTemp() {
                 return RANKS.unl[t]()
             },
             get can() {
-                return RANKS.names[x-1] ? player.ranks[RANKS.names[x-1]].gte(RANKS.reqs[RANKS.names[x]]) : player.essence.gte(RANKS.reqs[RANKS.names[x]])
+                return ( RANKS.names[x-1] ? player.ranks[RANKS.names[x-1]].gte(RANKS.reqs[RANKS.names[x]]) : player.essence.gte(RANKS.reqs[RANKS.names[x]]) )
             },
             get autounl() {
                 return RANKS.autoUnl[t]()
