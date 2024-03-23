@@ -116,7 +116,7 @@ const RANKS = {
             
     },
     autoUnl: {
-        rank() {return player.tier.gte(2)},
+        rank() {return player.ranks.tier.gte(2)},
         tier() {return player.abyss.power.gte(0.2)},
         asc() {return player.abyss.power.gte(0.9)}
     },
