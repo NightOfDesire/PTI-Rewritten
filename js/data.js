@@ -53,6 +53,7 @@ function calc(dt) {
     if (tmp.pass<=0) {
         player.essence = player.essence.add(tmp.essenceGain.mul(gs))
         if (tmp.pres.auto) player.pres.pts = player.pres.pts.add(tmp.pres.gain.mul(gs))
+        player.abyss.essence = player.abyss.essence.add(tmp.vessgain.mul(gs))
     }
 
     tmp.pass = Math.max(0,tmp.pass-1)
@@ -83,7 +84,8 @@ function getPlayerData() {
             unl: false,
             essence: E(0),
             oddities: E(0),
-            power: E(0)
+            power: E(0),
+            score: E(0)
         },
         options: {
             font: 'Verdana',

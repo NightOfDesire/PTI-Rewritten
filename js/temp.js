@@ -61,5 +61,6 @@ function updateTemp() {
     updateEssenceTemp()
     updatePrestigeTemp()
     updateRanksTemp()
+    updateAbyssTemp()
    
 }
