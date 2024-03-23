@@ -66,13 +66,17 @@ const RANKS = {
             '10': "Essence boosts PS by x(log10(essence+1)^0.1)+1.",
             '13': "Essence is raised by 1.02.",
             '15': '<p class="corrupted_text">Unlock the ?????</p>.',
+            '20': "Abyssal Score automatically gets updated, unlock the second Void Essence effect"
+
         },
         tier: {
             '1': "Essence first softcap starts later based on tier.",
             '2': "Tier boosts eclipsal shards, <br><p class='void_text'>EMBRACE THE DARKNESS</p>.",
             '3': "Essence second softcap is weaker based off of tier, VP formula is better.",
+            '4': "Placeholder"
         },
         asc: {
+            '1': "Asc boosts Essence MASSIVELY"
         }
     },
     effects: {
