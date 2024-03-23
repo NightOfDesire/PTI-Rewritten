@@ -8,8 +8,8 @@ const RANKS = {
     },
     resources: {
         rank: 'essence',
-        tier: 'rank',
-        asc: 'tier'
+        tier: 'ranks.rank',
+        asc: 'ranks.tier'
     },
     tick() {
         for (let x = 0; x < RANKS.names.length; x++) {
@@ -159,7 +159,7 @@ function updateRanksHTML() {
             for (let i = 0; i < keys.length; i++) {
                 if (player.ranks[rn].lt(keys[i])) {
                     desc = `At ${RANKS.fullnames[x]} ${format(keys[i],0)} - ${RANKS.desc[rn][keys[i]]}<br>Requires ${RANKS.names[x-1] ? `${RANKS.names[x-1]} ${format(RANKS.reqs[rn]())}` : `${format(RANKS.reqs[rn]())} Essence`}`
-                    break
+                    //break
                 }
             }
             tmp.el[rn].setHTML(`${fn} <b>${format(player.ranks[rn],0)}</b><br>`)
