@@ -122,30 +122,11 @@ const RANKS = {
         tier() {return player.abyss.power.gte(0.2)},
         asc() {return player.abyss.power.gte(0.9)}
     },
+    autoSwitch(rn) {
+        player.autoranks[rn] = !player.autoranks[rn]
+    },
     names: ['rank','tier','asc'],
     fullnames: ['Rank','Tier','Asc'],
-}
-
-function getRankReqResource(t,amt) {
-    if (t == "rank") {
-        return format(E(amt)) + ' Essence'
-    } else if (t == "tier") {
-        return 'Rank ' + format(E(amt),0)
-    } else if (t == "asc") {
-        return 'Tier ' + format(E(amt),0)
-    }
-}
-function getRankReq(t) {
-    list={
-        rank:'essence',
-        tier:'rank',
-        asc:'tier'
-
-    }
-    if (list[t]!="essence") {
-        return 'ranks.'+list[t]
-    }
-    return list[t]
 }
 function updateRanksHTML() {
     /**return @SHSHWIEDUZYXH tezt */
@@ -170,10 +151,10 @@ function updateRanksHTML() {
                     break
                 }
             }
-            tmp.el[rn].setHTML(`${fn}: <b>${format(player.ranks[rn],0)}</b><br>`)
-        tmp.el[rn+"up"].setHTML(desc)
-        tmp.el[rn].setDisplay(RANKS.unl[rn]())
-        tmp.el[rn+"up"].setDisplay(RANKS.unl[rn]())
+            tmp.el[rn].setHTML(`${fn} <b>${format(player.ranks[rn],0)}</b><br>`)
+            tmp.el[rn+"up"].setHTML(desc)
+            tmp.el[rn].setDisplay(RANKS.unl[rn]())
+            tmp.el[rn+"up"].setDisplay(RANKS.unl[rn]())
         }
     }
     /*tmp.el.rank.setHTML(`Rank: <b>${format(player.ranks.rank, 0)}</b><br>`)
@@ -209,12 +190,11 @@ function updateRanksTemp() {
                 return RANKS.unl[t]()
             },
             get can() {
-                    return player[getRankReq(t)].gte(RANKS.reqs[t]())
-                },
+                    return RANKS.names[x-1] ? player.ranks[RANKS.names[x-1]].gte(RANKS.reqs[RANKS.names[x]]) : player.essence.gte(RANKS.reqs[RANKS.names[x]])
+            },
             get autounl() {
                 return RANKS.autoUnl[t]()
             },
-            auto: false
         }
     }
     //tmp.ranks.rank.can = player.essence.gte(RANKS.reqs.rank())

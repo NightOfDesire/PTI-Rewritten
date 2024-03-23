@@ -69,6 +69,11 @@ function getPlayerData() {
             tier: E(0),
             asc: E(0),
         },
+        autoranks: {
+            rank: false,
+            tier: false,
+            asc: false
+        },
         pres: {
             pts: E(0),
             unl: false
