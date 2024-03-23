@@ -5,14 +5,14 @@ const ECLIPSE = {
         player.pres.pts = E(0)
         player.ranks.rank = E(0)
         player.eclipse.active = true
-        addNotify(`You feel strange.. and it seems your resources are much harder to acquire.`,10)
+        addNotify(`You feel strange.. and it seems your resources are much harder to acquire.`,5)
         } else {
             if (player.essence.gte('1.5e21')) {
                 player.eclipse.shards = player.eclipse.shards.add(ECLIPSE.shardGain())
             }
             if (player.essence.gte(player.eclipse.score)) player.eclipse.score = player.essence
             player.eclipse.active = false
-            addNotify(`It feels much colder now.. and your resources appear to be back to normal.`,10)
+            addNotify(`It feels much colder now.. and your resources appear to be back to normal.`,5)
         }
     },
     ACTIVE() {

@@ -60,12 +60,12 @@ function updateHTML() {
 	tmp.el.Prestige.setDisplay(!tmp.pres.auto)
 	tmp.el.EssSoft1.setDisplay(player.misc.hEss.gte("e33"))
 	tmp.el.EssSoft1.setHTML(`Due to unstable essence, after ${format(FORMS.essence.soft1start())} essence, the gain will be softcapped!<br>`)
-	tmp.el.EssSoft2.setDisplay(player.misc.hEss.gte("e363"))
-
-
-
-
+	tmp.el.EssSoft2.setDisplay(player.misc.hEss.gte("e110"))
 	tmp.el.EssSoft2.setHTML(`Due to excessive strange essence, starting at ${format(FORMS.essence.soft2start())} essence, the gain will be softcapped^2!<br>`)
+	tmp.el.PresSoft1.setHTML(`Due to excess Prestige Shards, starting at ${format(FORMS.presScs.soft1start())} PS their gain is softcapped!`)
+	tmp.el.PresSoft1.setDisplay(player.misc.hPres.gte("e10"))
+	tmp.el.PresSoft2.setHTML(`Due to high amounts of fragile shards, starting at ${format(FORMS.presScs())} PS their gain is softcapped^2`)
+	tmp.el.PresSoft2.setDisplay(player.misc.hPres.gte("e21"))
 	tmp.el.Prestige.setHTML(tmp.pres.can?`<i><b>Prestige</b> and reset your essence for <b>Prestige Shards</b></i>`:`<i>Locked.</i>`)
 	tmp.el.prespts.setHTML(`
 	<br>Prestige Shards: ${format(player.pres.pts)} ${tmp.pres.auto ? formatGain(player.pres.pts, tmp.pres.gain.mul(tmp.gs)) : `(+${format(tmp.pres.gain)})`}

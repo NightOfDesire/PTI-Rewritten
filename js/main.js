@@ -80,7 +80,7 @@ const FORMS = {
     },
     presScs: {
         soft1start() {
-            let start = E("e18")
+            let start = E("e12")
 
             return start
         },
@@ -90,12 +90,12 @@ const FORMS = {
             return softcap
         },
         soft2start() {
-            let start = E("e40")
+            let start = E("e24")
             
             return start
         },
         soft2pow() {
-            let softcap = E(0.6)
+            let softcap = E(0.5)
 
             return softcap
         }
