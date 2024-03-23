@@ -167,10 +167,10 @@ function updateRanksHTML() {
                     break
                 }
             }
-            tmp.el[rn+"_div"].setDisplay(RANKS.unl[rn]())
-            tmp.el[rn].setHTML(`${fn} <b>${format(player.ranks[rn],0)}</b><br>`)
-            tmp.el[rn+"_desc"].setHTML(desc)
         }
+        tmp.el[rn+"_div"].setDisplay(unl)
+        tmp.el[rn].setHTML(`${fn} <b>${format(player.ranks[rn],0)}</b><br>`)
+        tmp.el[rn+"_desc"].setHTML(desc)
     }
     /*tmp.el.rank.setHTML(`Rank: <b>${format(player.ranks.rank, 0)}</b><br>`)
     tmp.el.rankup.setHTML(`
