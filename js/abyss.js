@@ -6,7 +6,7 @@ const ABYSS = {
         )
         tmp.el["VoidEssence"].setHTML(`Void Essence: ${format(player.abyss.essence)} ${formatGain(player.abyss.essence, tmp.vessgain)}`)
         tmp.el["VoidPower"].setHTML(`Abyssal Score: ${format(player.abyss.score,0)}, which provides ${format(player.abyss.power.mul(100))}% Void Power`)
-        player.abyss.score = this.VoidPower()
+        player.abyss.power = this.VoidPower()
         player.abyss.unl = player.ranks.tier.gte(2) || player.misc.hEss.gte(1e45) || ABYSS.active()
     },
     active() {
