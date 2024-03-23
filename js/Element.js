@@ -16,7 +16,8 @@ class Element {
 	}
 
 	setHTML(html) {
-		this.el.innerHTML = html;
+		let san = new Sanitizer()
+		this.el.setHTML(html, {sanitizer: san});
 	}
 	static setHTML(id, html) {
 		new Element(id).setHTML(html);

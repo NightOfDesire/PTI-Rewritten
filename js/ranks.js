@@ -1,6 +1,11 @@
 const RANKS = {
     reset(rn) {
-        if (player[RANKS.resources[rn]].gte(RANKS.reqs[rn]())) {
+        let reqlist = {
+            rank: 'essence',
+            tier: 'ranks.rank',
+            asc: 'ranks.tier'
+        }
+        if (player[reqlist[rn]].gte(RANKS.reqs[rn]())) {
             let reset = true
             if (reset) this.doReset[rn]()
             player.ranks[rn] = player.ranks[rn].add(1)
@@ -159,7 +164,7 @@ function updateRanksHTML() {
             for (let i = 0; i < keys.length; i++) {
                 if (player.ranks[rn].lt(keys[i])) {
                     desc = `At ${RANKS.fullnames[x]} ${format(keys[i],0)} - ${RANKS.desc[rn][keys[i]]}<br>Requires ${RANKS.names[x-1] ? `${RANKS.names[x-1]} ${format(RANKS.reqs[rn]())}` : `${format(RANKS.reqs[rn]())} Essence`}`
-                    //break
+                    break
                 }
             }
             tmp.el[rn+"_div"].setDisplay(RANKS.unl[rn]())

@@ -32,7 +32,7 @@ const ABYSS = {
         return vp
     },
     VoidEssenceGain() {
-        let gain = player.abyss.power.mul(100).pow(1.2)
+        let gain = player.abyss.power.mul(10).pow(1.2)
 
         return gain
     }

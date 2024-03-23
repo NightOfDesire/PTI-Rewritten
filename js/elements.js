@@ -7,13 +7,13 @@ function setupHTML() {
 	TAB_TERMINAL.setup()
 	let rank_table = new Element('rank_table')
 	for (let i = 0; i < RANKS.names.length; i++) {
-		let type = RANKS.names[i]
+		let rn = RANKS.names[i]
 		table += `
-		<div id="${type}_div">
-		<span id="${type}" class="charged_text"></div>
-		<button id="${type}_btn" onclick="RANKS.reset('${type}')" class="btn" style="min-width: 250px; min-height: 130px;">
-		<span id="${type}_msg">Reset your progress, but ${type} up for a powerful boost.</span>
-		<span id="${type}_desc"></span>
+		<div id="${rn}_div">
+		<span id="${rn}" class="charged_text"></div>
+		<button id="${rn}_btn" onclick="RANKS.reset('${rn}')" class="btn" style="min-width: 250px; min-height: 130px;">
+		<span id="${rn}_msg">Reset your progress, but ${rn} up for a powerful boost.</span>
+		<span id="${rn}_desc"></span>
 		</button>
 		</div>
 		`

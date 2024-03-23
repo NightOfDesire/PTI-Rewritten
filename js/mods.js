@@ -1,8 +1,8 @@
 function setupModsHTML() {
-    let table = tmp.el.mods_table
-    for (var mod in MODS) {
-        if (typeof mod != 'number') return
-        let h = ''
+    let table = new Element(mods_table)
+    h = ''
+    for (let x = 0; x < MODS.amt; x++) {
+        let mod = MODS.list[x]
         h += `<div class="mod_${mod.Name}>
         <b>${mod.Name} [${format(player.MODIFIERS.comps[mod],0)}/${format(mod.max, 0)}}]<br>
         <div id="mod_${mod.Name}_desc">${mod.Desc}</div><br>
@@ -28,6 +28,7 @@ function updateModsHTML() {
 }
 
 const MODS = {
+    amt: this.list.length,
     active(mod) {
         return player.MODIFIERS.chosen == mod
     },
@@ -55,21 +56,23 @@ const MODS = {
         return {goal: req}
     },
     calcreq(mod) {
-        let MOD = this[mod]
+        let MOD = this.list[mod]
         let start = MOD.start
         let inc = MOD.inc
         let comps = player.MODIFIERS.comps[mod]
         let ss = comps.div(10).add(1)
         return Decimal.pow(Decimal.mul(start, Decimal.pow(inc, comps)), ss)
     },
-    1: {
-        start: E(1e4),
-        inc: E(17.538),
-        max: E(10),
-        get resource() {return player.essence},
-        Name: 'Unstable Essence',
-        Desc: 'Essence\'s first softcap starts instantly.',
-        RewardDesc: 'PS formula is better, Essence SC1\'s start is raised by 1.15',
-        ResetLevel: 'This modifier will force a rank reset.'
+    list: {
+        1: {
+            get start() {return E("1e6")},
+            get inc() {return E("27.5183")},
+            get max() {return E(10)},
+            get resource() {return player.essence},
+            Name: 'Insane Essence',
+            Desc: 'Essence\'s first softcap starts instantly and is 4x stronger, additionally base Essence gain is raised by 0.5.',
+            RewardDesc: 'PS formula is better, Essence SC1\'s start is raised by 3',
+            ResetLevel: 'This modifier will force a rank reset.'
+        }
     }
 }
