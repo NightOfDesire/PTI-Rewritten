@@ -45,13 +45,14 @@ const ABYSS = {
         effect1() {
             let eff = player.abyss.essence.div(10).pow(0.7).add(1)
             eff = eff.softcap(1.8, 0.6, 0)
-            if (player.abyss.essence.lt(1)) eff = E(1)
+            if (player.abyss.essence.lt(10)) eff = E(1)
             return eff
         },
         effect2() {
-            let eff = player.abyss.essence.div(1000).pow(0.667)
+            let eff = player.abyss.essence.div(1000).pow(0.667).add(1)
             eff = eff.softcap(3, 0.5, 0)
             if (player.ranks.rank.lt(20) || player.ranks.tier.lt(4) || player.ranks.asc.lt(1)) eff = E(1)
+            if (player.abyss.essence.lt(1000)) eff = E(1)
             return eff
         }
     }
