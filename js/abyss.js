@@ -26,9 +26,10 @@ const ABYSS = {
 
         }
     },
-    VoidEssGain() {
-        let gain = player.essence.div(5e7).root(2).pow(0.95)
-
-        return gain
+    
+    VoidPower() {
+        let vp = player.void.score.div(1e6).root(2).pow(0.75)
+        
+        return vp
     }
 }

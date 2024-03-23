@@ -60,17 +60,18 @@ const RANKS = {
     },
     desc: {
         rank: {
-            '1': "Prestige Shard gain is raised by 1.25, gain thrice as much Essence",
+            '1': "Prestige Shard gain is raised by 1.25, gain thrice as much Essence.",
             '2': "Essence is boosted by rank [(x^2)^0.8].",
             '5': "Automatically generate prestige shards.",
-            '10': "Essence boosts PS by x(log10(essence+1)^0.1)+1",
-            '13': "Essence is raised by 1.02",
-            '15': 'Unlock ????? <p class="corrupted_text2"></p>',
+            '10': "Essence boosts PS by x(log10(essence+1)^0.1)+1.",
+            '13': "Essence is raised by 1.02.",
+            '15': '<p class="corrupted_text">Unlock the ?????</p>.',
             '1e4': "Placeholder"
         },
         tier: {
             '1': "Essence first softcap starts later based on tier.",
-            '2': "Tier boosts eclipsal shards, <br><p class='void_text'>EMBRACE THE DARKNESS</p>",
+            '2': "Tier boosts eclipsal shards, <br><p class='void_text'>EMBRACE THE DARKNESS</p>.",
+            '3': "Essence second softcap is weaker based off of tier, VP formula is better.",
             '1e4': "Placeholder"
         },
         asc: {
@@ -101,6 +102,9 @@ const RANKS = {
 
                 return ret
             },
+            '3'() {
+                let ret = player.ranks.tier.sub(2).div(10).root(3).add(1)
+            }
         },
         asc: {
 
@@ -157,7 +161,7 @@ function updateRanksHTML() {
         tmp.el[rn].setHTML(`${fn}: <b>${format(player.ranks[rn],0)}</b><br>`)
         tmp.el[rn+"up"].setHTML(d)
         tmp.el[rn].setDisplay(RANKS.unl[rn]())
-        tmp.el[rn].setDisplay(RANKS.unl[rn]())
+        tmp.el[rn+"up"].setDisplay(RANKS.unl[rn]())
     }
     /*tmp.el.rank.setHTML(`Rank: <b>${format(player.ranks.rank, 0)}</b><br>`)
     tmp.el.rankup.setHTML(`
