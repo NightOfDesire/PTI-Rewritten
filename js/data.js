@@ -64,6 +64,8 @@ function calc(dt) {
 function getPlayerData() {
     let s = {
         essence: E(0),
+        rankstab: "main",
+        rankrewardstab: "rank",
         ranks: {
             rank: E(0),
             tier: E(0),

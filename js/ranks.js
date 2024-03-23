@@ -145,8 +145,30 @@ const RANKS = {
     },
     names: ['rank','tier','asc'],
     fullnames: ['Rank','Tier','Asc'],
+    stabs: [ 'main','rewards'],
+    stabnames: {
+        main: 'Main',
+        rewards: 'Rewards'
+    },
+    stabunls: {
+        main() {
+            return true
+        },
+        rewards() {
+            return player.rank.gte(1)
+        }
+    }
 }
 function updateRanksHTML() {
+    for (let x = 0; x < RANKS.stabs.length; x++) {
+        let stab = RANKS.stabs[x]
+        tmp.el["ranks_stab_"+stab].setDisplay(player.rankstab == stab)
+        tmp.el["choose_rank_stab_"+stab].setDisplay(RANKS.stabunls[stab]())
+        for (let x = 0; x < RANKS.names.length; x++) {
+            let rn = RANKS.names[x]
+            tmp.el["choose_rank_reward_stab_"+x].setDisplay(player.ranks[rn].gte(1))
+        }
+    }
     /**return @SHSHWIEDUZYXH tezt */
     for (let x = 0; x < RANKS.names.length; x++) {
         let rn = RANKS.names[x]
@@ -195,6 +217,22 @@ function updateRanksHTML() {
         Reset your progress but ${type} up. ${RANKS.desc[type[player.ranks[type].add(1)]] ? `At ${type} ` + format(player.ranks[type].add(1),0) + " - " + RANKS.desc[type[player.ranks[type].add(1)]] : ''}
         `)
     }*/
+
+    for (let x = 0; x < RANKS.names.length; x++) {
+		let rn = RANKS.names[x]
+        tmp.el["choose_rank_reward_stab_"+rn].setDisplay(RANKS.unl[rn]())
+		tmp.el["ranks_reward_div_"+rn].setDisplay(player.rankrewardstab == rn)
+		if (player.rankrewardstab == rn) {
+			let keys = Object.keys(RANKS.desc[rn])
+			for (let y = 0; y < keys.length; y++) {
+				let unl = player.ranks[rn].gte(keys[y])
+				tmp.el["ranks_reward_"+rn+"_"+y].setDisplay(unl)
+				if (unl) if (tmp.el["ranks_eff_"+rn+"_"+y]) tmp.el["ranks_eff_"+rn+"_"+y].setTxt(RANKS.effDesc[rn][keys[y]](RANKS.effects[rn][keys[y]]()))
+			}
+		}
+	}
+    
+
 }
 function updateRanksTemp() {
     RANKS.tick()

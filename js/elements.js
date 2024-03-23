@@ -27,7 +27,35 @@ function setupHTML() {
 		</div>`
 	}*/
 	rank_table.setHTML(table)
-	table = ''
+	let choose_rank_stabs = new Element("choose_rank_stabs")
+	table = ""
+	for (let x = 0; x < RANKS.stabs.length; x++)  {
+		let id = RANKS.stabs[x]
+		let fullnames = RANKS.fstabs[x]
+		table += `<button id="choose_rank_stab_${id}">${fullname}</button>`
+
+	}
+	choose_rank_stabs.setHTML(table)
+	let crrst = new Element("choose_rank_reward_stab_table")
+	table = ""
+	for (let x = 0; x < RANKS.names.length; x++)  {
+		let rn = RANKS.names[x]
+		table += `<button id="choose_rank_reward_stab_${rn}" onclick="player.rankrewardstab = ${rn}">${rn}</button>`
+	}
+	crrst.setHTML(table)
+	let ranks_rewards_table = new Element("ranks_rewards_table")
+	table = ""
+	for (let x = 0; x < RANKS.names.length; x++) {
+		let rn = RANKS.names[x]
+		table += `<div id="ranks_reward_div_${x}">`
+		let keys = Object.keys(RANKS.desc[rn])
+		for (let y = 0; y < keys.length; y++) {
+			table += `<span id="ranks_reward_${rn}_${y}"><b>${RANKS.fullNames[x]} ${keys[y]}:</b> ${RANKS.desc[rn][keys[y]]}${RANKS.effect[rn][keys[y]]?` Currently: <span id='ranks_eff_${rn}_${y}'></span>`:""}</span><br>`
+		}
+		table += `</div>`
+	}
+	ranks_rewards_table.setHTML(table)
+
 	tmp.el = {}
 	let all = document.getElementsByTagName("*")
 	for (let i=0;i<all.length;i++) {
