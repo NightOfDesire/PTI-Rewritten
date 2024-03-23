@@ -156,7 +156,7 @@ function updateRanksHTML() {
         let d = ""
         for (let i = 0; i < k.length; i++) {
             if (player.ranks[rn].lt(k[i])) {
-                d = `${fn} up, but reset all your progress. At ${RANKS.fullnames[x]} ${format(k[i],0)} - ${RANKS.desc[rn][k[i]]}<br>Requires ${getRankReqResource(rn, RANKS.reqs[rn]())}`
+                d = `${fn} up, but reset all your progress. At ${RANKS.fullnames[x]} ${format(k[i],0)} - ${RANKS.desc[rn][k[i]]}<br>Requires ${RANKS.fullnames[x-1] ? `${format(RANKS.reqs[rn](),0)} ${RANKS.fullnames[x-1]}` : `${format(RANKS.reqs[rn]())} Essence`}`
             }
         }
         tmp.el[rn].setHTML(`${fn}: <b>${format(player.ranks[rn],0)}</b><br>`)
