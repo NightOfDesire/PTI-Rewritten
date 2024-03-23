@@ -77,6 +77,17 @@ const RANKS = {
             '1': "Asc boosts Essence MASSIVELY"
         }
     },
+    unl: {
+        rank() {
+            return player.ranks.tier.gte(2)
+        },
+        tier() {
+            return player.eclipse.shards.gte(1) || player.eclipse.score.gte(1.5e21) || player.abyss.unl
+        },
+        asc() {
+            return player.abyss.power.gte(0.75)
+        }
+    },
     effects: {
         rank: {
             '2'() {
@@ -109,12 +120,12 @@ const RANKS = {
 
         }
     },
-    unl: {
-        rank() {return true},
-        tier() {return player.eclipse.shards.gte(1) || player.eclipse.score.gte(1.5e21) || player.abyss.unl},
-        asc() {return player.abyss.power.gte(0.4)}
-            
-    },
+    
+
+
+
+
+    
     autoUnl: {
         rank() {return player.ranks.tier.gte(2)},
         tier() {return player.abyss.power.gte(0.2)},
