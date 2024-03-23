@@ -189,7 +189,6 @@ function updateRanksHTML() {
         Reset your progress but ${type} up. ${RANKS.desc[type[player.ranks[type].add(1)]] ? `At ${type} ` + format(player.ranks[type].add(1),0) + " - " + RANKS.desc[type[player.ranks[type].add(1)]] : ''}
         `)
     }*/
-
 }
 function updateRanksTemp() {
     RANKS.tick()

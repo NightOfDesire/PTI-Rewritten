@@ -10,15 +10,12 @@ function setupHTML() {
 	for (let i = 0; i < RANKS.names.length; i++) {
 		let type = RANKS.names[i]
 		table += `
-		<br>
-		<div id="${type}_div">
 		<span id="${type}" class="charged_text"></div>
 		<p class="line"></button>
 		<button id="${type}_btn" onclick="RANKS.reset('${type}')" class="btn" style="min-width: 250px; min-height: 130px;">
 		<span id="${type}_msg">Reset your progress, but ${type} up for a powerful boost.</span>
 		<span id="${type}_desc"></span>
 		</button>
-		</div>
 		`
 	}
 	/*for (let x = 0; x < RANKS.names.length; x++) {
