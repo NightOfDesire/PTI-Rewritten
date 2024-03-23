@@ -1,6 +1,6 @@
 const RANKS = {
     reset(rn) {
-        if (tmp.ranks[rn].can) {
+        if (tmp.ranks[rn].can == true) {
             this.doReset[rn]()
             player.ranks[rn] = player.ranks[rn].add(1)
         }
@@ -71,10 +71,11 @@ const RANKS = {
             '1': "Essence first softcap starts later based on tier.",
             '2': "Tier boosts eclipsal shards, <br><p class='void_text'>EMBRACE THE DARKNESS</p>.",
             '3': "Essence second softcap is weaker based off of tier, VP formula is better.",
-            '4': "Placeholder"
+            '1000': "Placeholder"
         },
         asc: {
-            '1': "Asc boosts Essence MASSIVELY"
+            '1': "Asc boosts Essence MASSIVELY",
+            '2': "Essence softcap 2 start is raised by 3"
         }
     },
     unl: {
@@ -152,7 +153,7 @@ function updateRanksHTML() {
             for (let i = 0; i < keys.length; i++) {
                 if (player.ranks[rn].lt(keys[i])) {
                     desc = `Restart from the beginning, but ${fn} up and gain a powerful boost. At ${RANKS.fullnames[x]} ${format(keys[i],0)} - ${RANKS.desc[rn][keys[i]]}<br>Requires ${RANKS.names[x-1] ? `${RANKS.names[x-1]} ${format(RANKS.reqs[rn]())}` : `${format(RANKS.reqs[rn]())} Essence`}`
-                    break
+                    //break
                 }
             }
             tmp.el[rn].setHTML(`${fn} <b>${format(player.ranks[rn],0)}</b><br>`)
