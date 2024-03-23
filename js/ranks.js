@@ -1,25 +1,9 @@
 const RANKS = {
-    reset(type) {
-        
-            if (type == "tier") {
-                if (tmp.ranks.tier.can) {
-                    player.essence = E(0)
-                    player.pres.pts = E(0)
-                    player.ranks.rank = E(0)
-                    player.ranks.tier = player.ranks.tier.add(1)
-                }
-            } else if (type == "rank") {
-                if (tmp.ranks.rank.can) {
-                    player.essence = E(0)
-                    player.pres.pts = E(0)
-                    player.ranks.rank = player.ranks.rank.add(1)
-                }
-            } else if (type == "asc") {
-                if (tmp.ranks.asc.can) {
-
-                }
-            } else return
-
+    reset(rn) {
+        if (tmp.ranks[rn].can) {
+            this.doReset[rn]()
+            player.ranks[rn] = player.ranks[rn].add(1)
+        }
     },
     tick() {
         for (let x = 0; x < RANKS["names"].length; x++) {
@@ -27,7 +11,21 @@ const RANKS = {
             if (t.auto) RANKS.reset(t)
         }
     },
-    reqs : {
+    doReset : {
+        rank() {
+            player.essence = E(0)
+            player.pres.pts = E(0)
+        },
+        tier() {
+            this.rank()
+            player.ranks.rank = E(0)
+        },
+        asc() {
+            this.tier()
+            player.ranks.tier = E(0)
+        }
+    },
+    reqs: {
         rank(x=player.ranks.rank) {
             let base = E("4e5")
             let inc = E(10)
