@@ -120,7 +120,7 @@ const RANKS = {
     autoUnl: {
         rank() {return player.tier.gte(2)},
         tier() {return player.abyss.power.gte(0.2)},
-        asc() {return false}
+        asc() {return player.abyss.power.gte(0.9)}
     },
     names: ['rank','tier','asc'],
     fullnames: ['Rank','Tier','Asc'],
@@ -151,18 +151,30 @@ function updateRanksHTML() {
     /**return @SHSHWIEDUZYXH tezt */
     for (let x = 0; x < RANKS.names.length; x++) {
         let rn = RANKS.names[x]
+        let unl = RANKS.unl[rn]()
         let fn = RANKS.fullnames[x]
-        let k = Object.keys(RANKS.desc[rn])
-        let d = ""
-        for (let i = 0; i < k.length; i++) {
-            if (player.ranks[rn].lt(k[i])) {
-                d = `${fn} up, but reset all your progress. At ${RANKS.fullnames[x]} ${format(k[i],0)} - ${RANKS.desc[rn][k[i]]}<br>Requires ${RANKS.fullnames[x-1] ? `${format(RANKS.reqs[rn](),0)} ${RANKS.fullnames[x-1]}` : `${format(RANKS.reqs[rn]())} Essence`}`
+        
+        /*if (unl) {
+            for (let i = 0; i < k.length; i++) {
+                if (player.ranks[rn].lt(k[i])) {
+                    d = `${fn} up, but reset all your progress. At ${RANKS.fullnames[x]} ${format(k[i],0)} - ${RANKS.desc[rn][k[i]]}<br>Requires ${RANKS.fullnames[x-1] ? `${format(RANKS.reqs[rn](),0)} ${RANKS.fullnames[x-1]}` : `${format(RANKS.reqs[rn]())} Essence`}`
+                }
             }
-        }
-        tmp.el[rn].setHTML(`${fn}: <b>${format(player.ranks[rn],0)}</b><br>`)
-        tmp.el[rn+"up"].setHTML(d)
+        }*/
+        if (unl) {
+            let keys = Object.keys(RANKS.desc[rn])
+            let desc = ""
+            for (let i = 0; i < keys.length; i++) {
+                if (player.ranks[rn].lt(keys[i])) {
+                    desc = `Restart from the beginning, but ${fn} up and gain a powerful boost. At ${RANKS.fullnames[x]} ${format(keys[i],0)} - ${RANKS.desc[rn][keys[i]]}`
+                    break
+                }
+            }
+            tmp.el[rn].setHTML(`${fn}: <b>${format(player.ranks[rn],0)}</b><br>`)
+        tmp.el[rn+"up"].setHTML(desc)
         tmp.el[rn].setDisplay(RANKS.unl[rn]())
         tmp.el[rn+"up"].setDisplay(RANKS.unl[rn]())
+        }
     }
     /*tmp.el.rank.setHTML(`Rank: <b>${format(player.ranks.rank, 0)}</b><br>`)
     tmp.el.rankup.setHTML(`
