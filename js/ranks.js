@@ -88,7 +88,7 @@ const RANKS = {
         },
         asc: {
             '1': "Asc boosts Essence MASSIVELY",
-            '2': "Essence softcap 2 start is raised by 3"
+            '2': "Essence softcap 2 start is raised by 5"
         }
     },
     unl: {
@@ -166,7 +166,7 @@ function updateRanksHTML() {
 
             for (let i = 0; i < keys.length; i++) {
                 if (player.ranks[rn].lt(keys[i])) {
-                    desc = `At ${RANKS.fullnames[x]} ${format(keys[i],0)} - ${RANKS.desc[rn][keys[i]]}<br>Requires ${RANKS.names[x-1] ? `${RANKS.names[x-1]} ${format(RANKS.reqs[rn]())}` : `${format(RANKS.reqs[rn]())} Essence`}`
+                    desc = `At ${RANKS.fullnames[x]} ${format(keys[i],0)} - ${RANKS.desc[rn][keys[i]]}<br>Requires ${RANKS.names[x-1] ? `${RANKS.names[x-1]} ${format(RANKS.reqs[rn](),0)}` : `${format(RANKS.reqs[rn]())} Essence`}`
                     break
                 }
             }

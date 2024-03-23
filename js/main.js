@@ -33,6 +33,7 @@ const FORMS = {
             start = start.pow(RANKS.effects.tier[1]())
             if (ECLIPSE.ACTIVE()) start = E("1e13")
             if (ABYSS.active()) start = 1
+            start = start.pow(ABYSS.VoidEssence.effect2())
             return E(start)
         },
         soft1pow() {
@@ -135,6 +136,7 @@ pres: {
         if (player.ranks.rank.gte(1)) gain = gain.pow(1.25)
         if (player.ranks.rank.gte(10)) gain = gain.mul(RANKS.effects.rank[10]())
         if (ECLIPSE.ACTIVE()) gain = gain.pow(0.7)
+        gain = gain.pow(ABYSS.VoidEssence.effect1())
         if (ABYSS.active()) gain = gain.root(3)
         gain = gain.softcap(FORMS.presScs.soft1start(), FORMS.presScs.soft1pow(), 0)
         return gain.floor()

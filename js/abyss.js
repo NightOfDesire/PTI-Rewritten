@@ -6,6 +6,10 @@ const ABYSS = {
         )
         tmp.el["VoidEssence"].setHTML(`Void Essence: ${format(player.abyss.essence)} ${formatGain(player.abyss.essence, tmp.vessgain)}`)
         tmp.el["VoidPower"].setHTML(`Abyssal Score: ${format(player.abyss.score,0)}, which provides ${format(player.abyss.power.mul(100))}% Void Power`)
+
+        tmp.el["VoidEssenceEffects"].setHTML(`
+        VE Effects:<br>^${format(ABYSS.VoidEssence.effect1())} PS<br>${player.ranks.rank.gte(20) || player.ranks.tier.gte(4) || player.ranks.asc.gte(1) ? `Essence softcap 2 starts ^${format(ABYSS.VoidEssence.effect2())} later` : ``}
+        `)
         player.abyss.power = this.VoidPower()
         player.abyss.unl = player.ranks.tier.gte(2) || player.misc.hEss.gte(1e45) || ABYSS.active()
     },
@@ -26,18 +30,33 @@ const ABYSS = {
         }
     },
     VoidPower() {
-        let vp = player.abyss.score.div(5e6).root(5).pow(0.5)
-        vp = vp.softcap(0.5, 0.4, 0)
+        let vp = player.abyss.score.sub(5e6).div(1e7).root(5).pow(0.3)
+        vp = vp.softcap(0.25, 0.4, 0)
+        if (player.abyss.score.lt(5e6)) vp = E(0)
         if (vp.gte(1)) vp = E(1)
         return vp
     },
-    VoidEssenceGain() {
-        let gain = player.abyss.power.mul(10).pow(1.2)
+    VoidEssence: {
+        gain() {
+            let gain = player.abyss.power.mul(20)
 
-        return gain
+            return gain
+        },
+        effect1() {
+            let eff = player.abyss.essence.div(10).pow(0.7).add(1)
+            eff = eff.softcap(1.8, 0.6, 0)
+            if (player.abyss.essence.lt(1)) eff = E(1)
+            return eff
+        },
+        effect2() {
+            let eff = player.abyss.essence.div(1000).pow(0.667)
+            eff = eff.softcap(3, 0.5, 0)
+            if (player.ranks.rank.lt(20) || player.ranks.tier.lt(4) || player.ranks.asc.lt(1)) eff = E(1)
+            return eff
+        }
     }
 }
 
 function updateAbyssTemp() {
-    tmp.vessgain = ABYSS.VoidEssenceGain()
+    tmp.vessgain = ABYSS.VoidEssence.gain()
 }
