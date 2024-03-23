@@ -12,6 +12,7 @@ class Element {
 		this.el.textContent = txt;
 	}
 	static setTxt(id, txt) {
+		/** text */
 		new Element(id).setTxt(txt);
 	}
 
