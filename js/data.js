@@ -108,6 +108,7 @@ function getPlayerData() {
         },
         misc: {
             hEss: E(0),
+            hPres: E(0)
         },
        
         time: 0,
