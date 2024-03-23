@@ -146,7 +146,7 @@ function updateRanksHTML() {
             for (let i = 0; i < keys.length; i++) {
                 if (player.ranks[rn].lt(keys[i])) {
                     desc = `Restart from the beginning, but ${fn} up and gain a powerful boost. At ${RANKS.fullnames[x]} ${format(keys[i],0)} - ${RANKS.desc[rn][keys[i]]}<br>Requires ${RANKS.names[x-1] ? `${RANKS.names[x-1]} ${format(RANKS.reqs[rn]())}` : `${format(RANKS.reqs[rn]())} Essence`}`
-                    break
+                    
                 }
             }
             tmp.el[rn].setHTML(`${fn} <b>${format(player.ranks[rn],0)}</b><br>`)
@@ -188,7 +188,7 @@ function updateRanksTemp() {
                 return RANKS.unl[t]()
             },
             get can() {
-                    return RANKS.names[x-1] ? player.ranks[RANKS.names[x-1]].gte(RANKS.reqs[RANKS.names[x]]) : player.essence.gte(RANKS.reqs[RANKS.names[x]])
+                return RANKS.names[x-1] ? player.ranks[RANKS.names[x-1]].gte(RANKS.reqs[RANKS.names[x]]) : player.essence.gte(RANKS.reqs[RANKS.names[x]])
             },
             get autounl() {
                 return RANKS.autoUnl[t]()
