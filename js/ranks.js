@@ -116,16 +116,11 @@ const RANKS = {
                 let ret = player.ranks.tier.sub(2).div(10).root(3).add(1)
             }
         },
+        /**@license this_is_useless_tbh*/
         asc: {
 
         }
     },
-    
-
-
-
-
-    
     autoUnl: {
         rank() {return player.ranks.tier.gte(2)},
         tier() {return player.abyss.power.gte(0.2)},
