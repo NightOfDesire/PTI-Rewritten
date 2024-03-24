@@ -102,7 +102,6 @@ function updateHTML() {
 	<br>Effect: ${formatMult(FORMS.pres.effect())} Essence
 	`)
 	//if (player.misc.hEss.gte('1e100')) player.MODIFIERS.unl = true
-
 	iupdateRanksHTML()
 	updateEclipseHTML()
 	SUPERNOVA.updateHTML()
