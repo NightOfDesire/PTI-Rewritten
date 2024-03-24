@@ -3,8 +3,8 @@ const BUYABLES_DATA = {
    
     
     supernova_1: {
-        name: "Dimensionalizer",
-        icon: 'dimensionalizer',
+        name: "Time Manipulator",
+        icon: 'time',
         get start() { return E(1)},
         get inc() { return E(2.55)},
         get isUnlocked() { return true },

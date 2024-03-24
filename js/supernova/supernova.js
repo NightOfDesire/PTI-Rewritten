@@ -4,9 +4,10 @@ const SUPERNOVA = {
             createConfirm(`Are you sure you want to force a supernova reset?`,SUPERNOVA.reset)
         }
         if (!force) {
-            if (tmp.sn.can) {
+            if (tmp.sn.can == true) {
                 player.sn.time = E(0)
                 player.sn.amt = player.sn.amt.add(1)
+                player.sn.unl = true
 
                 player.essence = E(0)
                 player.pres.pts = E(0)
@@ -23,25 +24,30 @@ const SUPERNOVA = {
                 player.abyss.oddities = E(0)
                 player.abyss.active = false
                 player.abyss.unl = false
+                player.misc.hEss = E(0)
+                player.misc.hPres = E(0)
                 player.sn.stars = player.sn.stars.add(tmp.sn.gain)
             }
+        } else {
+            player.sn.time = E(0)
+            player.essence = E(0)
+            player.pres.pts = E(0)
+            player.pres.unl = false
+            player.ranks.rank = E(0)
+            player.ranks.tier = E(0)
+            player.ranks.asc = E(0)
+            player.eclipse.score = E(0)
+            player.eclipse.shards = E(0)
+            player.eclipse.active = false
+            player.eclipse.unl = false
+            player.abyss.score = E(0)
+            player.abyss.essence = E(0)
+            player.abyss.oddities = E(0)
+            player.abyss.active = false
+            player.abyss.unl = false
+            player.misc.hEss = E(0)
+            player.misc.hPres = E(0)
         }
-        player.sn.time = E(0)
-        player.essence = E(0)
-        player.pres.pts = E(0)
-        player.pres.unl = false
-        player.ranks.rank = E(0)
-        player.ranks.tier = E(0)
-        player.ranks.asc = E(0)
-        player.eclipse.score = E(0)
-        player.eclipse.shards = E(0)
-        player.eclipse.active = false
-        player.eclipse.unl = false
-        player.abyss.score = E(0)
-        player.abyss.essence = E(0)
-        player.abyss.oddities = E(0)
-        player.abyss.active = false
-        player.abyss.unl = false
     },
     starGain() {
         let gain = player.essence.div("e150").root(2)
@@ -62,7 +68,7 @@ const SUPERNOVA = {
     updateTemp() {
         if (!tmp.sn) tmp.sn = {}
         tmp.sn.can = player.essence.gte(SUPERNOVA.calcReq())
-        tmp.sn.gain = SUPERNOVA.calcReq()
+        tmp.sn.gain = SUPERNOVA.starGain()
     },
     updateHTML() {
         if (player.sn.amt.lt(10)) {

@@ -119,7 +119,7 @@ const FORMS = {
 
    gamespeed() {
     let x = E(1)
-    //x = x.add(player.number.root(125)).add
+    x = x.mul(BUYABLES.eff('supernova_1'))
     return x
    },
    numberSoftGain() {
