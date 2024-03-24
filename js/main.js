@@ -119,7 +119,9 @@ const FORMS = {
 
    gamespeed() {
     let x = E(1)
-    x = x.mul(BUYABLES.eff('supernova_1'))
+
+    x = x.mul(player.sn.stars.log(3).add(1))
+    
     return x
    },
    numberSoftGain() {
@@ -165,7 +167,6 @@ function loop() {
     updateHTML()
     updateTemp()
     calc(diff/1000);
-    BUYABLES.tick()
     date = Date.now();
     player.offline.current = date
 }
