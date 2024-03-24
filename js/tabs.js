@@ -9,7 +9,11 @@ const TABS = {
 
         for (let t=0;t<TABS["list"].length;t++) {
             let tab = TABS.list[t]+"Tab"
-            tmp.el[tab].setDisplay(player.tab == tab)
+            if (player.essence.lt(SUPERNOVA.calcReq()))  {
+                tmp.el[tab].setDisplay(player.tab == tab)
+            } else if (player.essence.gte(SUPERNOVA.calcReq()) && player.sn.amt.lt(10)) {
+                tmp.el[tab].setDisplay(false)
+            }
         }
         tmp.el.CT_Pres.setDisplay(player.misc.hEss.gte(15))
         tmp.el.CT_Rank.setDisplay(player.misc.hEss.gte(2.5e5))
@@ -52,7 +56,17 @@ const TAB_TERMINAL = {
         player.tabterm.open = !player.tabterm.open
     },
     refresh() {
-        tmp.el.Open_TT.setHTML(player.tabterm.open ? "Exit tab terminal" : "Open tab terminal")
-        tmp.el.Tab_Terminal.setDisplay(player.tabterm.open)
+        if (player.essence.lt(SUPERNOVA.calcReq()) && (player.sn.times.lt(10) || player.sn.times.gte(10))) {
+            tmp.el.Open_TT.setHTML(player.tabterm.open ? "Exit tab terminal" : "Open tab terminal")
+            tmp.el.setDisplay(true)
+        } else if (player.essence.gte(SUPERNOVA.calcReq()) && player.sn.times.lt(10)) {
+            tmp.el.Open_TT.setDisplay(false)
+        }
+        if (player.essence.lt(SUPERNOVA.calcReq()) && (player.sn.times.lt(10) || player.sn.times.gte(10))) {
+            tmp.el.Tab_Terminal.setDisplay(player.tabterm.open)
+        } 
+        else if (player.essence.gte(SUPERNOVA.calcReq()) && player.sn.times.lt(10)) {
+            tmp.el.Tab_Terminal.setDisplay(false)
+        }
     }
 }

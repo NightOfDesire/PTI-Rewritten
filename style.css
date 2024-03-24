@@ -401,17 +401,17 @@ button {
 }
 .supernova {
 	background: #CF00AC;
-	background: radial-gradient(circle farthest-corner at center center, #CF00AC 0%, #00DDFF 25%, #FF00D4 50%, #00DDFF 75%, #CF00AC 100%);
+	background: radial-gradient(circle farthest-corner at center center, magenta 0%, #00DDFF 25%, magenta 50%, #00DDFF 75%, magenta 100%);
 	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
-#SupernovaDisplay {
+/*#SupernovaDisplay {
 	min-height: 100%;
 	max-height: 100%;
 	min-width: 100%;
 	max-width: 100%;
-}
+}*/
 
 .btn_tree {
 	background-color: black;
