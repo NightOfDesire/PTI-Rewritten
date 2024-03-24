@@ -123,7 +123,7 @@ function getPlayerData() {
         },
        
         time: 0,
-        MODIFIERS: {
+        chals: {
             active: 0,
             chosen: 0,
             unl: false,
@@ -134,10 +134,6 @@ function getPlayerData() {
             open: false
         },
         buyables: {},
-    }
-    for (let x in BUYABLES_DATA) s.buyables[x] = {
-        amt: E(0),
-        auto: false
     }
    
     return s

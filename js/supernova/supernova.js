@@ -73,7 +73,9 @@ const SUPERNOVA = {
     updateHTML() {
         if (player.sn.amt.lt(10)) {
             tmp.el.SupernovaDisplay.setDisplay(tmp.sn.can == true)
-        } 
+        }  else {
+            tmp.el.SupernovaDislay.setDisplay(false)
+        }
         tmp.el.stars.setHTML(`Stars: ${format(player.sn.stars)}`)
         tmp.el.SupernovaButton.setDisplay(player.sn.amt.gte(10))
         tmp.el.SupernovaReq.setDisplay(player.sn.amt.gte(10))
