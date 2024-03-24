@@ -62,8 +62,7 @@ function updateTemp() {
     updateEssenceTemp()
     updatePrestigeTemp()
     updateRanksTemp()
-    updateAbyssTemp()
+    ABYSS.updateTemp()
     SUPERNOVA.updateTemp()
     UPGRADES.main.temp()
-   
 }

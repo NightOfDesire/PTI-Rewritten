@@ -55,9 +55,8 @@ const ABYSS = {
             if (player.abyss.essence.lt(1000)) eff = E(1)
             return eff
         }
+    },
+    updateTemp() {
+        tmp.vessgain = this.VoidEssence.gain()
     }
-}
-
-function updateAbyssTemp() {
-    tmp.vessgain = ABYSS.VoidEssence.gain()
 }
