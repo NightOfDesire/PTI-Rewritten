@@ -399,6 +399,13 @@ button {
 .img_btn:not(.locked):not(.bought):hover {
 	background-color: #555
 }
+.supernova {
+	background: #CF00AC;
+	background: radial-gradient(circle farthest-corner at center center, #CF00AC 0%, #00DDFF 25%, #FF00D4 50%, #00DDFF 75%, #CF00AC 100%);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
 
 .btn_tree {
 	background-color: black;

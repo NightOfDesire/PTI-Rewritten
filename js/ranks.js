@@ -84,7 +84,7 @@ const RANKS = {
         tier: {
             '1': "Essence first softcap starts later based on tier.",
             '2': "Tier boosts eclipsal shards, <br><p class='void_text'>EMBRACE THE DARKNESS</p>.",
-            '3': "Essence second softcap is weaker based off of tier, VP formula is better.",
+            '3': "x3 Void Essence, Essence second softcap is weaker based off of tier.",
         },
         asc: {
             '1': "Asc boosts Essence MASSIVELY",
@@ -131,6 +131,21 @@ const RANKS = {
             }
         },
         /**@license this_is_useless_tbh*/
+        asc: {
+
+        }
+    },
+    effDesc: {
+        rank: {
+            2(x) { return formatMult(x) },
+            10(x) { return formatMult(x) },
+            
+        },
+        tier: {
+            1(x) { return "^"+format(x,2) },
+            2(x) { return formatMult(x) },
+            3(x) { return formatPercent(x) }
+        },
         asc: {
 
         }

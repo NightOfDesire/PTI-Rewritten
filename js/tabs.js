@@ -32,12 +32,14 @@ const TAB_TERMINAL = {
         Settings: 'magenta',
         Supernova: 'supernova'
     },
-    imgs: {},
+    imgs: {
+        Supernova: 'supernova'
+    },
     setup() {
         let html = ''
         for (let i=0;i<TABS.list.length; i++) {
             html += `
-            <button id="CT_${TABS.list[i]}" onclick="TABS.choose('${TABS.list[i]}')" class="${TAB_TERMINAL.classes[TABS.list[i]]||""}"><img src="images/${TAB_TERMINAL.imgs[TABS.list[i]]}>Open ${TABS.list[i]} Tab<img src="images/${TAB_TERMINAL.imgs[TABS.list[i]]}</div>`
+            <button id="CT_${TABS.list[i]}" onclick="TABS.choose('${TABS.list[i]}')" class="${TAB_TERMINAL.classes[TABS.list[i]]||""}"><img src="images/${TAB_TERMINAL.imgs[TABS.list[i]]||""}>Open ${TABS.list[i]} Tab<img src="images/${TAB_TERMINAL.imgs[TABS.list[i]]||""}</div>`
             new Element('Tab_Terminal').setHTML(html)
         }
     },
