@@ -6,7 +6,7 @@ const BUYABLES_DATA = {
         name: "Dimensionalizer",
         icon: 'dimensionalizer',
         get start() { return E(1)},
-        get inc() { return E(4)},
+        get inc() { return E(2.55)},
         get isUnlocked() { return true },
         get autoUnlocked() { return false},
         get noSpend() { return false },
@@ -22,11 +22,11 @@ const BUYABLES_DATA = {
         get bulk() {
             return getSupernovaUpgradeBulk(1)
         },
-        get_cost: x => format(x) + " Stats",
+        get_cost: x => format(x) + " stars",
         effect(x) {
-            let pow = E(0.2)/*.mul(BUILDINGS.eff('number_2'))*/
+            let pow = E(2)/*.mul(BUILDINGS.eff('number_2'))*/
             let eff = pow.mul(x)
-            eff = eff.softcap(4, 0.5, 0)
+            eff = eff.softcap(100, 0.5, 0)
             return {power: pow, effect: eff}
         },
         get bonus() {
@@ -34,8 +34,8 @@ const BUYABLES_DATA = {
 
             return x
         },
-        get_power: x => "+^"+format(x.power)+" to essence gain",
-        get_effect: x => "^"+format(x.effect)+" essence gain",
+        get_power: x => "+"+formatMult(x.power)+" to gamespeed",
+        get_effect: x => formatMult(x.effect)+" essence gain",
     },
    
     
@@ -100,7 +100,7 @@ const BUYABLES = {
 
     //Buying
 	buy(i, max=false) {
-        let b = BUYABLE_DATA[i], cost = b.cost()
+        let b = BUYABLES_DATA[i], cost = b.cost()
 
         if (b.res.lt(cost) || !(b.allowPurchase ?? true)) return
 
@@ -144,12 +144,12 @@ const BUYABLES = {
                         <span style="margin-left: 5px; text-align: left;">${b.name} [<span id="building_lvl_${i}"></span>]</span>
 					</div>
 				</div>
-				<button class="btn" id="building_btn_${i}" onclick="BUILDINGS.buy('${i}')" style="width: 300px"><span id="building_cost_${i}"></span></button>
-                <button class="btn" onclick="BUILDINGS.buy('${i}', true)" style="width: 120px">Buy Max</button>
-				<button class="btn" id="building_auto_${i}" onclick="player.build.${i}.auto = !player.build.${i}.auto" style="width: 80px"></button>
+				<button class="btn" id="buyable_btn_${i}" onclick="BUYABLES.buy('${i}')" style="width: 300px"><span id="buyable_cost_${i}"></span></button>
+                <button class="btn" onclick="BUYABLES.buy('${i}', true)" style="width: 120px">Buy Max</button>
+				<button class="btn" id="buyable_auto_${i}" onclick="player.buyables.${i}.auto = !player.buyables.${i}.auto" style="width: 80px"></button>
 				<div style="margin-left: 5px; text-align: left; width: 400px">
-					Power: <span id="building_pow_${i}"></span><br>
-					Effect: <span id="building_eff_${i}"></span>
+					Power: <span id="buyable_pow_${i}"></span><br>
+					Effect: <span id="buyable_eff_${i}"></span>
 				</div>
 			</div>`)
 		}

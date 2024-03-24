@@ -56,7 +56,6 @@ const TAB_TERMINAL = {
         player.tabterm.open = !player.tabterm.open
     },
     refresh() {
-        let hi = 'helloo'
         if (player.essence.lt(SUPERNOVA.calcReq()) && (player.sn.amt.lt(10) || player.sn.amt.gte(10))) {
             tmp.el.Open_TT.setHTML(player.tabterm.open ? "Exit tab terminal" : "Open tab terminal")
             tmp.el.setDisplay(true)

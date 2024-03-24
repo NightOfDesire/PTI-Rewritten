@@ -13,6 +13,7 @@ const SUPERNOVA = {
                 player.pres.unl = false
                 player.ranks.rank = E(0)
                 player.ranks.tier = E(0)
+                player.ranks.asc = E(0)
                 player.eclipse.score = E(0)
                 player.eclipse.shards = E(0)
                 player.eclipse.active = false
@@ -31,6 +32,7 @@ const SUPERNOVA = {
         player.pres.unl = false
         player.ranks.rank = E(0)
         player.ranks.tier = E(0)
+        player.ranks.asc = E(0)
         player.eclipse.score = E(0)
         player.eclipse.shards = E(0)
         player.eclipse.active = false
@@ -47,7 +49,7 @@ const SUPERNOVA = {
         return gain
     },
     calcReq() {
-        let base = E("e150")
+        let base = E("e54")
         let inc  = E("e15")
         let pow = player.sn.amt.div(10).add(1)
 
@@ -66,6 +68,7 @@ const SUPERNOVA = {
         if (player.sn.amt.lt(10)) {
             tmp.el.SupernovaDisplay.setDisplay(player.essence.gte(SUPERNOVA.calcReq()))
         } 
+        tmp.el.stars.setHTML(`Stars: ${format(player.sn.stars)}`)
         tmp.el.SupernovaButton.setDisplay(player.sn.amt.gte(10))
         tmp.el.SupernovaReq.setDisplay(player.sn.amt.gte(10))
         tmp.el.snline2.setDisplay(player.sn.amt.gte(10))
