@@ -111,6 +111,9 @@ function getPlayerData() {
             notation_count: 0,
             savenotif: true
         },
+        main_upg_msg: [0,0],
+        mainUpg: {},
+        auto_mainUpg: {},
        
         offline: {
             active: true,
@@ -137,6 +140,11 @@ function getPlayerData() {
             open: false
         },
         buyables: {},
+    }
+
+    for (let x = 1; x <= UPGRADES.main.cols; x++) {
+        s.auto_mainUpg[UPGRADES.main.ids[x]] = false
+        s.mainUpg[UPGRADES.main.ids[x]] = []
     }
    
     return s

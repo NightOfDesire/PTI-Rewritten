@@ -64,5 +64,6 @@ function updateTemp() {
     updateRanksTemp()
     updateAbyssTemp()
     SUPERNOVA.updateTemp()
+    UPGRADES.main.temp()
    
 }

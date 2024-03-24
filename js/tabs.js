@@ -21,7 +21,7 @@ const TABS = {
         tmp.el["CT_INFINITY"].setDisplay(false)
     },
     list: [
-        "Main","Pres","Rank","Eclipse","Abyss","Supernova","Challenges","INFINITY","Settings"
+        "Main","Pres","Rank","Eclipse","Abyss","Supernova","Upgrades","INFINITY","Settings"
     ]
 }
 
@@ -33,7 +33,7 @@ const TAB_TERMINAL = {
         Abyss: "void_text",
         Settings: 'magenta',
         Supernova: 'supernova',
-        Challenges: "supernova",
+        Upgrades: "magmatic",
         INFINITY: 'yellow',
     },
     setup() {
