@@ -5,6 +5,7 @@ function setupHTML() {
 	//setupModsHTML()
 
 	TAB_TERMINAL.setup()
+	//there is NO buyables line here!
 	let rank_table = new Element('rank_table')
 	for (let i = 0; i < RANKS.names.length; i++) {
 		let rn = RANKS.names[i]
