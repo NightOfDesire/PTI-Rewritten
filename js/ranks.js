@@ -166,7 +166,7 @@ function updateRanksHTML() {
         tmp.el["choose_rank_stab_"+stab].setDisplay(RANKS.stabunls[stab]())
         for (let x = 0; x < RANKS.names.length; x++) {
             let rn = RANKS.names[x]
-            tmp.el["choose_rank_reward_stab_"+x].setDisplay(player.ranks[rn].gte(1))
+            tmp.el["choose_rank_reward_stab_"+rn].setDisplay(player.ranks[rn].gte(1))
         }
     }
     /**return @SHSHWIEDUZYXH tezt */
