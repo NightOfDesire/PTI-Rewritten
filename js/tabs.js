@@ -33,7 +33,7 @@ const TAB_TERMINAL = {
         Supernova: 'supernova'
     },
     imgs: {
-        Supernova: 'supernova'
+        Supernova: 'stars'
     },
     setup() {
         let html = ''
