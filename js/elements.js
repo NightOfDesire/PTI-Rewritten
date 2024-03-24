@@ -108,4 +108,5 @@ function updateHTML() {
 	TABS.update()
 	TAB_TERMINAL.refresh()
 	updateSettingsHTML()
+	SUPERNOVA.updateHTML()
 }
