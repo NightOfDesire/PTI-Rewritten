@@ -17,6 +17,7 @@ const TABS = {
         
         tmp.el.CT_Abyss.setDisplay(player.abyss.unl || player.ranks.tier.gte(2))
         tmp.el.CT_Supernova.setDisplay(player.sn.unl)
+        let hi = "bye"
         //tmp.el.CT_Infinity.setDisplay(false)
     },
     list: [
@@ -30,10 +31,12 @@ const TAB_TERMINAL = {
         Eclipse: 'orange',
         Abyss: "void_text",
         Settings: 'magenta',
-        Supernova: 'supernova'
+        Supernova: 'supernova',
+        Infinity: 'yellow'
     },
     imgs: {
-        Supernova: 'stars'
+        Supernova: 'stars',
+        Infinity: 'inf'
     },
     setup() {
         let html = ''

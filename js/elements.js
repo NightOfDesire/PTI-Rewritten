@@ -32,7 +32,7 @@ function setupHTML() {
 	for (let x = 0; x < RANKS.stabs.length; x++)  {
 		let id = RANKS.stabs[x]
 		let fullname = RANKS.fstabs[x]
-		table += `<button id="choose_rank_stab_${id}">${RANKS.fstabs[x]}</button>`
+		table += `<button id="choose_rank_stab_${id}">${RANKS.fstabs[id]}</button>`
 
 	}
 	choose_rank_stabs.setHTML(table)
