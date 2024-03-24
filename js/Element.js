@@ -17,7 +17,7 @@ class Element {
 	}
 
 	setHTML(html) {
-		this.el.innerHTML = html
+		this.el.innerHTML = html;
 	}
 	static setHTML(id, html) {
 		new Element(id).setHTML(html);
