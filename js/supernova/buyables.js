@@ -1,7 +1,4 @@
 const BUYABLES_DATA = {
-   
-   
-    
     supernova_1: {
         name: "Time Manipulator",
         icon: 'time',
@@ -45,12 +42,12 @@ const BUYABLE_ORDER = [
 'supernova_1'
 ]
 
-Object.keys(BUYABLES).forEach(i => {
-    let b = BUYABLES[i]
+Object.keys(BUYABLES_DATA).forEach(i => {
+    let b = BUYABLES_DATA[i]
 
     Object.defineProperty(b, "level", {
-        get() { return player.build[i].amt },
-        set(value) { player.build[i].amt = value },
+        get() { return player.buyables[i].amt },
+        set(value) { player.buyables[i].amt = value },
     })
 });
 
@@ -61,11 +58,11 @@ const BUYABLES = {
 		}
 	},
     temp() {
-        if (!tmp.build) {
-            tmp.build = {}
+        if (!tmp.buyables) {
+            tmp.buyables = {}
         }
 
-		let bt = tmp.build
+		let bt = tmp.buyables
 
 		for (var i of BUYABLE_ORDER) {
             let b = BUYABLES_DATA[i]
@@ -125,7 +122,7 @@ const BUYABLES = {
 	eff(i, key="effect", def = E(1)) {
         let ret = def.sub(1)
 		if (tmp.build && tmp.build[i]) {
-            ret = tmp.build[i].effect[key] ?? def
+            ret = tmp.buyables[i].effect[key] ?? def
         } else {
             ret =  E(0)
         }
