@@ -50,7 +50,7 @@ function setupHTML() {
 		table += `<div id="ranks_reward_div_${x}">`
 		let keys = Object.keys(RANKS.desc[rn])
 		for (let y = 0; y < keys.length; y++) {
-			//hi
+			//hi !
 			table += `<span id="ranks_reward_${rn}_${y}"><b>${RANKS.fullnames[x]} ${keys[y]}:</b> ${RANKS.desc[rn][keys[y]]}${RANKS.effect[rn][keys[y]]?` Currently: <span id='ranks_eff_${rn}_${y}'></span>`:""}</span><br>`
 		}
 		table += `</div>`
