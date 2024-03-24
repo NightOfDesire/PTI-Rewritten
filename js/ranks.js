@@ -271,7 +271,8 @@ function updateRanksTemp() {
     for (let x = 0; x < RANKS.names.length; x++) {
         let t = RANKS.names[x]
         tmp.ranks[t].autounl = RANKS.autoUnl[t]()
-        if (t.gte(player.misc["h"+t])) player.misc["h"+t] = player.ranks[t]
+        let Mc = new Decimal("e3000003")
+        if (player.ranks[t].gte(player.misc["h"+t])) player.misc["h"+t] = player.ranks[t]
     }
     //tmp.ranks.rank.can = player.essence.gte(RANKS.reqs.rank())
     //tmp.ranks.tier.can = player.ranks.rank.gte(RANKS.reqs.tier())
