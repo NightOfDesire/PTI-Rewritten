@@ -58,7 +58,6 @@ const TAB_TERMINAL = {
     refresh() {
         if (player.essence.lt(SUPERNOVA.calcReq()) && (player.sn.amt.lt(10) || player.sn.amt.gte(10))) {
             tmp.el.Open_TT.setHTML(player.tabterm.open ? "Exit tab terminal" : "Open tab terminal")
-            
             tmp.el.Open_TT.setDisplay(true)
         } else if (player.essence.gte(SUPERNOVA.calcReq()) && player.sn.amt.lt(10)) {
             tmp.el.Open_TT.setDisplay(false)
