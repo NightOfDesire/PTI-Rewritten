@@ -105,8 +105,8 @@ function updateHTML() {
 
 	if (player.tab == "RankTab") updateRanksHTML()
 	if (player.tab == "EclipseTab") updateEclipseHTML()
+	if (player.tab == "SupernovaTab") SUPERNOVA.updateHTML()
+	if (player.tab == "SettingsTab") updateSettingsHTML()
 	TABS.update()
 	TAB_TERMINAL.refresh()
-	updateSettingsHTML()
-	SUPERNOVA.updateHTML()
 }
