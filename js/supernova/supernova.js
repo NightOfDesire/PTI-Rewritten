@@ -74,7 +74,7 @@ const SUPERNOVA = {
         if (player.sn.amt.lt(10)) {
             tmp.el.SupernovaDisplay.setDisplay(tmp.sn.can == true)
         }  else {
-            tmp.el.SupernovaDislay.setDisplay(false)
+            tmp.el.SupernovaDisplay.setDisplay(false)
         }
         tmp.el.stars.setHTML(`Stars: ${format(player.sn.stars)}<br>Stars give ${formatMult(player.sn.stars.log(3).add(1))} gamespeed by themselves.`)
         tmp.el.SupernovaButton.setDisplay(player.sn.amt.gte(10) && player.essence.gte(SUPERNOVA.calcReq()))
