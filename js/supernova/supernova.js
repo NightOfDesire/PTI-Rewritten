@@ -77,7 +77,7 @@ const SUPERNOVA = {
             tmp.el.SupernovaDislay.setDisplay(false)
         }
         tmp.el.stars.setHTML(`Stars: ${format(player.sn.stars)}<br>Stars give ${formatMult(player.sn.stars.log(3).add(1))} gamespeed by themselves.`)
-        tmp.el.SupernovaButton.setDisplay(player.sn.amt.gte(10))
+        tmp.el.SupernovaButton.setDisplay(player.sn.amt.gte(10) && player.essence.gte(SUPERNOVA.calcReq()))
         tmp.el.SupernovaReq.setDisplay(player.sn.amt.gte(10))
         tmp.el.snline2.setDisplay(player.sn.amt.gte(10))
         tmp.el.SupernovaButton.setHTML(`Reset EVERYTHING before this point, but supernova for +${format(tmp.sn.gain)}`)
