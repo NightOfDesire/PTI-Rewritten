@@ -14,6 +14,7 @@ function updateSettingsHTML() {
     }
     tmp.el.ptime.setHTML(`Time played (total): ${formatTime(player.time)}`)
     tmp.el.settingsnota.setHTML(`Notation: ${fullNotas[player.options.notation] ? fullNotas[player.options.notation] : player.options.notation}`)
+    tmp.el.savenotif.setHTML(player.options.savenotif ? 'Save notification enabled.' : `Save notification disabled.`)
 }
 function sci_start_setting() {
     createPrompt('Enter scientific start [INPUT GETS POWERED BY 10 ONCE YOU CONFIRM]',null,start=>{

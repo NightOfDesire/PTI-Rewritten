@@ -109,7 +109,8 @@ function getPlayerData() {
             massDis: 0,
             nav_hide: [],
             sci_start: E(12),
-            notation_count: 0
+            notation_count: 0,
+            savenotif: true
         },
        
         offline: {
@@ -203,7 +204,7 @@ function save(){
     if (localStorage.getItem("testSave") == '') wipe()
     localStorage.setItem("testSave",str)
     tmp.prevSave = localStorage.getItem("testSave")
-    addNotify('Game saved.', 3)
+    if (player.options.savenotif) addNotify('Game saved.', 3)
    
 }
 
