@@ -84,7 +84,7 @@ const RANKS = {
         tier: {
             '1': "Essence first softcap starts later based on tier.",
             '2': "Tier boosts eclipsal shards, <br><p class='void_text'>EMBRACE THE DARKNESS</p>.",
-            '3': "x3 Void Essence, Essence second softcap is weaker based off of tier.",
+            '3': "x3 Void Essence, Essence first softcap is weaker based off of tier. (stops at 20%)",
         },
         asc: {
             '1': "Asc boosts Essence MASSIVELY",
@@ -113,6 +113,11 @@ const RANKS = {
                 let ret = (player.essence.add(1).log10().root(10)).add(1)
 
                 return ret
+            },
+            '13'() {
+                let ret = E(1.02)
+
+                return ret
             }
         },
         tier: {
@@ -127,7 +132,9 @@ const RANKS = {
                 return ret
             },
             '3'() {
-                let ret = player.ranks.tier.sub(2).div(10).root(3).add(1)
+                let ret = player.ranks.tier.sub(2).root(3).div(50)
+                if (ret.gte(0.2)) ret = E(0.2)
+                return ret
             }
         },
         /**@license this_is_useless_tbh*/
@@ -139,6 +146,7 @@ const RANKS = {
         rank: {
             2(x) { return formatMult(x) },
             10(x) { return formatMult(x) },
+            13(x) { return "^"+(x) },
             
         },
         tier: {

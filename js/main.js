@@ -38,6 +38,7 @@ const FORMS = {
         },
         soft1pow() {
             let softcap = E(0.8)
+            if (player.ranks.tier.gte(3)) softcap = softcap.sub(RANKS.effects.tier[3]())
             if (ABYSS.active()) softcap = E(0.6)
 
             return softcap
