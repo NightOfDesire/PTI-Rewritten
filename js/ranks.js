@@ -166,6 +166,7 @@ function updateRanksHTML() {
         tmp.el["choose_rank_stab_"+stab].setDisplay(RANKS.stabunls[stab]())
         for (let x = 0; x < RANKS.names.length; x++) {
             let rn = RANKS.names[x]
+            /**@param man @param i @param hate @param errors @param without @param a @param root @param problem */
             tmp.el["choose_rank_reward_stab_"+rn].setDisplay(player.ranks[rn].gte(1))
         }
     }
