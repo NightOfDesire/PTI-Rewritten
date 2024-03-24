@@ -94,6 +94,8 @@ function getPlayerData() {
             power: E(0),
             score: E(0)
         },
+        sn: {},
+        inf: {},
         options: {
             font: 'Verdana',
             notation: 'standard',
@@ -124,6 +126,11 @@ function getPlayerData() {
         tabterm: {
             open: false
         },
+        buyables: {},
+    }
+    for (let x in BUYABLES_DATA) s.buyables[x] = {
+        amt: E(0),
+        auto: false
     }
    
     return s

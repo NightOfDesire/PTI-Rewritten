@@ -16,9 +16,11 @@ const TABS = {
         tmp.el.CT_Eclipse.setDisplay(player.ranks.rank.gte(15) || player.eclipse.unl)
         
         tmp.el.CT_Abyss.setDisplay(player.abyss.unl || player.ranks.tier.gte(2))
+        tmp.el.CT_Supernova.setDisplay(player.sn.unl)
+        tmp.el.CT_Infinity.setDisplay(false)
     },
     list: [
-        "Main","Pres","Rank","Eclipse","Abyss","Settings"
+        "Main","Pres","Rank","Eclipse","Abyss","Settings","Supernova","Infinity"
     ]
 }
 
@@ -27,13 +29,15 @@ const TAB_TERMINAL = {
         Pres: 'charged_text',
         Eclipse: 'orange',
         Abyss: "void_text",
-        Settings: 'magenta'
+        Settings: 'magenta',
+        Supernova: 'supernova'
     },
+    imgs: {},
     setup() {
         let html = ''
         for (let i=0;i<TABS.list.length; i++) {
             html += `
-            <button id="CT_${TABS.list[i]}" onclick="TABS.choose('${TABS.list[i]}')" class="${TAB_TERMINAL.classes[TABS.list[i]]||""}">Open ${TABS.list[i]} Tab</div>`
+            <button id="CT_${TABS.list[i]}" onclick="TABS.choose('${TABS.list[i]}')" class="${TAB_TERMINAL.classes[TABS.list[i]]||""}"><img src="images/${TAB_TERMINAL.imgs[TABS.list[i]]}>Open ${TABS.list[i]} Tab<img src="images/${TAB_TERMINAL.imgs[TABS.list[i]]}</div>`
             new Element('Tab_Terminal').setHTML(html)
         }
     },
