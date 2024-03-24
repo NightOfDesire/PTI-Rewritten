@@ -121,7 +121,7 @@ const BUYABLES = {
     //Effect
 	eff(i, key="effect", def = E(1)) {
         let ret = def.sub(1)
-		if (tmp.build && tmp.build[i]) {
+		if (tmp.buyables && tmp.buyables[i]) {
             ret = tmp.buyables[i].effect[key] ?? def
         } else {
             ret =  E(0)
@@ -138,7 +138,7 @@ const BUYABLES = {
 				<div style="width: 300px">
 					<div class="resources">
 						<img src="images/${b.icon||"mark"}.png">
-                        <span style="margin-left: 5px; text-align: left;">${b.name} [<span id="building_lvl_${i}"></span>]</span>
+                        <span style="margin-left: 5px; text-align: left;">${b.name} [<span id="buyable_lvl_${i}"></span>]</span>
 					</div>
 				</div>
 				<button class="btn" id="buyable_btn_${i}" onclick="BUYABLES.buy('${i}')" style="width: 300px"><span id="buyable_cost_${i}"></span></button>

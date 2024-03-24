@@ -30,7 +30,7 @@ function resetTemp() {
 
         prevSave: "",
 
-       build: {}
+       buyables: {}
     }
 
 
