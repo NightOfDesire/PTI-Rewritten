@@ -7,7 +7,7 @@ const ECLIPSE = {
         player.eclipse.active = true
         addNotify(`You feel strange.. and it seems your resources are much harder to acquire.`,5)
         } else {
-            if (player.essence.gte('1.5e21')) {
+            if (player.essence.gte('1e20')) {
                 player.eclipse.shards = player.eclipse.shards.add(ECLIPSE.shardGain())
             }
             if (player.essence.gte(player.eclipse.score)) player.eclipse.score = player.essence
@@ -19,7 +19,7 @@ const ECLIPSE = {
         return player.eclipse.active
     },
     shardGain() {
-        let o1 = E(1.5e21)
+        let o1 = E(1e20)
         let o2 = E(0.2)
         let sg = player.essence.div(o1).pow(o2)
         if (player.ranks.tier.gte(2)) sg = sg.mul(RANKS.effects.tier[2]())
@@ -37,6 +37,6 @@ function updateEclipseHTML() {
     <b>EFFECTS ONLY WORK AT FULL POWER WHILE OUTSIDE OF ECLIPSE</b>
     `)
     document.body.style.backgroundColor = `${player.eclipse.active ? "orange" : "hsl(0, 0%, 7%)"}`
-    tmp.el.Activate_Eclipse.setHTML(!player.eclipse.active ? `?????` : (player.essence.lt('1.5e21') ? `Back out of ?????` : `Undo the Eclipse for +${format(ECLIPSE.shardGain())} <b>Eclipsal Shards</b>`))
+    tmp.el.Activate_Eclipse.setHTML(!player.eclipse.active ? `?????` : (player.essence.lt('1e20') ? `Back out of ?????` : `Undo the Eclipse for +${format(ECLIPSE.shardGain())} <b>Eclipsal Shards</b>`))
     tmp.el.Eclipse_Active.setHTML(ECLIPSE.ACTIVE() ? `<p class="corrupted_text">ECLIPSE ACTIVE</p>` : ``)
 }

@@ -96,7 +96,7 @@ const RANKS = {
             return player.misc.hEss.gte(2.5e5)
         },
         tier() {
-            return player.eclipse.shards.gte(1) || player.eclipse.score.gte(1.5e21) || player.abyss.unl
+            return player.eclipse.shards.gte(1) || player.eclipse.score.gte(1e20) || player.abyss.unl
         },
         asc() {
             return player.abyss.power.gte(0.75)
@@ -191,7 +191,7 @@ function updateRanksHTML() {
         for (let x = 0; x < RANKS.names.length; x++) {
             let rn = RANKS.names[x]
             /**@param man @param i @param hate @param errors @param without @param a @param root @param problem */
-            tmp.el["choose_rank_reward_stab_"+rn].setDisplay(player.ranks[rn].gte(1))
+            tmp.el["choose_rank_reward_stab_"+rn].setDisplay(player.ranks[rn].gte(1) || (RANKS.names[x+1] ?? player.ranks[RANKS.names[x+1]].gte(1)) || player.misc["h"+rn].gte(1))
         }
     }
     /**return @SHSHWIEDUZYXH tezt */
@@ -271,6 +271,7 @@ function updateRanksTemp() {
     for (let x = 0; x < RANKS.names.length; x++) {
         let t = RANKS.names[x]
         tmp.ranks[t].autounl = RANKS.autoUnl[t]()
+        if (t.gte(player.misc["h"+t])) player.misc["h"+t] = player.ranks[t]
     }
     //tmp.ranks.rank.can = player.essence.gte(RANKS.reqs.rank())
     //tmp.ranks.tier.can = player.ranks.rank.gte(RANKS.reqs.tier())

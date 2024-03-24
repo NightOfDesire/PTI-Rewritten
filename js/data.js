@@ -120,7 +120,10 @@ function getPlayerData() {
         },
         misc: {
             hEss: E(0),
-            hPres: E(0)
+            hPres: E(0),
+            hrank: E(0),
+            htier: E(0),
+            hasc: E(0)
         },
        
         time: 0,
