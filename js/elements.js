@@ -41,7 +41,7 @@ function setupHTML() {
 	table = ""
 	for (let x = 0; x < RANKS.names.length; x++)  {
 		let rn = RANKS.names[x]
-		table += `<button id="choose_rank_reward_stab_${rn}" onclick="player.rankrewardstab = ${rn}">${rn}</button>`
+		table += `<button id="choose_rank_reward_stab_${rn}" onclick="player.rankrewardstab = '${rn}'">${rn}</button>`
 	}
 	crrst.setHTML(table)
 	let ranks_rewards_table = new Element("ranks_rewards_table")

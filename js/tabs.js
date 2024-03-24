@@ -9,11 +9,7 @@ const TABS = {
 
         for (let t=0;t<TABS["list"].length;t++) {
             let tab = TABS.list[t]+"Tab"
-            if (player.essence.lt(SUPERNOVA.calcReq()))  {
-                tmp.el[tab].setDisplay(player.tab == tab)
-            } else if (player.essence.gte(SUPERNOVA.calcReq()) && player.sn.amt.lt(10)) {
-                tmp.el[tab].setDisplay(false)
-            }
+            tmp.el[tab].setDisplay(player.tab == tab)
         }
         tmp.el.CT_Pres.setDisplay(player.misc.hEss.gte(15))
         tmp.el.CT_Rank.setDisplay(player.misc.hEss.gte(2.5e5))
@@ -21,10 +17,11 @@ const TABS = {
         
         tmp.el.CT_Abyss.setDisplay(player.abyss.unl || player.ranks.tier.gte(2))
         tmp.el.CT_Supernova.setDisplay(player.sn.unl)
+        tmp.el.CT_Challenges.setDisplay(false)
         tmp.el["CT_INFINITY"].setDisplay(false)
     },
     list: [
-        "Main","Pres","Rank","Eclipse","Abyss","Settings","Supernova","Challenges","INFINITY"
+        "Main","Pres","Rank","Eclipse","Abyss","Supernova","Challenges","INFINITY","Settings"
     ]
 }
 
