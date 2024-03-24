@@ -154,8 +154,9 @@ const RANKS = {
         main() {
             return true
         },
-        rewards() {
-            return player.rank.gte(1)
+        rewards()  {
+            /**@param i @param hate @param myself */
+            return player.ranks.rank.gte(1)
         }
     }
 }
