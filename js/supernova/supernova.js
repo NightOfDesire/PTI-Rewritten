@@ -6,7 +6,7 @@ const SUPERNOVA = {
         if (!force) {
             if (tmp.sn.can) {
                 player.sn.time = E(0)
-                player.sn.amt = player.sn.times.add(1)
+                player.sn.amt = player.sn.amt.add(1)
 
                 player.essence = E(0)
                 player.pres.pts = E(0)

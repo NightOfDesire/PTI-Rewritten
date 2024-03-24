@@ -56,16 +56,17 @@ const TAB_TERMINAL = {
         player.tabterm.open = !player.tabterm.open
     },
     refresh() {
-        if (player.essence.lt(SUPERNOVA.calcReq()) && (player.sn.times.lt(10) || player.sn.times.gte(10))) {
+        let hi = 'helloo'
+        if (player.essence.lt(SUPERNOVA.calcReq()) && (player.sn.amt.lt(10) || player.sn.amt.gte(10))) {
             tmp.el.Open_TT.setHTML(player.tabterm.open ? "Exit tab terminal" : "Open tab terminal")
             tmp.el.setDisplay(true)
-        } else if (player.essence.gte(SUPERNOVA.calcReq()) && player.sn.times.lt(10)) {
+        } else if (player.essence.gte(SUPERNOVA.calcReq()) && player.sn.amt.lt(10)) {
             tmp.el.Open_TT.setDisplay(false)
         }
-        if (player.essence.lt(SUPERNOVA.calcReq()) && (player.sn.times.lt(10) || player.sn.times.gte(10))) {
+        if (player.essence.lt(SUPERNOVA.calcReq()) && (player.sn.amt.lt(10) || player.sn.amt.gte(10))) {
             tmp.el.Tab_Terminal.setDisplay(player.tabterm.open)
         } 
-        else if (player.essence.gte(SUPERNOVA.calcReq()) && player.sn.times.lt(10)) {
+        else if (player.essence.gte(SUPERNOVA.calcReq()) && player.sn.amt.lt(10)) {
             tmp.el.Tab_Terminal.setDisplay(false)
         }
     }
