@@ -165,6 +165,7 @@ function loop() {
     updateHTML()
     updateTemp()
     calc(diff/1000);
+    BUYABLES.tick()
     date = Date.now();
     player.offline.current = date
 }
