@@ -72,7 +72,7 @@ const SUPERNOVA = {
     },
     updateHTML() {
         if (player.sn.amt.lt(10)) {
-            tmp.el.SupernovaDisplay.setDisplay(player.essence.gte(SUPERNOVA.calcReq()))
+            tmp.el.SupernovaDisplay.setDisplay(tmp.sn.can == true)
         } 
         tmp.el.stars.setHTML(`Stars: ${format(player.sn.stars)}`)
         tmp.el.SupernovaButton.setDisplay(player.sn.amt.gte(10))
