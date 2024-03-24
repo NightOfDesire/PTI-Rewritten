@@ -23,10 +23,8 @@ const ABYSS = {
             /** */
             player.abyss.active = false
         } else {
-
             FORMS.tierReset()
             player.abyss.active = true
-
         }
     },
     VoidPower() {
