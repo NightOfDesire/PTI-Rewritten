@@ -103,10 +103,10 @@ function updateHTML() {
 	`)
 	//if (player.misc.hEss.gte('1e100')) player.MODIFIERS.unl = true
 
-	if (player.tab == "RankTab") updateRanksHTML()
-	if (player.tab == "EclipseTab") updateEclipseHTML()
-	if (player.tab == "SupernovaTab") SUPERNOVA.updateHTML()
-	if (player.tab == "SettingsTab") updateSettingsHTML()
+	iupdateRanksHTML()
+	updateEclipseHTML()
+	SUPERNOVA.updateHTML()
+	updateSettingsHTML()
 	TABS.update()
 	TAB_TERMINAL.refresh()
 }

@@ -100,7 +100,6 @@ function getPlayerData() {
             stars: E(0),
             amt: E(0),
             time: E(0),
-
         },
         inf: {},
         options: {
