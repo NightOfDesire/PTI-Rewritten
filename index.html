@@ -38,10 +38,8 @@
         <div id="loading" class="table_center">Path To Infinity v1.2.x<br>Loading..<br></div>
         <button class="btn table_center green" onclick="TAB_TERMINAL.open()" id="Open_TT"></button>
         <div id="app">
-            <div id="SupernovaDisplay">
-                Your world has collapsed due to an insane amount of essence!
-                To go further, you must become one with the stars.
-                <button onclick="SUPERNOVA.reset()" class="supernova">SUPERNOVA!</button>
+            <div id="SupernovaDisplay" class="table_center">
+                Your world has collapsed due to an insane amount of essence!<br>To go further, you must become one with the stars.<br><button onclick="SUPERNOVA.reset()" class="supernova">SUPERNOVA!</button>
             </div>
             <div id="Tab_Terminal" style="min-width: 75px; min-height: 100px;"></div>
             <div id="MainTab">
@@ -95,7 +93,12 @@
                 <p class="line"></p>
                 <div class="void_text" id="VoidEssenceEffects"></div>
             </div>
-            <div id="SupernovaTab"></div>
+            <div id="SupernovaTab">
+                <p class="line"></p>
+                <div id="SupernovaReq"></div>
+                <p class="line"></p>
+                <button onclick="SUPERNOVA.reset()" id="SupernovaButton"></button>
+            </div>
             <div id="InfinityTab"></div>
             <div id="SettingsTab">
                 <p class="line"></p>

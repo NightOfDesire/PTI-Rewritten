@@ -22,7 +22,7 @@ const SUPERNOVA = {
                 player.abyss.oddities = E(0)
                 player.abyss.active = false
                 player.abyss.unl = false
-                player.sn.stars = player.essence.stars.add(this.starGain())
+                player.sn.stars = player.sn.stars.add(tmp.sn.gain)
             }
         }
         player.sn.time = E(0)
@@ -43,7 +43,7 @@ const SUPERNOVA = {
     },
     starGain() {
         let gain = player.essence.div("e150").root(2)
-
+        if (player.essence.lt(1e150)) return E(0)
         return gain
     },
     calcReq() {
@@ -58,10 +58,18 @@ const SUPERNOVA = {
         return req
     },
     updateTemp() {
-        if (tmp.sn) tmp.sn = {}
+        if (!tmp.sn) tmp.sn = {}
         tmp.sn.can = player.essence.gte(SUPERNOVA.calcReq())
+        tmp.sn.gain = SUPERNOVA.calcReq()
     },
     updateHTML() {
-
+        if (player.sn.amt.lt(10)) {
+            tmp.el.SupernovaDisplay.setDisplay(player.essence.gte(SUPERNOVA.calcReq()))
+        } 
+        tmp.el.SupernovaButton.setDisplay(player.sn.amt.gte(10))
+        tmp.el.SupernovaReq.setDisplay(player.sn.amt.gte(10))
+        tmp.el.snline2.setDisplay(player.sn.amt.gte(10))
+        tmp.el.SupernovaButton.setHTML(`Reset EVERYTHING before this point, but supernova for +${format(tmp.sn.gain)}`)
+        tmp.el.SupernovaReq.setHTML(`Currently, it requires ${format(SUPERNOVA.calcReq())} <p class="yellow">Essence</p> to go <p class="supernova">Supernova</p>.`)
     }
 }
