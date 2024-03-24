@@ -94,7 +94,13 @@ function getPlayerData() {
             power: E(0),
             score: E(0)
         },
-        sn: {},
+        sn: {
+            unl: false,
+            stars: E(0),
+            amt: E(0),
+            time: E(0),
+
+        },
         inf: {},
         options: {
             font: 'Verdana',

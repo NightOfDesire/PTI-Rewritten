@@ -22,6 +22,7 @@
         <script src="js/supernova/buyables.js"></script>
         <script src="js/supernova/radiation.js"></script>
         <script src="js/supernova/stars.js"></script>
+        <script src="js/supernova/supernova.js"></script>
 
         <script src="https://js.sentry-cdn.com/97eaa6242646b2261726076b59aa3c11.min.js" crossorigin="anonymous"></script>
         <style>
@@ -37,6 +38,11 @@
         <div id="loading" class="table_center">Path To Infinity v1.2.x<br>Loading..<br></div>
         <button class="btn table_center green" onclick="TAB_TERMINAL.open()" id="Open_TT"></button>
         <div id="app">
+            <div id="SupernovaDisplay">
+                Your world has collapsed due to an insane amount of essence!
+                To go further, you must become one with the stars.
+                <button onclick="SUPERNOVA.reset()" class="supernova">SUPERNOVA!</button>
+            </div>
             <div id="Tab_Terminal" style="min-width: 75px; min-height: 100px;"></div>
             <div id="MainTab">
                 <p class="line"></p>

@@ -27,7 +27,8 @@ const TABS = {
 
 const TAB_TERMINAL = {
     classes: {
-        Pres: 'charged_text',
+        Pres: 'sky',
+        Rank: 'charged_text',
         Eclipse: 'orange',
         Abyss: "void_text",
         Settings: 'magenta',
