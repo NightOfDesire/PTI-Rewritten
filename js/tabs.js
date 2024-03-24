@@ -17,7 +17,7 @@ const TABS = {
         
         tmp.el.CT_Abyss.setDisplay(player.abyss.unl || player.ranks.tier.gte(2))
         tmp.el.CT_Supernova.setDisplay(player.sn.unl)
-        tmp.el.CT_Infinity.setDisplay(false)
+        //tmp.el.CT_Infinity.setDisplay(false)
     },
     list: [
         "Main","Pres","Rank","Eclipse","Abyss","Settings","Supernova","Infinity"
@@ -40,7 +40,7 @@ const TAB_TERMINAL = {
         for (let i=0;i<TABS.list.length; i++) {
             /**@param hi */
             html += `
-            <button id="CT_${TABS.list[i]}" onclick="TABS.choose('${TABS.list[i]}')" class="${TAB_TERMINAL.classes[TABS.list[i]]}" style="padding: 10px;">${TAB_TERMINAL.imgs[TABS.list[i]] ? `<img src="images/${TAB_TERMINAL.imgs[TABS.list[i]]}><br>Open ${TABS.list[i]} Tab` : `Open ${TABS.list[i]} Tab}</div>`}`
+            <button id="CT_${TABS.list[i]}" onclick="TABS.choose('${TABS.list[i]}')" class="${TAB_TERMINAL.classes[TABS.list[i]]||""}" style="padding: 10px;">${TAB_TERMINAL.imgs[TABS.list[i]] ? `<img src="images/${TAB_TERMINAL.imgs[TABS.list[i]]}><br>Open ${TABS.list[i]} Tab` : `Open ${TABS.list[i]} Tab}</div>`}`
             new Element('Tab_Terminal').setHTML(html)
         }
     },
