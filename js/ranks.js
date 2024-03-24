@@ -222,7 +222,9 @@ function updateRanksHTML() {
     tmp.el.tier.setHTML(`Tier: <b>${format(player.ranks.tier, 0)}</b><br>`)
     tmp.el.tier.setDisplay(player.eclipse.shards.gte(1))
     tmp.el.tierup.setHTML(`
-    Reset your progress, but tier up. ${RANKS.desc.tier[player.ranks.tier.add(1)] ? `At tier ` + format(player.ranks.tier.add(1),0) + ' - ' + RANKS.desc.tier[player.ranks.tier.add(1)] : ''}
+    Reset your progress, but tier up. ${RANKS.desc.tier[player.ranks.tier.add(1)] ? `At tier ` + format(player.ranks.tier.add(1),0) + ' - ' + RANKS.desc.tier[player.ranks.tier.add(1)] : ''}*/
+    let idk = "huh"
+    /*
     <br>Need: Rank ${format(RANKS.reqs.tier(),0)}
     `)
     tmp.el.tierup.setDisplay(player.eclipse.shards.gte(1))

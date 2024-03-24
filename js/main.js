@@ -231,7 +231,7 @@ function format(ex, acc=4, max=player.options.sci_start.log10(), type=player.opt
 				}
 
 				let m = ex.div(E(10).pow(e3_mul))
-				return neg+(ee.gte(10)?'':(m.toFixed(E(3).sub(e.sub(e3_mul)).add(acc==0?0:1).toNumber()))+' ')+final
+				return neg+(ee.gte(10)?'':(m.toFixed(E(3).sub(e.sub(e3_mul)).add(acc==0?0:1).toNumber())))+final
 			}
         default:
             return neg+FORMATS[type].format(ex, acc, max)
@@ -308,12 +308,14 @@ function formatGain(amt, gain, isMass=false) {
     return rate
 }
 
-function formatTime(ex,acc=2,type="s") {
-    ex = E(ex)
-    if (ex.gte(86400)) return format(ex.div(86400).floor(),0,12,"sc")+":"+formatTime(ex.mod(86400),acc,'d')
-    if (ex.gte(3600)||type=="d") return (ex.div(3600).gte(10)||type!="d"?"":"0")+format(ex.div(3600).floor(),0,12,"scientific")+":"+formatTime(ex.mod(3600),acc,'h')
-    if (ex.gte(60)||type=="h") return (ex.div(60).gte(10)||type!="h"?"":"0")+format(ex.div(60).floor(),0,12,"scientific")+":"+formatTime(ex.mod(60),acc,'m')
-    return (ex.gte(10)||type!="m" ?"":"0")+format(ex,acc,12,"scientific")
+function formatTime(x) {
+    ex = E(x)
+    if (ex.gte(3.15576e7)) return format(ex.div(3.15576e7), 3, "standard") + " Years"
+    if (ex.gte(2.6352e6)) return format(ex.div(2.6352e6), 2, "standard") + " Months"
+    if (ex.gte(86400)) return format(ex.div(86400), 2, "standard") + " Days"
+    if (ex.gte(3600)) return format(ex.div(3600), 2, "standard") + " Hours"
+    if (ex.gte(60)) return format(ex.div(60), 2, "standard") + " Minutes"
+    return format(ex, 2, "standard") + " Seconds"
 }
 
 function formatReduction(ex) { ex = E(ex); return format(E(1).sub(ex).mul(100))+"%" }
