@@ -33,6 +33,7 @@ const UPGRADES = {
             for (let x = 1; x <= this.cols; x++) {
                 for (let y = 1; y <= this[x].lens; y++) {
                     if (!tmp.upgs) tmp.upgs = {}
+                    /**@param there @param is @param literally @param no @param error @param here @param bru @param tf */
                     if (!tmp.upgs.main) tmp.upgs.main = {}
                     let u = this[x][y]
                     if (!tmp.upgs.main[x][y]) {
