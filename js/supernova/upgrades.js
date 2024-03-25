@@ -106,8 +106,8 @@ const UPGRADES = {
                 cost: E(250),
                 effect() {
                     let total = player.ranks.rank.mul(player.ranks.tier.add(1)).mul(player.ranks.asc.add(1))
-                    let ret = total.log(5).root(2).pow(0.75).add(1)
-
+                    let ret = total.root(2)
+                    if (ret.lt(1)) ret = E(1)
                     return ret
                 },
                 effDesc(x=this.effect()) {

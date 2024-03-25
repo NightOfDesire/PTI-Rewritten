@@ -83,6 +83,6 @@ const SUPERNOVA = {
         tmp.el.SupernovaReq.setDisplay(player.sn.amt.gte(10))
         tmp.el.snline2.setDisplay(player.sn.amt.gte(10))
         tmp.el.SupernovaButton.setHTML(`Reset EVERYTHING before this point, but supernova for +${format(tmp.sn.gain)}`)
-        tmp.el.SupernovaReq.setHTML(`Currently, it requires ${format(SUPERNOVA.calcReq())} Essence to go Supernova.`)
+        tmp.el.SupernovaReq.setHTML(`Currently, it requires ${format(SUPERNOVA.calcReq())} Essence to go Supernova. (SN #${format(player.sn.amt, 0)})`)
     }
 }
