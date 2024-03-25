@@ -112,7 +112,8 @@ const FORMS = {
     if (player.ranks.rank.gte(13)) x = x.pow(1.02)
     x = x.pow(FORMS.eclipse.shardeffs[1]())
     if (hasUpgrade('stars',1)) x = x.pow(1.2)
-    if (ABYSS.active()) x = x.pow(0.8)
+    if (ABYSS.active()) x = x.pow(0.8).add(upgEffect('stars',3))
+    x  = x.pow(upgEffect('stars',4))
     x = x.softcap(FORMS.essence.soft1start(), FORMS.essence.soft2pow(), 0)
     x = x.softcap(FORMS.essence.soft2start(), FORMS.essence.soft2pow(), 0)
 

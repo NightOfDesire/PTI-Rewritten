@@ -64,10 +64,10 @@ const UPGRADES = {
                 }
             },
             auto_unl() { return player.sn.stars.gte("ee308") },
-            lens: 2,
+            lens: 4,
             1: {
                 unl() { return true },
-                desc: "Gain ^1.2 Essence",
+                desc: "Gain ^1.2 Essence.",
                 cost: E(1),
                 effect() {
                     let ret = E(1.2)
@@ -79,7 +79,7 @@ const UPGRADES = {
             },
             2: {
                 unl() { return true },
-                desc: " Supernova requirement is raised by 0.9 ",
+                desc: " Supernova requirement is raised by 0.9.",
                 cost: E(5),
                 effect() {
                     let ret = E(0.9)
@@ -87,6 +87,31 @@ const UPGRADES = {
                 },
                 effDesc(x=this.effect()){
                     return "^"+format(x,1)
+                }
+            },
+            3: {
+                unl() { return true },
+                desc: "Reduce The Abyss's essence penalty by 0.1.",
+                cost: E(22.5),
+                effect() {
+                    return E(0.1)
+                },
+                effDesc(x=this.effect()){
+                    return "-"+format(x,1)
+                }
+            },
+            4: {
+                unl() { return true },
+                desc: "Gain thrice as many stars, raise essence based on the product of rank types.",
+                cost: E(250),
+                effect() {
+                    let total = player.ranks.rank.mul(player.ranks.tier.add(1)).mul(player.ranks.asc.add(1))
+                    let ret = total.log(3).root(3).pow(0.75).add(1)
+
+                    return ret
+                },
+                effDesc(x=this.effect()) {
+                    return "^"+format(x)
                 }
             }
         }
