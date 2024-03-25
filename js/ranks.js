@@ -201,17 +201,15 @@ function updateRanksHTML() {
         if (unl) {
             let keys = Object.keys(RANKS.desc[rn])
             let desc = ""
-            let req = ""
             for (let i = 0; i < keys.length; i++) {
                 if (player.ranks[rn].lt(keys[i])) {
                     desc = `At ${RANKS.fullnames[x]} ${format(keys[i],0)} - ${RANKS.desc[rn][keys[i]]}`
-                    req = ` Requires ${RANKS.names[x-1] ? `${RANKS.names[x-1]} ${format(RANKS.reqs[rn]())}` : `${format(RANKS.reqs[rn]())} Essence`}`
                     break
                 }
             }
             tmp.el[rn].setHTML(`${fn} <b>${format(player.ranks[rn],0)}</b><br>`)
             tmp.el[rn+"_desc"].setHTML(desc)
-            tmp.el[rn+"_req"].setHTML(req)
+            tmp.el[rn+"_req"].setHTML(`Requires ${RANKS.names[x-1] ? `${RANKS.names[x-1]} ${format(RANKS.reqs[rn]())}` : `${format(RANKS.reqs[rn]())} Essence`}`)
             tmp.el[rn+"_auto"].setHTML(`Auto: ${player.autoranks[rn] ? `On` : `Off`}`)
         }
     }
