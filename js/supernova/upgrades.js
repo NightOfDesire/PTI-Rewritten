@@ -127,5 +127,8 @@ function resetMainUpgs(id,keep=[]) {
     player.mainUpg[id2] = k
 }
 function upgEffect(id,x) {
-    return UPGRADES[UPGRADES.ids.indexOf(id)][x].effect()
+    const idlist = {
+        stars: '1'
+    }
+    return UPGRADES[idlist[id]][x].effect()
 }
