@@ -1,15 +1,15 @@
 const UPGRADES = {
     updateHTML() {
         if (player.main_upg_msg[0] != 0) {
-            let upg1 = UPGS.main[player.main_upg_msg[0]]
-            let upg2 = UPGS.main[player.main_upg_msg[0]][player.main_upg_msg[1]]
+            let upg1 = UPGRADES.main[player.main_upg_msg[0]]
+            let upg2 = UPGTADES.main[player.main_upg_msg[0]][player.main_upg_msg[1]]
             let msg = "<span class='sky'>"+(typeof upg2.desc == "function" ? upg2.desc() : upg2.desc)+"</span><br><span>Cost: "+format(upg2.cost,0)+" "+upg1.res+"</span>"
             if (upg2.effDesc !== undefined) msg += "<br><span class='green'>Currently: "+tmp.upgs.main[player.main_upg_msg[0]][player.main_upg_msg[1]].effDesc+"</span>"
             tmp.el.main_upg_msg.setHTML(msg)
         } else tmp.el.main_upg_msg.setTxt("")
-        for (let x = 1; x <= UPGS.main.cols; x++) {
-            let id = UPGS.main.ids[x]
-            let upg = UPGS.main[x]
+        for (let x = 1; x <= UPGRADES.main.cols; x++) {
+            let id = UPGRADES.main.ids[x]
+            let upg = UPGRADES.main[x]
             let unl = upg.unl()
             tmp.el["main_upg_"+x+"_div"].setDisplay(unl)
             tmp.el["main_upg_"+x+"_res"].setTxt(`You have ${upg.getRes().format(0)} ${upg.res}`)
