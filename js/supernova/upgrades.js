@@ -119,7 +119,9 @@ const UPGRADES = {
 }
 
 function hasUpgrade(id,x) { return player.mainUpg[id].includes(x) }
-function upgEffect(id,x,def=E(1)) { return tmp.upgs.main[id][x]?tmp.upgs.main[id][x].effect:def }
+function upgEffect(id,x,def=E(1)) { 
+    return UPGRADES[UPGRADES.ids.indexOf(id)][x].effect()
+ }
 function resetMainUpgs(id,keep=[]) {
     let k = []
     let id2 = UPGRADES.main.ids[id]
