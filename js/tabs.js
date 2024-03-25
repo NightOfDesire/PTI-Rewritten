@@ -15,9 +15,9 @@ const TABS = {
         tmp.el.CT_Eclipse.setDisplay(player.ranks.rank.gte(15) || player.eclipse.unl)
         tmp.el.CT_Abyss.setDisplay(player.abyss.unl || player.ranks.tier.gte(2))
         tmp.el.CT_Supernova.setDisplay(player.sn.unl)
-        tmp.el.CT_UpgradessetDisplay(player.sn.unl)
+        tmp.el.CT_Upgrades.setDisplay(player.sn.unl)
         tmp.el["CT_INFINITY"].setDisplay(false)
-        /**@param die @param error*/
+        
     },
     list: [
         "Main","Pres","Rank","Eclipse","Abyss","Supernova","Upgrades","INFINITY","Settings"
