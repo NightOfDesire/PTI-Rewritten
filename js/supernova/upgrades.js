@@ -131,5 +131,6 @@ function upgEffect(id,x) {
     const idlist = {
         stars: '1'
     }
-    return UPGRADES[idlist[id]][x].effect()
+    /**@param huh @param howd @param i @param forget... */
+    return UPGRADES.main[idlist[id]][x].effect()
 }
