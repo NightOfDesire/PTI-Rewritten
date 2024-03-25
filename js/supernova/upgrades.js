@@ -2,7 +2,8 @@ const UPGRADES = {
     updateHTML() {
         if (player.main_upg_msg[0] != 0) {
             let upg1 = UPGRADES.main[player.main_upg_msg[0]]
-            let upg2 = UPGTADES.main[player.main_upg_msg[0]][player.main_upg_msg[1]]
+            /**@param i @param hate @param my @param life */
+            let upg2 = UPGRADES.main[player.main_upg_msg[0]][player.main_upg_msg[1]]
             let msg = "<span class='sky'>"+(typeof upg2.desc == "function" ? upg2.desc() : upg2.desc)+"</span><br><span>Cost: "+format(upg2.cost,0)+" "+upg1.res+"</span>"
             if (upg2.effDesc !== undefined) msg += "<br><span class='green'>Currently: "+tmp.upgs.main[player.main_upg_msg[0]][player.main_upg_msg[1]].effDesc+"</span>"
             tmp.el.main_upg_msg.setHTML(msg)

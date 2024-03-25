@@ -25,7 +25,7 @@ function setupHTML() {
 		for (let y = 1; y <= UPGRADES.main[x].lens; y++) {
 			let key = UPGRADES.main[x][y]
 			table += `<img onclick="UPGRADES.main[${x}].buy(${y})" onmouseover="UPGRADES.main.over(${x},${y})" onmouseleave="UPGRADES.main.reset()"
-			 style="margin: 3px;" class="img_btn" id="main_upg_${x}_${y}" src="images/mark.png">`
+			 style="margin: 3px;" class="img_btn" id="main_upg_${x}_${y}" src="images/${key.icon||"mark"}.png">`
 		}
 		table += `</div><br><button id="main_upg_${x}_auto" class="btn" style="width: 80px;" onclick="player.auto_mainUpg.${id} = !player.auto_mainUpg.${id}">OFF</button></div>`
 	}
