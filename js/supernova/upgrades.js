@@ -23,7 +23,7 @@ const UPGRADES = {
                 tmp.el["main_upg_"+x+"_auto"].setTxt(player.auto_mainUpg[id]?"ON":"OFF")
             }
         }
-    
+        
     },
     main: {
         temp() {
