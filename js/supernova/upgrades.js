@@ -23,10 +23,11 @@ const UPGRADES = {
                 tmp.el["main_upg_"+x+"_auto"].setTxt(player.auto_mainUpg[id]?"ON":"OFF")
             }
         }
-        
+
     },
     main: {
         temp() {
+            
             if (!tmp.upgs) tmp.upgs = {}
             if (!tmp.upgs.main) tmp.upgs.main = {}
             for (let x = 1; x <= this.cols; x++) {
