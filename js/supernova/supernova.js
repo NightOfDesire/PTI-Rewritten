@@ -50,9 +50,9 @@ const SUPERNOVA = {
         }
     },
     starGain() {
-        let gain = player.essence.div("e150").root(2)
+        let gain = player.essence.div("e54").root(6)
         if (hasUpgrade('stars', 4)) gain = gain.mul(2)
-        if (player.essence.lt(1e150)) return E(0)
+        if (player.essence.lt("e54")) return E(0)
         return gain
     },
     calcReq() {
