@@ -252,7 +252,6 @@ function updateRanksHTML() {
 
 }
 function updateRanksTemp() {
-    RANKS.tick()
     if (!tmp.ranks) tmp.ranks = {}
     for (let x = 0; x < RANKS.names.length; x++) {
         let rn = RANKS.names[x]

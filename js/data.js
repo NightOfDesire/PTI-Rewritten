@@ -55,6 +55,7 @@ function calc(dt) {
         if (tmp.pres.auto) player.pres.pts = player.pres.pts.add(tmp.pres.gain.mul(gs))
         player.abyss.essence = player.abyss.essence.add(tmp.vessgain.mul(gs))
     }
+    RANKS.tick()
 
     tmp.pass = Math.max(0,tmp.pass-1)
 
