@@ -260,6 +260,8 @@ function updateRanksTemp() {
     }
     for (let x = 0; x < RANKS.names.length; x++) {
         let t = RANKS.names[x]
+        if (!tmp.ranks[t].can) tmp.ranks[t].can = false
+        if (!tmp.ranks[t].autounl) tmp.ranks[t].autounl = false
         tmp.ranks[t].can = (RANKS.can[x-1] ? (player.ranks[RANKS.names[x-1]].gte(RANKS.reqs[t]())) : (player.essence.gte(RANKS.reqs[t]())))
         tmp.ranks[t].autounl = RANKS.autoUnl[t]()
         let Mc = new Decimal("e3000003")
