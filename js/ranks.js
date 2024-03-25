@@ -212,6 +212,7 @@ function updateRanksHTML() {
             tmp.el[rn].setHTML(`${fn} <b>${format(player.ranks[rn],0)}</b><br>`)
             tmp.el[rn+"_desc"].setHTML(desc)
             tmp.el[rn+"_req"].setHTML(req)
+            tmp.el[rn+"_auto"].setHTML(`Auto: ${player.autoranks[rn] ? `On` : `Off`}`)
         }
     }
     /*tmp.el.rank.setHTML(`Rank: <b>${format(player.ranks.rank, 0)}</b><br>`)
