@@ -50,8 +50,8 @@ const ABYSS = {
             return eff
         },
         effect2() {
-            let eff = player.abyss.essence.div(1000).pow(0.667).add(1)
-            eff = eff.softcap(3, 0.5, 0)
+            let eff = player.abyss.essence.div(1000).pow(0.3).add(1)
+            eff = eff.softcap(3, 0.1, 0)
             if (player.ranks.rank.lt(20)) eff = E(1)
             if (player.abyss.essence.lt(1000)) eff = E(1)
             return eff
