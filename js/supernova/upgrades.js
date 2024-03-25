@@ -119,6 +119,7 @@ const UPGRADES = {
 }
 
 function hasUpgrade(id,x) { return player.mainUpg[id].includes(x) }
+/**@param hellooooo */
 function resetMainUpgs(id,keep=[]) {
     let k = []
     let id2 = UPGRADES.main.ids[id]
