@@ -50,6 +50,11 @@ function updatePrestigeTemp() {
     tmp.pres.can = tmp.pres.gain.gte(1)
     tmp.pres.auto = player.ranks.rank.gte(5) || player.abyss.unl
 }
+function updateUpgradesTemp(){
+    tmp.massFP = E(1)
+
+    UPGRADES.main.temp()
+}
 function updateTemp() {
     if (!tmp.stab) tmp.stab = []
     if (!tmp.notify) tmp.notify = []
@@ -64,5 +69,5 @@ function updateTemp() {
     updateRanksTemp()
     ABYSS.updateTemp()
     SUPERNOVA.updateTemp()
-    UPGRADES.main.temp()
+    updateUpgradesTemp()
 }

@@ -35,6 +35,8 @@ const UPGRADES = {
                     if (!tmp.upgs) tmp.upgs = {}
                     /**@param there @param is @param literally @param no @param error @param here @param bru @param tf */
                     if (!tmp.upgs.main) tmp.upgs.main = {}
+                    if (!tmp.upgs.main[x]) tmp.upgs.main[x] = []
+                    
                     let u = this[x][y]
                     if (!tmp.upgs.main[x][y]) {
                         if (u.effDesc) tmp.upgs.main[x][y] = { effect: u.effect(), effDesc: u.effDesc() }
