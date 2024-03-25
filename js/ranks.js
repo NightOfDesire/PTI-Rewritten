@@ -1,9 +1,7 @@
 const RANKS = {
     reset(rn) {
         let x = RANKS["names"].indexOf(rn)
-        if (
-            RANKS.names[x-1] ? (player.ranks[RANKS.names[x-1]].gte(RANKS.reqs[rn]()) ) : (player.essence.gte(RANKS.reqs[rn]()))
-        ) {
+        if (tmp.ranks[rn].can) {
             let reset = true
             if (reset) this.doReset[rn]()
             player.ranks[rn] = player.ranks[rn].add(1)
@@ -209,7 +207,7 @@ function updateRanksHTML() {
             }
             tmp.el[rn].setHTML(`${fn} <b>${format(player.ranks[rn],0)}</b><br>`)
             tmp.el[rn+"_desc"].setHTML(desc)
-            tmp.el[rn+"_req"].setHTML(`Requires ${RANKS.names[x-1] ? `${RANKS.names[x-1]} ${format(RANKS.reqs[rn]())}` : `${format(RANKS.reqs[rn]())} Essence`}`)
+            tmp.el[rn+"_req"].setHTML(`<br>Requires ${RANKS.names[x-1] ? `${RANKS.names[x-1]} ${format(RANKS.reqs[rn](),0)}` : `${format(RANKS.reqs[rn]())} Essence`}`)
             tmp.el[rn+"_auto"].setHTML(`Auto: ${player.autoranks[rn] ? `On` : `Off`}`)
         }
     }
@@ -262,6 +260,7 @@ function updateRanksTemp() {
     }
     for (let x = 0; x < RANKS.names.length; x++) {
         let t = RANKS.names[x]
+        tmp.ranks[t].can = (RANKS.can[x-1] ? (player.ranks[RANKS.names[x-1]].gte(RANKS.reqs[t]())) : (player.essence.gte(RANKS.reqs[t]())))
         tmp.ranks[t].autounl = RANKS.autoUnl[t]()
         let Mc = new Decimal("e3000003")
         if (player.ranks[t].gte(player.misc["h"+t])) player.misc["h"+t] = player.ranks[t]
