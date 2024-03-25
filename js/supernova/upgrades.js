@@ -102,11 +102,11 @@ const UPGRADES = {
             },
             4: {
                 unl() { return true },
-                desc: "Gain thrice as many stars, raise essence based on the product of rank types.",
+                desc: "Gain thrice as many stars, boost essence based on the product of rank types.",
                 cost: E(250),
                 effect() {
                     let total = player.ranks.rank.mul(player.ranks.tier.add(1)).mul(player.ranks.asc.add(1))
-                    let ret = total.log(3).root(3).pow(0.75).add(1)
+                    let ret = total.log(5).root(2).pow(0.75).add(1)
 
                     return ret
                 },
