@@ -36,7 +36,7 @@ const UPGRADES = {
                     /**@param there @param is @param literally @param no @param error @param here @param bru @param tf */
                     if (!tmp.upgs.main) tmp.upgs.main = {}
                     if (!tmp.upgs.main[x]) tmp.upgs.main[x] = []
-                    
+
                     let u = this[x][y]
                     if (!tmp.upgs.main[x][y]) {
                         if (u.effDesc) tmp.upgs.main[x][y] = { effect: u.effect(), effDesc: u.effDesc() }
@@ -55,7 +55,7 @@ const UPGRADES = {
             res: "Stars",
             getRes() { return player.sn.stars },
             unl() { return player.sn.unl },
-            can(x) { return player.sn.stars.gte(this[x].cost) && !player.mainUpg.rp.includes(x) },
+            can(x) { return player.sn.stars.gte(this[x].cost) && !player.mainUpg.stars.includes(x) },
             buy(x) {
                 if (this.can(x)) {
                     player.sn.stars = player.sn.stars.sub(this[x].cost)
