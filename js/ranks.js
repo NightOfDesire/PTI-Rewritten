@@ -1,10 +1,5 @@
 const RANKS = {
     reset(rn) {
-        let reqlist = {
-            rank: 'essence',
-            tier: 'ranks.rank',
-            asc: 'ranks.tier'
-        }
         let x = RANKS["names"].indexOf(rn)
         if (
             RANKS.names[x-1] ? (player.ranks[RANKS.names[x-1]].gte(RANKS.reqs[rn]()) ) : (player.essence.gte(RANKS.reqs[rn]()))
@@ -13,11 +8,6 @@ const RANKS = {
             if (reset) this.doReset[rn]()
             player.ranks[rn] = player.ranks[rn].add(1)
         }
-    },
-    resources: {
-        rank: 'essence',
-        tier: 'ranks.rank',
-        asc: 'ranks.tier'
     },
     tick() {
         for (let x = 0; x < RANKS.names.length; x++) {
@@ -77,14 +67,14 @@ const RANKS = {
             '5': "Automatically generate prestige shards.",
             '10': "Essence boosts PS by x(log10(essence+1)^0.1)+1.",
             '13': "Essence is raised by 1.02.",
-            '15': '<p class="corrupted_text">Unlock the ?????</p>.',
+            '15': 'Unlock The Eclipse.',
             '20': "Abyssal Score automatically gets updated, unlock the second Void Essence effect"
 
         },
         tier: {
             '1': "Essence first softcap starts later based on tier.",
-            '2': "Tier boosts eclipsal shards, <br><p class='void_text'>EMBRACE THE DARKNESS</p>.",
-            '3': "x3 Void Essence, Essence first softcap is weaker based off of tier. (stops at 20%)",
+            '2': "Tier boosts eclipsal shards.",
+            '3': "x3 Void Essence, unlock auto rank up, and Essence first softcap is weaker based off of tier. (stops at 20%)",
         },
         asc: {
             '1': "Asc boosts Essence MASSIVELY",
@@ -159,8 +149,8 @@ const RANKS = {
         }
     },
     autoUnl: {
-        rank() {return player.ranks.tier.gte(2)},
-        tier() {return player.abyss.power.gte(0.2)},
+        rank() {return player.misc.htier.gte(2)},
+        tier() {return hasUpgrade('stars',4)},
         asc() {return player.abyss.power.gte(0.9)}
     },
     autoSwitch(rn) {
@@ -200,7 +190,7 @@ function updateRanksHTML() {
         let rn = RANKS.names[x]
         let unl = RANKS.unl[rn]()
         let fn = RANKS.fullnames[x]
-        tmp.el[rn+"_div"].setDisplay(unl);tmp.el[rn].setDisplay(unl);tmp.el[rn+"_btn"].setDisplay(unl)
+        tmp.el[rn+"_div"].setDisplay(unl);tmp.el[rn].setDisplay(unl);tmp.el[rn+"_btn"].setDisplay(unl);tmp.el[rn+"_auto"].setDisplay(RANKS.autoUnl[rn]())
         /*if (unl) {
             for (let i = 0; i < k.length; i++) {
                 if (player.ranks[rn].lt(k[i])) {
@@ -211,15 +201,17 @@ function updateRanksHTML() {
         if (unl) {
             let keys = Object.keys(RANKS.desc[rn])
             let desc = ""
-
+            let req = ""
             for (let i = 0; i < keys.length; i++) {
                 if (player.ranks[rn].lt(keys[i])) {
-                    desc = `At ${RANKS.fullnames[x]} ${format(keys[i],0)} - ${RANKS.desc[rn][keys[i]]}<br>Requires ${RANKS.names[x-1] ? `${RANKS.names[x-1]} ${format(RANKS.reqs[rn](),0)}` : `${format(RANKS.reqs[rn]())} Essence`}`
+                    desc = `At ${RANKS.fullnames[x]} ${format(keys[i],0)} - ${RANKS.desc[rn][keys[i]]}`
+                    req = ` Requires ${RANKS.names[x-1] ? `${RANKS.names[x-1]} ${format(RANKS.reqs[rn]())}` : `${format(RANKS.reqs[rn]())} Essence`}`
                     break
                 }
             }
             tmp.el[rn].setHTML(`${fn} <b>${format(player.ranks[rn],0)}</b><br>`)
             tmp.el[rn+"_desc"].setHTML(desc)
+            tmp.el[rn+"_req"].setHTML(req)
         }
     }
     /*tmp.el.rank.setHTML(`Rank: <b>${format(player.ranks.rank, 0)}</b><br>`)

@@ -12,6 +12,9 @@ const ABYSS = {
         `)
         player.abyss.power = this.VoidPower()
         player.abyss.unl = player.ranks.tier.gte(2) || player.misc.hEss.gte(1e45) || ABYSS.active()
+        if (ABYSS.active() && player.ranks.rank.gte(20)) {
+            if (player.essence.gte(player.abyss.score)) player.abyss.score = player.essence
+        }
     },
     active() {
         return player.abyss.active
@@ -37,7 +40,7 @@ const ABYSS = {
     VoidEssence: {
         gain() {
             let gain = player.abyss.power.mul(20)
-
+            if (player.ranks.tier.gte(3)) gain = gain.mul(3)
             return gain
         },
         effect1() {

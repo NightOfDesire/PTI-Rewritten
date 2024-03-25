@@ -102,7 +102,7 @@ const UPGRADES = {
             },
             4: {
                 unl() { return true },
-                desc: "Gain thrice as many stars, boost essence based on the product of rank types.",
+                desc: "Gain thrice as many stars, unlock auto tier up, boost essence based on the product of rank types.",
                 cost: E(250),
                 effect() {
                     let total = player.ranks.rank.mul(player.ranks.tier.add(1)).mul(player.ranks.asc.add(1))
@@ -111,7 +111,7 @@ const UPGRADES = {
                     return ret
                 },
                 effDesc(x=this.effect()) {
-                    return "^"+format(x)
+                    return formatMult(x)
                 }
             }
         }
