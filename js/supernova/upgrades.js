@@ -126,6 +126,7 @@ function resetMainUpgs(id,keep=[]) {
     for (let x = 0; x < player.mainUpg[id2].length; x++) if (keep.includes(player.mainUpg[id2][x])) k.push(player.mainUpg[id2][x])
     player.mainUpg[id2] = k
 }
+/**@param this @param should @param not @param error */
 function upgEffect(id,x) {
     const idlist = {
         stars: '1'
