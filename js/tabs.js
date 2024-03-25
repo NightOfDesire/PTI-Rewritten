@@ -6,7 +6,6 @@ const TABS = {
         }
     },
     update() {
-
         for (let t=0;t<TABS["list"].length;t++) {
             let tab = TABS.list[t]+"Tab"
             tmp.el[tab].setDisplay(player.tab == tab)
@@ -14,11 +13,11 @@ const TABS = {
         tmp.el.CT_Pres.setDisplay(player.misc.hEss.gte(15))
         tmp.el.CT_Rank.setDisplay(player.misc.hEss.gte(2.5e5))
         tmp.el.CT_Eclipse.setDisplay(player.ranks.rank.gte(15) || player.eclipse.unl)
-        
         tmp.el.CT_Abyss.setDisplay(player.abyss.unl || player.ranks.tier.gte(2))
         tmp.el.CT_Supernova.setDisplay(player.sn.unl)
+        tmp.el.CT_UpgradessetDisplay(player.sn.unl)
         tmp.el["CT_INFINITY"].setDisplay(false)
-        tmp.el.CT_Upgrades.setDisplay(player.sn.unl)
+        /**@param die @param error*/
     },
     list: [
         "Main","Pres","Rank","Eclipse","Abyss","Supernova","Upgrades","INFINITY","Settings"
