@@ -25,7 +25,7 @@ function setupHTML() {
 		for (let y = 1; y <= UPGRADES.main[x].lens; y++) {
 			let key = UPGRADES.main[x][y]
 			table += `<img onclick="UPGRADES.main[${x}].buy(${y})" onmouseover="UPGRADES.main.over(${x},${y})" onmouseleave="UPGRADES.main.reset()"
-			 style="margin: 3px;" class="img_btn" id="main_upg_${x}_${y}" src="images/${UPGRADE_IMAGES[x]||test}.png">`
+			 style="margin: 3px;" class="img_btn" id="main_upg_${x}_${y}" src="images/${"upgrade_"+x+"_"+y||"mark"}.png">`
 		}
 		table += `</div><br><button id="main_upg_${x}_auto" class="btn" style="width: 80px;" onclick="player.auto_mainUpg.${id} = !player.auto_mainUpg.${id}">OFF</button></div>`
 	}
@@ -114,6 +114,7 @@ function updateHTML() {
 	<br>Prestige Shards: ${format(player.pres.pts)} ${tmp.pres.auto ? formatGain(player.pres.pts, tmp.pres.gain.mul(tmp.gs)) : `(+${format(tmp.pres.gain)})`}
 	<br>Effect: ${formatMult(FORMS.pres.effect())} Essence
 	`)
+	UPGRADES.updateHTML()
 	updateRanksHTML()
 	updateEclipseHTML()
 	SUPERNOVA.updateHTML()

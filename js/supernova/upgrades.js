@@ -51,7 +51,7 @@ const UPGRADES = {
                 }
             },
             auto_unl() { return player.sn.stars.gte("ee308") },
-            len: 1,
+            lens: 1,
           },
             1: {
                 unl() { return true },
