@@ -261,7 +261,8 @@ function updateRanksTemp() {
         let t = RANKS.names[x]
         if (!tmp.ranks[t].can) tmp.ranks[t].can = false
         if (!tmp.ranks[t].autounl) tmp.ranks[t].autounl = false
-        tmp.ranks[t].can = (RANKS.can[x-1] ? (player.ranks[RANKS.names[x-1]].gte(RANKS.reqs[t]())) : (player.essence.gte(RANKS.reqs[t]())))
+        /**@param {no param} idk  */
+        tmp.ranks[t].can = (RANKS.names[x-1] ? (player.ranks[RANKS.names[x-1]].gte(RANKS.reqs[t]())) : (player.essence.gte(RANKS.reqs[t]())))
         tmp.ranks[t].autounl = RANKS.autoUnl[t]()
         let Mc = new Decimal("e3000003")
         if (player.ranks[t].gte(player.misc["h"+t])) player.misc["h"+t] = player.ranks[t]
