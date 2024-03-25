@@ -191,7 +191,8 @@ function updateRanksHTML() {
         for (let x = 0; x < RANKS.names.length; x++) {
             let rn = RANKS.names[x]
             /**@param man @param i @param hate @param errors @param without @param a @param root @param problem */
-            tmp.el["choose_rank_reward_stab_"+rn].setDisplay(player.ranks[rn].gte(1) || (RANKS.names[x+1] ?? player.ranks[RANKS.names[x+1]].gte(1)) || player.misc["h"+rn].gte(1))
+          /**@param die @param you @param stupid @param errors */
+            tmp.el["choose_rank_reward_stab_"+rn].setDisplay(player.ranks[rn].gte(1) || player.misc["h"+rn].gte(1))
         }
     }
     /**return @SHSHWIEDUZYXH tezt */
