@@ -62,8 +62,20 @@ const UPGRADES = {
                     return ret
                 },
                 effDesc(x=this.effect()) {
-                    return "^"+format(x)
+                    return "^"+format(x,1)
                 },
+            },
+            2: {
+                unl() { return true },
+                desc: " Supernova requirement is raised by 0.9 ",
+                cost: E(5),
+                effect() {
+                    let ret = E(0.9)
+                    return ret
+                },
+                effDesc(x=this.effect()){
+                    return "^"+format(x,1)
+                }
             }
         }
     }
