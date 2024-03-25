@@ -60,7 +60,7 @@ const UPGRADES = {
                 }
             },
             auto_unl() { return player.sn.stars.gte("ee308") },
-            lens: 1,
+            lens: 2,
             1: {
                 unl() { return true },
                 desc: "Gain ^1.2 Essence",
