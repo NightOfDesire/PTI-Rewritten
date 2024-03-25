@@ -52,7 +52,6 @@ const UPGRADES = {
             },
             auto_unl() { return player.sn.stars.gte("ee308") },
             lens: 1,
-          },
             1: {
                 unl() { return true },
                 desc: "Gain ^1.2 Essence",
@@ -79,6 +78,7 @@ const UPGRADES = {
             }
         }
     }
+}
 
 function hasUpgrade(id,x) { return player.mainUpg[id].includes(x) }
 function upgEffect(id,x,def=E(1)) { return tmp.upgs.main[id][x]?tmp.upgs.main[id][x].effect:def }

@@ -59,7 +59,7 @@ function calc(dt) {
     tmp.pass = Math.max(0,tmp.pass-1)
 
     player.time += dt
-    player.sn.time = player.sn.time.add(E(1).mul(dt))
+    player.sn.time = player.sn.time.add(dt)
 }
 
 function getPlayerData() {
