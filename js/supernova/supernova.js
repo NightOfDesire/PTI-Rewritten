@@ -62,6 +62,7 @@ const SUPERNOVA = {
 
 
         let req = Decimal.pow(Decimal.mul(base, Decimal.pow(inc, player.sn.amt)), pow)
+        req = req.scale("e111",1.025,0)
         if (hasUpgrade('stars', 2)) req = req.pow(0.9)
 
         return req
