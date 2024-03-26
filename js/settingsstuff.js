@@ -25,7 +25,7 @@ function updateSettingsHTML() {
         player.options.notation_count = 0
     }
     tmp.el.ptime.setHTML(`Time played (total): ${formatTime(player.time)}`)
-    tmp.el.settingsnota.setHTML(`Notation: ${fullNotas[player.options.notation] ? fullNotas[player.options.notation] : player.options.notation}`)
+    tmp.el.settingsnota.setHTML(`Notation: ${fullNotas[player.options.nota] ? fullNotas[player.options.nota] : player.options.nota}`)
     tmp.el.savenotif.setHTML(player.options.savenotif ? 'Save notification enabled.' : `Save notification disabled.`)
 }
 function sci_start_setting() {

@@ -31,7 +31,7 @@ function loop() {
 function turnOffline() {
 player.offline.active = !player.offline.active}
 
-function format(ex, acc=4, max=12, type=player.options.notation) {
+function format(ex, acc=4, max=12, type=player.options.nota) {
     
 
     ex = E(ex)
