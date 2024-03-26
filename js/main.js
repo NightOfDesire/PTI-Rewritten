@@ -169,12 +169,12 @@ function formatGain(amt, gain, isMass=false) {
 
 function formatTime(x) {
     ex = E(x)
-    if (ex.gte(3.15576e7)) return format(ex.div(3.15576e7), 3, "standard") + " Years"
-    if (ex.gte(2.6352e6)) return format(ex.div(2.6352e6), 2, "standard") + " Months"
-    if (ex.gte(86400)) return format(ex.div(86400), 2, "standard") + " Days"
-    if (ex.gte(3600)) return format(ex.div(3600), 2, "standard") + " Hours"
-    if (ex.gte(60)) return format(ex.div(60), 2, "standard") + " Minutes"
-    return format(ex, 2, "standard") + " Seconds"
+    if (ex.gte(3.15576e7)) return format(ex.div(3.15576e7), 3, 12, "standard") + " Years"
+    if (ex.gte(2.6352e6)) return format(ex.div(2.6352e6), 2, 12, "standard") + " Months"
+    if (ex.gte(86400)) return format(ex.div(86400), 2, 12, "standard") + " Days"
+    if (ex.gte(3600)) return format(ex.div(3600), 2, 12, "standard") + " Hours"
+    if (ex.gte(60)) return format(ex.div(60), 2, 12, "standard") + " Minutes"
+    return format(ex, 2, 12, "standard") + " Seconds"
 }
 
 function formatReduction(ex) { ex = E(ex); return format(E(1).sub(ex).mul(100))+"%" }
