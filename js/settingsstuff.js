@@ -12,9 +12,7 @@ let fullNotas = {
     mixed_sc: 'Mixed Scientific'
 }
 function OpenCommandTerminal() {
-    createPrompt('Type command.',command => {
-        ExecuteCommand(command)
-    })
+    createPrompt('Type command.','CommandTerminalPopup',command => {ExecuteCommand(command)})
 }
 function ExecuteCommand(cmd) {
     cmd
