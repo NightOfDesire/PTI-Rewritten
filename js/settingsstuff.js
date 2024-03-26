@@ -1,11 +1,10 @@
 const notations = {
     list: ['standard','scientific','old_sc','eng','mixed_sc','omega','layer'],
 }
-const cmdpswd = {
-    type: 'number',
-    value: 2147483648
-}
+
 let fullNotas = {
+    st: 'Standard',
+    sc: 'Scientific',
     old_sc: 'Old Scientific',
     omega: 'Omega',
     eng: 'Engineering',

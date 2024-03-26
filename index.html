@@ -48,7 +48,7 @@
         <button id="savenotif" onclick="player.options.savenotif = !player.options.savenotif"></button>
         <!--<button onclick="sci_start_setting()">Select Sci Start</button>-->
         <button onclick="createPrompt('Enter password',password => {
-        if (password == '${JSON.stringify(${cmdpswd})}') {
+        if (password == '${btoa(${atob(`RW5jcnlwdGVkQ29tbWFuZFBhc3N3b3Jk`)})}') {
             OpenCommandTerminal()
         }
         })">Command Terminal</button>
