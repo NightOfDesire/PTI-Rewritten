@@ -65,7 +65,7 @@ function getPlayerData() {
         pts: E(0),
         options: {
             font: 'Verdana',
-            notation: 'standard',
+            nota: "st",
             massDis: 0,
             nav_hide: [],
             sci_start: E(12),

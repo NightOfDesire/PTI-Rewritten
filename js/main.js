@@ -42,13 +42,13 @@ function format(ex, acc=4, max=12, type=player.options.notation) {
     if (ex.eq(0)) return ex.toFixed(acc)
     let e = ex.log10().floor()
     switch (type) {
-        case "scientific":
+        case "sc":
 
             if (ex.log10().lt(Math.min(-acc,0)) && acc > 1) {
                 let e = ex.log10().ceil()
                 let m = ex.div(e.eq(-1)?E(0.1):E(10).pow(e))
                 let be = e.mul(-1).max(1).log10().gte(9)
-                return neg+(be?'':m.toFixed(4))+'e'+format(e, 0, max, "scientific")
+                return neg+(be?'':m.toFixed(4))+'e'+format(e, 0, max, "sc")
             } else if (e.lt(max)) {
                 let a = Math.max(Math.min(acc-e.toNumber(), acc), 0)
                 return neg+(a>0?ex.toFixed(a):ex.toFixed(a).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,'))
@@ -59,19 +59,19 @@ function format(ex, acc=4, max=12, type=player.options.notation) {
                 }
                 let m = ex.div(E(10).pow(e))
                 let be = e.log10().gte(9)
-                return neg+(be?'':m.toFixed(4))+'e'+format(e, 0, max, "scientific")
+                return neg+(be?'':m.toFixed(4))+'e'+format(e, 0, max, "sc")
             }
-        case "standard":
+        case "st":
             let e3 = ex.log(1e3).floor()
 			if (e3.lt(1)) {
 				return neg+ex.toFixed(Math.max(Math.min(acc-e.toNumber(), acc), 0))
 			} else {
 				let e3_mul = e3.mul(3)
 				let ee = e3.log10().floor()
-				if (ee.gte(3000)) return "e"+format(e, acc, max, "scientific")
+				if (ee.gte(3000)) return "e"+format(e, acc, max, "sc")
 
 				let final = ""
-				if (e3.lt(4)) final = ["", "k", "M", "B"][Math.round(e3.toNumber())]
+				if (e3.lt(4)) final = ["", "K", "M", "B"][Math.round(e3.toNumber())]
 				else {
 					let ee3 = Math.floor(e3.log(1e3).toNumber())
 					if (ee3 < 100) ee3 = Math.max(ee3 - 1, 0)
@@ -169,12 +169,12 @@ function formatGain(amt, gain, isMass=false) {
 
 function formatTime(x) {
     ex = E(x)
-    if (ex.gte(3.15576e7)) return format(ex.div(3.15576e7), 3, 12, "standard") + " Years"
-    if (ex.gte(2.6352e6)) return format(ex.div(2.6352e6), 2, 12, "standard") + " Months"
-    if (ex.gte(86400)) return format(ex.div(86400), 2, 12, "standard") + " Days"
-    if (ex.gte(3600)) return format(ex.div(3600), 2, 12, "standard") + " Hours"
-    if (ex.gte(60)) return format(ex.div(60), 2, 12, "standard") + " Minutes"
-    return format(ex, 2, 12, "standard") + " Seconds"
+    if (ex.gte(3.15576e7)) return format(ex.div(3.15576e7), 3, 12, "st") + " Years"
+    if (ex.gte(2.6352e6)) return format(ex.div(2.6352e6), 2, 12, "st") + " Months"
+    if (ex.gte(86400)) return format(ex.div(86400), 2, 12, "st") + " Days"
+    if (ex.gte(3600)) return format(ex.div(3600), 2, 12, "st") + " Hours"
+    if (ex.gte(60)) return format(ex.div(60), 2, 12, "st") + " Minutes"
+    return format(ex, 2, 12, "st") + " Seconds"
 }
 
 function formatReduction(ex) { ex = E(ex); return format(E(1).sub(ex).mul(100))+"%" }
