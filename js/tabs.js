@@ -10,30 +10,21 @@ const TABS = {
             let tab = TABS.list[t]+"Tab"
             tmp.el[tab].setDisplay(player.tab == tab)
         }
-        tmp.el.CT_Pres.setDisplay(player.misc.hEss.gte(15))
-        tmp.el.CT_Rank.setDisplay(player.misc.hEss.gte(2.5e5))
-        tmp.el.CT_Eclipse.setDisplay(player.ranks.rank.gte(15) || player.eclipse.unl)
-        tmp.el.CT_Abyss.setDisplay(player.abyss.unl || player.ranks.tier.gte(2))
-        tmp.el.CT_Supernova.setDisplay(player.sn.unl)
-        tmp.el.CT_Upgrades.setDisplay(player.sn.unl)
-        tmp.el["CT_INFINITY"].setDisplay(false)
+        for (let x = 0; x < TABS.list.length; x++) {
+            let tab = TABS.list[x]
+            tmp.el[`CT_${tab}`].setDisplay(TAB_TERMINAL.unls[tab]())
+        }
         
     },
     list: [
-        "Main","Pres","Rank","Eclipse","Abyss","Supernova","Upgrades","INFINITY","Settings"
-    ]
+        "Main","Settings"
+    ],
 }
 
 const TAB_TERMINAL = {
     classes: {
-        Pres: 'sky',
-        Rank: 'charged_text',
-        Eclipse: 'orange',
-        Abyss: "void_text",
+        Main: 'charged_text',
         Settings: 'magenta',
-        Supernova: 'supernova',
-        Upgrades: "magmatic",
-        INFINITY: 'yellow',
     },
     setup() {
         let html = ''
@@ -43,6 +34,10 @@ const TAB_TERMINAL = {
             <button id="CT_${TABS.list[i]}" onclick="TABS.choose('${TABS.list[i]}')" class="${TAB_TERMINAL.classes[TABS.list[i]]||""}">Open ${TABS.list[i]} Tab</button>`
             new Element('Tab_Terminal').setHTML(html)
         }
+    },
+    unls: {
+        'Main': () => true,
+        'Settings': () => true
     },
     open() {
         player.tabterm.open = !player.tabterm.open

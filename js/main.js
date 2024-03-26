@@ -4,166 +4,19 @@ var player
 
 const ST_NAMES = [
 	null, [
-	   ["","U","D","T","Qa","Qt","Sx","Sp","Oc","No"],
+	   ["","U","D","T","Qa","Qi","Sx","Sp","Oc","No"],
 	   ["","Dc","Vg","Tg","Qag","Qtg","Sxg","Spg","Ocg","Nog"],
 	   ["","Ce","De","Te","Qae","Qte","Sxe","Spe","Oce","Noe"],
        /*["","U","D","T","Qd","Qn","Sx","Sp","Oc","No"],
        ["","De","Vg","Tg","qg","Qg","sg","Sg","Og","Ng"],
        ["","Ce","Du","Tr","Qa","Qi","Se","Si","Ot","Ni"]*/
 	],[
-		["","Mi","Mc","Na","Pi","Fm","At","Zp","Yc","Xo"],
+		["","Mi","Mc","Nn","Pc","Fm","At","Zp","Yc","Xo"],
 		["","Me","Du","Tr","Te","Pe","He","Hp","Ot","En"],
 		["","c","Ic","TCn","TeC","PCn","HCn","HpC","OCn","ECn"],
 		["","Hc","DHe","THt","TeH","PHc","HHe","HpH","OHt","EHc"]
 	]
 ]
-const RESETS = {
-    prestige() {
-        //addNotify(`Prestiged at ${format(player.essence)} Essence for +${format(tmp.pres.gain)} Prestige Shards`, 1)
-        player.pres.pts = player.pres.pts.add(tmp.pres.gain)
-        FORMS.pres.doReset()
-        player.pres.unl = true
-    }
-}
-
-const FORMS = {
-    essence: {
-        soft1start() {
-            let start = E("e33")
-            start = start.pow(RANKS.effects.tier[1]())
-            //start = start.pow(ABYSS.VoidEssence.effect2())
-            if (ECLIPSE.ACTIVE()) start = E("1e13")
-            if (ABYSS.active()) start = 1
-            //start = start.pow(ABYSS.VoidEssence.effect2())
-            return E(start)
-        },
-        soft1pow() {
-            let softcap = E(0.8)
-            if (player.ranks.tier.gte(3)) softcap = softcap.sub(RANKS.effects.tier[3]())
-            if (ABYSS.active()) softcap = E(0.6)
-
-            return softcap
-        },
-        soft2start() {
-            let start = E("e111")
-
-            return start
-        },
-        soft2pow() {
-            let softcap = E(0.5)
-
-            return softcap
-        }
-    },
-    eclipse: {
-        shardeffs: {
-            '1'() {
-                let r = (player.eclipse.shards.mul(2).pow(0.35).root(6))
-                r = r.softcap("10", 0.5, 0)
-                if (r.lt(1)) r = E(1)
-                if (ECLIPSE.ACTIVE()) {
-                    if (r.gte(1.1)) r = 1.1
-                }
-                if (ABYSS.active()) r = 1
-                return E(r)
-            },
-            '2'() {
-                let r = player.eclipse.shards.root(4)
-
-                r = r.softcap('35', 0.2, 0)
-
-                return r
-            }
-        }
-    },
-    tierReset() {
-        player.essence = E(0)
-        player.pres.pts = E(0)
-        player.ranks.rank = E(0)
-    },
-    presScs: {
-        soft1start() {
-            let start = E("e12")
-
-            return start
-        },
-        soft1pow() {
-            let softcap = E(0.5)
-
-            return softcap
-        },
-        soft2start() {
-            let start = E("e24")
-            
-            return start
-        },
-        soft2pow() {
-            let softcap = E(0.5)
-
-            return softcap
-        }
-    },
-    essenceGain() {
-    let x = E(1)
-    x = x.mul(FORMS.pres.effect())
-    if (player.ranks.rank.gte(1)) x = x.mul(3)
-    if (player.ranks.rank.gte(2)) x = x.mul(RANKS.effects.rank[2]())
-    
-    if (ECLIPSE.ACTIVE() == false && player.eclipse.shards.gte(1) == true) x = x.mul(5)
-    if (player.ranks.rank.gte(13)) x = x.pow(1.02)
-    x = x.pow(FORMS.eclipse.shardeffs[1]())
-    if (hasUpgrade('stars',1)) x = x.pow(1.2)
-    if (ABYSS.active()) x = x.pow(0.8).add((hasUpgrade('stars',3) ? upgEffect('stars',3) : 0))
-    if (hasUpgrade('stars',4)) x  = x.mul(upgEffect('stars',4))
-    x = x.softcap(FORMS.essence.soft1start(), FORMS.essence.soft2pow(), 0)
-    x = x.softcap(FORMS.essence.soft2start(), FORMS.essence.soft2pow(), 0)
-
-    return x
-    },
-
-   gamespeed() {
-    let x = E(1)
-
-    x = x.mul(player.sn.stars.log(3).add(1))
-    
-    return x
-   },
-   numberSoftGain() {
-    let s = E("ee4")
-    return s.min(/*FORMS.massSoftGain2()||*/1/0).max(1)
-},
-numberSoftPower() {
-    let p = E(1/3)
-    return E(1).div(p.add(1))
-},
-pres: {
-    gain() {
-        let gain = player.essence.div(17.5).root(1.7)
-        if (player.ranks.rank.gte(1)) gain = gain.pow(1.25)
-        if (player.ranks.rank.gte(10)) gain = gain.mul(RANKS.effects.rank[10]())
-        if (ECLIPSE.ACTIVE()) gain = gain.pow(0.7)
-        gain = gain.pow(ABYSS.VoidEssence.effect1())
-        if (ABYSS.active()) gain = gain.root(3)
-        gain = gain.softcap(FORMS.presScs.soft1start(), FORMS.presScs.soft1pow(), 0)
-        return gain.floor()
-    },
-    reset() {
-        if (tmp.pres.can) {
-            RESETS.prestige()
-        }
-    },
-    doReset() {
-        player.essence = E(0)
-    },
-    effect() {
-        let ret = player.pres.pts.pow(1.4).div(2).add(1)
-        ret = ret.softcap("e25", 0.7, 0)
-        ret = ret.softcap("e100", 0.6, 0)
-        return ret
-    }
-}
-
-}
 
 function loop() {
     diff = Date.now()-date;
@@ -337,4 +190,3 @@ function capitalFirst(str) {
 		.map(x => x[0].toUpperCase() + x.slice(1))
 		.join(" ");
 }
-

@@ -52,58 +52,17 @@ function calc(dt) {
    
 
     if (tmp.pass<=0) {
-        player.essence = player.essence.add(tmp.essenceGain.mul(gs))
-        if (tmp.pres.auto) player.pres.pts = player.pres.pts.add(tmp.pres.gain.mul(gs))
-        player.abyss.essence = player.abyss.essence.add(tmp.vessgain.mul(gs))
+        player.pts = player.pts.add(tmp.ptgain.mul(gs))
     }
-    RANKS.tick()
 
     tmp.pass = Math.max(0,tmp.pass-1)
 
     player.time += dt
-    player.sn.time = player.sn.time.add(dt)
 }
 
 function getPlayerData() {
     let s = {
-        essence: E(0),
-        rankstab: "main",
-        rankrewardstab: "rank",
-        ranks: {
-            rank: E(0),
-            tier: E(0),
-            asc: E(0),
-        },
-        autoranks: {
-            rank: false,
-            tier: false,
-            asc: false
-        },
-        pres: {
-            pts: E(0),
-            unl: false
-        },
-        eclipse: {
-            active: false,
-            score: E(0),
-            shards: E(0),
-            unl: false
-        },
-        abyss: {
-            active: false,
-            unl: false,
-            essence: E(0),
-            oddities: E(0),
-            power: E(0),
-            score: E(0)
-        },
-        sn: {
-            unl: false,
-            stars: E(0),
-            amt: E(0),
-            time: E(0),
-        },
-        inf: {},
+        pts: E(0),
         options: {
             font: 'Verdana',
             notation: 'standard',
@@ -113,45 +72,22 @@ function getPlayerData() {
             notation_count: 0,
             savenotif: true
         },
-        main_upg_msg: [0,0],
-        mainUpg: {},
-        auto_mainUpg: {},
        
         offline: {
             active: true,
             current: Date.now(),
             time: 0,
         },
-        misc: {
-            hEss: E(0),
-            hPres: E(0),
-            hrank: E(0),
-            htier: E(0),
-            hasc: E(0)
-        },
-       
         time: 0,
-        chals: {
-            active: 0,
-            chosen: 0,
-            unl: false,
-            comps: {}
-        },
         tab : "MainTab",
         tabterm: {
             open: false
         },
-        buyables: {},
         devoptions: {
             speed: E(1)
         }
     }
-
-    for (let x = 1; x <= UPGRADES.main.cols; x++) {
-        s.auto_mainUpg[UPGRADES.main.ids[x]] = false
-        s.mainUpg[UPGRADES.main.ids[x]] = []
-    }
-   
+    
     return s
 }
 
@@ -412,23 +348,6 @@ function simulateTime(sec) {
     }
 
     let h = `You were gone offline for <b>${formatTime(sec)}</b>.<br>`
-
-    let s = {
-        essence: player.essence.max(1).div(player_before.essence.max(1)).log10(),
-       
-    }
-
-    let s2 = {
-        essence: player.essence.max(1).log10().max(1).div(player_before.essence.max(1).log10().max(1)).log10(),
-        prespts: player.pres.pts.max(1).log10().max(1).div(player_before.pres.pts.max(1).log10().max(1)).log10()
-    }
-
-   
-
-    if (s2.essence.gte(10)) h += `<br>Your Essence's exponent<sup>2</sup> is increased by <b>${s2.essence.format(2)}</b>.`
-    else if (s.essence.gte(10)) h += `<br>Your Essence's exponent is increased by <b>${s.essence.format(2)}</b>.`
-
-   
 
     createPopup(h,'offline')
 }
