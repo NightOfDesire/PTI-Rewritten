@@ -48,7 +48,7 @@
         <button id="savenotif" onclick="player.options.savenotif = !player.options.savenotif"></button>
         <!--<button onclick="sci_start_setting()">Select Sci Start</button>-->
         <button onclick="createPrompt('Enter password','EnterPasswordPrompt',password => {
-        if (password == btoa(atob(`RW5jcnlwdGVkVGVybWluYWxQYXNzd29yZA==`))) {
+        if (password == btoa(btoa(JSON.stringify(`${EncryptedTerminalPassword}`)))){
             OpenCommandTerminal()
         } else addNotify('Wrong terminal password.')
         })">Command Terminal</button>
