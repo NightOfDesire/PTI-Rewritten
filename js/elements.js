@@ -27,6 +27,7 @@ function updateHTML() {
 	tmp.el.loading.setDisplay(!tmp.start)
 	tmp.el.app.setDisplay(tmp.start)
     pts.updateHTML()
+	updateSettingsHTML()
     TABS.update()
     TAB_TERMINAL.refresh()
 }
