@@ -1,12 +1,24 @@
 const notations = {
     list: ['standard','scientific','old_sc','eng','mixed_sc','omega','layer'],
 }
+const cmdpswd = {
+    type: 'number',
+    value: 2147483648
+}
 let fullNotas = {
     old_sc: 'Old Scientific',
     omega: 'Omega',
     eng: 'Engineering',
     layer: 'Prestige Layers',
     mixed_sc: 'Mixed Scientific'
+}
+function OpenCommandTerminal() {
+    createPrompt('Type command.',command => {
+        ExecuteCommand(command)
+    })
+}
+function ExecuteCommand(cmd) {
+    cmd
 }
 function updateSettingsHTML() {
     if (player.options.notation_count >= notations["list"].length) {

@@ -47,9 +47,11 @@
         <div id="settingsnota" class="orange"></div>
         <button id="savenotif" onclick="player.options.savenotif = !player.options.savenotif"></button>
         <!--<button onclick="sci_start_setting()">Select Sci Start</button>-->
-        <button onclick="createPrompt('Enter dev speed',devspeed => {
-            player.options.devspeed = Decimal.fromString(devspeed)
-        })">test button</button>
+        <button onclick="createPrompt('Enter password',password => {
+        if (command == JSON.stringify(cmdpswd)) {
+            OpenCommandTerminal()
+        }
+        })">Command terminal</button>
         <div id="ptime"></div>
     </div>
     </div>

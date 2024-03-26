@@ -32,14 +32,12 @@ function resetTemp() {
 
        buyables: {}
     }
-
-
-
-
+    tmp.el = keep[0]
+    tmp.prevSave = keep[1]
+}
     function updatePointTemp() {
         tmp.ptgain = pts.gain()
     }
-}
 function updateTemp() {
     if (!tmp.stab) tmp.stab = []
     if (!tmp.notify) tmp.notify = []
