@@ -12,10 +12,9 @@ let fullNotas = {
     mixed_sc: 'Mixed Scientific'
 }
 function OpenCommandTerminal() {
-    createPrompt('Type command.','CommandTerminalPopup',command => {ExecuteCommand(command)})
-}
-function ExecuteCommand(cmd) {
-    cmd
+    createPrompt('Type command.','CommandTerminalPopup',command => {
+        if (typeof command == "function") command(); else command
+    })
 }
 function updateSettingsHTML() {
     if (player.options.notation_count >= notations["list"].length) {

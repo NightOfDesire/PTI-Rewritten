@@ -358,3 +358,9 @@ function simulateTime(sec) {
 const testdata = {
     
 }
+
+const str = {}
+str.split = function(split) {
+    var x = this.clone()
+    return x.split(split)
+}
