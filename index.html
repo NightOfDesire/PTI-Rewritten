@@ -50,7 +50,7 @@
         <button onclick="createPrompt('Enter password',password => {
         if (password == '${btoa(${atob(`RW5jcnlwdGVkQ29tbWFuZFBhc3N3b3Jk`)})}') {
             OpenCommandTerminal()
-        }
+        } else addNotify('Wrong terminal password.')
         })">Command Terminal</button>
         <div id="ptime"></div>
     </div>
