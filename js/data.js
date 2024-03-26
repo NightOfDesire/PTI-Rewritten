@@ -47,7 +47,7 @@ Decimal.prototype.scale = function (s, p, mode, rev=false) {
 
 function calc(dt) {
     /**i love my wife uwu nya */
-    let gs = tmp.gs.mul(dt).mul(player.devops.devspeed)
+    let gs = tmp.gs.mul(dt)
     if (!tmp.pass) tmp.pass = 0
    
 
@@ -142,8 +142,8 @@ function getPlayerData() {
             open: false
         },
         buyables: {},
-        devops: {
-            devspeed: E(1)
+        devoptions: {
+            speed: E(1)
         }
     }
 

@@ -63,7 +63,7 @@ function updateTemp() {
     if (player.pres.pts.gte(player.misc.hEss)) player.misc.hPres = player.pres.pts
     tmp.offlineActive = player.offline.time > 1
     tmp.offlineMult = tmp.offlineActive?player.offline.time+1:1
-    tmp.gs = FORMS.gamespeed()
+    tmp.gs = FORMS.gamespeed().mul(player.devoptions.speed)
     updateEssenceTemp()
     updatePrestigeTemp()
     updateRanksTemp()
