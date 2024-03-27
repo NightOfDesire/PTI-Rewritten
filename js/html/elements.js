@@ -91,7 +91,5 @@ function updateHTML() {
 	tmp.el.loading.setDisplay(!tmp.start)
 	tmp.el.app.setDisplay(tmp.start)
 	updateSettingsHTML()
-	for (let x = 0; x < BUILDINGS_ORDER.length; x++) {
-		BUILDINGS.update(BUILDINGS_ORDER[x])
-	}
+	BUILDINGS.update('points_1')
 }
