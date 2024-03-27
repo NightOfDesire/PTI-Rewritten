@@ -18,6 +18,18 @@ const ST_NAMES = [
 	]
 ]
 
+FORMS = {
+    pts: {
+        gain() {
+            let x = E(1)
+
+            x = x.add(BUILDINGS.eff('points_1'))
+
+            return x
+        }
+    }
+}
+
 function loop() {
     diff = Date.now()-date;
     //ssf[1]()
