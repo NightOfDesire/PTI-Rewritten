@@ -1,6 +1,4 @@
-
-
-
+let FPS = 20
 function calc(dt) {
     let gs = tmp.gs.mul(dt)
     if (tmp.pass > 0) {
@@ -14,7 +12,7 @@ function calc(dt) {
 
 
 function simulateTime(sec) {
-    let ticks = sec * 20
+    let ticks = sec * FPS
     let bonusDiff = 0
     let p = clonePlayer(player,setupPlayer())
     if (ticks > 1000) {
