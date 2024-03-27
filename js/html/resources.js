@@ -43,7 +43,7 @@ function setupResourcesHTML() {
 }
 
 function updateResourcesHTML() {
-    let gs = E(1) //tmp.gs
+    let gs = tmp.gs
 
     for (i in RESOURCES_DIS) {
         let rd = RESOURCES_DIS[i]
