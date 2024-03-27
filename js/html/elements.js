@@ -1,5 +1,4 @@
 function setupHTML() {
-	/** */
 	let tabs = new Element("tabs")
 	let stabs = new Element("stabs")
 	let table = ""
