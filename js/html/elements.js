@@ -66,6 +66,7 @@ function updateHTML() {
 	updateTabsHTML()
 	tmp.el.loading.setDisplay(!tmp.start)
 	tmp.el.app.setDisplay(tmp.start)
+	/**@param hi */
 	updateSettingsHTML()
 	BUILDINGS.update('points_1')
 	if (!player.options.nav_hide[1]) updateResourcesHTML()
