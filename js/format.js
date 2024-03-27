@@ -390,9 +390,7 @@ function formatPow(ex,acc) { return "^"+format(ex,acc) }
 
 function expMult(a,b,base=10) { return Decimal.gte(a,10) ? Decimal.pow(base,Decimal.log(a,base).pow(b)) : E(a) }
 
-Decimal.prototype.clone = function() {
-  return this
-}
+
 
 Decimal.prototype.modular=Decimal.prototype.mod=function (other){
   other=E(other);

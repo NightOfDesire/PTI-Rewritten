@@ -2669,6 +2669,9 @@
           return D(value).add(other);
         }
       }, {
+        key: "clone",
+        value: this
+      }, {
         key: "plus",
         value: function plus(value, other) {
           return D(value).add(other);
