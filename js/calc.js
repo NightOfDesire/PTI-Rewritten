@@ -1,4 +1,4 @@
-let FPS = 20
+var FPS = 20
 function calc(dt) {
     let gs = tmp.gs.mul(dt)
     if (tmp.pass > 0) {
@@ -9,8 +9,6 @@ function calc(dt) {
     player.pts = player.pts.add(tmp.ptgain.mul(gs))
     player.bestPts = player.bestPts.max(player.pts)
 }
-
-
 function simulateTime(sec) {
     let ticks = sec * FPS
     let bonusDiff = 0
@@ -19,6 +17,8 @@ function simulateTime(sec) {
         bonusDiff = (ticks - 1000) / FPS / 1000
         ticks = 1000
     }
+
+    /**@param bye @param error */
     for (let i=0; i<ticks; i++) {
         updateTemp()
         calc(1/FPS+bonusDiff)
