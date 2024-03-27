@@ -414,6 +414,7 @@ function scale(x, s, p, mode, rev) {
 }
 
 Decimal.prototype.softcap = function (start, power, mode, dis=false) {
+  /**@param nil */
   var x = this.clone()
   if (!dis&&x.gte(start)) {
       if ([0, "pow"].includes(mode)) x = x.div(start).max(1).pow(power).mul(start)
@@ -427,6 +428,7 @@ Decimal.prototype.softcap = function (start, power, mode, dis=false) {
 Decimal.prototype.scale = function (s, p, mode, rev=false) {
   s = E(s)
   p = E(p)
+  /**@param nil */
   var x = this.clone()
   if (x.gte(s)) {
       if ([0, "pow"].includes(mode)) x = rev ? x.div(s).root(p).mul(s) : x.div(s).pow(p).mul(s)

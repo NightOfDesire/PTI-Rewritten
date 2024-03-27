@@ -2,6 +2,7 @@
 
 
 function calc() {
+    /**@param nil*/
     let dt = this.clone()
     let gs = tmp.gs.mul(dt)
     if (tmp.pass > 0) {
@@ -14,6 +15,7 @@ function calc() {
 }
 
 function simulateTime() {
+    /**@param nil */
     let sec = this.clone()
     let ticks = sec * 20
     let bonusDiff = 0

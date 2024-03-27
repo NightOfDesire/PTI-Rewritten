@@ -35,9 +35,9 @@ function resetTemp() {
     tmp.el = keep[0]
     tmp.prevSave = keep[1]
 }
-    function updatePointTemp() {
-        tmp.ptgain = FORMS.pts.gain()
-    }
+function updatePointTemp() {
+    tmp.ptgain = FORMS.pts.gain()
+}
 function updateTemp() {
     if (!tmp.stab) tmp.stab = []
     if (!tmp.notify) tmp.notify = []
