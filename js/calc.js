@@ -1,9 +1,7 @@
 
 
 
-function calc() {
-    /**@param nil*/
-    let dt = this.clone()
+function calc(dt) {
     let gs = tmp.gs.mul(dt)
     if (tmp.pass > 0) {
         tmp.pass--
@@ -14,14 +12,11 @@ function calc() {
     player.bestPts = player.bestPts.max(player.pts)
 }
 
-/**@param why @param is @param there @param an @param error @param here */
-function simulateTime() {
-    /**@param nil */
-    let sec = this.clone()
+
+function simulateTime(sec) {
     let ticks = sec * 20
     let bonusDiff = 0
     let p = clonePlayer(player,setupPlayer())
-
     if (ticks > 1000) {
         bonusDiff = (ticks - 1000) / FPS / 1000
         ticks = 1000
