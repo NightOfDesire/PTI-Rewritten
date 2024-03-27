@@ -14,6 +14,7 @@ function calc() {
     player.bestPts = player.bestPts.max(player.pts)
 }
 
+/**@param why @param is @param there @param an @param error @param here */
 function simulateTime() {
     /**@param nil */
     let sec = this.clone()
