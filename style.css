@@ -927,58 +927,6 @@ h4 {
 }
 
 /* Revamped */
-
-#tabs {
-	width: 196px;
-	height: 100%;
-	overflow-y: auto;
-	border-right: solid 2px white;
-}
-
-#tabs > div {
-	width: 100%;
-}
-
-#tabs .btn_tab {
-	width: 100%;
-	height: 50px;
-	position: relative;
-	overflow: hidden;
-}
-
-#tabs .btn_tab > div {
-	width: 170px;
-	font-size: 16px;
-	text-align: left;
-	position: absolute;
-	right: 0;
-	top: 50%;
-	transform: translateY(-50%);
-}
-
-#tabs .btn_tab > iconify-icon {
-	opacity: 0.1;
-	position: absolute;
-	bottom: -20px;
-	right: 5px;
-	transition: transform 0.25s;
-	transform: rotate(-15deg);
-}
-
-#tabs .btn_tab:hover > iconify-icon,
-#tabs .btn_tab.choosed > iconify-icon {
-	transform: scale(1.3) rotate(-25deg);
-}
-
-#tabs .btn_tab.choosed {
-	border-left-width: 10px;
-	border-bottom-width: 2px;
-}
-
-.btn_tab.choosed {
-	border-bottom-width: 6px;
-}
-
 #resources_table {
 	width: 246px;
 	height: 100%;

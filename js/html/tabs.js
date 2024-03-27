@@ -26,7 +26,7 @@ const TABS = {
     ],
     2: {
         0: [
-            { id: "Main" },
+            { id: "Points" },
             /*{ id: "Black Hole", unl() { return player.bh.unl }, style: "bh" },
             { id: "Atomic Generator", unl() { return player.atom.unl }, style: "atom" },
             { id: "Stars", unl() { return STARS.unlocked() }, style: "sn" },
