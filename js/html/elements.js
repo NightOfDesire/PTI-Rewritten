@@ -62,7 +62,7 @@ function updateHTML() {
 	document.documentElement.style.setProperty('--cy', tmp.cy)
 
 
-	updateNavigation()
+	let displayMainTab = true
 	updateTabsHTML()
 	tmp.el.loading.setDisplay(!tmp.start)
 	tmp.el.app.setDisplay(tmp.start)
