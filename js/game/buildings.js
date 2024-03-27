@@ -21,7 +21,7 @@ const BUILDING_DATA = {
             let start = this.start
             let inc = this.inc
             let ret = Decimal.mul(start, Decimal.pow(inc, x)).scale(this.scalestart,this.scalepow,this.scalemode)
-return ret
+            return ret
         },
         get bulk() {
             return getPtUpgBulk(1)

@@ -8,6 +8,7 @@ function calc() {
         tmp.pass--
         return
     }
+    BUILDINGS.tick()
     player.pts = player.pts.add(tmp.ptgain.mul(gs))
     player.bestPts = player.bestPts.max(player.pts)
 }
