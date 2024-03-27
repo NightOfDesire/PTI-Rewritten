@@ -30,11 +30,17 @@ function simulateTime(sec) {
         pts: player.pts.sub(p.pts)
     }
     let s2 = {
-
+        pts: player.pts.max(1).div(p.pts.max(1)).log10()
     }
     let s3 = {
-
+        pts: player.pts.max(1).log10().max(1).div(p.pts.max(1).log10().max(1)).log10()
     }
-    h += `<br>Your points increased by ${format(s.pts)}`
+    if (s3.pts.gte(1)) {
+        h += `<br>Your points' exponent<sup>2</sup> has increases by ${format(s3.pts)}.`
+    } else if (s2.pts.gte(1)) {
+        h += `<br>Your points' exponent has increased by ${format(s2.pts)}.`
+    } else {
+        h += `<br>Your points increased by ${format(s.pts)}.`
+    }
     createPopup(h, 'Offline')
 }
