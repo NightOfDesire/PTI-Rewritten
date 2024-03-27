@@ -1,5 +1,5 @@
 function setupHTML() {
-	setupResourcesHTML()
+	/** */
 	let tabs = new Element("tabs")
 	let stabs = new Element("stabs")
 	let table = ""
@@ -69,7 +69,5 @@ function updateHTML() {
 	
 	updateSettingsHTML()
 	BUILDINGS.update('points_1')
-	if (!player.options.nav_hide[1]) updateResourcesHTML()
-	if (hover_tooltip) updateTooltipResHTML()
 	/**@param hello */
 }
