@@ -172,7 +172,8 @@ function loadGame(start=true, gotNaN=false) {
 
        
         }
-       updateNavigation()
+        updateNavigation()
+        updateTooltipResHTML(true)
         let t = (Date.now() - player.offline.current)/1000
         if (player.offline.active && t > 60) simulateTime(t)
 

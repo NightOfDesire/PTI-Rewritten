@@ -77,20 +77,18 @@ function updateNavigation() {
     tmp.el.nav_btns.changeStyle('width',p)
 }
 function updateHTML() {
-	let els = document.getElementsByTagName("*")
-	for (let i=0;i<els.length;i++) {
-		let el = els[i]
-		if (!tmp.el[el.id]) {
-			tmp.el[el.id] = new Element(el)
-		}
-	}
+
+	document.documentElement.style.setProperty('--cx', tmp.cx)
+	document.documentElement.style.setProperty('--cy', tmp.cy)
+
+
 	updateNavigation()
 	updateTabsHTML()
-	updateResourcesHTML()
 	tmp.el.loading.setDisplay(!tmp.start)
 	tmp.el.app.setDisplay(tmp.start)
 	updateSettingsHTML()
 	BUILDINGS.update('points_1')
-
+	if (!player.options.nav_hide[1]) updateResourcesHTML()
+	if (hover_tooltip) updateTooltipResHTML()
 	/**@param hello */
 }
