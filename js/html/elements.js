@@ -34,7 +34,6 @@ function setupHTML() {
 
 
 function updateTabsHTML() {
-	let s = !player.options.nav_hide[0]
 	tmp.el.stabs_div.setDisplay(TABS[2][tmp.tab])
 	
 	for (let x = 0; x < TABS[1].length; x++) {
