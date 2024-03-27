@@ -30,13 +30,13 @@ function resetTemp() {
 
         prevSave: "",
 
-       buyables: {}
+       build: {}
     }
     tmp.el = keep[0]
     tmp.prevSave = keep[1]
 }
     function updatePointTemp() {
-        tmp.ptgain = pts.gain()
+        tmp.ptgain = FORMS.pts.gain()
     }
 function updateTemp() {
     if (!tmp.stab) tmp.stab = []
@@ -46,4 +46,5 @@ function updateTemp() {
     tmp.offlineMult = tmp.offlineActive?player.offline.time+1:1
     tmp.gs = E(1).mul(player.devoptions.speed)
     updatePointTemp()
+    BUILDINGS.temp()
 }

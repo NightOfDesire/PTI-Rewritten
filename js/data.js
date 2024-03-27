@@ -43,6 +43,34 @@ Decimal.prototype.scale = function (s, p, mode, rev=false) {
 }
 
 
+/*Decimal.prototype.scaleName = function (type, id, rev=false, type_index) {
+    var x = this.clone()
+    if (SCALE_START[type][id] && SCALE_POWER[type][id]) {
+        let s = tmp.scaling_start[type][id]
+        let p = tmp.scaling_power[type][id]
+        let e = Decimal.pow(SCALE_POWER[type][id],p)
+        
+        x = x.scale(s,e,type_index%4==3?type_index>=7?3:1:type_index>=6?2:0,rev)
+    }
+    return x
+}
+
+Decimal.prototype.scaleEvery = function (id, rev=false, fp=SCALE_FP[id]?SCALE_FP[id]():[1,1,1,1,1,1]) {
+    var x = this.clone()
+    for (let i = 0; i < SCALE_TYPE.length; i++) {
+        let s = rev?i:SCALE_TYPE.length-1-i
+        let sc = SCALE_TYPE[s]
+
+        let f = fp[s]||1
+
+        // if (Decimal.gt(f,1)) console.log(id,format(f))
+
+        // if (tmp.no_scalings[sc].includes(id)) continue
+
+        x = tmp.no_scalings[sc].includes(id) ? rev?x.mul(f):x.div(f) : rev?x.mul(f).scaleName(sc,id,rev,s):x.scaleName(sc,id,rev,s).div(f)
+    }
+    return x
+}*/
 
 
 function calc(dt) {
@@ -56,7 +84,7 @@ function calc(dt) {
     }
 
     tmp.pass = Math.max(0,tmp.pass-1)
-
+    BUILDINGS.tick()
     player.time += dt
 }
 
@@ -85,7 +113,13 @@ function getPlayerData() {
         },
         devoptions: {
             speed: E(1)
-        }
+        },
+        build: {}
+    }
+
+    for (let x in BUILDING_DATA) s.build[x] = {
+        amt: E(0),
+        auto: false
     }
     
     return s
@@ -252,7 +286,7 @@ function loadGame(start=true, gotNaN=false) {
     if (start) {
         updateTemp()
         setupHTML()
-
+        setupTooltips()
         setInterval(save,15000)
 
 
@@ -262,7 +296,7 @@ function loadGame(start=true, gotNaN=false) {
 
        
         }
-       
+       updateNavigation()
         let t = (Date.now() - player.offline.current)/1000
         if (player.offline.active && t > 60) simulateTime(t)
 
