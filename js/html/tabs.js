@@ -14,8 +14,8 @@ const TABS = {
     },
     1: [
         { id: "Main", icon: "eos-icons:atom-electron" },
-        { id: "Stats", icon: "material-symbols:query-stats" },
-        /*{ id: "Upgrades", icon: "carbon:upgrade", unl() { return player.rp.unl } },
+        /*{ id: "Stats", icon: "material-symbols:query-stats" },
+        { id: "Upgrades", icon: "carbon:upgrade", unl() { return player.rp.unl } },
         { id: "Challenges", icon: "material-symbols:star", unl() { return player.chal.unl } },
         { id: "Atom", icon: "eos-icons:atom-electron", color: "cyan", unl() { return player.atom.unl }, style: "atom" },
         { id: "Supernova", icon: "material-symbols:explosion-outline", color: "magenta", unl() { return player.supernova.times.gte(1) || quUnl() }, style: "sn" },
