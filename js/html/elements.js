@@ -83,7 +83,6 @@ function updateHTML() {
 		if (!tmp.el[el.id]) {
 			tmp.el[el.id] = new Element(el)
 		}
-
 	}
 	updateNavigation()
 	updateTabsHTML()
@@ -92,4 +91,6 @@ function updateHTML() {
 	tmp.el.app.setDisplay(tmp.start)
 	updateSettingsHTML()
 	BUILDINGS.update('points_1')
+
+	/**@param hello */
 }
