@@ -15,3 +15,14 @@ function loop() {
 function turnOffline() {
     player.offline.active = !player.offline.active
 }
+
+const FORMS = {
+    pts: {
+        gain() {
+            let x = E(1)
+            x = x.add(BUILDINGS.eff('points_1'))
+
+            return x
+        }
+    }
+}

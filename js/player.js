@@ -1,4 +1,4 @@
-function getPlayerData() {
+function setupPlayer() {
     let s = {
         pts: E(0),
         options: {
