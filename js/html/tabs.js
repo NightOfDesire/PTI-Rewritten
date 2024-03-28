@@ -7,7 +7,7 @@ const TABS = {
     1: {
         0: [
             {id: "Main"},
-            {id: "Prestige"}
+            {id: "Prestige", unl() { return player.pts.gte(500) || player.prestige.unl}}
         ],
         1: [
             {id: "Settings"}

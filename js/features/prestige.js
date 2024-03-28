@@ -2,6 +2,7 @@ const PRESTIGE = {
     reset() {
         reset("pts")
         reset("build.points_1")
+        player.prestige.unl = true
     },
     calculateGain() {
         let gain = player.pts.div(1e3).root(2.2)

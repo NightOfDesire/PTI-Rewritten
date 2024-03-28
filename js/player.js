@@ -1,6 +1,10 @@
 function getBaseData() {
     let s = {
         pts: E(0),
+        prestige: {
+            pts: E(0),
+            unl: false
+        },
         options: {
             font: 'Verdana',
             nota: "st",

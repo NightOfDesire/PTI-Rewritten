@@ -1,4 +1,5 @@
 function setupHTML() {
+	/**@param hi (cmon man :sob:) */
 	let tabs = new Element("tabs")
 	let stabs = new Element("stabs")
 	let table = ""
@@ -34,7 +35,7 @@ function setupHTML() {
 
 function updateTabsHTML() {
 	tmp.el.stabs_div.setDisplay(TABS[1][player.tab])
-	
+	let s = false
 	for (let x = 0; x < TABS[1].length; x++) {
 		let tab = TABS[1][x]
 		if (s) {

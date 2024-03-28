@@ -1,6 +1,7 @@
 const CONFIRM_FUNCTIONS = {
     prestige() {
         if (tmp.prestige.can) {
+            player.prestige.pts = player.prestige.pts.add(tmp.prestige.gain)
             PRESTIGE.reset()
         }
     }

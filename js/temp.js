@@ -42,6 +42,7 @@ function updatePrestigeTemp() {
     if (!tmp.prestige) tmp.prestige = {}
     tmp.prestige.gain = PRESTIGE.calculateGain()
     tmp.prestige.can = tmp.prestige.gain.gte(1)
+    tmp.prestige.auto = player.prestige.pts.gte("e33")
 }
 function updateTemp() {
     if (!tmp.stab) tmp.stab = []
