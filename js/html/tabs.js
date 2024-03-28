@@ -1,5 +1,5 @@
 const TABS = {
-    choose(x, stab=false) {if (!stab) {player.tab = x} else {player.stab[player.tab] = x}},
+    choose(x, stab=false) {if (!stab) {player.tab = x} else {player.stab = x}},
     1: [
         {id: "Main"},
         {id: "Settings"}
