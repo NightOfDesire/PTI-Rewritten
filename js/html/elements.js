@@ -11,7 +11,7 @@ function setupHTML() {
 		if (TABS[2][x]) {
 			let a = `<div id="stabs${x}" class="table_center stab_btn">`
 			for (let y = 0; y < TABS[2][x].length; y++) {
-				a += `<div style="width: 160px">
+				a += `<div style="width: 100px">
 					<button onclick="TABS.choose(${y}, true); player.stab = 0;" class="btn_tab" id="stab${x}_${y}">${TABS[2][x][y].id}</button>
 				</div>`
 			}
