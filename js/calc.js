@@ -8,6 +8,7 @@ function calc(dt) {
     BUILDINGS.tick()
     player.pts = player.pts.add(tmp.ptgain.mul(gs))
     player.bestPts = player.bestPts.max(player.pts)
+    player.time += dt
 }
 function simulateTime(sec) {
     let ticks = sec * FPS
