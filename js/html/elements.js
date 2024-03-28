@@ -63,8 +63,9 @@ function updateHTML() {
 	updateTabsHTML()
 	tmp.el.loading.setDisplay(!tmp.start)
 	tmp.el.app.setDisplay(tmp.start)
-	
+	tmp.el.PtDisplay.setHTML(`${format(player.pts, 2)} Points ${formatGain(player.pts, tmp.ptgain.mul(tmp.gs))}`)
 	updateSettingsHTML()
 	BUILDINGS.update('points_1')
+	PRESTIGE.updateHTML()
 	/**@param hello */
 }

@@ -38,6 +38,11 @@ function resetTemp() {
 function updatePointTemp() {
     tmp.ptgain = FORMS.pts.gain()
 }
+function updatePrestigeTemp() {
+    if (!tmp.prestige) tmp.prestige = {}
+    tmp.prestige.gain = PRESTIGE.calculateGain()
+    tmp.prestige.can = tmp.prestige.gain.gte(1)
+}
 function updateTemp() {
     if (!tmp.stab) tmp.stab = []
     if (!tmp.notify) tmp.notify = []
@@ -46,5 +51,6 @@ function updateTemp() {
     tmp.offlineMult = tmp.offlineActive?player.offline.time+1:1
     tmp.gs = E(1).mul(player.devoptions.speed)
     updatePointTemp()
+    updatePrestigeTemp()
     BUILDINGS.temp()
 }

@@ -19,6 +19,7 @@
         <script src="js/features/buildings.js"></script>
         <script src="js/calc.js"></script>
         <script src="js/features/prestige.js"></script>
+        <script src="js/confirm.js"></script>
 
         <script src="https://js.sentry-cdn.com/97eaa6242646b2261726076b59aa3c11.min.js" crossorigin="anonymous"></script>
         <style>
@@ -55,8 +56,8 @@
                             <div id="building_points_1"></div>
                         </div>
                         <div id="stab_frame0_1">
-                            <div id="PPtDisplay"></div>
-                            <button onclick="PRESTIGE.reset()"></button>
+                            <div id="PPtDisplay" class="sky"></div>
+                            <button onclick="if (player.confirms.prestige) {newConfirm('prestige')} else {CONFIRM_FUNCTIONS.PRESTIGE()}" class="sky">Prestige</button>
                         </div>
                     <div id="tab_frame1">
                         <div id="stab_frame1_0">
