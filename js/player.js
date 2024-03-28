@@ -28,7 +28,10 @@ function getBaseData() {
         build: {},
         bestPts: E(0),
         tab: 0,
-        stab: 0
+        stab: 0,
+        confirms: {
+            prestige: true
+        }
     }
 
     for (let x in BUILDING_DATA) s.build[x] = {
