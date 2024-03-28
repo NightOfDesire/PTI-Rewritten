@@ -21,7 +21,6 @@ function getBaseData() {
             time: 0,
         },
         time: 0,
-        
         devoptions: {
             speed: E(1)
         },

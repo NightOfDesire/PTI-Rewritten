@@ -44,10 +44,10 @@ function updateTabsHTML() {
 		}
 
 		if (tmp.el["tab_frame"+x]) tmp.el["tab_frame"+x].setDisplay(player.tab == x)
-		if (TABS[1][x]) {
+		if (TABS[2][x]) {
 			tmp.el["stabs"+x].setDisplay(player.tab == x)
-			if (x == tmp.tab) for (let y = 0; y < TABS[1][x].length; y++)  {
-				let stab = TABS[1][x][y]
+			if (x == player.tab) for (let y = 0; y < TABS[2][x].length; y++)  {
+				let stab = TABS[2][x][y]
 				tmp.el["stab"+x+"_"+y].setDisplay(stab.unl ? stab.unl() : true)
 				tmp.el["stab"+x+"_"+y].setClasses({btn_tab: true, [stab.style ? stab.style : "normal"]: true, choosed: player.stab == y})
 				if (tmp.el["stab_frame"+x+"_"+y]) tmp.el["stab_frame"+x+"_"+y].setDisplay(player.tab == x && player.stab == y)
