@@ -12,7 +12,7 @@ function calc(dt) {
 function simulateTime(sec) {
     let ticks = sec * FPS
     let bonusDiff = 0
-    let p = clonePlayer(player,setupPlayer())
+    let p = clnplayer(player,getBaseData())
     if (ticks > 1000) {
         bonusDiff = (ticks - 1000) / FPS / 1000
         ticks = 1000

@@ -1,0 +1,5 @@
+const PRESTIGE = {
+    reset() {
+        
+    }
+}

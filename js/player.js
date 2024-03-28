@@ -1,4 +1,4 @@
-function setupPlayer() {
+function getBaseData() {
     let s = {
         pts: E(0),
         options: {
@@ -23,6 +23,8 @@ function setupPlayer() {
         },
         build: {},
         bestPts: E(0),
+        tab: 0,
+        stab: 0
     }
 
     for (let x in BUILDING_DATA) s.build[x] = {
@@ -31,4 +33,30 @@ function setupPlayer() {
     }
     
     return s
+}
+
+function reset(data) {
+    data = player[data]
+    let constname = Object.getPrototypeOf(data).constructor.name
+    if (typeof data == "object" && constname == "Decimal") {
+        data = E(0)
+    } else if (typeof data == "object" && constname != "Decimal") {
+        for (let x in data) {
+            if (typeof x == "object" && Object.getPrototypeOf(x).constructor.name == "Decimal") {
+                x = E(0)
+            } else if (typeof x == "boolean") {
+                x = false
+            } else if (typeof x == "number") {
+                x = 0
+            } else {
+                x = ""
+            }
+        }
+    } else if (typeof data == "number") {
+        data = 0
+    } else if (typeof data == "boolean") {
+        data = false
+    } else {
+        data = ""
+    }
 }

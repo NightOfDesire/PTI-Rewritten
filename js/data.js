@@ -7,17 +7,17 @@ function wipe(reload=false) {
         save()
         location.reload()
     }
-    else player = setupPlayer()
+    else player = getBaseData()
 }
 
-function loadPlayer(load) {
-    const DATA = setupPlayer()
+function ldplayer(load) {
+    const DATA = getBaseData()
     player = deepNaN(load, DATA)
     player = deepUndefinedAndDecimal(player, DATA)
    
 }
 
-function clonePlayer(obj,data) {
+function clnplayer(obj,data) {
     let unique = {}
 
     for (let k in obj) {
@@ -25,7 +25,7 @@ function clonePlayer(obj,data) {
         unique[k] = Object.getPrototypeOf(data[k]).constructor.name == "Decimal"
         ? E(obj[k])
         : typeof obj[k] == 'object'
-        ? clonePlayer(obj[k],data[k])
+        ? clnplayer(obj[k],data[k])
         : obj[k]
     }
 
@@ -146,7 +146,7 @@ function importy() {
 
 function load(x){
     if(typeof x == "string" & x != ''){
-        loadPlayer(JSON.parse(atob(x)))
+        ldplayer(JSON.parse(atob(x)))
     } else {
         wipe()
     }
@@ -213,7 +213,7 @@ function isNaNed(val) {
     return typeof val == "number" ? isNaN(val) : Object.getPrototypeOf(val).constructor.name == "Decimal" ? isNaN(val.mag) : false
 }
 
-function findNaN(obj, str=false, data=setupPlayer(), node='player') {
+function findNaN(obj, str=false, data=getBaseData(), node='player') {
     if (str ? typeof obj == "string" : false) obj = JSON.parse(atob(obj))
     for (let k in obj) {
         if (typeof obj[k] == "number") if (isNaNed(obj[k])) return node+'.'+k
