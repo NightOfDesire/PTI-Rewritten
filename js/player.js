@@ -10,7 +10,7 @@ function getBaseData() {
             nota: "st",
             massDis: 0,
             nav_hide: [],
-            sci_start: E(12),
+            sci_start: E(1e12),
             notation_count: 0,
             savenotif: true
         },
@@ -27,7 +27,7 @@ function getBaseData() {
         build: {},
         bestPts: E(0),
         tab: 0,
-        stab: 0,
+        stab: [],
         confirms: {
             prestige: true
         }

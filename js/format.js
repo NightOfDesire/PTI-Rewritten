@@ -223,7 +223,7 @@ const FORMATS = {
       format(ex, acc, max) {
         ex = E(ex)
         let e = ex.log10().floor()
-        if (e.lt(63) && e.gte(max)) return format(ex,acc,max,"st")
+        if (e.lt(100) && e.gte(max)) return format(ex,acc,max,"st")
         else return format(ex,acc,max,"sc")
       }
     },
@@ -295,7 +295,7 @@ function toSuperscript(value) {
       .join("");
 }
 
-function format(ex, acc=2, max=9, type="mixed_sc") {
+function format(ex, acc=2, max=player.options.sci_start.log10(), type="mixed_sc") {
     ex = E(ex)
     neg = ex.lt(0)?"-":""
     if (ex.mag == Infinity) return neg + 'Infinity'
