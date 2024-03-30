@@ -50,13 +50,25 @@ function reset(data) {
         for (let x in data2) {
             if (typeof x == "object" && Object.getPrototypeOf(x).constructor.name == "Decimal") {
                 x = E(0)
+            } else if (typeof x == "object" && Object.getPrototypeOf(x).constructor.name != "Decimal") {
+                for (let y in x) {
+                    if (typeof y == "object" && Object.getPrototypeOf(y).constructor.name == "Decimal") {
+                        y = E(0)
+                    } else if (typeof y == "number") {
+                        y = 0
+                    } else if (typeof y == "boolean") {
+                        y = false
+                    } else {
+                        y = ""
+                    }
+                }
             } else if (typeof x == "boolean") {
                 x = false
             } else if (typeof x == "number") {
                 x = 0
             } else {
                 x = ""
-            }
+            } 
         }
     } else if (typeof data2 == "number") {
         data2 = 0

@@ -4,15 +4,16 @@ function setupHTML() {
 	let table = ""
 	let table2 = ""
 	for (let x = 0; x < TABS[1].length; x++) {
-		table += `<div>
-			<button style="width: 15%;" onclick="TABS.choose(${x})" class="btn_tab" id="tab${x}">${TABS[1][x].icon ? `<iconify-icon icon="${TABS[1][x].icon}" width="17" style="color: ${TABS[1][x].color||"white"}"></iconify-icon>` : ""}${TABS[1][x].id}</button>
-		</div>`
+		table += /*`<div>*/
+			`<button style="width: 15%;" onclick="TABS.choose(${x})" class="btn_tab" id="tab${x}">${TABS[1][x].icon ? `<iconify-icon icon="${TABS[1][x].icon}" width="17" style="color: ${TABS[1][x].color||"white"}"></iconify-icon>` : ""}${TABS[1][x].id}</button>
+		`/*</div>`*/
 		if (TABS[2][x]) {
 			let a = `<div id="stabs${x}" class="table_center stab_btn">`
 			for (let y = 0; y < TABS[2][x].length; y++) {
-				a += `<div style="width: 120px">
-					<button onclick="TABS.choose(${y}, true)" class="btn_tab" id="stab${x}_${y}">${TABS[2][x][y].id}</button>
-				</div>`
+				a += /*`<div style="width: 120px">*/
+					`<button style="width: 120px">onclick="TABS.choose(${y}, true)" class="btn_tab" id="stab${x}_${y}">${TABS[2][x][y].id}</button>
+				`
+				/*</div>`*/
 			}
 			a += `</div>`
 			table2 += a
@@ -70,5 +71,5 @@ function updateHTML() {
 	BUILDINGS.update('points_1')
 	PRESTIGE.updateHTML()
 	/**@param hello */
-	tmp.el.tes.setHTML(`Type of pts: ${typeof player.pts}, constructor name: ${Object.getPrototypeOf(player.pts).constructor.name}`)
+	tmp.el.tes.setHTML(`Type of pts: ${typeof player.build.points_1.amt}, constructor name: ${Object.getPrototypeOf(player.pts).constructor.name}`)
 }
