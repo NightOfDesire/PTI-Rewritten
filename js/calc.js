@@ -10,6 +10,7 @@ function calc(dt) {
     player.bestPts = player.bestPts.max(player.pts)
     player.time += dt
 }
+
 function simulateTime(sec) {
     let ticks = sec * FPS
     let bonusDiff = 0
