@@ -42,12 +42,12 @@ function getBaseData() {
 }
 
 function reset(data) {
-    data = player[data]
-    let constname = Object.getPrototypeOf(data).constructor.name
-    if (typeof data == "object" && constname == "Decimal") {
-        data = E(0)
-    } else if (typeof data == "object" && constname != "Decimal") {
-        for (let x in data) {
+    let data2 = player[data]
+    let constname = Object.getPrototypeOf(data2).constructor.name
+    if (typeof data2 == "object" && constname == "Decimal") {
+        data2 = E(0)
+    } else if (typeof data2 == "object" && constname != "Decimal") {
+        for (let x in data2) {
             if (typeof x == "object" && Object.getPrototypeOf(x).constructor.name == "Decimal") {
                 x = E(0)
             } else if (typeof x == "boolean") {
@@ -58,11 +58,11 @@ function reset(data) {
                 x = ""
             }
         }
-    } else if (typeof data == "number") {
-        data = 0
-    } else if (typeof data == "boolean") {
-        data = false
+    } else if (typeof data2 == "number") {
+        data2 = 0
+    } else if (typeof data2 == "boolean") {
+        data2 = false
     } else {
-        data = ""
+        data2 = ""
     }
 }
