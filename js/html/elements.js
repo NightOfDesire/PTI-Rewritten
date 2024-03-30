@@ -70,4 +70,5 @@ function updateHTML() {
 	BUILDINGS.update('points_1')
 	PRESTIGE.updateHTML()
 	/**@param hello */
+	tmp.el.tes.setHTML(`Type of pts: ${typeof player.pts}, constructor name: ${Object.getPrototypeOf(player.pts).constructor.name}`)
 }
