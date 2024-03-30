@@ -1,7 +1,7 @@
 const PRESTIGE = {
     reset() {
         reset("pts")
-        reset("build.points_1")
+        reset("build.points_1.amt")
         player.prestige.unl = true
     },
     calculateGain() {
