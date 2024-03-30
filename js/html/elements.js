@@ -6,7 +6,7 @@ function setupHTML() {
 	let table2 = ""
 	for (let x = 0; x < TABS[1].length; x++) {
 		table += `<div>
-			<button style="width: 135px%;" onclick="TABS.choose(${x})" class="btn_tab" id="tab${x}"><div>${TABS[1][x].id}</div></button>
+			<button style="width: 135px;" onclick="TABS.choose(${x})" class="btn_tab" id="tab${x}">${TABS[1][x].id}</button>
 		</div>`
 		if (TABS[2][x]) {
 			let a = `<div id="stabs${x}" class="table_center stab_btn">`
