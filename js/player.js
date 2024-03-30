@@ -43,7 +43,7 @@ function getBaseData() {
 
 function reset(data) {
     let data2 = player[data]
-    let constname = Object.getPrototypeOf(data2).constructor.name
+    let constname = (typeof data2 == "object" ? (Object.getPrototypeOf(data2).constructor.name) : null)
     if (typeof data2 == "object" && constname == "Decimal") {
         data2 = E(0)
     } else if (typeof data2 == "object" && constname != "Decimal") {
