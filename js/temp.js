@@ -45,7 +45,6 @@ function updatePrestigeTemp() {
     tmp.prestige.auto = player.prestige.pts.gte("e33")
 }
 function updateTemp() {
-    if (!tmp.stab) tmp.stab = []
     if (!tmp.notify) tmp.notify = []
     if (!tmp.popup) tmp.popup = []
     tmp.offlineActive = player.offline.time > 1

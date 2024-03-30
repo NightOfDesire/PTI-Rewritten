@@ -33,23 +33,23 @@ function setupHTML() {
 }
 function updateTabsHTML() {
 	let s = true
-	tmp.el.stabs_div.setDisplay(TABS[2][tmp.tab])
+	tmp.el.stabs_div.setDisplay(TABS[2][player.tab])
 	
 	for (let x = 0; x < TABS[1].length; x++) {
 		let tab = TABS[1][x]
 		if (s) {
 			tmp.el["tab"+x].setDisplay(tab.unl ? tab.unl() : true)
-			tmp.el["tab"+x].setClasses({btn_tab: true, [tab.style ? tab.style : "normal"]: true, choosed: x == tmp.tab})
+			tmp.el["tab"+x].setClasses({btn_tab: true, [tab.style ? tab.style : "normal"]: true, choosed: x == player.tab})
 		}
 
-		if (tmp.el["tab_"+x]) tmp.el["tab_"+x].setDisplay(x == tmp.tab)
+		if (tmp.el["tab_"+x]) tmp.el["tab_"+x].setDisplay(x == player.tab)
 		if (TABS[2][x]) {
-			tmp.el["stabs"+x].setDisplay(x == tmp.tab)
-			if (x == tmp.tab) for (let y = 0; y < TABS[2][x].length; y++)  {
+			tmp.el["stabs"+x].setDisplay(x == player.tab)
+			if (x == player.tab) for (let y = 0; y < TABS[2][x].length; y++)  {
 				let stab = TABS[2][x][y]
 				tmp.el["stab"+x+"_"+y].setDisplay(stab.unl ? stab.unl() : true)
-				tmp.el["stab"+x+"_"+y].setClasses({btn_tab: true, [stab.style ? stab.style : "normal"]: true, choosed: y == tmp.stab[x]})
-				if (tmp.el["stab_frame"+x+"_"+y]) tmp.el["stab_frame"+x+"_"+y].setDisplay(y == tmp.stab[x])
+				tmp.el["stab"+x+"_"+y].setClasses({btn_tab: true, [stab.style ? stab.style : "normal"]: true, choosed: y == player.stab[x]})
+				if (tmp.el["stab_frame"+x+"_"+y]) tmp.el["stab_frame"+x+"_"+y].setDisplay(y == player.stab[x])
 			}
 		}
 	}

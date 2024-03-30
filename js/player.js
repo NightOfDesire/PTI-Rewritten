@@ -27,7 +27,7 @@ function getBaseData() {
         build: {},
         bestPts: E(0),
         tab: 0,
-        stab: 0,
+        stab: [],
         confirms: {
             prestige: true
         }
