@@ -9,7 +9,7 @@
 
 
 * {
-	font-family: 'Arial',sans-serif;
+	font-family: 'Roboto Mono',monospace;
     table-align: center;
 	text-align: center;
 }
@@ -402,6 +402,7 @@ button {
 .supernova {
 	background: #CF00AC;
 	background: radial-gradient(circle farthest-corner at center center, magenta 0%, #00DDFF 25%, magenta 50%, #00DDFF 75%, magenta 100%);
+	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
@@ -415,6 +416,7 @@ button {
 .magmatic {
 	background: #FF9001;
 	background: linear-gradient(to top, #FF9001 25%, #FFFF00 50%, #FF9001 75%);
+	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
