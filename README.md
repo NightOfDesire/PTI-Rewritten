@@ -1,6 +1,5 @@
 # PTI
 Incremental game
+Actively developed
 
-Disclaimer: complete shit
-
-Acc. link: [PTI](https://worldsworstdeveloper.github.io/PTI/)
+Acc. link: [PTI:R](https://worldsworstdeveloper.github.io/PTI-Rewritten/)
