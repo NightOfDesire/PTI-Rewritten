@@ -114,7 +114,7 @@ function updateHTML() {
 	BUILDINGS.update('points_3')
 	updateRanksHTML()
 	PRESTIGE.updateHTML()
-	if (player.stab[2] == 0) updateRanksRewardHTML()
+	if (player.stab[1] == 0) updateRanksRewardHTML()
 	/**@param hello */
 	//tmp.el.tes.setHTML(`Type of pts: ${typeof player.build.points_1.amt}, constructor name: ${Object.getPrototypeOf(player.pts).constructor.name}`)
 }
