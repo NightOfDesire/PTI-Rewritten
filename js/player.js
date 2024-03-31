@@ -42,39 +42,38 @@ function getBaseData() {
 }
 
 function reset(data) {
-    let data2 = player[data]
-    let constname = (typeof data2 == "object" ? (Object.getPrototypeOf(data2).constructor.name) : null)
-    if (typeof data2 == "object" && constname == "Decimal") {
-        data2 = E(0)
-    } else if (typeof data2 == "object" && constname != "Decimal") {
-        for (let x in data2) {
+    let constname = (typeof player[data] == "object" ? (Object.getPrototypeOf(player[data]).constructor.name) : null)
+    if (typeof player[data] == "object" && constname == "Decimal") {
+        player[data] = E(0)
+    } else if (typeof player[data] == "object" && constname != "Decimal") {
+        for (let x in player[data]) {
             if (typeof x == "object" && Object.getPrototypeOf(x).constructor.name == "Decimal") {
-                x = E(0)
+                player[data][x] = E(0)
             } else if (typeof x == "object" && Object.getPrototypeOf(x).constructor.name != "Decimal") {
                 for (let y in x) {
                     if (typeof y == "object" && Object.getPrototypeOf(y).constructor.name == "Decimal") {
-                        y = E(0)
+                        player[data][x][y] = E(0)
                     } else if (typeof y == "number") {
-                        y = 0
+                        player[data][x][y] = 0
                     } else if (typeof y == "boolean") {
-                        y = false
+                        player[data][x][y] = false
                     } else {
-                        y = ""
+                        player[data][x][y] = ""
                     }
                 }
             } else if (typeof x == "boolean") {
-                x = false
+                player[data][x] = false
             } else if (typeof x == "number") {
-                x = 0
+                player[data][x] = 0
             } else {
-                x = ""
+                player[data][x] = ""
             } 
         }
-    } else if (typeof data2 == "number") {
-        data2 = 0
-    } else if (typeof data2 == "boolean") {
-        data2 = false
+    } else if (typeof player[data] == "number") {
+        player[data] = 0
+    } else if (typeof player[data] == "boolean") {
+        player[data] = false
     } else {
-        data2 = ""
+        player[data] = ""
     }
 }
