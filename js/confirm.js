@@ -10,7 +10,7 @@ const CONFIRM_MESSAGES = {
     prestige: "Are you sure you want to restart for Pres Pts?"
 }
 function newConfirm(type) {
-    if (player.confirms[type]) {
+    if (player.confirms[type] == true) {
     createConfirm(CONFIRM_MESSAGES[type], type, CONFIRM_FUNCTIONS[type])
     } else {
         CONFIRM_FUNCTIONS[type]()

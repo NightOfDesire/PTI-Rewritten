@@ -42,14 +42,14 @@ function getBaseData() {
 }
 
 function reset(data) {
-    let constname = (typeof player[data] == "object" ? (Object.getPrototypeOf(player[data]).constructor.name) : null)
+    let constname = (typeof player[data] == "object" ? (Object.getPrototypeOf(player[data]).constructor ? (Object.getPrototypeOf(player[data]).constuctor.name) : null) : null)
     if (typeof player[data] == "object" && constname == "Decimal") {
         player[data] = E(0)
     } else if (typeof player[data] == "object" && constname != "Decimal") {
         for (let x in player[data]) {
             if (typeof x == "object" && Object.getPrototypeOf(x).constructor.name == "Decimal") {
                 player[data][x] = E(0)
-            } else if (typeof x == "object" && Object.getPrototypeOf(x).constructor.name != "Decimal") {
+            } else if (typeof x == "object") {
                 for (let y in x) {
                     if (typeof y == "object" && Object.getPrototypeOf(y).constructor.name == "Decimal") {
                         player[data][x][y] = E(0)
