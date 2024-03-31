@@ -109,9 +109,9 @@ function updateHTML() {
 	tmp.el.app.setDisplay(tmp.start)
 	tmp.el.PtDisplay.setHTML(`${format(player.pts, 2)} Points ${formatGain(player.pts, tmp.ptgain.mul(tmp.gs))}`)
 	updateSettingsHTML()
-	for (let x = 0; x <= 3; x++) {
-		BUILDINGS.update('points_'+x)
-	}
+	BUILDINGS.update('points_1')
+	BUILDINGS.update('points_2')
+	BUILDINGS.update('points_3')
 	updateRanksHTML()
 	PRESTIGE.updateHTML()
 	if (player.stab[2] == 0) updateRanksRewardHTML()
