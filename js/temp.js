@@ -52,5 +52,6 @@ function updateTemp() {
     tmp.gs = E(1).mul(player.devoptions.speed)
     updatePointTemp()
     updatePrestigeTemp()
+    updateRanksTemp()
     BUILDINGS.temp()
 }

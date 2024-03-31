@@ -5,6 +5,12 @@ function getBaseData() {
             pts: E(0),
             unl: false
         },
+        ranks: {
+            rank: E(0)
+        },
+        auto_ranks: {
+            ranks: false
+        },
         options: {
             font: 'Verdana',
             nota: "st",

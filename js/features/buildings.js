@@ -4,7 +4,7 @@ const BUILDING_DATA = {
     
     points_1: {
         name: "Energizer",
-        icon: 'placeholder',
+        icon: 'sm',
         get start() { return E(25)},
         get inc() { return E(1.7193)},
         get scalestart() { return E(1e3)},
@@ -40,7 +40,82 @@ const BUILDING_DATA = {
         get_power: x => "+"+format(x.power)+" to point gain",
         get_effect: x => "+"+format(x.effect)+" point gain",
     },
-   
+    points_2: {
+        name: "Atomizer",
+        icon: 'dimensionalizer',
+        get start() { return E(1e3)},
+        get inc() { return E(6.51736)},
+        get scalestart() { return E(1e10)},
+        get scalepow() { return E(1.05)},
+        get scalemode() { return "pow"},
+        get isUnlocked() { return player.ranks.rank.gte(1) },
+        get autoUnlocked() { return false },
+        get noSpend() { return false },
+        get beMultiplicative() { return false },
+        get res() { return player.pts },
+        set res(v) { player.pts = v },
+        get allowPurchase() { return true },
+        cost(x=this.level) {
+            let start = this.start
+            let inc = this.inc
+            let ret = Decimal.mul(start, Decimal.pow(inc, x)).scale(this.scalestart,this.scalepow,this.scalemode)
+            return ret
+        },
+        get bulk() {
+            return getPtUpgBulk(2)
+        },
+        get_cost: x => format(x) + " Points",
+        effect(x) {
+            let pow = E(2).pow(BUILDINGS.eff('points_3'))
+            let eff = pow.mul(x).add(1)
+            return {power: pow, effect: eff}
+        },
+        get bonus() {
+            let x = E(0)
+
+            return x
+        },
+        get_power: x => "+"+formatMult(x.power)+" to Energizer Power",
+        get_effect: x => "+"+formatMult(x.effect)+" Energizer Power",
+    },
+    points_3: {
+        name: "Obelisk",
+        icon: 'placeholder',
+        get start() { return E(1e12)},
+        get inc() { return E("e2.1836")},
+        get scalestart() { return E(1e45)},
+        get scalepow() { return E(1.1)},
+        get scalemode() { return "pow"},
+        get isUnlocked() { return player.ranks.rank.gte(5) },
+        get autoUnlocked() { return false },
+        get noSpend() { return false },
+        get beMultiplicative() { return false },
+        get res() { return player.pts },
+        set res(v) { player.pts = v },
+        get allowPurchase() { return true },
+        cost(x=this.level) {
+            let start = this.start
+            let inc = this.inc
+            let ret = Decimal.mul(start, Decimal.pow(inc, x)).scale(this.scalestart,this.scalepow,this.scalemode)
+            return ret
+        },
+        get bulk() {
+            return getPtUpgBulk(3)
+        },
+        get_cost: x => format(x) + " Points",
+        effect(x) {
+            let pow = E(1)
+            let eff = pow.mul(x)
+            return {power: pow, effect: eff}
+        },
+        get bonus() {
+            let x = E(0)
+
+            return x
+        },
+        get_power: x => "+"+formatPow(x.power)+" to Atonizer Power",
+        get_effect: x => formatPow(x.effect)+" Atomizer Power",
+    },
     
 }
 

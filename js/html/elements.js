@@ -21,6 +21,32 @@ function setupHTML() {
 	tabs.setHTML(table)
 	stabs.setHTML(table2)
 	BUILDINGS.setup()
+	let ranks_table = new Element("ranks_table")
+	table = ""
+	for (let x = 0; x < RANKS.names.length; x++) {
+		let rn = RANKS.names[x]
+		table += `<div style="width: 300px" id="ranks_div_${x}">
+			<button id="ranks_auto_${x}" class="btn" style="width: 80px;" onclick="RANKS.autoSwitch('${rn}')">OFF</button>
+			${RANKS.fullNames[x]} <h4 id="ranks_amt_${x}">X</h4><br><br>
+			<button onclick="RANKS.reset('${rn}')" class="btn reset" id="ranks_${x}">
+				Reset your ${x>0?RANKS.fullNames[x-1]+"s":'points and upgrades'}, but ${RANKS.fullNames[x]} up.<span id="ranks_desc_${x}"></span><br>
+				Req: <span id="ranks_req_${x}">X</span>
+			</button>
+		</div>`
+	}
+	ranks_table.setHTML(table)
+	let ranks_rewards_table = new Element("ranks_rewards_table")
+	table = ""
+	for (let x = 0; x < RANKS.names.length; x++) {
+		let rn = RANKS.names[x]
+		table += `<div id="ranks_reward_div_${x}">`
+		let keys = Object.keys(RANKS.desc[rn])
+		for (let y = 0; y < keys.length; y++) {
+			table += `<span id="ranks_reward_${rn}_${y}"><b>${RANKS.fullNames[x]} ${keys[y]}:</b> ${RANKS.desc[rn][keys[y]]}${RANKS.effect[rn][keys[y]]?` Currently: <span id='ranks_eff_${rn}_${y}'></span>`:""}</span><br>`
+		}
+		table += `</div>`
+	}
+	ranks_rewards_table.setHTML(table)
     tmp.el = {}
 	let all = document.getElementsByTagName("*")
 	for (let i=0;i<all.length;i++) {
@@ -55,6 +81,21 @@ function updateTabsHTML() {
 	}
 }
 
+function updateRanksRewardHTML() {
+	// tmp.el["ranks_reward_name"].setTxt(RANKS.fullNames[player.ranks_reward])
+	for (let x = 0; x < RANKS.names.length; x++) {
+		let rn = RANKS.names[x]
+		tmp.el["ranks_reward_div_"+x].setDisplay(player.ranks_reward == x)
+		if (player.ranks_reward == x) {
+			let keys = Object.keys(RANKS.desc[rn])
+			for (let y = 0; y < keys.length; y++) {
+				let unl = player.ranks[rn].gte(keys[y])
+				tmp.el["ranks_reward_"+rn+"_"+y].setDisplay(unl)
+				if (unl) if (tmp.el["ranks_eff_"+rn+"_"+y]) tmp.el["ranks_eff_"+rn+"_"+y].setTxt(RANKS.effDesc[rn][keys[y]](RANKS.effect[rn][keys[y]]()))
+			}
+		}
+	}
+}
 
 
 function updateHTML() {
@@ -70,6 +111,7 @@ function updateHTML() {
 	updateSettingsHTML()
 	BUILDINGS.update('points_1')
 	PRESTIGE.updateHTML()
+	if (player.stab[2] == 0) updateRanksRewardHTML()
 	/**@param hello */
-	tmp.el.tes.setHTML(`Type of pts: ${typeof player.build.points_1.amt}, constructor name: ${Object.getPrototypeOf(player.pts).constructor.name}`)
+	//tmp.el.tes.setHTML(`Type of pts: ${typeof player.build.points_1.amt}, constructor name: ${Object.getPrototypeOf(player.pts).constructor.name}`)
 }
