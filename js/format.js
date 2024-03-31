@@ -370,7 +370,7 @@ function formatGain(amt, gain) {
     return rate
 }
 
-function formatTime(ex,acc=0,type="s") {
+function formatTime2(ex,acc=0,type="s") {
     ex = E(ex)
     if (ex.mag == Infinity) return 'Forever'
     if (ex.gte(31536000)) return format(ex.div(31536000).floor(),0)+" years"+(ex.div(31536000).gte(1e9) ? "" : " " + formatTime(ex.mod(31536000),acc,'y'))
@@ -378,6 +378,39 @@ function formatTime(ex,acc=0,type="s") {
     if (ex.gte(3600)) return format(ex.div(3600).floor(),0)+":"+formatTime(ex.mod(3600),acc,'h')
     if (ex.gte(60)||type=="h") return (ex.div(60).gte(10)||type!="h"?"":"0")+format(ex.div(60).floor(),0)+":"+formatTime(ex.mod(60),acc,'m')
     return (ex.gte(10)||type!="m" ?"":"0")+format(ex,acc)+(type=='s'?"s":"")
+}
+
+function formatTime(x, acc=0) {
+  x = E(x)
+  if (x.mag == Infinity) return 'Forever'
+  if (years(x).gte(1e9)) {
+    return years(x).div(1e9).format(acc) + " Eons"
+  }
+  if (years(x).gte(1e6)) {
+    return years(x).div(1e6).format(acc) + " Stellar Years"
+  }
+  if (x.gte(3.1536e9)) {
+    return x.div(3.1536e9).format(acc) + " Millennia"
+  }
+  if (x.gte(31536000)) {
+    return x.div(31536000).format(acc) + " Years"
+  }
+  if (x.gte(86400)) {
+    return x.div(604800).format(acc) + " Days"
+  } 
+  if (x.gte(3600)) {
+    return x.div(3600).format(acc) + " Hours"
+  } 
+  if (x.gte(60)) {
+    return x.div(60).format(acc) + " Minutes"
+  }
+  if (x.lt(60)) {
+    return x.format(acc) + " Seconds"
+  }
+}
+
+function years(x) {
+  return E(3.1536e7).mul(x)
 }
 
 function formatReduction(ex,acc) { return Decimal.sub(1,ex).mul(100).format(acc)+"%" }
@@ -404,13 +437,17 @@ function formatMass(x, acc, max) {
 
   if (ex.gte('1.5e1000000056')) {
     return mlt(ex).format(acc, max) + " mlt"
-  } else if (ex.gte(1.5e56)) {
+  } 
+  if (ex.gte(1.5e56)) {
     return uni(ex).format(acc, max) + " uni"
-  } else if (ex.gte(1e6)) {
+  }
+  if (ex.gte(1e6)) {
     return ex.div(1e6).format(acc, max) + " tonne"
-  } else if (ex.gte(1e3)) {
+  }
+  if (ex.gte(1e3)) {
     return ex.div(1e3).format(acc, max) + " kg"
-  } else if (ex.lt(1e3)) {
+  }
+  if (ex.lt(1e3)) {
     return ex.format(acc, max) + " g"
   }
 }
