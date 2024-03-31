@@ -242,6 +242,7 @@ const BUILDINGS = {
                 effect: {}
             }
         }
+        /**@param {int string char* args[]} */
 		let b = BUILDING_DATA[i], bt = tmp.build[i], unl = b.isUnlocked
 
         tmp.el["building_"+i].setDisplay(unl)
