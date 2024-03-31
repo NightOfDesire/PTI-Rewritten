@@ -11,7 +11,7 @@ function setupHTML() {
 			let a = `<div id="stabs${x}" class="table_center stab_btn">`
 			for (let y = 0; y < TABS[2][x].length; y++) {
 				a += `<div style="width: 120px">
-					<button style="width: 120px" onclick="TABS.choose(${y}, true)" class="btn_tab" id="stab${x}_${y}">${TABS[2][x][y].id}</button>
+					<button onclick="TABS.choose(${y}, true)" class="btn_tab" id="stab${x}_${y}">${TABS[2][x][y].id}</button>
 				</div>`
 			}
 			a += `</div>`
@@ -47,6 +47,7 @@ function updateTabsHTML() {
 			if (x == player.tab) for (let y = 0; y < TABS[2][x].length; y++)  {
 				let stab = TABS[2][x][y]
 				tmp.el["stab"+x+"_"+y].setDisplay(stab.unl ? stab.unl() : true)
+				/**@param {string} BRUUUUU */
 				tmp.el["stab"+x+"_"+y].setClasses({btn_tab: true, [stab.style ? stab.style : "normal"]: true, choosed: y == player.stab[x]})
 				if (tmp.el["stab_frame"+x+"_"+y]) tmp.el["stab_frame"+x+"_"+y].setDisplay(y == player.stab[x])
 			}
