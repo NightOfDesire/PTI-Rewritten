@@ -390,7 +390,30 @@ function formatPow(ex,acc) { return "^"+format(ex,acc) }
 
 function expMult(a,b,base=10) { return Decimal.gte(a,10) ? Decimal.pow(base,Decimal.log(a,base).pow(b)) : E(a) }
 
+function uni(x) {
+  return E(1.5e56).mul(x)
+}
 
+function mlt(x) {
+  return uni("ee9").pow(x)
+}
+
+function formatMass(x, acc, max) {
+  let ex = E(x)
+
+
+  if (ex.gte('1.5e1000000056')) {
+    return mlt(ex).format(acc, max) + " mlt"
+  } else if (ex.gte(1.5e56)) {
+    return uni(ex).format(acc, max) + " uni"
+  } else if (ex.gte(1e6)) {
+    return ex.div(1e6).format(acc, max) + " tonne"
+  } else if (ex.gte(1e3)) {
+    return ex.div(1e3).format(acc, max) + " kg"
+  } else if (ex.lt(1e3)) {
+    return ex.format(acc, max) + " g"
+  }
+}
 
 Decimal.prototype.modular=Decimal.prototype.mod=function (other){
   other=E(other);
