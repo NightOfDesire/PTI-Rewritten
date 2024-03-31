@@ -20,8 +20,16 @@ const FORMS = {
         gain() {
             let x = E(1)
             x = x.add(BUILDINGS.eff('points_1'))
+            x = x.mul(FORMS.pres.PPtEffect())
 
             return x
+        }
+    },
+    pres: {
+        PPtEffect() {
+            let eff = player.prestige.pts.pow(1.25).div(2).add(1)
+
+            return eff
         }
     }
 }

@@ -612,6 +612,11 @@ button {
 	background-color: #444;
 }
 
+.btn_tab.choosed {
+	background-color: grey;
+	border-radius: 4px;
+}
+
 h1 {
     display: inline;
 	font-weight: normal;

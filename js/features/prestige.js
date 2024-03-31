@@ -1,7 +1,7 @@
 const PRESTIGE = {
     reset() {
-        reset("pts")
-        reset("build.points_1")
+        player.pts = E(0)
+        player.build.points_1.amt = E(0)
         player.prestige.unl = true
     },
     calculateGain() {
@@ -11,5 +11,6 @@ const PRESTIGE = {
     },
     updateHTML() {
         tmp.el.PPtDisplay.setHTML(`Prestige Points: ${format(player.prestige.pts, 0)} ${tmp.prestige.auto ? formatGain(player.prestige.pts, tmp.prestige.gain.mul(tmp.gs)) : "(+"+format(tmp.prestige.gain, 0)+")"}`)
-    }
+    },
+    
 }
