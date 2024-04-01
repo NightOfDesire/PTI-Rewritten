@@ -306,11 +306,17 @@ function format(ex, acc=2, max=player.options.sci_start.log10(), type="mixed_sc"
     switch (type) {
         case "sc":
             if (ex.log10().lt(Math.min(-acc,0)) && acc > 1) {
+                if (ex.lt(1)) {
+                  return `${neg}1/${format(E(1).div(ex), acc, max, "st")}`
+                }
                 let e = ex.log10().ceil()
                 let m = ex.div(e.eq(-1)?E(0.1):E(10).pow(e))
                 let be = e.mul(-1).max(1).log10().gte(9)
                 return neg+'e'+format(e, 0, max, "mixed_sc")
             } else if (e.lt(max)) {
+                if (ex.lt(1)) {
+                  return `${neg}1/${format(E(1).div(ex), acc, max, "st")}`
+                }
                 let a = Math.max(Math.min(acc-e.toNumber(), acc), 0)
                 return neg+(a>0?ex.toFixed(a):ex.toFixed(a).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,'))
             } else {
@@ -348,6 +354,10 @@ function format(ex, acc=2, max=player.options.sci_start.log10(), type="mixed_sc"
                   e3 = div1000
                   ee3++
                 }
+              }
+
+              if (ex.lt(1)) {
+                return `${neg}1/${format(E(1).div(ex))}`
               }
 
               let m = ex.div(E(10).pow(e3_mul))
