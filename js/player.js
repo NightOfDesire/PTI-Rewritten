@@ -23,7 +23,7 @@ function getBaseData() {
             nota: "st",
             massDis: 0,
             nav_hide: [],
-            sci_start: E(1e12),
+            sci_start: E(1e6),
             notation_count: 0,
             savenotif: true
         },
