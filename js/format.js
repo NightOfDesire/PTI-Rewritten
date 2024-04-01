@@ -309,7 +309,7 @@ function format(ex, acc=2, max=player.options.sci_start.log10(), type="mixed_sc"
                 let e = ex.log10().ceil()
                 let m = ex.div(e.eq(-1)?E(0.1):E(10).pow(e))
                 let be = e.mul(-1).max(1).log10().gte(9)
-                return neg+(be?'':m.toFixed(2))+'e'+format(e, 0, max, "mixed_sc")
+                return neg+'e'+format(e, 0, max, "mixed_sc")
             } else if (e.lt(max)) {
                 let a = Math.max(Math.min(acc-e.toNumber(), acc), 0)
                 return neg+(a>0?ex.toFixed(a):ex.toFixed(a).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,'))
@@ -320,7 +320,7 @@ function format(ex, acc=2, max=player.options.sci_start.log10(), type="mixed_sc"
                 }
                 let m = ex.div(E(10).pow(e))
                 let be = e.log10().gte(9)
-                return neg+(be?'':m.toFixed(2))+'e'+format(e, 0, max, "mixed_sc")
+                return neg+'e'+format(e, 0, max, "mixed_sc")
             }
         case "st":
             let e3 = ex.log(1e3).floor()
@@ -404,8 +404,8 @@ function formatTime(x, acc=0) {
   else if (years(ex).gte(1e6)) {
     return years(ex).div(1e6).format(acc) + " Stellar Years"
   }
-  else if (ex.gte(3.1536e9)) {
-    return ex.div(3.1536e9).format(acc) + " Millennia"
+  else if (ex.gte(3.1536e10)) {
+    return ex.div(3.1536e10).format(acc) + " Millennia"
   }
   else if (ex.gte(31536000)) {
     return ex.div(31536000).format(acc) + " Years"
@@ -431,16 +431,16 @@ function eclipsals(x) {
   return years("ee3").pow(x)
 }
 function gravwaves(x) {
-  return eclipsals("e30").pow(x)
+  return eclipsals("e30").mul(x)
 }
 function cri(x) {
-  return gravwaves("e100").pow(x)
+  return gravwaves("e100").mul(x)
 }
 function eventhorizoneternities(x) {
-  return cri("e308").pow(x)
+  return cri("e308").mul(x)
 }
 function TDdrifts(x) {
-  return eventhorizoneternities("ee6").pow(x)
+  return eventhorizoneternities("ee6").mul(x)
 }
 
 function formatReduction(ex,acc) { return Decimal.sub(1,ex).mul(100).format(acc)+"%" }

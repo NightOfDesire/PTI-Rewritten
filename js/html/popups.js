@@ -12,7 +12,7 @@ function updatePopupIndex() {
     popupIndex = i
 }
 
-const POPUP_GROUPS = {
+/*const POPUP_GROUPS = {
     help_time: {
         html: `
         1 minute = 60 seconds<br>
@@ -27,7 +27,7 @@ const POPUP_GROUPS = {
         1 Time-Dilation Drift = ${format("ee6")} Chrono-Resonance Intervals (logarithmic)
         `
     }
-}
+}*/
 
 function addNotify(text, duration=3) {
     tmp.notify.push({text: text, duration: duration});

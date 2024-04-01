@@ -33,3 +33,23 @@ const FORMS = {
         }
     }
 }
+
+
+
+
+const POPUP_GROUPS = {
+    help_time: {
+        html: `
+        1 minute = 60 seconds<br>
+        1 hour = 60 minutes<br>
+        1 day = 24hrs<br>
+        1 yr = 365d<br>
+        1 Stellar Year = ${format(1e6)} yr<br>
+        1 Eon = ${format(1e9)} yr<br>
+        1 Eclipsal = ${format("ee3")} yr (logarithmic)<br>
+        1 Gravitational Wavespan = ${format("e30")} Eclipsals (logarithmic)<br>
+        1 Chrono-Resonance Interval = ${format("e100")} Gravitational Wavespans (logarithmic)<br>
+        1 Time-Dilation Drift = ${format("ee6")} Chrono-Resonance Intervals (logarithmic)
+        `
+    }
+}
