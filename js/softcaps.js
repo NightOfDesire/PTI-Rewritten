@@ -7,3 +7,8 @@ const SOFTCAPS = {
         }
     }
 }
+
+const SOFTCAP_TEXT = {
+    pt_1: `Due to excessive points, starting at ${format(SOFTCAPS.points.one().start)}, points are softcapped!`
+}
+

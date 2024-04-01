@@ -17,6 +17,7 @@ const RANKS = {
             let base = E(2.5e5)
             let inc = E(10)
             inc = inc.pow(x.div(15).add(1))
+            if (x.gte(5)) inc = inc.mul(3.333)
             inc = inc.softcap(50, 0.9, 0)
             
 

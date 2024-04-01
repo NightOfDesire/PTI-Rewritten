@@ -116,5 +116,5 @@ function updateHTML() {
 	PRESTIGE.updateHTML()
 	if (player.stab[1] == 0) updateRanksRewardHTML()
 	/**@param hello */
-	//tmp.el.tes.setHTML(`Type of pts: ${typeof player.build.points_1.amt}, constructor name: ${Object.getPrototypeOf(player.pts).constructor.name}`)
+	tmp.el.test.setHTML(SOFTCAPS.points.one())
 }
