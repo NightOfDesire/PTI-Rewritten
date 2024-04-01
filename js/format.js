@@ -431,14 +431,14 @@ function formatTime(x, acc=0) {
     return ex.div(3600).format(acc) + " Hours"
   } else if (ex.gte(86400)) {
     return ex.div(86400).format(acc) + " Days"
-  } else if (years(x).gte(1)) {
-    return years(x).format(acc) + " Years"
-  } else if (years(x).gte(1e3)) {
-    return years(x).div(1e3).format(acc) + " Millennia"
-  } else if (years(x).gte(1e6)) {
-    return years(x).div(1e6).format(acc) + " Stellar Years"
-  } else if (galyears(x).gte(1)) {
-    return galyears(x).format(acc) + " Galactic Years"
+  } else if (years(ex).gte(1)) {
+    return years(ex).format(acc) + " Years"
+  } else if (years(ex).gte(1e3)) {
+    return years(ex).div(1e3).format(acc) + " Millennia"
+  } else if (years(ex).gte(1e6)) {
+    return years(ex).div(1e6).format(acc) + " Stellar Years"
+  } else if (galyears(ex).gte(1)) {
+    return galyears(ex).format(acc) + " Galactic Years"
   }
 }
 
