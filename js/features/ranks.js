@@ -146,7 +146,9 @@ function updateRanksTemp() {
         tmp.ranks[rn].req = RANKS.reqs[rn]().start.pow(player.ranks[rn])
         tmp.ranks[rn].can = (RANKS.names[x-1]?player.ranks[RANKS.names[x-1]]:player.pts).gte(tmp.ranks[rn].req)
         let fp = E(1)
-        
+        let rooted_fp = E(1)
+
+
         if (rn == "rank") {
             tmp.ranks.rank.bulk = E(0)
             if (player.pts.gte(RANKS.reqs[rn]().start)) tmp.ranks.rank.bulk = player.pts.div(RANKS.reqs[rn]().start).max(1).log10().root(1.15).mul(fp).root(rooted_fp).scaleEvery('rank',true).add(1).floor();
