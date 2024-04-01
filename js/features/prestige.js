@@ -5,7 +5,7 @@ const PRESTIGE = {
         player.prestige.unl = true
     },
     calculateGain() {
-        let gain = player.pts.div(1e3).root(2.2)
+        let gain = player.pts.div(750).root(2)
 
         return gain
     },
