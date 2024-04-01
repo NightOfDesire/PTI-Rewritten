@@ -186,3 +186,19 @@ result += ca[r % cl]
 
     return result
 }
+
+const HELP_TEXTS = {
+    time: `
+    1 minute = 60 seconds<br>
+    1 hour = 60 minutes<br>
+    1 day = 24 hours<br>
+    1 year = 365 days<br>
+    1 Stellar Year = ${format(1e6)} years<br>
+    1 Eon = ${format(1e9)} years<br>
+    1 Galactic Year = ${format("e30")} years<br>
+    `
+}
+
+function createHelpPopup(type) {
+    createPopup(HELP_TEXTS[type], `help_${type}`)
+}
