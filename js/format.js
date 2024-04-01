@@ -380,7 +380,7 @@ function formatTime2(ex,acc=0,type="s") {
     return (ex.gte(10)||type!="m" ?"":"0")+format(ex,acc)+(type=='s'?"s":"")
 }
 
-function formatTime(x, acc=0) {
+function formatTime(x, acc=2) {
   let ex = E(x)
   if (ex.mag == Infinity) return 'Forever'
   /*if (TDdrifts(ex).gte(1)) {
