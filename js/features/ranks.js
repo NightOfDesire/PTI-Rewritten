@@ -24,14 +24,12 @@ const RANKS = {
 
             return req
         },
-        /***@param nil */
         tier(x=player.ranks.tier) {
-            let base = 10
-            let inc = 1.2
-            inc = inc.pow(x.div(18).add(1))
-            inc = inc.softcap(1.4, 0.75, 0)
-            
-            let req = Decimal.mul(bade, Decimal.pow(inc, x))
+            let base = E(10)
+            let increase = E(1.2)
+            increase = increase.pow(x.div(20).add(1))
+            increase = increase.softcap(1.3, 0.8, 0)
+            let req = Decimal.mul(base, Decimal.pow(increase, x))
 
             return req
         }
