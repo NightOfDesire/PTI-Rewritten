@@ -36,6 +36,7 @@ function resetTemp() {
     tmp.prevSave = keep[1]
 }
 function updatePointTemp() {
+    /**@param retarded @param error */
     tmp.ptgain = FORMS.pts.gain()
 }
 function updatePrestigeTemp() {
