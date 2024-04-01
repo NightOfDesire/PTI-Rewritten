@@ -371,6 +371,7 @@ function format(ex, acc=2, max=player.options.sci_start.log10(), type="mixed_sc"
     }
 }
 
+
 function formatGain(amt, gain) {
     let next = amt.add(gain)
     let rate
