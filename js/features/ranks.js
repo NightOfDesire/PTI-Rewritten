@@ -51,8 +51,8 @@ const RANKS = {
 
     autoSwitch(rn) { player.auto_ranks[rn] = !player.auto_ranks[rn] },
     autoUnl: {
-        rank() { return false },
-
+        rank() { return player.ranks.tier.gte(1) },
+        tier() { return false}
        
     },
     desc: {
@@ -63,7 +63,7 @@ const RANKS = {
             '4': "first point upgrade's base is increased by itself (x/20)"
         },
         tier: {
-            '1': "unlock ??"
+            '1': "unlock auto rank"
         }
     },
     effect: {

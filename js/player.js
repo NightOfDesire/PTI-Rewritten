@@ -6,10 +6,12 @@ function getBaseData() {
             unl: false
         },
         ranks: {
-            rank: E(0)
+            rank: E(0),
+            tier: E(0)
         },
         auto_ranks: {
-            ranks: false
+            ranks: false,
+            tier: false
         },
         time: {
             amt: E(0),
