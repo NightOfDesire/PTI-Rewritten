@@ -20,7 +20,7 @@ const BUILDING_DATA = {
         cost(x=this.level) {
             let start = this.start
             let inc = this.inc
-            let ret = Decimal.mul(start, Decimal.pow(inc, x)).scale(this.scalestart,this.scalepow,this.scalemode)
+            let ret = Decimal.mul(start, Decimal.pow(inc, x))
             return ret
         },
         get bulk() {
@@ -58,7 +58,7 @@ const BUILDING_DATA = {
         cost(x=this.level) {
             let start = this.start
             let inc = this.inc
-            let ret = Decimal.mul(start, Decimal.pow(inc, x)).scale(this.scalestart,this.scalepow,this.scalemode)
+            let ret = Decimal.mul(start, Decimal.pow(inc, x))
             return ret
         },
         get bulk() {
@@ -96,7 +96,7 @@ const BUILDING_DATA = {
         cost(x=this.level) {
             let start = this.start
             let inc = this.inc
-            let ret = Decimal.mul(start, Decimal.pow(inc, x)).scale(this.scalestart,this.scalepow,this.scalemode)
+            let ret = Decimal.mul(start, Decimal.pow(inc, x))
             return ret
         },
         get bulk() {
@@ -286,7 +286,7 @@ function getPtUpgBulk(i) {
         //if (i == 3 && player.ranks.rank.gte(4)) inc = inc.pow(0.8)
         //if (player.ranks.tier.gte(3)) inc = inc.pow(0.8)
 
-        if (player.pts.gte(start)) bulk = player.pts.div(start).max(1).log(inc).scale(upg.scalestart,upg.scalepow,upg.scalemode).mul(fp).add(1).floor()
+        if (player.pts.gte(start)) bulk = player.pts.div(start).max(1).log(inc).mul(fp).add(1).floor()
     
 
     return bulk

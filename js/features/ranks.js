@@ -16,6 +16,8 @@ const RANKS = {
         rank(x=player.ranks.rank) {
             let base = E(10)
             let inc = E(10)
+            inc = inc.pow(x.div(20).add(1))
+            inc = inc.scale(50, 1.02, 0)
             
 
             let req = Decimal.mul(base, Decimal.pow(inc, x)).scale("e15",1.01,0)
