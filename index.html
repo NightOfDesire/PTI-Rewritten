@@ -87,7 +87,7 @@
                                 <button onclick="importy()">Import save</button>
                             </div>
                             <div>
-                                <button onclick="createTimeHelpPopup()">Help for Units Of Time</button>
+                                <button onclick="createPopup(`1 minute = 60 seconds<br>1 hour = 60 minutes<br>1 day = 24 hours<br>1 year = 365 days<br>1 Stellar Year = ${format(1e6)} years<br>1 Eon = ${format(1e9)} years<br>1 Galactic Year = ${format('e30')} years<br>`, 'time_help')">Help for Units Of Time</button>
                             </div>
                             <div id="settingsnota">"Who the hell is making these easter-eggs?"</div>
                             <button id="savenotif" onclick="player.options.savenotif = !player.options.savenotif">el dorado is the city of gold</button>
