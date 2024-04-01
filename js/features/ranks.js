@@ -148,7 +148,6 @@ function updateRanksTemp() {
         let fp = E(1)
         if (rn == "rank") {
             tmp.ranks.rank.bulk = E(0)
-            /**@param oopsies */
             if (player.pts.gte(RANKS.reqs[rn]().start)) tmp.ranks.rank.bulk = player.pts.div(RANKS.reqs[rn]().start).max(1).log10().root(1.15).mul(fp).root(rooted_fp).scaleEvery('rank',true).add(1).floor();
         } else if (rn == "tier") {
             tmp.ranks.tier.bulk = E(0)
