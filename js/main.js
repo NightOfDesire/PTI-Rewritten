@@ -32,22 +32,23 @@ const FORMS = {
 
             return eff
         }
-    }
-}
+    },
 
 
 
 
-const POPUP_GROUPS = {
-    help: {
-        html: `
-        1 minute = 60 seconds<br>
-        1 hour = 60 minutes<br>
-        1 day = 24 hours<br>
-        1 year = 365 days<br>
-        1 Stellar Year = ${format(1e6)} years<br>
-        1 Eon = ${format(1e9)} years<br>
-        1 Galactic Year = ${format("e30")} years<br>
-        `
+
+    extra: {
+        help: {
+            html: `
+            1 minute = 60 seconds<br>
+            1 hour = 60 minutes<br>
+            1 day = 24 hours<br>
+            1 year = 365 days<br>
+            1 Stellar Year = ${format(1e6)} years<br>
+            1 Eon = ${format(1e9)} years<br>
+            1 Galactic Year = ${format("e30")} years<br>
+            `
+        }
     }
 }
