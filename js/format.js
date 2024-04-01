@@ -396,8 +396,10 @@ function formatTime(x, acc=0) {
     return gravwaves(ex).format(acc) + " Gravitational Wavespans"
   }
   else if (eclipsals(ex).gte(1)) {
-    return eclipsals(ex).format(acc) + " Eclipsals"*/
-  if (years(ex).gte(1e9)) {
+    return eclipsals(ex).format(acc) + " Eclipsals"
+  }*/
+  
+  /*if (years(ex).gte(1e9)) {
     return years(ex).div(1e9).format(acc) + " Eons"
   }
   else if (years(ex).gte(1e6)) {
@@ -420,14 +422,31 @@ function formatTime(x, acc=0) {
   }
   else if (ex.lt(60)) {
     return ex.format(acc) + " Seconds"
+  }*/
+  if (ex.lt(60)) {
+    return ex.format(acc) + " Seconds"
+  } else if (ex.gte(60)) {
+    return ex.div(60).format(acc) + " Minutes"
+  } else if (ex.gte(3600)) {
+    return ex.div(3600).format(acc) + " Hours"
+  } else if (ex.gte(86400)) {
+    return ex.div(86400).format(acc) + " Days"
+  } else if (years(x).gte(1)) {
+    return years(x).format(acc) + " Years"
+  } else if (years(x).gte(1e3)) {
+    return years(x).div(1e3).format(acc) + " Millennia"
+  } else if (years(x).gte(1e6)) {
+    return years(x).div(1e6).format(acc) + " Stellar Years"
+  } else if (galyears(x).gte(1)) {
+    return galyears(x).format(acc) + " Galactic Years"
   }
 }
 
 function years(x) {
   return E(3.1536e7).mul(x)
 }
-function eclipsals(x) {
-  return years("ee3").pow(x)
+function galyears(x) {
+  return years(1e15).mul(x)
 }
 /*function gravwaves(x) {
   return eclipsals("e30").mul(x)
