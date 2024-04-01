@@ -47,6 +47,7 @@ function setupHTML() {
 		table += `</div>`
 	}
 	ranks_rewards_table.setHTML(table)
+	setupSoftcapHTML()
     tmp.el = {}
 	let all = document.getElementsByTagName("*")
 	for (let i=0;i<all.length;i++) {
@@ -115,6 +116,7 @@ function updateHTML() {
 	updateRanksHTML()
 	PRESTIGE.updateHTML()
 	if (player.stab[1] == 0) updateRanksRewardHTML()
+	updateSoftcapHTML()
 	/**@param hello */
 	tmp.el.test.setHTML(SOFTCAPS.points.one())
 }
