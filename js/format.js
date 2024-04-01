@@ -331,6 +331,9 @@ function format(ex, acc=2, max=player.options.sci_start.log10(), type="mixed_sc"
         case "st":
             let e3 = ex.log(1e3).floor()
             if (e3.lt(1)) {
+              if (ex.lt(1)) {
+                return `${neg}1/${format(E(1).div(ex), acc, max, "st")}`
+              }
               return neg+ex.toFixed(Math.max(Math.min(acc-e.toNumber(), acc), 0))
             } else {
               let e3_mul = e3.mul(3)
