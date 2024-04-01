@@ -73,6 +73,7 @@ const RANKS = {
 
             return ret
            },
+           /**@param how */
            '4'() {
             /**@param {string} title */
             let ret = player.build.points_1.amt.div(20)
