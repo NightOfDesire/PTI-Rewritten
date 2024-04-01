@@ -86,6 +86,7 @@ const RANKS = {
     effDesc: {
         rank: {
             3(x) { return formatMult(x) },
+            4(x) { return formatAdd(x) }
            
         },
         tier: {

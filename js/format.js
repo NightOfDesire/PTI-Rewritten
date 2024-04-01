@@ -464,13 +464,11 @@ function TDdrifts(x) {
 }*/
 
 function formatReduction(ex,acc) { return Decimal.sub(1,ex).mul(100).format(acc)+"%" }
-
 function formatPercent(ex,acc) { return Decimal.mul(ex,100).format(acc)+"%" }
-
 function formatMult(ex,acc) { return Decimal.gte(ex,1)?"×"+format(ex,acc):"/"+Decimal.pow(ex,-1).format(acc)}
-
 function formatPow(ex,acc) { return "^"+format(ex,acc) }
-
+function formatAdd(ex, acc) { return "+"+format(ex,acc) }
+function formatSub(ex, acc) { return "-"+format(ex,acc) }
 function expMult(a,b,base=10) { return Decimal.gte(a,10) ? Decimal.pow(base,Decimal.log(a,base).pow(b)) : E(a) }
 
 function uni(x) {
