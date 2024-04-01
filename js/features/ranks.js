@@ -22,8 +22,20 @@ const RANKS = {
         }
     },
     reqs: {
-        rank(){return {start: E(2.5e5)}},
-        tier(){return {start: E(10)}}
+        rank(x=player.ranks.rank){
+            let start = E(2.5e5)
+            let inc = E(10)
+            inc = inc.pow(x.div(25).add(1))
+            
+            return {start: start, inc: inc}
+        },
+        tier(x=player.ranks.tier){
+            let start = E(10)
+            let inc = E(1.2)
+            inc = inc.pow(x.div(35).add(1))
+            
+            return {start: start, inc: inc}
+    }
     },
 
     unl: {
@@ -151,7 +163,7 @@ function updateRanksTemp() {
 
         if (rn == "rank") {
             tmp.ranks.rank.bulk = E(0)
-            if (player.pts.gte(RANKS.reqs[rn]().start)) tmp.ranks.rank.bulk = player.pts.div(RANKS.reqs[rn]().start).max(1).log10().root(1.15).mul(fp).root(rooted_fp).scaleEvery('rank',true).add(1).floor();
+            if (player.pts.gte(RANKS.reqs[rn]().start)) tmp.ranks.rank.bulk = player.pts.div(RANKS.reqs[rn]().start).max(1).log(10).root(1.15).mul(fp).root(rooted_fp).scaleEvery('rank',true).add(1).floor();
         } else if (rn == "tier") {
             tmp.ranks.tier.bulk = E(0)
             tmp.ranks.tier.bulk = player.ranks.rank.max(0).root(2).sub(2).scaleEvery('tier',true).add(1).floor();
