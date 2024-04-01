@@ -202,3 +202,5 @@ const HELP_TEXTS = {
 function createHelpPopup(type) {
     createPopup(HELP_TEXTS[type], `help_${type}`)
 }
+
+tmp.el.help_time_btn.setAttr('onclick',createHelpPopup('time'))
