@@ -143,7 +143,7 @@ function updateRanksTemp() {
         let rn = RANKS.names[x]
         /**@param hiii */
         /**@param WHOOPSSS */
-        tmp.ranks[rn].req = RANKS.reqs[rn]().start.pow(player.ranks[rn])
+        tmp.ranks[rn].req = RANKS.reqs[rn]().start.mul(RANKS.reqs[rn]().inc.pow(player.ranks[rn])).scaleEvery(rn, true)
         tmp.ranks[rn].can = (RANKS.names[x-1]?player.ranks[RANKS.names[x-1]]:player.pts).gte(tmp.ranks[rn].req)
         let fp = E(1)
         let rooted_fp = E(1)

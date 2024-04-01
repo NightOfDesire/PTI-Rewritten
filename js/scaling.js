@@ -1,9 +1,13 @@
 const SCALE_START = {
     super: {
-
+        rank: E(25),
+        tier: E(25),
+        pointUpg: E(50)
     },
     hyper: {
-
+        rank: E(75),
+        tier: E(75),
+        pointUpg: E(100)
     },
     extreme: {
 
@@ -12,13 +16,16 @@ const SCALE_START = {
 
     }
 }
-
 const SCALE_POWER = {
     super: {
-
+        rank: E(1.67),
+        tier: E(1.7),
+        pointUpg: E(1.5),
     },
     hyper: {
-
+        rank: E(2.1),
+        tier: E(2.2),
+        pointUpg: E(2)
     },
     extreme: {
 
@@ -27,21 +34,19 @@ const SCALE_POWER = {
 
     }
 }
-
 const SCALE_TYPE = ['super','hyper','extreme','ultra']
 const FULL_SCALE_NAME = ['Super','Hyper','Extreme','Ultra']
-
 const SCALING_RES = {
     rank(x=0) {return player.ranks.rank},
     tier(x=0) {return player.ranks.tier},
     pointUpg(x=1) {return player.build["points_"+x].amt}
 }
-
 const NAME_FROM_RES = {
     rank: "Rank",
     tier: "Tier",
     pointUpg: "Point Upgrades 1-3"
 }
+const SCALE_FP = {}
 
 function updateScalingHTML() {
 	let s = SCALE_TYPE[player.scaling_ch]
@@ -157,6 +162,11 @@ Decimal.prototype.scaleName = function (type, id, rev=false, type_index) {
     }
     return x
 }
+
+
+
+
+
 Decimal.prototype.scaleEvery = function (id, rev=false, fp=SCALE_FP[id]?SCALE_FP[id]():[1,1,1,1,1,1]) {
     var x = this.clone()
     for (let i = 0; i < SCALE_TYPE.length; i++) {
