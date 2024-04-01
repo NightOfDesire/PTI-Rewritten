@@ -103,7 +103,8 @@ function updateRanksTemp() {
     for (let x = 0; x < RANKS.names.length; x++) {
         let rn = RANKS.names[x]
         /**@param hiii */
-        tmp.ranks[rn].req = player.ranks.reqs[rn]()
+        /**@param WHOOPSSS */
+        tmp.ranks[rn].req = RANKS.reqs[rn]()
         tmp.ranks[rn].can = (
             RANKS.names[x-1] ? player.ranks[RANKS.names[x-1]].gte(RANKS.reqs[rn]()) : player.pts.gte(RANKS.reqs[rn]())
         )
