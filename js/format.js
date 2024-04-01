@@ -423,7 +423,7 @@ function formatTime(x, acc=0) {
   else if (ex.lt(60)) {
     return ex.format(acc) + " Seconds"
   }*/
-  if (ex.lt(60)) {
+  if (ex.gte(0) && ex.lt(60)) {
     return ex.format(acc) + " Seconds"
   } else if (ex.gte(60) && ex.lt(3600)) {
     return ex.div(60).format(acc) + " Minutes"
@@ -439,6 +439,8 @@ function formatTime(x, acc=0) {
     return years(ex).div(1e6).format(acc) + " Stellar Years"
   } else if (galyears(ex).gte(1)) {
     return galyears(ex).format(acc) + " Galactic Years"
+  } else {
+    return ex.format(acc) + " s"
   }
 }
 
