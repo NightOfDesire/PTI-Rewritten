@@ -381,46 +381,46 @@ function formatTime2(ex,acc=0,type="s") {
 }
 
 function formatTime(x, acc=0) {
-  x = E(x)
-  if (x.mag == Infinity) return 'Forever'
-  if (TDdrifts(x).gte(1)) {
-    return TDdrifts(x).format(acc) + " Time-Dilation drifts"
+  let ex = E(x)
+  if (ex.mag == Infinity) return 'Forever'
+  if (TDdrifts(ex).gte(1)) {
+    return TDdrifts(ex).format(acc) + " Time-Dilation drifts"
   }
-  if (eventhorizoneternities(x).gte(1)) {
+  else if (eventhorizoneternities(x).gte(1)) {
     return eventhorizoneternities(x).format(acc) + " Event Horizon Eternities"
   }
-  if (cri(x).gte(1)) {
-    return cri(x).format(acc) + " Chrono-Resonance Intervals"
+  else if (cri(ex).gte(1)) {
+    return cri(ex).format(acc) + " Chrono-Resonance Intervals"
   }
-  if (gravwaves(x).gte(1)) {
-    return gravwaves(x).format(acc) + " Gravitational Wavespans"
+  else if (gravwaves(ex).gte(1)) {
+    return gravwaves(ex).format(acc) + " Gravitational Wavespans"
   }
-  if (eclipsals(x).gte(1)) {
-    return eclipsals(x).format(acc) + " Eclipsals"
+  else if (eclipsals(ex).gte(1)) {
+    return eclipsals(ex).format(acc) + " Eclipsals"
   }
-  if (years(x).gte(1e9)) {
-    return years(x).div(1e9).format(acc) + " Eons"
+  else if (years(ex).gte(1e9)) {
+    return years(ex).div(1e9).format(acc) + " Eons"
   }
-  if (years(x).gte(1e6)) {
-    return years(x).div(1e6).format(acc) + " Stellar Years"
+  else if (years(ex).gte(1e6)) {
+    return years(ex).div(1e6).format(acc) + " Stellar Years"
   }
-  if (x.gte(3.1536e9)) {
-    return x.div(3.1536e9).format(acc) + " Millennia"
+  else if (ex.gte(3.1536e9)) {
+    return ex.div(3.1536e9).format(acc) + " Millennia"
   }
-  if (x.gte(31536000)) {
-    return x.div(31536000).format(acc) + " Years"
+  else if (ex.gte(31536000)) {
+    return ex.div(31536000).format(acc) + " Years"
   }
-  if (x.gte(86400)) {
-    return x.div(604800).format(acc) + " Days"
+  else if (ex.gte(86400)) {
+    return ex.div(604800).format(acc) + " Days"
   } 
-  if (x.gte(3600)) {
-    return x.div(3600).format(acc) + " Hours"
+  else if (ex.gte(3600)) {
+    return ex.div(3600).format(acc) + " Hours"
   } 
-  if (x.gte(60)) {
-    return x.div(60).format(acc) + " Minutes"
+  else if (ex.gte(60)) {
+    return ex.div(60).format(acc) + " Minutes"
   }
-  if (x.lt(60)) {
-    return x.format(acc) + " Seconds"
+  else if (ex.lt(60)) {
+    return ex.format(acc) + " Seconds"
   }
 }
 

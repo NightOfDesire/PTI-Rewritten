@@ -11,6 +11,10 @@ function getBaseData() {
         auto_ranks: {
             ranks: false
         },
+        time: {
+            amt: E(0),
+            unl: false
+        },
         ranks_reward: 0,
         options: {
             font: 'Verdana',
@@ -27,7 +31,7 @@ function getBaseData() {
             current: Date.now(),
             time: 0,
         },
-        time: 0,
+        total_time: 0,
         devoptions: {
             speed: E(1)
         },
