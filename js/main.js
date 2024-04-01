@@ -43,11 +43,11 @@ const POPUP_GROUPS = {
         html: `
         1 minute = 60 seconds<br>
         1 hour = 60 minutes<br>
-        1 day = 24hrs<br>
-        1 yr = 365d<br>
-        1 Stellar Year = ${format(1e6)} yr<br>
-        1 Eon = ${format(1e9)} yr<br>
-        1 Eclipsal = ${format("ee3")} yr (logarithmic)<br>
+        1 day = 24 hours<br>
+        1 year = 365 days<br>
+        1 Stellar Year = ${format(1e6)} years<br>
+        1 Eon = ${format(1e9)} years<br>
+        1 Galactic Year = ${format("e30")} years<br>
         `
     }
 }
