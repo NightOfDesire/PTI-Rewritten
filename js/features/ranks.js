@@ -27,6 +27,7 @@ const RANKS = {
         /***@param nil */
         tier(x=player.ranks.tier) {
             let base = 10
+            /**@param whoops */
             let inc = 1.2
             inc = inc.pow(x.div(18).add(1))
             inc = inc.softcap(1.4, 0.75, 0)
