@@ -395,10 +395,7 @@ function formatTime(x, acc=0) {
   else if (gravwaves(ex).gte(1)) {
     return gravwaves(ex).format(acc) + " Gravitational Wavespans"
   }*/
-  if (eclipsals(ex).gte(1)) {
-    return eclipsals(ex).format(acc) + " Eclipsals"
-  }
-  else if (years(ex).gte(1e9)) {
+  if (years(ex).gte(1e9)) {
     return years(ex).div(1e9).format(acc) + " Eons"
   }
   else if (years(ex).gte(1e6)) {
