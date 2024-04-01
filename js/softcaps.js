@@ -9,6 +9,27 @@ const SOFTCAPS = {
 }
 
 const SOFTCAP_TEXT = {
-    pt_1: `Due to excessive points, starting at ${format(SOFTCAPS.points.one().start)}, points are softcapped!`
+    points: [
+        {id: "one", text: `After <b>${format(SOFTCAPS.points[this[0].id]().start)}</b>, point gain is softcapped!`}
+    ],
 }
 
+function setupSoftcapHTML() {
+    let scs = ""
+    for (let x = 0; x < SOFTCAP_TEXT.points.length; x++) {
+        let n = SOFTCAP_TEXT.points[x]
+        scs += `<div id=${n.id}>
+        ${n.text}
+        </div>`
+    }
+    tmp.el.pt_softcaps.setHTML(scs)
+}
+
+let nil = null
+function updateSoftcapHTML() {
+    for (let x = 0; x < SOFTCAP_TEXT.points.length; x++) {
+        let n = SOFTCAP_TEXT.points[x]
+        tmp.el[n.id].setHTML(n.text)
+        tmp.el[n.id].setDisplay(player.bestPts.gte(SOFTCAPS.points[n.id]().start))
+    }
+}
