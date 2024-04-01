@@ -16,7 +16,7 @@ const RANKS = {
         rank(x=player.ranks.rank) {
             let base = E(2.5e5)
             let inc = E(10)
-            inc = inc.pow(x.div(20).add(1))
+            inc = inc.pow(x.div(15).add(1))
             inc = inc.softcap(50, 0.9, 0)
             
 

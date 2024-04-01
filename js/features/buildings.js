@@ -109,7 +109,7 @@ const BUILDING_DATA = {
         get_cost: x => format(x) + " Points",
         effect(x) {
             let pow = E(1)
-            let eff = pow.mul(x)
+            let eff = pow.mul(x).add(1)
             return {power: pow, effect: eff}
         },
         get bonus() {
