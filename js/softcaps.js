@@ -14,7 +14,7 @@ const SOFTCAP_TEXT = {
     ],
 }
 
-function setupSoftcapHTML() {
+/*function setupSoftcapHTML() {
     let scs = ""
     for (let x = 0; x < SOFTCAP_TEXT.points.length; x++) {
         let n = SOFTCAP_TEXT.points[x]
@@ -32,4 +32,4 @@ function updateSoftcapHTML() {
         tmp.el[n.id].setHTML(n.text)
         tmp.el[n.id].setDisplay(player.bestPts.gte(SOFTCAPS.points[n.id]().start))
     }
-}
+}*/

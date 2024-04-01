@@ -58,7 +58,7 @@ function setupHTML() {
 		table += `</div>`
 	}
 	scaling_table.setHTML(table)
-	setupSoftcapHTML()
+	//setupSoftcapHTML()
 	setupStatsHTML()
     tmp.el = {}
 	let all = document.getElementsByTagName("*")
@@ -129,7 +129,7 @@ function updateHTML() {
 	updateStatsHTML()
 	PRESTIGE.updateHTML()
 	if (player.stab[2] == 0) updateRanksRewardHTML()
-	updateSoftcapHTML()
+	//updateSoftcapHTML()
 	/**@param hello */
 	tmp.el.test.setHTML(SOFTCAPS.points.one())
 }
