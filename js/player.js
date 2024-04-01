@@ -11,6 +11,7 @@ function getBaseData() {
         auto_ranks: {
             ranks: false
         },
+        ranks_reward: 0,
         options: {
             font: 'Verdana',
             nota: "st",

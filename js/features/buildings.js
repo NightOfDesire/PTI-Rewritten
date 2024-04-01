@@ -28,7 +28,7 @@ const BUILDING_DATA = {
         },
         get_cost: x => format(x) + " Points",
         effect(x) {
-            let pow = E(1)/*.mul(BUILDINGS.eff('number_2'))*/
+            let pow = E(1).mul(BUILDINGS.eff('points_2'))
             let eff = pow.mul(x)
             return {power: pow, effect: eff}
         },
@@ -76,7 +76,7 @@ const BUILDING_DATA = {
             return x
         },
         get_power: x => "+"+formatMult(x.power)+" to Energizer Power",
-        get_effect: x => "+"+formatMult(x.effect)+" Energizer Power",
+        get_effect: x => formatMult(x.effect)+" Energizer Power",
     },
     points_3: {
         name: "Obelisk",
