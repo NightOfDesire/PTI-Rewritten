@@ -383,7 +383,7 @@ function formatTime2(ex,acc=0,type="s") {
 function formatTime(x, acc=0) {
   let ex = E(x)
   if (ex.mag == Infinity) return 'Forever'
-  if (TDdrifts(ex).gte(1)) {
+  /*if (TDdrifts(ex).gte(1)) {
     return TDdrifts(ex).format(acc) + " Time-Dilation drifts"
   }
   else if (eventhorizoneternities(x).gte(1)) {
@@ -394,8 +394,8 @@ function formatTime(x, acc=0) {
   }
   else if (gravwaves(ex).gte(1)) {
     return gravwaves(ex).format(acc) + " Gravitational Wavespans"
-  }
-  else if (eclipsals(ex).gte(1)) {
+  }*/
+  if (eclipsals(ex).gte(1)) {
     return eclipsals(ex).format(acc) + " Eclipsals"
   }
   else if (years(ex).gte(1e9)) {
@@ -430,7 +430,7 @@ function years(x) {
 function eclipsals(x) {
   return years("ee3").pow(x)
 }
-function gravwaves(x) {
+/*function gravwaves(x) {
   return eclipsals("e30").mul(x)
 }
 function cri(x) {
@@ -441,7 +441,7 @@ function eventhorizoneternities(x) {
 }
 function TDdrifts(x) {
   return eventhorizoneternities("ee6").mul(x)
-}
+}*/
 
 function formatReduction(ex,acc) { return Decimal.sub(1,ex).mul(100).format(acc)+"%" }
 

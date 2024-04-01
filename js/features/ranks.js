@@ -14,7 +14,7 @@ const RANKS = {
     },
     reqs: {
         rank(x=player.ranks.rank) {
-            let base = E(10)
+            let base = E(2.5e5)
             let inc = E(10)
             inc = inc.pow(x.div(20).add(1))
             inc = inc.scale(50, 1.02, 0)
