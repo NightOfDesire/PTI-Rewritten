@@ -27,7 +27,7 @@ function setupHTML() {
 		let rn = RANKS.names[x]
 		table += `<div style="width: 300px" id="ranks_div_${x}">
 			<button id="ranks_auto_${x}" class="btn" style="width: 80px;" onclick="RANKS.autoSwitch('${rn}')">OFF</button>
-			${RANKS.fullNames[x]} <h4 id="ranks_amt_${x}">X</h4><br><br>
+			<span id="ranks_scale_${x}""></span>${RANKS.fullNames[x]} <h4 id="ranks_amt_${x}">X</h4><br><br>
 			<button onclick="RANKS.reset('${rn}')" class="btn reset" id="ranks_${x}">
 				Reset your ${x>0?RANKS.fullNames[x-1]+"s":'points and upgrades'}, but ${RANKS.fullNames[x]} up.<span id="ranks_desc_${x}"></span><br>
 				Req: <span id="ranks_req_${x}">X</span>
@@ -47,7 +47,19 @@ function setupHTML() {
 		table += `</div>`
 	}
 	ranks_rewards_table.setHTML(table)
+	let scaling_table = new Element("scaling_table")
+	table = ""
+	for (let x = 0; x < SCALE_TYPE.length; x++) {
+		table += `<div id="scaling_div_${x}">`
+		let key = Object.keys(SCALE_START[SCALE_TYPE[x]])
+		for (let y = 0; y < key.length; y++) {
+			table += `<div id="scaling_${x}_${key[y]}_div" style="margin-bottom: 10px;"><b>${NAME_FROM_RES[key[y]]}</b> (<span id="scaling_${x}_${key[y]}_power"></span>): Starts at <span id="scaling_${x}_${key[y]}_start"></span></div>`
+		}
+		table += `</div>`
+	}
+	scaling_table.setHTML(table)
 	setupSoftcapHTML()
+	setupStatsHTML()
     tmp.el = {}
 	let all = document.getElementsByTagName("*")
 	for (let i=0;i<all.length;i++) {
@@ -114,8 +126,9 @@ function updateHTML() {
 	BUILDINGS.update('points_2')
 	BUILDINGS.update('points_3')
 	updateRanksHTML()
+	updateStatsHTML()
 	PRESTIGE.updateHTML()
-	if (player.stab[1] == 0) updateRanksRewardHTML()
+	if (player.stab[2] == 0) updateRanksRewardHTML()
 	updateSoftcapHTML()
 	/**@param hello */
 	tmp.el.test.setHTML(SOFTCAPS.points.one())

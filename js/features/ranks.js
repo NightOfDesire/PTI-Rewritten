@@ -12,36 +12,27 @@ const RANKS = {
            
         }
     },
-    reqs: {
-        rank(x=player.ranks.rank) {
-            let base = E(2.5e5)
-            let inc = E(10)
-            inc = inc.pow(x.div(15).add(1))
-            if (x.gte(5)) inc = inc.mul(3.333)
-            inc = inc.softcap(50, 0.9, 0)
+    bulk(type) {
+        if (tmp.ranks[type].can) {
+            player.ranks[type] = player.ranks[type].max(tmp.ranks[type].bulk.max(player.ranks[type].add(1)))
+            let reset = true
             
-
-            let req = Decimal.mul(base, Decimal.pow(inc, x)).scale("e15",1.01,0)
-
-            return req
-        },
-        tier(x=player.ranks.tier) {
-            let base = E(10)
-            let increase = E(1.2)
-            increase = increase.pow(x.div(20).add(1))
-            /**@param im @param about @param to @param give @param up @param istg */
-            increase = increase.softcap(1.3, 0.8, 0)
-            let req = Decimal.mul(base, Decimal.pow(increase, x))
-
-            return req
+            if (reset) this.doReset[type]()
+            updateRanksTemp()
         }
     },
+    reqs: {
+        rank(){return {start: E(2.5e5)}},
+        tier(){return {start: E(10)}}
+    },
+
     unl: {
        tier() { return false}
     },
     doReset: {
         rank() {
             player.pts = E(0)
+            player.prestige.pts = E(0)
             for (let x = 1; x <= 3; x++) BUILDINGS.reset("points_"+x)
         },
         tier() {
@@ -61,10 +52,11 @@ const RANKS = {
             '1': "unlock point upgrade 2.",
             '2': "gain x3 points",
             '3': "points are boosted by ((x+1)^2)^0.8, where x is your rank.",
-            '4': "first point upgrade's base is increased by itself (x/20)"
+            '4': "first point upgrade's base is increased by its amount (x/20)",
+            '7': "second point upgrade's base is increased by its amount (x/33)"
         },
         tier: {
-            '1': "unlock auto rank"
+            '1': "unlock auto rank and The Time"
         }
     },
     effect: {
@@ -78,6 +70,11 @@ const RANKS = {
            '4'() {
             /**@param {string} title */
             let ret = player.build.points_1.amt.div(20)
+
+            return ret
+           },
+           '5'() {
+            let ret = player.build.points_2.amt.div(33)
 
             return ret
            }
@@ -146,10 +143,17 @@ function updateRanksTemp() {
         let rn = RANKS.names[x]
         /**@param hiii */
         /**@param WHOOPSSS */
-        tmp.ranks[rn].req = RANKS.reqs[rn]()
-        tmp.ranks[rn].can = (
-            RANKS.names[x-1] ? player.ranks[RANKS.names[x-1]].gte(RANKS.reqs[rn]()) : player.pts.gte(RANKS.reqs[rn]())
-        )
+        tmp.ranks[rn].req = RANKS.reqs[rn]().start.pow(player.ranks[rn])
+        tmp.ranks[rn].can = (RANKS.names[x-1]?player.ranks[RANKS.names[x-1]]:player.pts).gte(tmp.ranks[rn].req)
+
+        if (rn == "rank") {
+            tmp.ranks.rank.bulk = E(0)
+            if (player.pts.gte(RANKS.reqs[rn]().start)) tmp.ranks.rank.bulk = player.pts.div(RANKS.reqs[rn]().start).max(1).log10().root(1.15).mul(fp).root(rooted_fp).scaleEvery('rank',true).add(1).floor();
+        } else if (rn == "tier") {
+            tmp.ranks.tier.bulk = E(0)
+            tmp.ranks.tier.bulk = player.ranks.rank.max(0).root(2).sub(2).scaleEvery('tier',true).add(1).floor();
+        }
+    
     }
 }
 
@@ -171,7 +175,7 @@ function updateRanksHTML() {
                     }
                 }
     
-               
+                tmp.el["ranks_scale_"+x].setTxt(getScalingName(rn))
                 tmp.el["ranks_amt_"+x].setTxt(format(player.ranks[rn],0))
                 tmp.el["ranks_"+x].setClasses({btn: true, reset: true, locked: !tmp.ranks[rn].can})
                 tmp.el["ranks_desc_"+x].setTxt(desc)

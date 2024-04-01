@@ -19,7 +19,7 @@
         <script src="js/html/elements.js"></script>
         <script src="js/format.js"></script>
         <script src="js/temp.js"></script>
-        <script src="js/html/popups.js"></script>
+        <script src="js/html/other.js"></script>
         <script src="js/iconify-icon.min.js"></script>
         <script src="js/html/tabs.js"></script>
         <script src="js/html/settings.js"></script>
@@ -30,6 +30,7 @@
         <script src="js/confirm.js"></script>
         <script src="js/features/ranks.js"></script>
         <script src="js/softcaps.js"></script>
+        <script src="js/scaling.js"></script>
 
         <script src="https://js.sentry-cdn.com/97eaa6242646b2261726076b59aa3c11.min.js" crossorigin="anonymous"></script>
         <style>
@@ -78,11 +79,20 @@
                     </div>
                     <div id="tab_1">
                         <div id="stab_frame1_0">
-                            <div id="ranks_rewards_table"></div>
+                            <div id="TheTime"></div>
                         </div>
                     </div>
                     <div id="tab_2">
                         <div id="stab_frame2_0">
+                            <div id="ranks_reward_btn" class="table_center stab_btn"></div><br>
+                            <div id="ranks_rewards_table"></div>
+                        </div><div id="stab_frame2_1">
+                            <div id="scaling_btn" class="table_center stab_btn"></div><br>
+                            <div id="scaling_table"></div>
+                        </div>
+                    </div>
+                    <div id="tab_3">
+                        <div id="stab_frame3_0">
                             <div>
                                 <button onclick="createConfirm('Are you sure you want to hard reset?','HardReset',wipe)">Hard Reset</button>
                                 <button onclick="exporty()">Export save to a file</button>

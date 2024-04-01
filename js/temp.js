@@ -45,6 +45,9 @@ function updatePrestigeTemp() {
     tmp.prestige.can = tmp.prestige.gain.gte(1)
     tmp.prestige.auto = player.prestige.pts.gte("e33")
 }
+function updateTimeTemp() {
+    tmp.timegain = FORMS.time.gain()
+}
 function updateTemp() {
     if (!tmp.notify) tmp.notify = []
     if (!tmp.popup) tmp.popup = []
@@ -55,5 +58,7 @@ function updateTemp() {
     updatePrestigeTemp()
     /**@param helllo @param {:3} meow NYAAA */
     updateRanksTemp()
+    updateScalingTemp()
+    updateTimeTemp()
     BUILDINGS.temp()
 }

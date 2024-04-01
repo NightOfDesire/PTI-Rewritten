@@ -27,7 +27,7 @@ function getBaseData() {
             notation_count: 0,
             savenotif: true
         },
-       
+        scaling_ch: 0,
         offline: {
             active: true,
             current: Date.now(),

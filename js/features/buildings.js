@@ -17,15 +17,8 @@ const BUILDING_DATA = {
         get res() { return player.pts },
         set res(v) { player.pts = v },
         get allowPurchase() { return true },
-        cost(x=this.level) {
-            let start = this.start
-            let inc = this.inc
-            let ret = Decimal.mul(start, Decimal.pow(inc, x))
-            return ret
-        },
-        get bulk() {
-            return getPtUpgBulk(1)
-        },
+        cost(x=this.level) {return getPointUpgradeCost(1, x)},
+        get bulk() {return getPointUpgradeBulk(1, this.res)},
         get_cost: x => format(x) + " Points",
         effect(x) {
             let pow = E(1)
@@ -59,18 +52,13 @@ const BUILDING_DATA = {
         get res() { return player.pts },
         set res(v) { player.pts = v },
         get allowPurchase() { return true },
-        cost(x=this.level) {
-            let start = this.start
-            let inc = this.inc
-            let ret = Decimal.mul(start, Decimal.pow(inc, x))
-            return ret
-        },
-        get bulk() {
-            return getPtUpgBulk(2)
-        },
+        cost(x=this.level) {return getPointUpgradeCost(2, x)},
+        get bulk() {return getPointUpgradeBulk(2, this.res)},
         get_cost: x => format(x) + " Points",
         effect(x) {
-            let pow = E(2).pow(BUILDINGS.eff('points_3'))
+            let pow = E(2).add(RANKS.effect.rank[7]())
+            
+            pow = pow.pow(BUILDINGS.eff('points_3'))
             let eff = pow.mul(x).add(1)
             return {power: pow, effect: eff}
         },
@@ -97,19 +85,13 @@ const BUILDING_DATA = {
         get res() { return player.pts },
         set res(v) { player.pts = v },
         get allowPurchase() { return true },
-        cost(x=this.level) {
-            let start = this.start
-            let inc = this.inc
-            let ret = Decimal.mul(start, Decimal.pow(inc, x))
-            return ret
-        },
-        get bulk() {
-            return getPtUpgBulk(3)
-        },
+        cost(x=this.level) {return getPointUpgradeCost(3, x)},
+        get bulk() {return getPointUpgradeBulk(3, this.res)},
         get_cost: x => format(x) + " Points",
         effect(x) {
             let pow = E(1)
             let eff = pow.mul(x).add(1)
+            eff = eff.softcap(10, 0.7, 0)
             return {power: pow, effect: eff}
         },
         get bonus() {
@@ -223,7 +205,7 @@ const BUILDINGS = {
 				<div style="width: 300px">
 					<div class="resources">
 						<img src="images/${b.icon||"mark"}.png">
-                        <span style="margin-left: 5px; text-align: left;">${b.name} [<span id="building_lvl_${i}"></span>]</span>
+                        <span style="margin-left: 5px; text-align: left;"><span id="building_scale_${i}"></span>${b.name} [<span id="building_lvl_${i}"></span>]</span>
 					</div>
 				</div>
 				<button class="btn" id="building_btn_${i}" onclick="BUILDINGS.buy('${i}')" style="width: 300px"><span id="building_cost_${i}"></span></button>
@@ -254,7 +236,7 @@ const BUILDINGS = {
         if (!unl) return;
 		
         tmp.el["building_lvl_"+i].setHTML(b.level.format(0) + (bt.bonus.gt(0) ? (b.beMultiplicative ? " × " : " + ") + bt.bonus.format(0) : "")) //  + " = " + bt.total.format(0)
-        //tmp.el["building_scale_"+i].setHTML(/*b.scale ? getScalingName(b.scale) : ""*/b.name)
+        tmp.el["building_scale_"+i].setHTML(b.scale ? getScalingName(b.scale) : "")
 
        
 
@@ -276,21 +258,33 @@ const BUILDINGS = {
 // Config (custom cost, etc.)
 
 
+function getPointUpgradeCost(i, lvl) {
+    let cost = EINF, fp = E(1), upg = BUILDING_DATA["points_"+i]
 
-function getPtUpgBulk(i) {
+    let start = upg.start, inc = upg.in
+    /*if (i == 1 && player.ranks.rank.gte(2)) inc = inc.pow(0.8)
+    if (i == 2 && player.ranks.rank.gte(3)) inc = inc.pow(0.8)
+    if (i == 3 && player.ranks.rank.gte(4)) inc = inc.pow(0.8)
+    if (player.ranks.tier.gte(3)) inc = inc.pow(0.8)*/
+    cost = inc.pow(lvl.div(fp).scaleEvery("pointUpg")).mul(start)
+    
+
+    return cost
+}
+
+function getPointUpgradeBulk(i) {
     let bulk = E(0), fp = E(1), upg = BUILDING_DATA["points_"+i]
 
     let start = upg.start, inc = upg.inc
 
-
+    
         
-        
-        //if (i == 1 && player.ranks.rank.gte(2)) inc = inc.pow(0.8)
-        //if (i == 2 && player.ranks.rank.gte(3)) inc = inc.pow(0.8)
-        //if (i == 3 && player.ranks.rank.gte(4)) inc = inc.pow(0.8)
-        //if (player.ranks.tier.gte(3)) inc = inc.pow(0.8)
+        /*if (i == 1 && player.ranks.rank.gte(2)) inc = inc.pow(0.8)
+        if (i == 2 && player.ranks.rank.gte(3)) inc = inc.pow(0.8)
+        if (i == 3 && player.ranks.rank.gte(4)) inc = inc.pow(0.8)
+        if (player.ranks.tier.gte(3)) inc = inc.pow(0.8)*/
 
-        if (player.pts.gte(start)) bulk = player.pts.div(start).max(1).log(inc).mul(fp).add(1).floor()
+        if (player.pts.gte(start)) bulk = player.pts.div(start).max(1).log(inc).scaleEvery("pointUpg",true).mul(fp).add(1).floor()
     
 
     return bulk

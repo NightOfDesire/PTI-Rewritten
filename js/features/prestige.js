@@ -1,7 +1,9 @@
 const PRESTIGE = {
     reset() {
         player.pts = E(0)
-        player.build.points_1.amt = E(0)
+        for (let x = 0; x <= 3; x++) {
+            BUILDINGS.reset('points_'+x)
+        }
         player.prestige.unl = true
     },
     calculateGain() {

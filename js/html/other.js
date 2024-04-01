@@ -215,4 +215,29 @@ function createTimeHelpPopup() {
     `, 'time_help')
 }
 
-//tmp.el.help_time_btn.setAttr('onclick',createHelpPopup('time'))
+function setupStatsHTML() {
+    let h = ""
+
+    for (let i in RANKS.names) {
+        h += `<div id="stats_${RANKS.names[i]}_btn" style="width: 145px"><button class="btn_tab" onclick="player.ranks_reward = ${i}">${RANKS.fullNames[i]}</button></div>`
+    }
+
+    new Element("ranks_reward_btn").setHTML(h)
+
+    h = ""
+
+    for (let i in SCALE_TYPE) {
+        h += `<div id="stats_${SCALE_TYPE[i]}_btn" style="width: 145px"><button class="btn_tab" onclick="player.scaling_ch = ${i}">${FULL_SCALE_NAME[i]}</button></div>`
+    }
+
+    new Element("scaling_btn").setHTML(h)//tmp.el.help_time_btn.setAttr('onclick',createHelpPopup('time'))
+}
+
+function updateStatsHTML() {
+    if (tmp.stab[2] == 0) for (let i in RANKS.names) {
+        tmp.el[`stats_${RANKS.names[i]}_btn`].setDisplay(player.ranks[RANKS.names[i]].gt(0))
+    }
+    else if (tmp.stab[2] == 1) for (let i in SCALE_TYPE) {
+        tmp.el[`stats_${SCALE_TYPE[i]}_btn`].setDisplay(tmp.scaling[SCALE_TYPE[i]].length>0)
+    }
+}

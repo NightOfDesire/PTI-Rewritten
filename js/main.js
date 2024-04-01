@@ -23,6 +23,8 @@ const FORMS = {
             x = x.mul(FORMS.pres.PPtEffect())
             if (player.ranks.rank.gte(2)) x = x.mul(3)
             if (player.ranks.rank.gte(3)) x = x.mul(RANKS.effect.rank[3]())
+
+            x = x.softcap(SOFTCAPS.points.one().start, SOFTCAPS.points.one().power, 0)
             return x
         }
     },
@@ -33,4 +35,11 @@ const FORMS = {
             return eff
         }
     },
+    time: {
+        gain() {
+            let x = E(1)
+
+            return x
+        }
+    }
 }

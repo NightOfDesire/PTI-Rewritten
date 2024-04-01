@@ -7,11 +7,12 @@ function calc(dt) {
     }
     for (let x = 0; x < RANKS.names.length; x++) {
         let rn = RANKS.names[x]
-        if (RANKS.autoUnl[rn]() && player.auto_ranks[rn]) RANKS.reset(rn)
+        if (RANKS.autoUnl[rn]() && player.auto_ranks[rn]) RANKS.bulk(rn)
     }
     BUILDINGS.tick()
     player.pts = player.pts.add(tmp.ptgain.mul(gs))
     player.bestPts = player.bestPts.max(player.pts)
+    if (player.time.unl) player.time.amt = player.time.amt.add(tmp.timegain.mul(gs))
     player.total_time += dt
 }
 

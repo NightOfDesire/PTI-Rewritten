@@ -7,7 +7,8 @@ const TABS = {
         }
     },
     1: [ 
-        {id:"Main"}, 
+        {id:"Main"},
+        {id:"Time"},
         {id:"Stats"},
         {id:"Settings"}
     ],
@@ -18,9 +19,13 @@ const TABS = {
             {id:"Ranks", unl() {return player.bestPts.gte(2.5e5)}}
         ],
         1: [
-            {id:"Rank Rewards"}
+            {id:"The Time", unl() {return player.time.unl}}
         ],
         2: [
+            {id:"Scaling"},
+            {id:"Rank Rewards"}
+        ],
+        3: [
             {id:"Options"}
         ]
     }
