@@ -5,6 +5,10 @@ function calc(dt) {
         tmp.pass--
         return
     }
+    for (let x = 0; x < RANKS.names.length; x++) {
+        let rn = RANKS.names[x]
+        if (RANKS.autoUnl[rn]() && player.auto_ranks[rn]) RANKS.reset(rn)
+    }
     BUILDINGS.tick()
     player.pts = player.pts.add(tmp.ptgain.mul(gs))
     player.bestPts = player.bestPts.max(player.pts)
