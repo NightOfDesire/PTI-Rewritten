@@ -425,19 +425,19 @@ function formatTime(x, acc=0) {
   }*/
   if (ex.lt(60)) {
     return ex.format(acc) + " Seconds"
-  } if (ex.gte(60)) {
+  } else if (ex.gte(60) && ex.lt(3600)) {
     return ex.div(60).format(acc) + " Minutes"
-  } if (ex.gte(3600)) {
+  } else if (ex.gte(3600) && ex.lt(86400)) {
     return ex.div(3600).format(acc) + " Hours"
-  } if (ex.gte(86400)) {
+  } else if (ex.gte(86400) && !years(ex).gte(1)) {
     return ex.div(86400).format(acc) + " Days"
-  } if (years(ex).gte(1)) {
+  } else if (years(ex).gte(1) && years(ex).lt(1e3)) {
     return years(ex).format(acc) + " Years"
-  } if (years(ex).gte(1e3)) {
+  } else if (years(ex).gte(1e3) && years(ex).lt(1e6)) {
     return years(ex).div(1e3).format(acc) + " Millennia"
-  } if (years(ex).gte(1e6)) {
+  } else if (years(ex).gte(1e6) && !galyears(ex).gte(1)) {
     return years(ex).div(1e6).format(acc) + " Stellar Years"
-  } if (galyears(ex).gte(1)) {
+  } else if (galyears(ex).gte(1)) {
     return galyears(ex).format(acc) + " Galactic Years"
   }
 }
@@ -446,7 +446,7 @@ function years(x) {
   return E(3.1536e7).mul(x)
 }
 function galyears(x) {
-  return years(1e15).mul(x)
+  return years(1e30).mul(x)
 }
 /*function gravwaves(x) {
   return eclipsals("e30").mul(x)
