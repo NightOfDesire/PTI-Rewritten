@@ -28,6 +28,7 @@ const RANKS = {
             let base = E(10)
             let increase = E(1.2)
             increase = increase.pow(x.div(20).add(1))
+            /**@param im @param about @param to @param give @param up @param istg */
             increase = increase.softcap(1.3, 0.8, 0)
             let req = Decimal.mul(base, Decimal.pow(increase, x))
 
@@ -73,7 +74,8 @@ const RANKS = {
             return ret
            },
            '4'() {
-            let ret = player.build.points_1.div(20)
+            /**@param {string} title */
+            let ret = player.build.points_1.amt.div(20)
 
             return ret
            }
