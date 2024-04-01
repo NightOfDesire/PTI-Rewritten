@@ -28,9 +28,6 @@ const RANKS = {
         tier(x=player.ranks.tier) {
             let base = 10
             let inc = 1.2
-            /**@paran hi */
-            /**@param helloo */
-            /**@param omfg @param this @param shouldnt @param error @param retarded @param javascript */
             inc = inc.pow(x.div(18).add(1))
             inc = inc.softcap(1.4, 0.75, 0)
             
