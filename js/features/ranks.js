@@ -1,6 +1,6 @@
 const RANKS = {
-    names: ['rank'],
-    fullNames: ['Rank'],
+    names: ['rank','tier'],
+    fullNames: ['Rank','Tier'],
     reset(type) {
         if (tmp.ranks[type].can) {
             player.ranks[type] = player.ranks[type].add(1)
@@ -17,45 +17,81 @@ const RANKS = {
             let base = E(2.5e5)
             let inc = E(10)
             inc = inc.pow(x.div(20).add(1))
-            inc = inc.scale(50, 1.02, 0)
+            inc = inc.softcap(50, 0.9, 0)
             
 
             let req = Decimal.mul(base, Decimal.pow(inc, x)).scale("e15",1.01,0)
 
             return req
+        },
+        tier(x=player.ranks.tier) {
+            let base = 10
+            let inc = 1.2
+            inc = inc.pow(x.div(18).add(1))
+            inc = inc.softcap(1.4, 0.75, 0)
+            
+            let req = Decimal.mul(bade, Decimal.pow(inc, x))
+
+            return req
         }
     },
     unl: {
-       
+       tier() { return false}
     },
     doReset: {
         rank() {
             player.pts = E(0)
             for (let x = 1; x <= 3; x++) BUILDINGS.reset("points_"+x)
         },
-       
+        tier() {
+            player.ranks.rank = E(0)
+            this.rank()
+        }
     },
+
     autoSwitch(rn) { player.auto_ranks[rn] = !player.auto_ranks[rn] },
     autoUnl: {
         rank() { return false },
+
        
     },
     desc: {
         rank: {
             '1': "unlock point upgrade 2.",
+            '2': "gain x3 points",
+            '3': "points are boosted by ((x+1)^2)^0.8, where x is your rank.",
+            '4': "first point upgrade's base is increased by itself (x/20)"
         },
+        tier: {
+            '1': "unlock ??"
+        }
     },
     effect: {
         rank: {
-           
+           '3'() {
+            let ret = player.ranks.rank.add(1).pow(2).pow(0.8)
+
+            return ret
+           },
+           '4'() {
+            let ret = player.build.points_1.div(20)
+
+            return ret
+           }
       
         },
+        tier: {
+
+        }
     },
     effDesc: {
         rank: {
-            /*3(x) { return "+"+format(x) },*/
+            3(x) { return formatMult(x) },
            
         },
+        tier: {
+
+        }
     }
 }
 

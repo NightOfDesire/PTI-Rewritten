@@ -21,7 +21,8 @@ const FORMS = {
             let x = E(1)
             x = x.add(BUILDINGS.eff('points_1'))
             x = x.mul(FORMS.pres.PPtEffect())
-
+            if (player.ranks.rank.gte(2)) x = x.mul(3)
+            if (player.ranks.rank.gte(3)) x = x.mul(RANKS.effect.rank[3]())
             return x
         }
     },

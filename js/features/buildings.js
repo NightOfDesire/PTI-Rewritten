@@ -28,7 +28,11 @@ const BUILDING_DATA = {
         },
         get_cost: x => format(x) + " Points",
         effect(x) {
-            let pow = E(1).mul(BUILDINGS.eff('points_2'))
+            let pow = E(1)
+            pow = pow.add(RANKS.effect.rank[4]())
+            
+            
+            pow = pow.mul(BUILDINGS.eff('points_2'))
             let eff = pow.mul(x)
             return {power: pow, effect: eff}
         },
