@@ -24,6 +24,7 @@ const RANKS = {
 
             return req
         },
+        /***@param nil */
         tier(x=player.ranks.tier) {
             let base = 10
             let inc = 1.2
