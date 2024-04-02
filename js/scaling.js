@@ -49,6 +49,7 @@ const NAME_FROM_RES = {
 const SCALE_FP = {}
 
 
+
 function updateScalingHTML() {
 	let s = SCALE_TYPE[player.scaling_ch]
 	// tmp.el.scaling_name.setTxt(FULL_SCALE_NAME[player.scaling_ch])
