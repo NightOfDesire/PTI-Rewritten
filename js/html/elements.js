@@ -105,6 +105,7 @@ function setupHTML() {
 	ranks_rewards_table.setHTML(table)
 	let scaling_table = new Element("scaling_table")
 	table = ""
+	
 	for (let x = 0; x < SCALE_TYPE.length; x++) {
 		table += `<div id="scaling_div_${x}">`
 		let key = Object.keys(SCALE_START[SCALE_TYPE[x]])
