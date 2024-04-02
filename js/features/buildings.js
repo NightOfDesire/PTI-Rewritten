@@ -260,6 +260,7 @@ const BUILDINGS = {
 
 
 function getPointUpgradeCost(i, lvl) {
+    /**@param no...... */
     let cost = EINF, fp = E(1), upg = BUILDING_DATA["points_"+i]
 
     let start = upg.start, inc = upg.in

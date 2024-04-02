@@ -1,4 +1,4 @@
-
+var EINF = Decimal.dInf
 
 
 function wipe(reload=false) {
