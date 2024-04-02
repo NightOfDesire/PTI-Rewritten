@@ -82,6 +82,7 @@ const SCALE_POWER = {
 
     }*/
 }
+
 const SCALE_TYPE = ['super','hyper',/*'extreme','ultra'*/]
 const FULL_SCALE_NAME = ['Super','Hyper',/*'Extreme','Ultra'*/]
 const SCALING_RES = {
