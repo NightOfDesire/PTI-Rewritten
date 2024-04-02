@@ -443,13 +443,13 @@ function formatTime(x, acc=2) {
     return ex.div(60).format(acc) + " Minutes"
   } else if (ex.gte(3600) && ex.lt(86400)) {
     return ex.div(3600).format(acc) + " Hours"
-  } else if (ex.gte(86400) && !years(ex).gte(1)) {
+  } else if (ex.gte(86400) && years(ex).lt(1)) {
     return ex.div(86400).format(acc) + " Days"
   } else if (years(ex).gte(1) && years(ex).lt(1e3)) {
     return years(ex).format(acc) + " Years"
   } else if (years(ex).gte(1e3) && years(ex).lt(1e6)) {
     return years(ex).div(1e3).format(acc) + " Millennia"
-  } else if (years(ex).gte(1e6) && !galyears(ex).gte(1)) {
+  } else if (years(ex).gte(1e6) && galyears(ex).lt(1)) {
     return years(ex).div(1e6).format(acc) + " Stellar Years"
   } else if (galyears(ex).gte(1)) {
     return galyears(ex).format(acc) + " Galactic Years"

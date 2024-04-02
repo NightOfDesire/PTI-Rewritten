@@ -22,8 +22,8 @@ const TABS = {
             {id:"The Time", unl() {return player.time.unl}}
         ],
         2: [
-            {id:"Scaling"},
-            {id:"Rank Rewards"}
+            {id:"Rank Rewards"},
+            {id:"Scaling"}
         ],
         3: [
             {id:"Options"}

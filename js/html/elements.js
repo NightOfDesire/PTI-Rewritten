@@ -393,7 +393,7 @@ function updateHTML() {
 	updateStatsHTML()
 	PRESTIGE.updateHTML()
 	if (player.stab[2] == 0) updateRanksRewardHTML()
-
+	if (player.stab[2] == 1) updateScalingHTML()
 
 
 	//updateSoftcapHTML()
