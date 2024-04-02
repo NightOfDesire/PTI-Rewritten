@@ -85,11 +85,11 @@ const RANKS = {
 
             return ret
            },
-           '5'() {
+           '7'() {
             let ret = player.build.points_2.amt.div(33)
 
             return ret
-           }
+           },
       
         },
         tier: {
@@ -99,8 +99,8 @@ const RANKS = {
     effDesc: {
         rank: {
             3(x) { return formatMult(x) },
-            4(x) { return formatAdd(x) }
-           
+            4(x) { return formatAdd(x) },
+            7(x) { return formatAdd(x) }
         },
         tier: {
 
@@ -168,7 +168,7 @@ function updateRanksTemp() {
             tmp.ranks[rn].bulk = E(0)
             if (player.pts.gte(RANKS.reqs[rn]().start)) tmp.ranks.rank.bulk = player.pts.div(10).max(1).log(10).root(1.15).mul(fp).root(rooted_fp).scaleEvery('rank',true).add(1).floor();
         } else if (rn == "tier") {
-            tmp.ranks[rn].req = player.ranks[rn].div(E(1)).div(E(1)).scaleEvery('tier',false).div(fp).add(2).pow(2).floor()
+            tmp.ranks[rn].req = player.ranks.tier.scaleEvery('tier',false).add(2).pow(2).floor()
             tmp.ranks.tier.bulk = E(0)
             tmp.ranks.tier.bulk = player.ranks.rank.max(0).root(2).sub(2).scaleEvery('tier',true).add(1).floor();
         }
