@@ -155,13 +155,28 @@ function load(x){
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function loadGame(start=true, gotNaN=false) {
     if (!gotNaN) tmp.prevSave = localStorage.getItem("testSave")
     wipe()
     load(tmp.prevSave)
     
     if (start) {
-        /**@param {nuh} uh*/
         updateTemp()
         setupHTML()
         setInterval(save,15000)
