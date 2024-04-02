@@ -99,6 +99,8 @@ const SCALE_FP = {}
 
 
 
+
+
 function updateScalingHTML() {
 	let s = SCALE_TYPE[player.scaling_ch]
 	// tmp.el.scaling_name.setTxt(FULL_SCALE_NAME[player.scaling_ch])
@@ -124,9 +126,9 @@ function updateScalingHTML() {
 function updateScalingTemp() {
 	for (let x = 0; x < SCALE_TYPE.length; x++) {
 		let st = SCALE_TYPE[x]
-
-		tmp.scaling[st] = []
-		tmp.no_scalings[st] = []
+        if (!tmp.scaling) tmp.scaling = {}
+		if (!tmp.scaling[st]) tmp.scaling[st] = []
+		if (!tmp.scaling[st]) tmp.no_scalings[st] = []
 
 		let sp = tmp.scaling_power[st], ss = tmp.scaling_start[st], ns = tmp.no_scalings[st]
 		let key = Object.keys(SCALE_START[st])
