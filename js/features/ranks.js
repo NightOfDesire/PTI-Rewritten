@@ -157,16 +157,18 @@ function updateRanksTemp() {
         let rn = RANKS.names[x]
         /**@param hiii */
         /**@param WHOOPSSS */
-        tmp.ranks[rn].req = RANKS.reqs[rn]().start.mul(RANKS.reqs[rn]().inc.pow(player.ranks[rn])).scaleEvery(rn, true)
+        //tmp.ranks[rn].req = RANKS.reqs[rn]().start.mul(RANKS.reqs[rn]().inc.pow(player.ranks[rn])).scaleEvery(rn, false)
         tmp.ranks[rn].can = (RANKS.names[x-1]?player.ranks[RANKS.names[x-1]]:player.pts).gte(tmp.ranks[rn].req)
         let fp = E(1)
         let rooted_fp = E(1)
 
 
         if (rn == "rank") {
-            tmp.ranks.rank.bulk = E(0)
-            if (player.pts.gte(RANKS.reqs[rn]().start)) tmp.ranks.rank.bulk = player.pts.div(RANKS.reqs[rn]().start).max(1).log(10).root(1.15).mul(fp).root(rooted_fp).scaleEvery('rank',true).add(1).floor();
+            tmp.ranks[rn].req = E(10).pow(player.ranks[rn]).scaleEvery('rank',true).pow(1.15).mul(10)
+            tmp.ranks[rn].bulk = E(0)
+            if (player.pts.gte(RANKS.reqs[rn]().start)) tmp.ranks.rank.bulk = player.pts.div(10).max(1).log(10).root(1.15).mul(fp).root(rooted_fp).scaleEvery('rank',true).add(1).floor();
         } else if (rn == "tier") {
+            tmp.ranks[rn].req = player.ranks[rn].div(E(1)).div(E(1)).scaleEvery('tier',false).div(fp).add(2).pow(2).floor()
             tmp.ranks.tier.bulk = E(0)
             tmp.ranks.tier.bulk = player.ranks.rank.max(0).root(2).sub(2).scaleEvery('tier',true).add(1).floor();
         }
