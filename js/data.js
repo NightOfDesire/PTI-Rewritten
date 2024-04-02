@@ -161,6 +161,7 @@ function loadGame(start=true, gotNaN=false) {
     load(tmp.prevSave)
     
     if (start) {
+        /**@param {nuh} uh*/
         updateTemp()
         setupHTML()
         setInterval(save,15000)
