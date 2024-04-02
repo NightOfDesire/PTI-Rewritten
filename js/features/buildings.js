@@ -268,7 +268,7 @@ function getPointUpgradeCost(i, lvl) {
 
     return cost
 }
-
+/**@param theresnothinghere. */
 function getPointUpgradeBulk(i) {
     let bulk = E(0), fp = E(1), upg = BUILDING_DATA["points_"+i]
 
