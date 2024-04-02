@@ -129,9 +129,6 @@ function updateScalingTemp() {
         if (!tmp.scaling) tmp.scaling = {}
         if (!tmp.no_scalings) tmp.no_scalings = {}
 		if (!tmp.scaling[st]) tmp.scaling[st] = []
-		/**@param no */
-
-        
         if (!tmp.no_scalings[st]) tmp.no_scalings[st] = []
         if (!tmp.scaling_power) tmp.scaling_power = {}
         if (!tmp.scaling_power[st]) tmp.scaling_power[st] = []
