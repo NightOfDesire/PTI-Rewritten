@@ -2696,13 +2696,7 @@
       /**
        * Joke function from Realm Grinder
        */
-      Decimal.prototype.ascensionPenalty = function (ascensions) {
-        if (ascensions === 0) {
-          return this;
-        }
-  
-        return this.root(Decimal.pow(10, ascensions));
-      };
+      
       
       /**
        * Joke function from Cookie Clicker. It's 'egg'
