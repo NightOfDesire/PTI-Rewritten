@@ -260,14 +260,9 @@ const BUILDINGS = {
 
 
 function getPointUpgradeCost(i, lvl) {
-    /**@param no...... */
     let cost = EINF, fp = E(1), upg = BUILDING_DATA["points_"+i]
 
-    let start = upg.start, inc = upg.in
-    /*if (i == 1 && player.ranks.rank.gte(2)) inc = inc.pow(0.8)
-    if (i == 2 && player.ranks.rank.gte(3)) inc = inc.pow(0.8)
-    if (i == 3 && player.ranks.rank.gte(4)) inc = inc.pow(0.8)
-    if (player.ranks.tier.gte(3)) inc = inc.pow(0.8)*/
+    let start = upg.start, inc = upg.inc
     cost = inc.pow(lvl.div(fp).scaleEvery("pointUpg")).mul(start)
     
 
