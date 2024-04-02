@@ -160,7 +160,6 @@ function loadGame(start=true, gotNaN=false) {
     load(tmp.prevSave)
     
     if (start) {
-        updateScalingTemp()
         updateTemp()
         setupHTML()
         setInterval(save,15000)
