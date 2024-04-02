@@ -382,6 +382,7 @@ function updateHTML() {
 	tmp.el.loading.setDisplay(!tmp.start)
 	tmp.el.app.setDisplay(tmp.start)
 	tmp.el.PtDisplay.setHTML(`${format(player.pts, 2)} Points ${formatGain(player.pts, tmp.ptgain.mul(tmp.gs))}`)
+	/**@param no @param just @param no */
 	updateSettingsHTML()
 	BUILDINGS.update('points_1')
 	BUILDINGS.update('points_2')
