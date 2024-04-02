@@ -16,7 +16,7 @@ const TABS = {
         0: [
             {id:"Main"},
             {id:"Prestige", style: "cyan", unl() {return player.bestPts.gte(750) || player.prestige.unl}},
-            {id:"Ranks", unl() {return player.bestPts.gte(2.5e5)}}
+            {id:"Ranks"}
         ],
         1: [
             {id:"The Time", unl() {return player.time.unl}}

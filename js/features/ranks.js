@@ -39,7 +39,7 @@ const RANKS = {
     },
 
     unl: {
-       tier() { return false}
+       tier() { return true}
     },
     doReset: {
         rank() {
@@ -65,7 +65,7 @@ const RANKS = {
             '2': "gain x3 points",
             '3': "points are boosted by ((x+1)^2)^0.8, where x is your rank.",
             '4': "first point upgrade's base is increased by its amount (x/20)",
-            '7': "second point upgrade's base is increased by its amount (x/33)"
+            '5': "second point upgrade's base is increased by its amount (x/33)"
         },
         tier: {
             '1': "unlock auto rank and The Time"
@@ -85,7 +85,7 @@ const RANKS = {
 
             return ret
            },
-           '7'() {
+           '5'() {
             let ret = player.build.points_2.amt.div(33)
 
             return ret
@@ -100,7 +100,7 @@ const RANKS = {
         rank: {
             3(x) { return formatMult(x) },
             4(x) { return formatAdd(x) },
-            7(x) { return formatAdd(x) }
+            5(x) { return formatAdd(x) }
         },
         tier: {
 
@@ -165,7 +165,7 @@ function updateRanksTemp() {
 
 
         
-        tmp.ranks.rank.req = E(10).pow(player.ranks.rank).scaleEvery('rank',false).pow(1.15).mul(10)
+        tmp.ranks.rank.req = E(10).pow(player.ranks.rank).scaleEvery('rank',false).pow(1.15)
         tmp.ranks.rank.bulk = E(0)
         if (player.pts.gte(10)) tmp.ranks.rank.bulk = player.pts.div(10).max(1).log(10).root(1.15).mul(fp).root(rooted_fp).scaleEvery('rank',true).add(1).floor();
         tmp.ranks.tier.req = player.ranks.tier.scaleEvery('tier',false).add(2).pow(2).floor()

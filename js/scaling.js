@@ -20,12 +20,12 @@ const SCALE_POWER = {
     super: {
         rank: E(1.67),
         tier: E(1.7),
-        pointUpg: E(1.5),
+        pointUpg: E(1.8),
     },
     hyper: {
         rank: E(2.1),
         tier: E(2.2),
-        pointUpg: E(2)
+        pointUpg: E(2.5)
     }/*,
     extreme: {
 

@@ -5,6 +5,7 @@ const BUILDING_DATA = {
     points_1: {
         name: "Energizer",
         icon: 'sm',
+        scale: "pointUpg",
         get start() { return E(25)},
         get inc() { return E(1.7193)},
         get scalestart() { return E(1e3)},
@@ -40,6 +41,7 @@ const BUILDING_DATA = {
     points_2: {
         name: "Atomizer",
         icon: 'dimensionalizer',
+        scale: "pointUpg",
         get start() { return E(1e3)},
         get inc() { return E(6.51736)},
         get scalestart() { return E(1e10)},
@@ -57,7 +59,7 @@ const BUILDING_DATA = {
         get_cost: x => format(x) + " Points",
         effect(x) {
             /**@param e */
-            let pow = E(2).add(RANKS.effect.rank[7]())
+            let pow = E(2).add(RANKS.effect.rank[5]())
             
             pow = pow.pow(BUILDINGS.eff('points_3'))
             let eff = pow.mul(x).add(1)
@@ -74,6 +76,7 @@ const BUILDING_DATA = {
     points_3: {
         name: "Obelisk",
         icon: 'placeholder',
+        scale: "pointUpg",
         get start() { return E(1e12)},
         get inc() { return E("e2.1836")},
         get scalestart() { return E(1e45)},
