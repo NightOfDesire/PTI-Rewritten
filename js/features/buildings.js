@@ -56,6 +56,7 @@ const BUILDING_DATA = {
         get bulk() {return getPointUpgradeBulk(2, this.res)},
         get_cost: x => format(x) + " Points",
         effect(x) {
+            /**@param e */
             let pow = E(2).add(RANKS.effect.rank[7]())
             
             pow = pow.pow(BUILDINGS.eff('points_3'))
