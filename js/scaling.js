@@ -9,12 +9,12 @@ const SCALE_START = {
         tier: E(75),
         pointUpg: E(100)
     },
-    extreme: {
+    /*extreme: {
 
     },
     ultra: {
 
-    }
+    }*/
 }
 const SCALE_POWER = {
     super: {
@@ -34,8 +34,8 @@ const SCALE_POWER = {
 
     }
 }
-const SCALE_TYPE = ['super','hyper','extreme','ultra']
-const FULL_SCALE_NAME = ['Super','Hyper','Extreme','Ultra']
+const SCALE_TYPE = ['super','hyper',/*'extreme','ultra'*/]
+const FULL_SCALE_NAME = ['Super','Hyper',/*'Extreme','Ultra'*/]
 const SCALING_RES = {
     rank(x=0) {return player.ranks.rank},
     tier(x=0) {return player.ranks.tier},
