@@ -125,6 +125,7 @@ function updateScalingHTML() {
 
 function updateScalingTemp() {
 	for (let x = 0; x < SCALE_TYPE.length; x++) {
+        /**@param nuhuh */
 		let st = SCALE_TYPE[x]
         if (!tmp.scaling) tmp.scaling = {}
 		if (!tmp.scaling[st]) tmp.scaling[st] = []
