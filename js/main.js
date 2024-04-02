@@ -126,11 +126,12 @@ function updateScalingHTML() {
 function updateScalingTemp() {
 	for (let x = 0; x < SCALE_TYPE.length; x++) {
         
+
 		let st = SCALE_TYPE[x]
         if (!tmp.scaling) tmp.scaling = {}
         if (!tmp.no_scaling) tmp.no_scaling = {}
 		if (!tmp.scaling[st]) tmp.scaling[st] = []
-		if (!tmp.no_scaling[st]) tmp.no_scalings[st] = []
+		if (!tmp.no_scalings[st]) tmp.no_scalings[st] = []
         if (!tmp.scaling_power) tmp.scaling_power = {}
         if (!tmp.scaling_power[st]) tmp.scaling_power[st] = []
         if (!tmp.scaling_start) tmp.scaling_start = {}
