@@ -152,6 +152,8 @@ function noScalings(type, name) {
 
 
 
+
+
 Decimal.prototype.scaleName = function (type, id, rev=false, type_index) {
     var x = this.clone()
     if (SCALE_START[type][id] && SCALE_POWER[type][id]) {
