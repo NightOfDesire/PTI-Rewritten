@@ -23,7 +23,7 @@ const TABS = {
         ],
         2: [
             {id:"Rank Rewards"},
-            {id:"Scaling"}
+            {id:"Scaling", unl() {return tmp.scaling ? tmp.scaling.super.length>0 : false }}
         ],
         3: [
             {id:"Options"}

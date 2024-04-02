@@ -165,7 +165,7 @@ function updateRanksTemp() {
 
 
         
-        tmp.ranks.rank.req = E(10).pow(player.ranks.ranks).scaleEvery('rank',false).pow(1.15).mul(10)
+        tmp.ranks.rank.req = E(10).pow(player.ranks.rank).scaleEvery('rank',false).pow(1.15).mul(10)
         tmp.ranks.rank.bulk = E(0)
         if (player.pts.gte(10)) tmp.ranks.rank.bulk = player.pts.div(10).max(1).log(10).root(1.15).mul(fp).root(rooted_fp).scaleEvery('rank',true).add(1).floor();
         tmp.ranks.tier.req = player.ranks.tier.scaleEvery('tier',false).add(2).pow(2).floor()
