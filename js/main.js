@@ -128,8 +128,16 @@ function updateScalingTemp() {
         
 		let st = SCALE_TYPE[x]
         if (!tmp.scaling) tmp.scaling = {}
+        if (!tmp.no_scaling) tmp.no_scaling = {}
 		if (!tmp.scaling[st]) tmp.scaling[st] = []
-		if (!tmp.scaling[st]) tmp.no_scalings[st] = []
+		if (!tmp.no_scaling[st]) tmp.no_scalings[st] = []
+        if (!tmp.scaling_power) tmp.scaling_power = {}
+        if (!tmp.scaling_power[st]) tmp.scaling_power[st] = []
+        if (!tmp.scaling_start) tmp.scaling_start = {}
+        if (!tmp.scaling_start[st]) tmp.scaling_start[st] = []
+
+
+
 
 		let sp = tmp.scaling_power[st], ss = tmp.scaling_start[st], ns = tmp.no_scalings[st]
 		let key = Object.keys(SCALE_START[st])
