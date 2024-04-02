@@ -381,6 +381,7 @@ function updateHTML() {
 	updateTabsHTML()
 	tmp.el.loading.setDisplay(!tmp.start)
 	tmp.el.app.setDisplay(tmp.start)
+	/**@nuh uh @param nuh @uh */
 	tmp.el.PtDisplay.setHTML(`${format(player.pts, 2)} Points ${formatGain(player.pts, tmp.ptgain.mul(tmp.gs))}`)
 	/**@param no @param just @param no */
 	updateSettingsHTML()

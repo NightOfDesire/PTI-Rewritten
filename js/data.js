@@ -181,7 +181,7 @@ function loadGame(start=true, gotNaN=false) {
         setupHTML()
         setInterval(save,15000)
 
-
+        /**@param {stfu} shutUpError */
         updateHTML()
 
        
