@@ -142,6 +142,8 @@ function getRankTierName(i) {
     }
 }
 
+
+
 function updateRanksTemp() {
     if (!tmp.ranks) tmp.ranks = {}
     for (let x = 0; x < RANKS.names.length; x++) {
