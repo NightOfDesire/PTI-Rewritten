@@ -70,7 +70,7 @@ function setupHTML() {
 			}
 			a += `</div>`
 			table2 += a
-			/**@param null */
+
 		}
 	}
 	tabs.setHTML(table)
