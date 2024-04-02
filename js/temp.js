@@ -57,8 +57,8 @@ function updateTemp() {
     updatePointTemp()
     updatePrestigeTemp()
     /**@param helllo @param {:3} meow NYAAA */
-    updateRanksTemp()
     updateScalingTemp()
     updateTimeTemp()
     BUILDINGS.temp()
+    updateRanksTemp()
 }
