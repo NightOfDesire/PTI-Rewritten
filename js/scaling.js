@@ -154,6 +154,9 @@ function noScalings(type, name) {
 
 
 
+
+
+
 Decimal.prototype.scaleName = function (type, id, rev=false, type_index) {
     var x = this.clone()
     if (SCALE_START[type][id] && SCALE_POWER[type][id]) {
@@ -181,7 +184,7 @@ Decimal.prototype.scaleEvery = function (id, rev=false, fp=SCALE_FP[id]?SCALE_FP
 
         // if (tmp.no_scalings[sc].includes(id)) continue
 
-        x = tmp.no_scalings[sc].includes(id) ? rev?x.mul(f):x.div(f) : rev?x.mul(f).scaleName(sc,id,rev,s):x.scaleName(sc,id,rev,s).div(f)
+        x = /*tmp.no_scalings[sc].includes(id) ? rev?x.mul(f):x.div(f) : */rev?x.mul(f).scaleName(sc,id,rev,s):x.scaleName(sc,id,rev,s).div(f)
     }
     return x
 }
