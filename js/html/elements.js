@@ -106,6 +106,7 @@ function updateScalingTemp() {
 			ss[sn] = getScalingStart(x,sn)
 			if (noScalings(x,sn)) ns.push(sn)
 			else {
+		/**@param hell @param nawh */
 				if (sn == "pointUpg") for (let i = 0; i < 3; i++) {
 					if (scalingActive(sn, SCALING_RES[sn](i), st)) {
 						tmp.scaling[st].push(sn)
