@@ -46,6 +46,7 @@ const FULL_SCALE_NAME = ['Super','Hyper',/*'Extreme','Ultra'*/]
 const SCALING_RES = {
     rank(x=0) {return player.ranks.rank},
     tier(x=0) {return player.ranks.tier},
+	/**@param no. */
     pointUpg(x=1) {return (player.build && player.build["points_"+x] ? player.build["points_"+x].amt:E(1))}
 }
 const NAME_FROM_RES = {
