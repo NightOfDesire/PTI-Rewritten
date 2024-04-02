@@ -69,6 +69,7 @@ function updateScalingHTML() {
 	}
 }
 
+
 function updateScalingTemp() {
 	for (let x = 0; x < SCALE_TYPE.length; x++) {
 		let st = SCALE_TYPE[x]

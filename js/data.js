@@ -154,6 +154,7 @@ function load(x){
 
 
 
+
 function loadGame(start=true, gotNaN=false) {
     if (!gotNaN) tmp.prevSave = localStorage.getItem("testSave")
     wipe()
