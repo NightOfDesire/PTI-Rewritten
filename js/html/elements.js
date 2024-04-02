@@ -1,5 +1,23 @@
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function setupHTML() {
 	let tabs = new Element("tabs")
 	let stabs = new Element("stabs")
@@ -48,7 +66,7 @@ function setupHTML() {
 		}
 		table += `</div>`
 	}
-	
+
 	ranks_rewards_table.setHTML(table)
 	let scaling_table = new Element("scaling_table")
 	table = ""

@@ -26,13 +26,13 @@ const SCALE_POWER = {
         rank: E(2.1),
         tier: E(2.2),
         pointUpg: E(2)
-    },
+    }/*,
     extreme: {
 
     },
     ultra: {
 
-    }
+    }*/
 }
 const SCALE_TYPE = ['super','hyper',/*'extreme','ultra'*/]
 const FULL_SCALE_NAME = ['Super','Hyper',/*'Extreme','Ultra'*/]
