@@ -100,7 +100,8 @@ function elemEffect(x,def=1) {
 function setupElementsHTML() {
     let elem_table = new Element("elements_table")
     let table = ""
-    for (let x = 1; x < ELEMENTS.upgs.length; x++) {
+    for (let x = 0; x < ELEMENTS.upgs.length; x++) {
+        if (ELEMENTS.upgs[x] == null) continue
         table += `
         <div onclick="ELEMENTS.click(${x})" id="element_${x}">
         <div style="font-size: 12px;>${x}</div>
