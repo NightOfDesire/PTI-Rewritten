@@ -118,10 +118,8 @@ function setupElementsHTML() {
 function updateElementsHTML() {
     let ch = player.chosenElem > 0
     for (let x = 1; x < ELEMENTS.upgs.length; x++) {
-        tmp.el[`Element${x}`].setHTML(`
-        <div style="font-size: 12px;">${x}</div>
-        ${ELEMENTS.names[x]}
-        `)
+        tmp.el[`Element${x}`].setClasses({bought: player.sn.elem.includes(x)})
+        tmp.el[`Element${x}`].setDisplay(tmp.elem.unl_length >= x)
     }
     tmp.el.elem_ch_div.setDisplay(tmp.elem.choseElem)
     if (ch) {
@@ -129,7 +127,7 @@ function updateElementsHTML() {
         let res = [u.dark?'Dark Shadow':'Ions']
         tmp.el.elem_eff.setDisplay(u.effect && u.effDesc)
         tmp.el.elem_eff.setHTML(u.effDesc ? `Currently: ${effDesc(u.effect)}`: ``)
-        tmp.el.elem_desc.setHTML(`<b>${ELEMENTS.names[player.chosenElem]}-${player.chosenElem}]</b>${u.desc}`)
+        tmp.el.elem_desc.setHTML(`<b>[${ELEMENTS.names[player.chosenElem]}-${player.chosenElem}]</b> ${u.desc}`)
         tmp.el.elem_cost.setHTML(player.sn.elem.includes(player.chosenElem) ? '' : `Cost: ${format(u.cost)} ${res}`)
     }
     /*for (let x = 1; x <= ELEMENTS.getUnlLength(); x++) {
