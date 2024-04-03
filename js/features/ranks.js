@@ -43,9 +43,10 @@ const RANKS = {
     },
     doReset: {
         rank() {
-            player.pts = E(0)
-            player.prestige.pts = E(0)
             for (let x = 1; x <= 3; x++) BUILDINGS.reset("points_"+x)
+            player.prestige.pts = E(0)
+            player.pts = E(0)
+            player.pts = E(0)
         },
         tier() {
             player.ranks.rank = E(0)
@@ -165,7 +166,7 @@ function updateRanksTemp() {
 
 
         
-        tmp.ranks.rank.req = Decimal.pow(10,player.ranks.rank).scaleEvery('rank',false).pow(1.15)
+        tmp.ranks.rank.req = Decimal.pow(10,player.ranks.rank).scaleEvery('rank',false).pow(1.15).mul(10)
         tmp.ranks.rank.bulk = E(0)
         if (player.pts.gte(10)) tmp.ranks.rank.bulk = player.pts.div(10).max(1).log(10).root(1.15).mul(fp).root(rooted_fp).scaleEvery('rank',true).floor();
         tmp.ranks.tier.req = player.ranks.tier.scaleEvery('tier',false).add(2).pow(2).floor()
