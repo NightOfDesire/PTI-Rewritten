@@ -40,7 +40,7 @@ const BUILDING_DATA = {
     },
     points_2: {
         name: "Atomizer",
-        icon: 'dimensionalizer',
+        icon: 'atom',
         scale: "pointUpg",
         get start() { return E(100)},
         get inc() { return E(4)},
@@ -107,6 +107,37 @@ const BUILDING_DATA = {
         get_power: x => "+"+formatPow(x.power)+" to Atonizer Power",
         get_effect: x => formatPow(x.effect)+" Atomizer Power",
     },
+    points_4: {
+        name: "Dimensionalizer",
+        icon: "dimensionalizer",
+        scale: "Dimensionalizer",
+        get start() { return E("ee12")},
+        get start() { return E("ee0.5177")},
+        get isUnlocked() { return false },
+        get autoUnlocked() { return false },
+        get noSpend() { return false },
+        get beMultiplicative() { return false },
+        get res() { return player.pts },
+        set res(v) { player.pts = v },
+        get allowPurchase() { return true },
+        cost(x=this.level) { return getPointUpgradeCost(4)},
+        get bulk() { return getPointUpgradeBulk(4) },
+        get_cost: x => format(x) + " Points",
+        effect(x) {
+            let pow = E(0.25)
+
+            let eff = pow.mul(x).add(1)
+
+            return {power: pow, effect: eff}
+        },
+        get bonus() {
+            let x = E(0)
+
+            return x
+        },
+        get_power: x => "+"+formatPow(x.power) + " Obeisk Power",
+        get_effect: x => formatPow(x.effect) + " Obelisk Power"
+    }
     
 }
 
