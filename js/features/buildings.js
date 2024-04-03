@@ -12,7 +12,6 @@ const BUILDING_DATA = {
         get scalepow() { return E(1.05)},
         get scalemode() { return "pow"},
         get isUnlocked() { return player.ranks.rank.gte(1) },
-        /**@param I. @param HATE. @param MYSELF. */
         get autoUnlocked() { return player.ranks.tier.gte(2) },
         get noSpend() { return false },
         get beMultiplicative() { return false },
