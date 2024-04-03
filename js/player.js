@@ -47,6 +47,8 @@ function getBaseData() {
         },
         build: {},
         bestPts: E(0),
+        bestRank: E(0),
+        bestTier: E(0),
         tab: 0,
         stab: [],
         confirms: {

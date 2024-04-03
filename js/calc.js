@@ -11,6 +11,7 @@ function calc(dt) {
         let rn = RANKS.names[x]
         let rnF = RANKS.fullNames[x]
         if (RANKS.autoUnl[rn]() && player.auto_ranks[rn]) RANKS.reset(rn)
+        
         player["best"+rnF] = player["best"+rnF].max(player.ranks[rn])
     }
     BUILDINGS.tick()
