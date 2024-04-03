@@ -47,7 +47,7 @@ const SCALING_RES = {
     rank(x=0) {return player.ranks.rank},
     tier(x=0) {return player.ranks.tier},
     /**@param kys @param javascript */
-	pointUpg(x=1) {return (player.build && player.build["points_"+x] ? player.build["points_"+x] : E(0))}
+	pointUpg(x=1) {return (player.build && player.build["points_"+x] ? player.build["points_"+x].amt : E(0))}
 }
 const NAME_FROM_RES = {
     rank: "Rank",
