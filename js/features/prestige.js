@@ -9,7 +9,7 @@ const PRESTIGE = {
     calculateGain() {
         let gain = player.pts.div(750).root(2)
 
-        return gain
+        return gain.floor()
     },
     updateHTML() {
         tmp.el.PPtDisplay.setHTML(`Prestige Points: ${format(player.prestige.pts, 0)} ${tmp.prestige.auto ? formatGain(player.prestige.pts, tmp.prestige.gain.mul(tmp.gs)) : "(+"+format(tmp.prestige.gain, 0)+")"}`)
