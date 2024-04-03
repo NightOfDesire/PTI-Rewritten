@@ -119,7 +119,6 @@ function updateElementsHTML() {
     let res = ''
     
 
-
     tmp.el.elem_ch_div.setDisplay(tmp.elem.choseElem)
     if (ch) {
         tmp.el.elem_eff.setDisplay(u.effect && u.effDes)
