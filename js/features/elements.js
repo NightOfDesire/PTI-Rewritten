@@ -121,17 +121,12 @@ function setupElementsHTML() {
 }
 
 function updateElementsHTML() {
-    let u = ELEMENTS.upgs[player.elemChosen]
     let ch = player.elemChosen > 0
-    let res = ''
-    if (u.dark) {
-        res = 'Dark Shadow'
-    } else {
-        res = 'Ions'
-    }
     
     tmp.el.elem_ch_div.setDisplay(tmp.elem.choseElem)
     if (ch) {
+        let u = ELEMENTS.upgs[player.elemChosen]
+        let res = [u.dark?'Dark Shadow':'Ions']
         tmp.el.elem_eff.setDisplay(u.effect && u.effDes)
         tmp.el.elem_eff.setHTML(u.effDesc ? `Currently: ${effDesc(u.effect)}`: ``)
         tmp.el.elem_desc.setHTML(`<b>${ELEMENTS.names[player.elemChosen]}-${player.elemChosen}]</b>${u.desc}`)
