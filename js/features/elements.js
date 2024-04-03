@@ -62,6 +62,10 @@ const ELEMS = {
 
 
         return u
+    },
+    click(x) {
+        player.chosenElem = x
+        if (!player.sn.elem.includes(x)) this.buyUpg(x)
     }
 }
 
@@ -97,7 +101,7 @@ function setupElementHTML() {
     let table = ""
     for (let x = 1; x < ELEMS.upgs.length; x++) {
         table += `
-        <div onclick="ELEMS.buyUpg(${x})" id="element_${x}">
+        <div onclick="ELEMS.click(${x})" id="element_${x}">
         <div style="font-size: 12px;>${x}</div>
         ${getElementName(x)}
         </div>
@@ -109,12 +113,28 @@ function setupElementHTML() {
 }
 
 function updateElementsHTML() {
-
+    for (let x = 1; x < ELEMS.names.length; x++) {
+        let u = ELEMS.upgs[x]
+        let res = ''
+        if (u.dark) {
+            res = 'Dark Shadow'
+        } else {
+            res = 'Ions'
+        }
+        tmp.el.elem_ch.setDisplay(tmp.elem.choseElem)
+        tmp.el.elem_eff.setDisplay(u.effect && u.effDes)
+        tmp.el.elem_eff.setHTML(u.effDesc ? `Currently: ${effDesc(u.effect)}`: ``)
+        tmp.el.elem_desc.setHTML(u.desc)
+        tmp.el.elem_cost.setHTML(
+            player.sn.elem.includes(x) ? '' : `Cost: ${format(u.cost)} ${res}`
+        )
+    }
 }
 
 function updateElementsTemp() {
     if (!tmp.elem) tmp.elem = {}
     let tElem = tmp.elem
+    tmp.elem.choseElem = player.chosenElem > 0
     for (let x = tElem.upg_length; x >= 1; x--) if (ELEMS.upgs[x].effect) {
         tElem.effect[x] = ELEMS.upgs[x].effect()
     }

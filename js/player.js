@@ -17,6 +17,14 @@ function getBaseData() {
             amt: E(0),
             unl: false
         },
+        sn: {
+            times: E(0),
+            unl: false,
+            post_10: false,
+            ions: E(0),
+            elem: [],
+            time: 0
+        },
         ranks_reward: 0,
         options: {
             font: 'Verdana',
@@ -43,7 +51,8 @@ function getBaseData() {
         stab: [],
         confirms: {
             prestige: true
-        }
+        },
+        chosenElem: 0
     }
 
     for (let x in BUILDING_DATA) s.build[x] = {

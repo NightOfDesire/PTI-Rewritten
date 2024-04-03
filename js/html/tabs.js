@@ -6,12 +6,13 @@ const TABS = {
             player.stab[player.tab] = x
         }
     },
-    1: [ 
-        {id:"Main"},
-        {id:"Time"},
-        {id:"Stats"},
-        {id:"Settings"}
-    ],
+    1: {
+        0: {id:"Main"},
+        1: {id:"Time", unl() { return player.time.unl}},
+        2: {id:"Supernova", style:"supernova", unl() { return player.sn.unl}},
+        99: {id:"Stats"},
+        100: {id:"Settings"}
+    },
     2: {
         0: [
             {id:"Main"},
@@ -22,10 +23,14 @@ const TABS = {
             {id:"The Time", unl() {return player.time.unl}}
         ],
         2: [
+            {id: "Main"},
+            {id: "Elements", style:"light_green"}
+        ],
+        3: [
             {id:"Rank Rewards"},
             {id:"Scaling", unl() {return tmp.scaling ? tmp.scaling.super.length>0 : false }}
         ],
-        3: [
+        4: [
             {id:"Options"}
         ]
     }

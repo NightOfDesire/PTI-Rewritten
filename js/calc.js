@@ -15,6 +15,9 @@ function calc(dt) {
     if (player.time.unl) player.time.amt = player.time.amt.add(tmp.timegain.mul(gs))
     if (tmp.prestige.auto) player.prestige.pts = player.prestige.pts.add(tmp.prestige.gain.mul(gs))
     player.total_time += dt
+    player.sn.time += dt
+    
+    
 }
 
 function simulateTime(sec) {
