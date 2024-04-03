@@ -96,7 +96,7 @@ function elemEffect(x,def=1) {
     return tmp.elem.effect[x]||def
 }
 
-function setupElementHTML() {
+function setupElementsHTML() {
     let elem_table = new Element("elements_table")
     let table = ""
     for (let x = 1; x < ELEMS.upgs.length; x++) {
