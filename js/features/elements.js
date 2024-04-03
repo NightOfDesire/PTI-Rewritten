@@ -108,12 +108,7 @@ function setupElementsHTML() {
     let table = ""
     for (let x = 1; x < ELEMENTS.upgs.length; x++) {
 
-        table += `
-        <button class="elements" onclick="ELEMENTS.buyUpg(${x})" id="Element${x}" onmouseover="player.elemChosen = ${x}" onmouseleave="player.elemChosen = 0" >
-        <div style="font-size: 12px;>${x}</div>
-        ${getElementName(x)}
-        </button>
-        `
+        table += `<button class="elements" onclick="ELEMENTS.buyUpg(${x})" id="Element${x}" onmouseover="player.elemChosen = ${x}" onmouseleave="player.elemChosen = 0"><div style="font-size: 12px;>${x}</div>${getElementName(x)}</button>`
     }
 
     elem_table.setHTML(table)
@@ -127,7 +122,7 @@ function updateElementsHTML() {
     if (ch) {
         let u = ELEMENTS.upgs[player.elemChosen]
         let res = [u.dark?'Dark Shadow':'Ions']
-        tmp.el.elem_eff.setDisplay(u.effect && u.effDes)
+        tmp.el.elem_eff.setDisplay(u.effect && u.effDesc)
         tmp.el.elem_eff.setHTML(u.effDesc ? `Currently: ${effDesc(u.effect)}`: ``)
         tmp.el.elem_desc.setHTML(`<b>${ELEMENTS.names[player.elemChosen]}-${player.elemChosen}]</b>${u.desc}`)
         tmp.el.elem_cost.setHTML(player.sn.elem.includes(player.elemChosen) ? '' : `Cost: ${format(u.cost)} ${res}`)
