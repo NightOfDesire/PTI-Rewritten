@@ -139,9 +139,9 @@ function updateElementsHTML() {
             player.sn.elem.includes(x) ? '' : `Cost: ${format(u.cost)} ${res}`
         )
     }
-    for (let x = 1; x <= ELEMENTS.getUnlLength(); x++) {
+    /*for (let x = 1; x <= ELEMENTS.getUnlLength(); x++) {
         tmp.el["element_"+x].setDisplay(ELEMENTS.getUnlLength() >= x)
-    }
+    }*/
 }
 
 function updateElementsTemp() {
