@@ -128,7 +128,9 @@ function updateElementsHTML() {
     tmp.el.elem_cost.setHTML(
         player.sn.elem.includes(x) ? '' : `Cost: ${format(u.cost)} ${res}`
     )
-    tmp.el["element_"+x].setDisplay(tmp.elem.unl_length >= x)
+    for (let x = 1; x < ELEMENTS.upgs.length; x++) {
+        tmp.el["element_"+x].setDisplay(tmp.elem.unl_length >= x)
+    }
 }
 
 function updateElementsTemp() {
