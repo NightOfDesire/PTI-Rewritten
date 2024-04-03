@@ -13,6 +13,7 @@ function calc(dt) {
     player.pts = player.pts.add(tmp.ptgain.mul(gs))
     player.bestPts = player.bestPts.max(player.pts)
     if (player.time.unl) player.time.amt = player.time.amt.add(tmp.timegain.mul(gs))
+    if (tmp.prestige.auto) player.prestige.pts = player.prestige.pts.add(tmp.prestige.gain.mul(gs))
     player.total_time += dt
 }
 

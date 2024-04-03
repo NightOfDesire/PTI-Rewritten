@@ -69,7 +69,8 @@ const RANKS = {
             '5': "second point upgrade's base is increased by its amount (x/33)"
         },
         tier: {
-            '1': "unlock auto rank and The Time"
+            '1': "unlock auto rank and The Time",
+            '2': "Unlock passive prestige, you no longer need to manually buy point upgrades!"
         }
     },
     effect: {
