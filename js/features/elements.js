@@ -111,8 +111,9 @@ function setupElementsHTML() {
     let table = ""
     for (let x = 0; x < ELEMENTS.upgs.length; x++) {
         if (ELEMENTS.upgs[x] == null) continue
+
         table += `
-        <div onclick="ELEMENTS.buyUpg(${x})" id="element_${x}" onmouseover="tmp.elements.choosed = ${num}" onmouseleave="tmp.elements.choosed = 0" >
+        <div onclick="ELEMENTS.buyUpg(${x})" id="element_${x}" onmouseover="player.elemChosen = ${x}" onmouseleave="player.elemChosen = 0" >
         <div style="font-size: 12px;>${x}</div>
         ${getElementName(x)}
         </div>
