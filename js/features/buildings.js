@@ -235,14 +235,18 @@ const BUILDINGS = {
         }
         /**@param {int string char* args[]} */
 		let b = BUILDING_DATA[i], bt = tmp.build[i], unl = b.isUnlocked
-
+        
         tmp.el["building_"+i].setDisplay(unl)
 
         if (!unl) return;
 		
         tmp.el["building_lvl_"+i].setHTML(b.level.format(0) + (bt.bonus.gt(0) ? (b.beMultiplicative ? " × " : " + ") + bt.bonus.format(0) : "")) //  + " = " + bt.total.format(0)
         //tmp.el["building_scale_"+i].setHTML(b.scale ? getScalingName(b.scale) : "")
-        tmp.el["building_scale_"+i].setHTML(b.scale ? getScalingName(b.scale) : "")
+        if (i != "points_1" && i != "points_2" && i != "points_3") {
+            tmp.el["building_scale_"+i].setHTML(b.scale ? getScalingName(b.scale) : "")
+        } else {
+            tmp.el["building_scale_"+i].setHTML(b.scale ? getScalingName(b.scale, (i.split("_")[0].toNumber()-1)) : "")
+        }
        
 
         let cost = b.cost(), allow = b.allowPurchase ?? true
