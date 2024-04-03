@@ -23,7 +23,7 @@ const BUILDING_DATA = {
         get_cost: x => format(x) + " Points",
         effect(x) {
             let pow = E(1)
-            pow = pow.add(RANKS.effect.rank[4]())
+            if (player.ranks.rank.gte(4)) pow = pow.add(RANKS.effect.rank[4]())
             
             
             pow = pow.mul(BUILDINGS.eff('points_2'))
@@ -59,7 +59,8 @@ const BUILDING_DATA = {
         get_cost: x => format(x) + " Points",
         effect(x) {
             /**@param e */
-            let pow = E(2).add(RANKS.effect.rank[5]())
+            let pow = E(2)
+            if (player.ranks.rank.gte(5)) pow = pow.add(RANKS.effect.rank[5]())
             
             pow = pow.pow(BUILDINGS.eff('points_3'))
             let eff = pow.mul(x).add(1)
