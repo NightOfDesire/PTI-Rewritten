@@ -7,7 +7,7 @@ function calc(dt) {
     }
     for (let x = 0; x < RANKS.names.length; x++) {
         let rn = RANKS.names[x]
-        if (RANKS.autoUnl[rn]() && player.auto_ranks[rn]) RANKS.bulk(rn)
+        if (RANKS.autoUnl[rn]() && player.auto_ranks[rn]) RANKS.reset(rn)
     }
     BUILDINGS.tick()
     player.pts = player.pts.add(tmp.ptgain.mul(gs))
