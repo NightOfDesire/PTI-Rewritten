@@ -118,8 +118,9 @@ function updateElementsHTML() {
     let ch = player.elemChosen > 0
     let res = ''
     
-    
-    tmp.el.elem_ch.setDisplay(tmp.elem.choseElem)
+
+
+    tmp.el.elem_ch_div.setDisplay(tmp.elem.choseElem)
     if (ch) {
         tmp.el.elem_eff.setDisplay(u.effect && u.effDes)
         tmp.el.elem_eff.setHTML(u.effDesc ? `Currently: ${effDesc(u.effect)}`: ``)
