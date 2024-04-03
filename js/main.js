@@ -30,7 +30,7 @@ const FORMS = {
     },
     pres: {
         PPtEffect() {
-            let eff = player.prestige.pts.pow(1.25).div(2).add(1)
+            let eff = player.prestige.pts.pow(1.3).div(2).add(1)
 
             return eff
         }
@@ -39,6 +39,7 @@ const FORMS = {
         gain() {
             let x = E(1)
 
+            if (!player.time.unl) x = E(0)
             return x
         }
     }
