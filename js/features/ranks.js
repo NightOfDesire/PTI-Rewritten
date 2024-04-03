@@ -61,9 +61,9 @@ const RANKS = {
     },
     desc: {
         rank: {
-            '1': "unlock point upgrade 2.",
-            '2': "gain x3 points",
-            '3': "points are boosted by ((x+1)^2)^0.8, where x is your rank.",
+            '1': "unlock first point upgrade.",
+            '2': "unlock second point upgrade, gain x3 points",
+            '3': "unlock third point upgrade, points are boosted by ((x+1)^2)^0.8, where x is your rank.",
             '4': "first point upgrade's base is increased by its amount (x/20)",
             '5': "second point upgrade's base is increased by its amount (x/33)"
         },

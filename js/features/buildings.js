@@ -6,12 +6,12 @@ const BUILDING_DATA = {
         name: "Energizer",
         icon: 'sm',
         scale: "pointUpg",
-        get start() { return E(25)},
-        get inc() { return E(1.7193)},
+        get start() { return E(10)},
+        get inc() { return E(1.5)},
         get scalestart() { return E(1e3)},
         get scalepow() { return E(1.05)},
         get scalemode() { return "pow"},
-        get isUnlocked() { return true },
+        get isUnlocked() { return player.ranks.rank.gte(1) },
         get autoUnlocked() { return false },
         get noSpend() { return false },
         get beMultiplicative() { return false },
@@ -42,12 +42,12 @@ const BUILDING_DATA = {
         name: "Atomizer",
         icon: 'dimensionalizer',
         scale: "pointUpg",
-        get start() { return E(1e3)},
-        get inc() { return E(6.51736)},
+        get start() { return E(100)},
+        get inc() { return E(4)},
         get scalestart() { return E(1e10)},
         get scalepow() { return E(1.05)},
         get scalemode() { return "pow"},
-        get isUnlocked() { return player.ranks.rank.gte(1) },
+        get isUnlocked() { return player.ranks.rank.gte(2) },
         get autoUnlocked() { return false },
         get noSpend() { return false },
         get beMultiplicative() { return false },
@@ -78,12 +78,12 @@ const BUILDING_DATA = {
         name: "Obelisk",
         icon: 'placeholder',
         scale: "pointUpg",
-        get start() { return E(1e12)},
-        get inc() { return E("e2.1836")},
+        get start() { return E(1e3)},
+        get inc() { return E(9)},
         get scalestart() { return E(1e45)},
         get scalepow() { return E(1.1)},
         get scalemode() { return "pow"},
-        get isUnlocked() { return player.ranks.rank.gte(5) },
+        get isUnlocked() { return player.ranks.rank.gte(3) },
         get autoUnlocked() { return false },
         get noSpend() { return false },
         get beMultiplicative() { return false },
@@ -241,14 +241,8 @@ const BUILDINGS = {
         if (!unl) return;
 		
         tmp.el["building_lvl_"+i].setHTML(b.level.format(0) + (bt.bonus.gt(0) ? (b.beMultiplicative ? " × " : " + ") + bt.bonus.format(0) : "")) //  + " = " + bt.total.format(0)
-        //tmp.el["building_scale_"+i].setHTML(b.scale ? getScalingName(b.scale) : "")
-        if (i != "points_1" && i != "points_2" && i != "points_3") {
-            tmp.el["building_scale_"+i].setHTML(b.scale ? getScalingName(b.scale) : "")
-        } else {
-            /**@param no. */
-            tmp.el["building_scale_"+i].setHTML(b.scale ? getScalingName(b.scale, (Math.floor(Number(i.split("_")[0]))-1)) : "")
-        }
-       
+        tmp.el["building_scale_"+i].setHTML(b.scale ? getScalingName(b.scale) : "")
+        
 
         let cost = b.cost(), allow = b.allowPurchase ?? true
 
