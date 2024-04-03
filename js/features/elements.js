@@ -1,4 +1,13 @@
 const ELEMENTS = {
+    map: [
+        `x_________________xvxx___________xxxxxxvxx___________xxxxxxvxx_xxxxxxxxxxxxxxxxvxx_xxxxxxxxxxxxxxxxvxx1xxxxxxxxxxxxxxxxvxx2xxxxxxxxxxxxxxxxv_v__3xxxxxxxxxxxxxx__v__4xxxxxxxxxxxxxx__`,
+    ],
+    la: [null,'*','**','*','**'],
+    exp: [0,118,218,362,558,814,1138],
+    max_hsize: [19],
+
+
+
     names: [
         null,
         'H','He','Li','Be','B','C','N','O','F','Ne',
@@ -103,7 +112,7 @@ function setupElementsHTML() {
     for (let x = 0; x < ELEMENTS.upgs.length; x++) {
         if (ELEMENTS.upgs[x] == null) continue
         table += `
-        <div onclick="ELEMENTS.click(${x})" id="element_${x}">
+        <div onclick="ELEMENTS.buyUpg(${x})" id="element_${x}" onmouseover="tmp.elements.choosed = ${num}" onmouseleave="tmp.elements.choosed = 0" >
         <div style="font-size: 12px;>${x}</div>
         ${getElementName(x)}
         </div>
@@ -129,8 +138,8 @@ function updateElementsHTML() {
             player.sn.elem.includes(x) ? '' : `Cost: ${format(u.cost)} ${res}`
         )
     }
-    for (let x = 1; x <= tmp.elem.unl_length; x++) {
-        tmp.el["element_"+x].setDisplay(tmp.elem.unl_length >= x)
+    for (let x = 1; x <= ELEMENTS.getUnlLength(); x++) {
+        tmp.el["element_"+x].setDisplay(ELEMENTS.getUnlLength() >= x)
     }
 }
 
