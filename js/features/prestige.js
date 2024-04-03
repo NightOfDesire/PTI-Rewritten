@@ -16,6 +16,8 @@ const PRESTIGE = {
         Prestige Points: ${format(player.prestige.pts, 0)} ${tmp.prestige.auto ? formatGain(player.prestige.pts, tmp.prestige.gain.mul(tmp.gs)) : "(+"+format(tmp.prestige.gain, 0)+")"}
         <br>Effect: ${formatMult(FORMS.pres.PPtEffect())} Points
         `)
+
+        tmp.el.prestige.setDisplay(!tmp.prestige.auto)
     },
     
 }
