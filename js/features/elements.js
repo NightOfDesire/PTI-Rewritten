@@ -108,7 +108,7 @@ function setupElementsHTML() {
     let table = ""
     for (let x = 1; x < ELEMENTS.upgs.length; x++) {
 
-        table += `<button class="elements" onclick="ELEMENTS.buyUpg(${x})" id="Element${x}" onmouseover="player.elemChosen = ${x}" onmouseleave="player.elemChosen = 0"><div style="font-size: 12px;>${x}</div>${getElementName(x)}</button>`
+        table += `<button class="elements" onclick="ELEMENTS.buyUpg(${x})" id="Element${x}" onmouseover="player.elemChosen = ${x}" onmouseleave="player.elemChosen = 0"><div style="font-size: 12px;>${x}</div>${ELEMENTS.names[x]}</button>`
     }
 
     elem_table.setHTML(table)
@@ -117,7 +117,12 @@ function setupElementsHTML() {
 
 function updateElementsHTML() {
     let ch = player.elemChosen > 0
-    
+    for (let x = 1; x < ELEMENTS.upgs.length; x++) {
+        tmp.el[`Element${x}`].setHTML(`
+        <div style="font-size: 12px;">${x}</div>
+        ${ELEMENTS.names[x]}
+        `)
+    }
     tmp.el.elem_ch_div.setDisplay(tmp.elem.choseElem)
     if (ch) {
         let u = ELEMENTS.upgs[player.elemChosen]
