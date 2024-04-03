@@ -245,7 +245,8 @@ const BUILDINGS = {
         if (i != "points_1" && i != "points_2" && i != "points_3") {
             tmp.el["building_scale_"+i].setHTML(b.scale ? getScalingName(b.scale) : "")
         } else {
-            tmp.el["building_scale_"+i].setHTML(b.scale ? getScalingName(b.scale, (i.split("_")[0].toNumber()-1)) : "")
+            /**@param no. */
+            tmp.el["building_scale_"+i].setHTML(b.scale ? getScalingName(b.scale, (Math.floor(Number(i.split("_")[0]))-1)) : "")
         }
        
 
