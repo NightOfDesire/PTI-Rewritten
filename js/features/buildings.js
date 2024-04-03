@@ -240,8 +240,8 @@ const BUILDINGS = {
         if (!unl) return;
 		
         tmp.el["building_lvl_"+i].setHTML(b.level.format(0) + (bt.bonus.gt(0) ? (b.beMultiplicative ? " × " : " + ") + bt.bonus.format(0) : "")) //  + " = " + bt.total.format(0)
+        //tmp.el["building_scale_"+i].setHTML(b.scale ? getScalingName(b.scale) : "")
         tmp.el["building_scale_"+i].setHTML(b.scale ? getScalingName(b.scale) : "")
-
        
 
         let cost = b.cost(), allow = b.allowPurchase ?? true

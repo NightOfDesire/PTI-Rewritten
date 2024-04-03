@@ -47,7 +47,7 @@ const SCALING_RES = {
     rank(x=0) {return player.ranks.rank},
     tier(x=0) {return player.ranks.tier},
 	/**@param no. */
-    pointUpg(x=1) {return (player.build && player.build["points_"+x] ? player.build["points_"+x].amt:E(1))}
+    pointUpg(x=1) {return player.build["points_"+x].amt}
 }
 const NAME_FROM_RES = {
     rank: "Rank",
@@ -395,9 +395,9 @@ function updateHTML() {
 	if (player.stab[2] == 0) updateRanksRewardHTML()
 	if (player.stab[2] == 1) updateScalingHTML()
 
-
+	TIME.updateHTML()
 	//updateSoftcapHTML()
 	/**@param hello */
-	tmp.el.test.setHTML(SOFTCAPS.points.one())
+	//tmp.el.test.setHTML(SOFTCAPS.points.one())
 }
 
