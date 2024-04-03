@@ -244,3 +244,11 @@ function updateStatsHTML() {
         tmp.el[`stats_${SCALE_TYPE[i]}_btn`].setDisplay(tmp.scaling[SCALE_TYPE[i]].length>0)
     }
 }
+
+function capitalFirst(str) {
+	if (str=="" || str==" ") return str
+	return str
+		.split(" ")
+		.map(x => x[0].toUpperCase() + x.slice(1))
+		.join(" ");
+}
