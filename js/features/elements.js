@@ -136,6 +136,7 @@ function updateElementsHTML() {
 function updateElementsTemp() {
     if (!tmp.elem) tmp.elem = {}
     let tElem = tmp.elem
+    
     tmp.elem.choseElem = player.chosenElem > 0
     for (let x = tElem.unl_length; x >= 1; x--) if (ELEMENTS.upgs[x].effect) {
         tElem.effect[x] = ELEMENTS.upgs[x].effect()
