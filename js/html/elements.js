@@ -22,7 +22,7 @@ const SCALE_START = {
 
     },
 	exotic: {
-		
+
 	}
 }
 const SCALE_POWER = {
@@ -55,6 +55,7 @@ const SCALING_RES = {
     rank(x=0) {return player.ranks.rank},
     tier(x=0) {return player.ranks.tier},
     /**@param kys @param javascript */
+	/**@param RAHHHH */
 	pointUpg(x=1) {return player.build["points_"+(x+1)].amt}
 }
 const NAME_FROM_RES = {

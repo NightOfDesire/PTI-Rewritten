@@ -12,7 +12,7 @@ function calc(dt) {
     BUILDINGS.tick()
     player.pts = player.pts.add(tmp.ptgain.mul(gs))
     player.bestPts = player.bestPts.max(player.pts)
-    player.time.amt = player.time.amt.add(tmp.timegain.mul(gs))
+    if (player.time.unl) player.time.amt = player.time.amt.add(tmp.timegain.mul(gs))
     player.total_time += dt
 }
 
