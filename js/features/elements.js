@@ -1,4 +1,4 @@
-const ELEMS = {
+const ELEMENTS = {
     names: [
         null,
         'H','He','Li','Be','B','C','N','O','F','Ne',
@@ -99,9 +99,9 @@ function elemEffect(x,def=1) {
 function setupElementsHTML() {
     let elem_table = new Element("elements_table")
     let table = ""
-    for (let x = 1; x < ELEMS.upgs.length; x++) {
+    for (let x = 1; x < ELEMENTS.upgs.length; x++) {
         table += `
-        <div onclick="ELEMS.click(${x})" id="element_${x}">
+        <div onclick="ELEMENTS.click(${x})" id="element_${x}">
         <div style="font-size: 12px;>${x}</div>
         ${getElementName(x)}
         </div>
@@ -113,8 +113,8 @@ function setupElementsHTML() {
 }
 
 function updateElementsHTML() {
-    for (let x = 1; x < ELEMS.names.length; x++) {
-        let u = ELEMS.upgs[x]
+    for (let x = 1; x < ELEMENTS.names.length; x++) {
+        let u = ELEMENTS.upgs[x]
         let res = ''
         if (u.dark) {
             res = 'Dark Shadow'
@@ -136,10 +136,10 @@ function updateElementsTemp() {
     if (!tmp.elem) tmp.elem = {}
     let tElem = tmp.elem
     tmp.elem.choseElem = player.chosenElem > 0
-    for (let x = tElem.upg_length; x >= 1; x--) if (ELEMS.upgs[x].effect) {
-        tElem.effect[x] = ELEMS.upgs[x].effect()
+    for (let x = tElem.upg_length; x >= 1; x--) if (ELEMENTS.upgs[x].effect) {
+        tElem.effect[x] = ELEMENTS.upgs[x].effect()
     }
 
-    tElem.unl_length = ELEMS.getUnlLength()
+    tElem.unl_length = ELEMENTS.getUnlLength()
 
 }
