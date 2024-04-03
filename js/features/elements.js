@@ -124,7 +124,7 @@ function updateElementsHTML() {
     tmp.el.elem_ch.setDisplay(tmp.elem.choseElem)
     tmp.el.elem_eff.setDisplay(u.effect && u.effDes)
     tmp.el.elem_eff.setHTML(u.effDesc ? `Currently: ${effDesc(u.effect)}`: ``)
-    tmp.el.elem_desc.setHTML(`${ELEMENTS.names[player.elemChosen]}-${player.elemChosen}]</b>${u.desc}`)
+    tmp.el.elem_desc.setHTML(`<b>${ELEMENTS.names[player.elemChosen]}-${player.elemChosen}]</b>${u.desc}`)
     tmp.el.elem_cost.setHTML(
         player.sn.elem.includes(x) ? '' : `Cost: ${format(u.cost)} ${res}`
     )
