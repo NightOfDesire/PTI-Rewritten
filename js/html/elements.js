@@ -331,6 +331,7 @@ function setupHTML() {
 	scaling_table.setHTML(table)
 	//setupSoftcapHTML()
 	setupStatsHTML()
+	setupElementsHTML()
     tmp.el = {}
 	let all = document.getElementsByTagName("*")
 	for (let i=0;i<all.length;i++) {
@@ -373,7 +374,7 @@ function updateRanksRewardHTML() {
 		if (player.ranks_reward == x) {
 			let keys = Object.keys(RANKS.desc[rn])
 			for (let y = 0; y < keys.length; y++) {
-				let unl = player.ranks[rn].gte(keys[y])
+				let unl = player["best"+RANKS.fullNames[x]].gte(keys[y])
 				tmp.el["ranks_reward_"+rn+"_"+y].setDisplay(unl)
 				if (unl) if (tmp.el["ranks_eff_"+rn+"_"+y]) tmp.el["ranks_eff_"+rn+"_"+y].setTxt(RANKS.effDesc[rn][keys[y]](RANKS.effect[rn][keys[y]]()))
 			}
@@ -401,9 +402,9 @@ function updateHTML() {
 	updateRanksHTML()
 	updateStatsHTML()
 	PRESTIGE.updateHTML()
-	if (player.stab[2] == 0) updateRanksRewardHTML()
-	if (player.stab[2] == 1) updateScalingHTML()
-
+	if (player.stab[3] == 0) updateRanksRewardHTML()
+	if (player.stab[3] == 1) updateScalingHTML()
+	if (player.stab[2] == 1) updateElementsHTML()
 	TIME.updateHTML()
 	//updateSoftcapHTML()
 	/**@param hello */

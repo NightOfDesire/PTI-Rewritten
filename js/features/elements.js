@@ -128,6 +128,7 @@ function updateElementsHTML() {
         tmp.el.elem_cost.setHTML(
             player.sn.elem.includes(x) ? '' : `Cost: ${format(u.cost)} ${res}`
         )
+        tmp.el["element_"+x].setDisplay(tmp.elem.unl_length >= x)
     }
 }
 

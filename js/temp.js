@@ -61,4 +61,5 @@ function updateTemp() {
     updateTimeTemp()
     BUILDINGS.temp()
     updateRanksTemp()
+    updateElementsTemp()
 }

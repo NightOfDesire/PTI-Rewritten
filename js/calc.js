@@ -5,18 +5,20 @@ function calc(dt) {
         tmp.pass--
         return
     }
-    for (let x = 0; x < RANKS.names.length; x++) {
-        let rn = RANKS.names[x]
-        if (RANKS.autoUnl[rn]() && player.auto_ranks[rn]) RANKS.reset(rn)
-    }
-    BUILDINGS.tick()
     player.pts = player.pts.add(tmp.ptgain.mul(gs))
     player.bestPts = player.bestPts.max(player.pts)
+    for (let x = 0; x < RANKS.names.length; x++) {
+        let rn = RANKS.names[x]
+        let rnF = RANKS.fullNames[x]
+        if (RANKS.autoUnl[rn]() && player.auto_ranks[rn]) RANKS.reset(rn)
+        player["best"+rnF] = player["best"+rnF].max(player.ranks[rn])
+    }
+    BUILDINGS.tick()
     if (player.time.unl) player.time.amt = player.time.amt.add(tmp.timegain.mul(gs))
     if (tmp.prestige.auto) player.prestige.pts = player.prestige.pts.add(tmp.prestige.gain.mul(gs))
     player.total_time += dt
     player.sn.time += dt
-    
+
     
 }
 
