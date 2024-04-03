@@ -58,7 +58,7 @@ const ELEMENTS = {
     ],
 
     getUnlLength() {
-        let u = 4
+        let u = 1
 
 
         return u
@@ -128,7 +128,7 @@ function updateElementsHTML() {
             player.sn.elem.includes(x) ? '' : `Cost: ${format(u.cost)} ${res}`
         )
     }
-    for (let x = 1; x <= ELEMENTS.upgs.length; x++) {
+    for (let x = 1; x < ELEMENTS.upgs.length; x++) {
         tmp.el["element_"+x].setDisplay(tmp.elem.unl_length >= x)
     }
 }
