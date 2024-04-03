@@ -43,10 +43,9 @@ const RANKS = {
     },
     doReset: {
         rank() {
-            for (let x = 1; x <= 3; x++) BUILDINGS.reset("points_"+x)
+            player.pts = E(0)
             player.prestige.pts = E(0)
-            player.pts = E(0)
-            player.pts = E(0)
+            for (let x = 1; x <= 3; x++) BUILDINGS.reset("points_"+x)
         },
         tier() {
             player.ranks.rank = E(0)
