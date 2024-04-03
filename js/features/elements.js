@@ -5,6 +5,7 @@ const ELEMENTS = {
     la: [null,'*','**','*','**'],
     exp: [0,118,218,362,558,814,1138],
     max_hsize: [19],
+    upg_len: 1,
 
 
 
@@ -72,10 +73,6 @@ const ELEMENTS = {
 
         return u
     },
-    click(x) {
-        player.chosenElem = x
-        if (!player.sn.elem.includes(x)) this.buyUpg(x)
-    }
 }
 
 
@@ -109,14 +106,13 @@ function elemEffect(x,def=1) {
 function setupElementsHTML() {
     let elem_table = new Element("elements_table")
     let table = ""
-    for (let x = 0; x < ELEMENTS.upgs.length; x++) {
-        if (ELEMENTS.upgs[x] == null) continue
+    for (let x = 1; x < ELEMENTS.upgs.length; x++) {
 
         table += `
-        <div onclick="ELEMENTS.buyUpg(${x})" id="element_${x}" onmouseover="player.elemChosen = ${x}" onmouseleave="player.elemChosen = 0" >
+        <button class="elements" onclick="ELEMENTS.buyUpg(${x})" id="Element${x}" onmouseover="player.elemChosen = ${x}" onmouseleave="player.elemChosen = 0" >
         <div style="font-size: 12px;>${x}</div>
         ${getElementName(x)}
-        </div>
+        </button>
         `
     }
 
