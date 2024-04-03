@@ -71,6 +71,7 @@ const ELEMENTS = {
 
 
 
+
 function getElementName(x) {
     if (x <= 118) return ELEMENTS.fullNames[x]
     let log = Math.floor(Math.log10(x))
