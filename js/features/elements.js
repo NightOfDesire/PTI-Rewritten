@@ -135,12 +135,11 @@ function updateElementsHTML() {
 
 function updateElementsTemp() {
     if (!tmp.elem) tmp.elem = {}
+    if (!tmp.elem.effect) tmp.elem.effect = []
     let tElem = tmp.elem
-
     tmp.elem.choseElem = player.chosenElem > 0
-
-
-    for (let x = tElem.unl_length; x >= 1; x--) if (ELEMENTS.upgs[x].effect != undefined) {
+    if (!tElem.upg_length) tElem.upg_length = ELEMENTS.upgs.length-1
+    for (let x = tElem.upg_length; x >= 1; x--) if (ELEMENTS.upgs[x].effect) {
         tElem.effect[x] = ELEMENTS.upgs[x].effect()
     }
 
