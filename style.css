@@ -89,6 +89,15 @@ button {
 	top: -130px;
 }
 
+
+.imperium {
+	background: #008080;
+	background: linear-gradient(to left, #008080 0%, #FFFFFF 25%, #05C1FF 50%, #FFFFFF 75%, #005757 100%);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
 .tree_table_column {
 	width: 100%;
 	display: flex;
