@@ -5,10 +5,6 @@ const ELEMENTS = {
     la: [null,'*','**','*','**'],
     exp: [0,118,218,362,558,814,1138],
     max_hsize: [19],
-    upg_len: 1,
-
-
-
     names: [
         null,
         'H','He','Li','Be','B','C','N','O','F','Ne',
@@ -46,15 +42,41 @@ const ELEMENTS = {
     buyUpg(x) {
 
         if (this.canBuy(x)) {
+            let u = this.upgs[x]
             player.sn.elem.push(x)
+            
             player.sn.ions = player.sn.ions.sub(u.cost)
         }
     },
     upgs: [
         null,
         {
-            cost: E(100),
+            cost: E(1),
             desc: "Prestige formula is better."
+        },
+        {
+            cost: E(7),
+            desc: "Points are boosted by supernova time.",
+            effect(x) {
+                let eff = E(player.sn.time).div(10).root(3).add(1)
+
+                return eff
+            },
+            effDesc: x => formatMult(x)
+        },
+        {
+            cost: E(100),
+            desc: "Unlock the third rank type."
+        },
+        {
+            cost: E(7.5e3),
+            desc: "Gain more Prestige Points based off of unspent Ions.",
+            effect(x) {
+                let eff = player.sn.ions.div(2).root(3).add(1)
+
+                return eff
+            },
+            effDesc: x => formatMult(x)
         }
         /*{
             cost: E(1e9),
@@ -68,7 +90,7 @@ const ELEMENTS = {
     ],
 
     getUnlLength() {
-        let u = 1
+        let u = 4
 
 
         return u
@@ -179,14 +201,14 @@ function updateElementsHTML() {
     tmp.el.elem_ch_div.setDisplay(ch)
     if (ch) {
         let u = ELEMENTS.upgs[player.chosenElem]
-        let res = [u.dark?'Dark Shadow':'Ions']
+        let res = [u.dark?'Dark Shadow':(u.cost.gte(1)?'Ions':'Ion')]
         tmp.el.elem_eff.setDisplay(u.effect && u.effDesc)
         tmp.el.elem_eff.setHTML(u.effDesc ? `Currently: ${effDesc(u.effect)}`: ``)
         tmp.el.elem_desc.setHTML(`<b>[${ELEMENTS.names[player.chosenElem]}-${player.chosenElem}]</b> ${u.desc}`)
         tmp.el.elem_cost.setHTML(hasElement(player.chosenElem) ? '' : `Cost: ${format(u.cost)} ${res}`)
     }
 
-    
+
     let unllen = tElem.unl_length
     tmp.el.element_la_1.setVisible(unllen>56)
     tmp.el.element_la_3.setVisible(unllen>56)

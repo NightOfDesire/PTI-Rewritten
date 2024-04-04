@@ -1,6 +1,6 @@
 const RANKS = {
-    names: ['rank','tier'],
-    fullNames: ['Rank','Tier'],
+    names: ['rank','tier','asc'],
+    fullNames: ['Rank','Tier','Asc'],
     reset(type) {
         if (tmp.ranks[type].can) {
             player.ranks[type] = player.ranks[type].add(1)
@@ -39,7 +39,8 @@ const RANKS = {
     },
 
     unl: {
-       tier() { return true}
+       tier() { return true},
+       asc() { return hasElement(3)}
     },
     doReset: {
         rank() {
@@ -70,7 +71,8 @@ const RANKS = {
         tier: {
             '1': "unlock auto rank and The Time",
             '2': "Unlock passive prestige, you no longer need to manually buy point upgrades!"
-        }
+        },
+        asc: {}
     },
     effect: {
         rank: {
@@ -95,6 +97,9 @@ const RANKS = {
         },
         tier: {
 
+        },
+        asc: {
+
         }
     },
     effDesc: {
@@ -104,6 +109,9 @@ const RANKS = {
             5(x) { return formatAdd(x) }
         },
         tier: {
+
+        },
+        asc: {
 
         }
     }
@@ -172,6 +180,9 @@ function updateRanksTemp() {
         tmp.ranks.tier.req = player.ranks.tier.scaleEvery('tier',false).add(2).pow(2).floor()
         tmp.ranks.tier.bulk = E(0)
         tmp.ranks.tier.bulk = player.ranks.rank.max(0).root(2).sub(2).scaleEvery('tier',true).floor();
+        tmp.ranks.asc.req = player.ranks.asc.scaleEvery('asc',false).add(3).pow(1.8).floor()
+        tmp.ranks.asc.bulk = E(0)
+        tmp.ranks.asc.bulk = player.ranks.tier.max(0).root(1.8).sub(3).scaleEvery('asc',true).floor()
     
 }
 

@@ -8,6 +8,13 @@ const PRESTIGE = {
     },
     calculateGain() {
         let gain = player.pts.div(675).root(1.775)
+        if (hasElement(1)) gain = player.pts.div(50).root(1.7).pow(1.125)
+
+
+        if (hasElement(4)) gain = gain.mul(elemEffect(4))
+
+
+        gain = gain.softcap(1e18, 0.75, 0)
 
         return gain.floor()
     },

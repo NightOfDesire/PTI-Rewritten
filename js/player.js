@@ -7,11 +7,13 @@ function getBaseData() {
         },
         ranks: {
             rank: E(0),
-            tier: E(0)
+            tier: E(0),
+            asc: E(0)
         },
         auto_ranks: {
             ranks: false,
-            tier: false
+            tier: false,
+            asc: false
         },
         time: {
             amt: E(0),
@@ -49,6 +51,7 @@ function getBaseData() {
         bestPts: E(0),
         bestRank: E(0),
         bestTier: E(0),
+        bestAsc: E(0),
         tab: 0,
         stab: [],
         confirms: {
