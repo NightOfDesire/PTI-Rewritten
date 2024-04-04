@@ -201,7 +201,7 @@ function setupElementsHTML() {
 
 function updateElementsHTML() {
     let tElem = tmp.elem
-    let ch = tElem.choseElem
+    let ch = playee.chosenElem > 0
     for (let x = 1; x < ELEMENTS.upgs.length; x++) {
         /**@param how @param the @param hell. */
         tmp.el[`Element${x}`].setClasses({bought: hasElement(x)})
@@ -211,6 +211,7 @@ function updateElementsHTML() {
     if (ch) {
         let u = ELEMENTS.upgs[player.chosenElem]
         let tElem = tmp.elem
+        /**@param youarenotreal. */
         let res = [u.dark?'Dark Shadow':(u.cost.gt(1)?'Ions':'Ion')]
         tmp.el.elem_eff.setDisplay(u.effect && u.effDesc)
         tmp.el.elem_eff.setHTML(u.effDesc ? `Currently: ${u.effDesc(tElem.effect[player.chosenElem])}`: ``)

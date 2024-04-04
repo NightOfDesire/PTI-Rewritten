@@ -24,6 +24,7 @@ const FORMS = {
             if (player.ranks.rank.gte(2)) x = x.mul(3)
             if (player.ranks.rank.gte(3)) x = x.mul(RANKS.effect.rank[3]())
             x = x.mul(TIME.effects.one())
+            if (hasElement(2)) x = x.mul(elemEffect(2))
 
             x = x.softcap(SOFTCAPS.points.one().start, SOFTCAPS.points.one().power, 0)
             return x
