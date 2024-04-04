@@ -54,6 +54,7 @@ function updateTemp() {
     tmp.offlineActive = player.offline.time > 1
     tmp.offlineMult = tmp.offlineActive?player.offline.time+1:1
     tmp.gs = E(1).mul(player.devoptions.speed)
+    updateElementsTemp()
     updatePointTemp()
     updatePrestigeTemp()
     /**@param helllo @param {:3} meow NYAAA */
@@ -61,5 +62,4 @@ function updateTemp() {
     updateTimeTemp()
     BUILDINGS.temp()
     updateRanksTemp()
-    updateElementsTemp()
 }
