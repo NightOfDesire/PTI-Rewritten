@@ -8,11 +8,14 @@ const SOFTCAPS = {
     }
 }
 
-const SOFTCAP_TEXT = {
+
+
+
+/*const SOFTCAP_TEXT = {
     points: [
         {id: "one", text: `After <b>${format(SOFTCAPS.points[this[0].id]().start)}</b>, point gain is softcapped!`}
     ],
-}
+}*/
 
 /*function setupSoftcapHTML() {
     let scs = ""

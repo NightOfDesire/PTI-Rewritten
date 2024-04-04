@@ -148,6 +148,7 @@ function getScalingName(name, x=0, y=0) {
 			return capitalFirst(Object.keys(SCALE_START)[n]) + (n%4==3?"-":" ");
 	}
 	return current;
+	
 }
 
 function getScalingStart(type, name) {

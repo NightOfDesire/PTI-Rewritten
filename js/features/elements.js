@@ -148,7 +148,8 @@ for (let x = 1; x <= MAX_ELEM_TIERS; x++) {
         for (let n = 1; n <= 118; n++) {
             if (!ELEMENTS.upgs[n]) ELEMENTS.upgs.push({
                 desc: `Placeholder.`,
-                cost: EIND
+                
+                cost: EINF
             })
         }
     }

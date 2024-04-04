@@ -7,8 +7,8 @@ const TIME = {
         `)
     },
     effects: {
-        one(time=player.time.amt){
-            let eff = time.div(15).root(2).add(1)
+        one(){
+            let eff = player.time.amt.div(15).root(2).add(1)
 
             return eff
         }
