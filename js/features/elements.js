@@ -154,9 +154,9 @@ for (let x = 1; x <= MAX_ELEM_TIERS; x++) {
 
 function buyElement(x,layer=1) {
     if (layer==1) {
-        if (ELEMENTS.canBuy(x)) {
-            if (!player.sn.elem.includes(x)) {player.sn.elem.push(x)}
-        }
+        ELEMENTS.buyUpg(x)
+    } else if (layer==2) {
+
     }
 }
 
@@ -204,7 +204,7 @@ function updateElementsHTML() {
     let ch = player.chosenElem > 0
     for (let x = 1; x < ELEMENTS.upgs.length; x++) {
         /**@param how @param the @param hell. */
-        tmp.el[`Element${x}`].setClasses({bought: hasElement(x)})
+        tmp.el[`Element${x}`].setClasses({elements: true, bought: hasElement(x)})
         tmp.el[`Element${x}`].setDisplay(tElem.unl_length >= x)
     }
     tmp.el.elem_ch_div.setDisplay(ch)

@@ -71,9 +71,11 @@ const RANKS = {
         },
         tier: {
             '1': "unlock auto rank and The Time",
-            '2': "Unlock passive prestige, you no longer need to manually buy point upgrades!"
+            '2': "Unlock passive prestige, you no longer need to manually buy point upgrades!",
         },
-        asc: {}
+        asc: {
+            
+        }
     },
     effect: {
         rank: {
