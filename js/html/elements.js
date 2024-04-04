@@ -330,6 +330,7 @@ function setupHTML() {
 	}
 	scaling_table.setHTML(table)
 	let main_upgs_table = new Element("main_upgs_table")
+	table = ""
 	for (let x = 1; x <= UPGS.main.cols; x++) {
 		let id = UPGS.main.ids[x]
 		table += `<div id="main_upg_${x}_div" style="width: 230px; margin: 0px 10px;"><b>${UPGS.main[x].title}</b><br><br><div style="font-size: 13px; min-height: 50px" id="main_upg_${x}_res"></div><br><div class="table_center" style="justify-content: start;">`
