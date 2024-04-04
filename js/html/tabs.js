@@ -23,14 +23,18 @@ const TABS = {
             {id:"The Time", unl() {return player.time.unl}}
         ],
         2: [
+            {id:"Abyss", style:"grey"},
+            {id:"Upgrades",style:"cyan"}
+        ],
+        3: [
             {id: "Main"},
             {id: "Elements", style:"light_green"}
         ],
-        3: [
+        4: [
             {id:"Rank Rewards"},
             {id:"Scaling", unl() {return tmp.scaling ? tmp.scaling.super.length>0 : false }}
         ],
-        4: [
+        5: [
             {id:"Options"}
         ]
     }

@@ -55,6 +55,7 @@ function updateTemp() {
     tmp.offlineMult = tmp.offlineActive?player.offline.time+1:1
     tmp.gs = E(1).mul(player.devoptions.speed)
     updateElementsTemp()
+    UPGS.main.temp()
     updatePointTemp()
     updatePrestigeTemp()
     /**@param helllo @param {:3} meow NYAAA */

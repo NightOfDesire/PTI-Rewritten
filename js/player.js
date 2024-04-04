@@ -57,12 +57,19 @@ function getBaseData() {
         confirms: {
             prestige: true
         },
-        chosenElem: 0
+        chosenElem: 0,
+        auto_mainUpg: {},
+        mainUpg: {},
+        main_upg_msg: [0,0],
     }
 
     for (let x in BUILDING_DATA) s.build[x] = {
         amt: E(0),
         auto: false
+    }
+    for (let x = 1; x <= UPGS.main.cols; x++) {
+        s.auto_mainUpg[UPGS.main.ids[x]] = false
+        s.mainUpg[UPGS.main.ids[x]] = []
     }
     
     return s
