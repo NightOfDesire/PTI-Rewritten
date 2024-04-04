@@ -203,6 +203,7 @@ function updateElementsHTML() {
     let tElem = tmp.elem
     let ch = tElem.choseElem
     for (let x = 1; x < ELEMENTS.upgs.length; x++) {
+        /**@param how @param the @param hell. */
         tmp.el[`Element${x}`].setClasses({bought: hasElement(x)})
         tmp.el[`Element${x}`].setDisplay(tElem.unl_length >= x)
     }
