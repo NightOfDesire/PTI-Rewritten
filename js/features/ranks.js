@@ -181,12 +181,8 @@ function updateRanksTemp() {
         tmp.ranks.rank.bulk = E(0)
         if (player.pts.gte(10)) tmp.ranks.rank.bulk = player.pts.div(10).max(1).log10().root(1.15).mul(fp).root(rooted_fp).scaleEvery('rank',true,[1,1,1,1,rt_fp2,1,ifp]).mul(ffp2).add(1).floor();
         //if (player.pts.gte(10)) tmp.ranks.rank.bulk = player.pts.div(10).max(1).log(10).root(1.15).mul(fp).root(rooted_fp).scaleEvery('rank',true).floor();
-        tmp.ranks.tier.req = player.ranks.tier.scaleEvery('tier',false).add(2).pow(2).floor()
-        tmp.ranks.tier.bulk = E(0)
-        tmp.ranks.tier.bulk = player.ranks.rank.max(0).root(2).sub(2).scaleEvery('tier',true).floor();
-        //tmp.ranks.asc.req = player.ranks.asc.scaleEvery('asc',false).add(3).pow(1.8).floor()
-        tmp.ranks.asc.bulk = E(0)
-        //tmp.ranks.asc.bulk = player.ranks.tier.max(0).root(1.8).sub(3).scaleEvery('asc',true).floor()
+        tmp.ranks.tier.req = player.ranks.tier.div(ifp).div(ffp2).scaleEvery('tier',false,[1,1,1,rt_fp2]).div(fp).add(2).pow(2).floor()
+        tmp.ranks.tier.bulk = player.ranks.rank.max(0).root(2).sub(2).mul(fp).scaleEvery('tier',true,[1,1,1,rt_fp2]).mul(ffp2).mul(ifp).add(1).floor();
         let asc_fp2 = E(1)
         let tps = 0
         let pow = 2
