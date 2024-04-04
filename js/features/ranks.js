@@ -189,6 +189,7 @@ function updateRanksTemp() {
         //tmp.ranks.asc.bulk = player.ranks.tier.max(0).root(1.8).sub(3).scaleEvery('asc',true).floor()
         let asc_fp2 = E(1)
         let tps = 0
+        let pow = 2
         tmp.ranks.asc.req = player.ranks.asc.div(ifp).div(ffp2).scaleEvery('asc',false,[1,1,1,asc_fp2]).div(fp).pow(pow).mul(3).add(10-tps).floor()
         tmp.ranks.asc.bulk = player.ranks.tier.sub(10-tps).div(3).max(0).root(pow).mul(fp).scaleEvery('asc',true,[1,1,1,asc_fp2]).mul(ffp2).mul(ifp).add(1).floor();
     
