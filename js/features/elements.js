@@ -91,6 +91,8 @@ const ELEMENTS = {
 
     getUnlLength() {
         let u = 4
+        let snt = player.sn.tier
+        if (snt.gte(1)) u += 4
 
 
         return u
@@ -140,6 +142,15 @@ for (let x = 1; x <= MAX_ELEM_TIERS; x++) {
         }
 
         ELEMENTS.map.push(m)
+    }
+
+    if (x == 1) {
+        for (let n = 1; n <= 118; n++) {
+            if (!ELEMENTS.upgs[n]) ELEMENTS.upgs.push({
+                desc: `Placeholder.`,
+                cost: EIND
+            })
+        }
     }
 
     // Muonic Elements

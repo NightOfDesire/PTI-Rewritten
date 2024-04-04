@@ -25,7 +25,8 @@ function getBaseData() {
             post_10: false,
             ions: E(0),
             elem: [],
-            time: 0
+            time: 0,
+            tier: E(0),
         },
         ranks_reward: 0,
         options: {
