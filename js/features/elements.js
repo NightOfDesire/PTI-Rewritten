@@ -210,11 +210,12 @@ function updateElementsHTML() {
     tmp.el.elem_ch_div.setDisplay(ch)
     if (ch) {
         let u = ELEMENTS.upgs[player.chosenElem]
-        let res = [u.dark?'Dark Shadow':(u.cost.gte(1)?'Ions':'Ion')]
+        let tElem = tmp.elem
+        let res = [u.dark?'Dark Shadow':(u.cost.gt(1)?'Ions':'Ion')]
         tmp.el.elem_eff.setDisplay(u.effect && u.effDesc)
-        tmp.el.elem_eff.setHTML(u.effDesc ? `Currently: ${u.effDesc(u.effect)}`: ``)
+        tmp.el.elem_eff.setHTML(u.effDesc ? `Currently: ${u.effDesc(tElem.effect[player.chosenElem])}`: ``)
         tmp.el.elem_desc.setHTML(`<b>[${ELEMENTS.names[player.chosenElem]}-${player.chosenElem}]</b> ${u.desc}`)
-        tmp.el.elem_cost.setHTML(hasElement(player.chosenElem) ? '' : `Cost: ${format(u.cost)} ${res}`)
+        tmp.el.elem_cost.setHTML(hasElement(player.chosenElem) ? '' : `Cost: ${format(u.cost, 0)} ${res}`)
     }
 
 
