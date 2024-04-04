@@ -201,7 +201,7 @@ function setupElementsHTML() {
 
 function updateElementsHTML() {
     let tElem = tmp.elem
-    let ch = playee.chosenElem > 0
+    let ch = player.chosenElem > 0
     for (let x = 1; x < ELEMENTS.upgs.length; x++) {
         /**@param how @param the @param hell. */
         tmp.el[`Element${x}`].setClasses({bought: hasElement(x)})
