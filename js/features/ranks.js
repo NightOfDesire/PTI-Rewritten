@@ -51,6 +51,10 @@ const RANKS = {
         tier() {
             player.ranks.rank = E(0)
             this.rank()
+        },
+        asc() {
+            player.ranks.tier = E(0)
+            this.tier()
         }
     },
 
