@@ -185,9 +185,8 @@ function updateElementsHTML() {
         tmp.el.elem_desc.setHTML(`<b>[${ELEMENTS.names[player.chosenElem]}-${player.chosenElem}]</b> ${u.desc}`)
         tmp.el.elem_cost.setHTML(hasElement(player.chosenElem) ? '' : `Cost: ${format(u.cost)} ${res}`)
     }
-    /*for (let x = 1; x <= ELEMENTS.getUnlLength(); x++) {
-        tmp.el["element_"+x].setDisplay(ELEMENTS.getUnlLength() >= x)
-    }*/
+
+    
     let unllen = tElem.unl_length
     tmp.el.element_la_1.setVisible(unllen>56)
     tmp.el.element_la_3.setVisible(unllen>56)
