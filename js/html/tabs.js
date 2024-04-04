@@ -9,6 +9,7 @@ const TABS = {
     1: [
         {id:"Main"},
         {id:"Time", unl() { return player.time.unl}},
+        {id:"The Darkness"},
         {id:"Supernova", style:"supernova", unl() { return player.sn.unl}},
         {id:"Stats"},
         {id:"Settings"}
