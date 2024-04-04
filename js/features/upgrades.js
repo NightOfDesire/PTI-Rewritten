@@ -26,6 +26,7 @@ const UPGS = {
                 }
             },
             auto_unl() { return false },
+            len: 1,
           
             1: {
                 unl() { return true },
