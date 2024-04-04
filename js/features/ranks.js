@@ -57,7 +57,8 @@ const RANKS = {
     autoSwitch(rn) { player.auto_ranks[rn] = !player.auto_ranks[rn] },
     autoUnl: {
         rank() { return player.ranks.tier.gte(1) },
-        tier() { return false}
+        tier() { return false },
+        asc() { return false }
        
     },
     desc: {
