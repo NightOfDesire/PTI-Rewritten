@@ -74,7 +74,7 @@ const RANKS = {
             '2': "Unlock passive prestige, you no longer need to manually buy point upgrades!",
         },
         asc: {
-            
+
         }
     },
     effect: {
@@ -131,6 +131,7 @@ const RTNS2 = [
     ['','un','du','tria','tetra','penta','hexa','hepta','octa','nona'],
     ['','un','di','tri','tetra','penta','hexa','hepta','octa','nona'], // h
 ]
+
 
 function getRankTierName(i) {
     if (Decimal.gte(i,999)) return '['+format(i)+']'
