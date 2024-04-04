@@ -75,7 +75,7 @@ const ELEMENTS = {
     },
 }
 
-
+const MAX_ELEM_TIERS = 1
 
 
 function getElementName(x) {
@@ -93,7 +93,42 @@ function getElementName(x) {
     return r
 }
 
+for (let x = 1; x <= MAX_ELEM_TIERS; x++) {
+    let [ts,te] = [ELEMENTS.exp[x-1],ELEMENTS.exp[x]]
 
+    if (x > 1) {
+        ELEMENTS.max_hsize[x-1] = 11 + 4*x
+
+        let m = 'xx1xxxxxxxxxxxxxxxxvxx2xxxxxxxxxxxxxxxxv_v'
+
+        for (let y = x; y >= 1; y--) {
+            let k = 10 + 4 * y
+            m += "1"+'x'.repeat(k)+"v"
+            m += "2"+'x'.repeat(k)
+            if (y > 1) m += "v_v"
+        }
+
+        for (let y = ts+1; y <= te; y++) {
+            ELEMENTS.names.push(getElementId(y))
+            ELEMENTS.fullNames.push(getElementName(y))
+            if (!ELEMENTS.upgs[y]) ELEMENTS.upgs.push({
+                desc: `Placeholder.`,
+                cost: EINF,
+            })
+        }
+
+        ELEMENTS.map.push(m)
+    }
+
+    // Muonic Elements
+
+    /*for (let y = ts+1; y <= te; y++) {
+        if (!MUONIC_ELEM.upgs[y]) MUONIC_ELEM.upgs.push({
+            desc: `Placeholder.`,
+            cost: EINF,
+        })
+    }*/
+}
 
 function hasElement(x) {
     return player.sn.elem.includes(x)
@@ -106,10 +141,29 @@ function elemEffect(x,def=1) {
 function setupElementsHTML() {
     let elem_table = new Element("elements_table")
     let table = ""
-    for (let x = 1; x < ELEMENTS.upgs.length; x++) {
-
-        table += `<button class="elements" onclick="ELEMENTS.buyUpg(${x})" id="Element${x}" onmouseover="player.chosenElem = ${x}" onmouseleave="player.chosenElem = 0"><div style="font-size: 12px;>${x}</div>${ELEMENTS.names[x]}</button>`
+    let num = 0
+    for (let k = 1; k <= MAX_ELEM_TIERS; k++) {
+        let hs = `style="width: ${50*ELEMENTS.max_hsize[k-1]}px; margin: auto"`
+        table += `<div id='elemTier${k}_div'><div ${hs}><div class='table_center'>`
+        for (let i = 0; i < ELEMENTS.map[k-1].length; i++) {
+            let m = ELEMENTS.map[k-1][i]
+            if (m=='v') table += `</div><div class="table_center">`
+            else if (m=='_' || !isNaN(Number(m))) table += `<div ${ELEMENTS.la[m]!==undefined&&k==1?`id='element_la_${m}'`:""} style="width: 50px; height: 50px">${ELEMENTS.la[m]!==undefined?"<br>"+ELEMENTS.la[m]:""}</div>`
+            else if (m=='x') {
+                num++
+                table += ELEMENTS.upgs[num]===undefined?`<div style="width: 50px; height: 50px"></div>`
+                :`<button class="elements ${num == 118 ? 'final' : ''}" id="Element${num}" onclick="buyElement(${num})" onmouseover="player.chosenElem = ${num}" onmouseleave="player.chosenElem = 0">
+                <div style="font-size: 12px;">${num}</div>${ELEMENTS.names[num]}
+                </button>`
+                if (num==56 || num==88) num += 14
+                else if (num==70) num += 18
+                else if (num==118) num = 56
+                else if (num==102) num = 118
+            }
+        }
     }
+    table += "</div></div></div>"
+
 
     elem_table.setHTML(table)
 
@@ -118,7 +172,7 @@ function setupElementsHTML() {
 function updateElementsHTML() {
     let ch = player.chosenElem > 0
     for (let x = 1; x < ELEMENTS.upgs.length; x++) {
-        tmp.el[`Element${x}`].setClasses({bought: player.sn.elem.includes(x)})
+        tmp.el[`Element${x}`].setClasses({bought: hasElement(x)})
         tmp.el[`Element${x}`].setDisplay(tmp.elem.unl_length >= x)
     }
     tmp.el.elem_ch_div.setDisplay(tmp.elem.choseElem)
@@ -133,8 +187,12 @@ function updateElementsHTML() {
     /*for (let x = 1; x <= ELEMENTS.getUnlLength(); x++) {
         tmp.el["element_"+x].setDisplay(ELEMENTS.getUnlLength() >= x)
     }*/
+    let unllen = tElem.unl_length
+    tmp.el.element_la_1.setVisible(unllen>56)
+    tmp.el.element_la_3.setVisible(unllen>56)
+    tmp.el.element_la_2.setVisible(unllen>88)
+    tmp.el.element_la_4.setVisible(unllen>88)
 }
-
 function updateElementsTemp() {
     if (!tmp.elem) tmp.elem = {}
     if (!tmp.elem.effect) tmp.elem.effect = []
