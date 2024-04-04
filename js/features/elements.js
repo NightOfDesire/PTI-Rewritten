@@ -57,7 +57,7 @@ const ELEMENTS = {
         {
             cost: E(7),
             desc: "Points are boosted by supernova time.",
-            effect(x) {
+            effect() {
                 let eff = E(player.sn.time).div(10).root(3).add(1)
 
                 return eff
@@ -71,7 +71,7 @@ const ELEMENTS = {
         {
             cost: E(7.5e3),
             desc: "Gain more Prestige Points based off of unspent Ions.",
-            effect(x) {
+            effect() {
                 let eff = player.sn.ions.div(2).root(3).add(1)
 
                 return eff
