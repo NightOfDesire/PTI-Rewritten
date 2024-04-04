@@ -152,6 +152,14 @@ for (let x = 1; x <= MAX_ELEM_TIERS; x++) {
     }*/
 }
 
+function buyElement(x,layer=1) {
+    if (layer==1) {
+        if (ELEMENTS.canBuy(x)) {
+            if (!player.sn.elem.includes(x)) {player.sn.elem.push(x)}
+        }
+    }
+}
+
 function hasElement(x) {
     return player.sn.elem.includes(x)
 }
@@ -174,7 +182,7 @@ function setupElementsHTML() {
             else if (m=='x') {
                 num++
                 table += ELEMENTS.upgs[num]===undefined?`<div style="width: 50px; height: 50px"></div>`
-                :`<button class="elements ${num == 118 ? 'final' : ''}" id="Element${num}" onclick="buyElement(${num})" onmouseover="player.chosenElem = ${num}" onmouseleave="player.chosenElem = 0">
+                :`<button class="elements ${num == 118 ? 'final' : ''}" id="Element${num}" style="width: 50px; height: 50px;" onclick="buyElement(${num})" onmouseover="player.chosenElem = ${num}" onmouseleave="player.chosenElem = 0">
                 <div style="font-size: 12px;">${num}</div>${ELEMENTS.names[num]}
                 </button>`
                 if (num==56 || num==88) num += 14
@@ -203,7 +211,7 @@ function updateElementsHTML() {
         let u = ELEMENTS.upgs[player.chosenElem]
         let res = [u.dark?'Dark Shadow':(u.cost.gte(1)?'Ions':'Ion')]
         tmp.el.elem_eff.setDisplay(u.effect && u.effDesc)
-        tmp.el.elem_eff.setHTML(u.effDesc ? `Currently: ${effDesc(u.effect)}`: ``)
+        tmp.el.elem_eff.setHTML(u.effDesc ? `Currently: ${u.effDesc(u.effect)}`: ``)
         tmp.el.elem_desc.setHTML(`<b>[${ELEMENTS.names[player.chosenElem]}-${player.chosenElem}]</b> ${u.desc}`)
         tmp.el.elem_cost.setHTML(hasElement(player.chosenElem) ? '' : `Cost: ${format(u.cost)} ${res}`)
     }
