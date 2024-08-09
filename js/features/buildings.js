@@ -120,7 +120,7 @@ const BUILDING_DATA = {
         get res() { return player.pts },
         set res(v) { player.pts = v },
         get allowPurchase() { return true },
-        cost(x=this.level) { return getPointUpgradeCost(4)},
+        cost(x=this.level) { return getPointUpgradeCost(4, x)},
         get bulk() { return getPointUpgradeBulk(4) },
         get_cost: x => format(x) + " Points",
         effect(x) {
