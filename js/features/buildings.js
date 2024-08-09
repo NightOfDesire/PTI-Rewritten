@@ -142,7 +142,7 @@ const BUILDING_DATA = {
 }
 
 const BUILDINGS_ORDER = [
-'points_3','points_2','points_1'
+'points_4','points_3','points_2','points_1'
 ]
 
 Object.keys(BUILDING_DATA).forEach(i => {

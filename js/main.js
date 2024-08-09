@@ -23,6 +23,7 @@ const FORMS = {
             x = x.mul(FORMS.pres.PPtEffect())
             if (player.ranks.rank.gte(2)) x = x.mul(3)
             if (player.ranks.rank.gte(3)) x = x.mul(RANKS.effect.rank[3]())
+            if (player.ranks.rank.gte(10)) x = x.mul(RANKS.effect.rank[10]())
             x = x.mul(TIME.effects.one())
             if (hasElement(2)) x = x.mul(elemEffect(2))
 
