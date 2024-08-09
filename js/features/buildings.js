@@ -293,6 +293,8 @@ const BUILDINGS = {
 // Config (custom cost, etc.)
 
 
+
+
 function getPointUpgradeCost(i, lvl) {
     let cost = EINF, fp = E(1), upg = BUILDING_DATA["points_"+i]
 
