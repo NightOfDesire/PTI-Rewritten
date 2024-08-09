@@ -111,9 +111,9 @@ const BUILDING_DATA = {
         name: "Dimensionalizer",
         icon: "dimensionalizer",
         scale: "Dimensionalizer",
-        get start() { return E("ee12")},
-        get start() { return E("ee0.5177")},
-        get isUnlocked() { return false },
+        get start() { return E("1e42")},
+        get inc() { return E("1e15")},
+        get isUnlocked() { return player.ranks.tier.gte(4) },
         get autoUnlocked() { return false },
         get noSpend() { return false },
         get beMultiplicative() { return false },
@@ -135,7 +135,7 @@ const BUILDING_DATA = {
 
             return x
         },
-        get_power: x => "+"+formatPow(x.power) + " Obeisk Power",
+        get_power: x => "+"+formatPow(x.power) + " Obelisk Power",
         get_effect: x => formatPow(x.effect) + " Obelisk Power"
     }
     
