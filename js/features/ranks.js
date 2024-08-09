@@ -71,7 +71,8 @@ const RANKS = {
             '2': "unlock second point upgrade, gain x3 points",
             '3': "unlock third point upgrade, points are boosted by ((x+1)^2)^0.8, where x is your rank.",
             '4': "first point upgrade's base is increased by its amount (x/20)",
-            '5': "second point upgrade's base is increased by its amount (x/33)"
+            '5': "second point upgrade's base is increased by its amount (x/33)",
+            '10': "Gain even more points based on time! (x/10)"
         },
         tier: {
             '1': "unlock auto rank and The Time",
@@ -100,6 +101,10 @@ const RANKS = {
 
             return ret
            },
+           '10'() {
+            let ret = player.time.amt.div(10)
+            return ret
+           }
       
         },
         tier: {
@@ -113,7 +118,8 @@ const RANKS = {
         rank: {
             3(x) { return formatMult(x) },
             4(x) { return formatAdd(x) },
-            5(x) { return formatAdd(x) }
+            5(x) { return formatAdd(x) },
+            10(x) { return formatMult(x) }
         },
         tier: {
 
