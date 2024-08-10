@@ -94,7 +94,8 @@ const BUILDING_DATA = {
         get bulk() {return getPointUpgradeBulk(3, this.res)},
         get_cost: x => format(x) + " Points",
         effect(x) {
-            let pow = E(1)
+            let pow = E(1.1)
+            pow = pow.pow(BUILDINGS.eff('points_4'))
             let eff = pow.mul(x).add(1)
             eff = eff.softcap(10, 0.7, 0)
             return {power: pow, effect: eff}
