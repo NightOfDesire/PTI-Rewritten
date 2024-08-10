@@ -413,11 +413,11 @@ function formatTime(x, acc=2) {
     return eclipsals(ex).format(acc) + " Eclipsals"
   }*/
   
-  if (years(ex).gte(1e9)) {
-    return years(ex).div(1e9).format(acc) + " Eons"
+  if (ex.gte(3.1536e16)) {
+    return ex.div(3.1536e16).format(acc) + " Eons"
   }
-  else if (years(ex).gte(1e6)) {
-    return years(ex).div(1e6).format(acc) + " Stellar Years"
+  else if (ex.gte(3.1536e13)) {
+    return ex.div(3.1536e13).format(acc) + " Stellar Years"
   }
   else if (ex.gte(3.1536e10)) {
     return ex.div(3.1536e10).format(acc) + " Millennia"
