@@ -5,6 +5,7 @@ function getFightingSave() {
         souls: E(0),
         fight_mult: E(0),
         hp: FIGHTING.max_health,
+        dmg: FIGHTING.offense
         
 
 
