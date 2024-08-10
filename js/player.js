@@ -57,9 +57,9 @@ function getBaseData() {
         mainUpg: {},
         main_upg_msg: [0,0],
     }
-    player.void = getVoidSave()
-    player.sn = getSupernovaSave()
-    player.fighting = getFightingSave()
+    s.void = getVoidSave()
+    s.sn = getSupernovaSave()
+    s.fighting = getFightingSave()
 
     for (let x in BUILDING_DATA) s.build[x] = {
         amt: E(0),
