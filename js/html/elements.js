@@ -438,6 +438,7 @@ function updateHTML() {
 	BUILDINGS.update('points_1')
 	BUILDINGS.update('points_2')
 	BUILDINGS.update('points_3')
+	BUILDINGS.update('points_4')
 	updateRanksHTML()
 	updateStatsHTML()
 	PRESTIGE.updateHTML()
