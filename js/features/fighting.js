@@ -16,11 +16,11 @@ function getFightingSave() {
 
 const FIGHTING = {
     get offense() {
-        let x = player.fighting.fight_mult
+        let x = E(1)
 
+        return x
     },
     get max_health() {
-        let stage = player.fighting.stage
         let x = E(100)
 
         return x
@@ -62,7 +62,7 @@ function calcFighting(dt) {
 
     enemy_health = enemy_health.min(tmf.enemy_max_health)
     
-    let at = E(0)
+    let at = FIGHTING.offense
     if (player.fighting.hp.gte(FIGHTING.enemy.offense)) at = attack_time.add(tmf.attack_speed*dt)
     attack_time = at
     if (at.gte(1)) {
