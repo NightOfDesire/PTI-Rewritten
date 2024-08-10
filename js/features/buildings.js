@@ -125,7 +125,7 @@ const BUILDING_DATA = {
         get bulk() { return getPointUpgradeBulk(4) },
         get_cost: x => format(x) + " Points",
         effect(x) {
-            let pow = E(0.25)
+            let pow = E(0.75)
 
             let eff = pow.mul(x).add(1)
 
