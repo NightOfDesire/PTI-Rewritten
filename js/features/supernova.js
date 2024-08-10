@@ -34,8 +34,6 @@ function getSupernovaSave() {
 
     }
 
-    s.fighting = getFightingSave()
-
     return s
 }
 
