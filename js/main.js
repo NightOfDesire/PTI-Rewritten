@@ -6,6 +6,7 @@ function loop() {
     diff = Date.now()-date;
     updateHTML()
     updateTemp()
+    updateUnlocks()
     calc(diff/1000);
     date = Date.now();
     player.offline.current = date
