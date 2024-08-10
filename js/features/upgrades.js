@@ -5,6 +5,8 @@ const UPGS = {
             for (let x = 1; x <= this.cols; x++) {
                 for (let y = 1; y <= this[x].lens; y++) {
                     let u = this[x][y]
+                    if (!tmp.upgs) tmp.upgs = {}
+                    if (!tmp.upgs.main) tmp.upgs.main = []
                     if (u.effDesc) tmp.upgs.main[x][y] = { effect: u.effect(), effDesc: u.effDesc() }
                 }
             }
