@@ -19,6 +19,9 @@ function getBaseData() {
             amt: E(0),
             unl: false
         },
+        void: {},
+        sn: {},
+        fighting: {},
         ranks_reward: 0,
         options: {
             font: 'Verdana',
@@ -54,7 +57,7 @@ function getBaseData() {
         mainUpg: {},
         main_upg_msg: [0,0],
     }
-
+    player.void = getVoidSave()
     player.sn = getSupernovaSave()
     player.fighting = getFightingSave()
 
