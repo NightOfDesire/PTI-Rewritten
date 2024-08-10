@@ -317,6 +317,7 @@ function getPointUpgradeBulk(i) {
         if (i == 2 && player.ranks.rank.gte(3)) inc = inc.pow(0.8)
         if (i == 3 && player.ranks.rank.gte(4)) inc = inc.pow(0.8)
         if (player.ranks.tier.gte(3)) inc = inc.pow(0.8)*/
+        if (player.ranks.rank.gte(25)) inc = inc.pow(0.8)
 
         if (player.pts.gte(start)) bulk = player.pts.div(start).max(1).log(inc).scaleEvery("pointUpg",true).mul(fp).add(1).floor()
     
