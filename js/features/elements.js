@@ -219,7 +219,6 @@ function updateElementsHTML() {
         tmp.el[`Element${x}`].setClasses({elements: true, bought: hasElement(x)})
         tmp.el[`Element${x}`].setDisplay(tElem.unl_length >= x)
     }
-    tmp.el.elem_ch_div.setDisplay(ch)
     if (ch) {
         let u = ELEMENTS.upgs[player.chosenElem]
         let tElem = tmp.elem
