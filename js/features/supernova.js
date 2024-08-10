@@ -4,8 +4,13 @@ const SUPERNOVA = {
     },
     doReset(level="supernova") {
         switch(level) {
-
-        default:
+            case "sunrise": 
+                SUPERNOVA.doReset()
+            default:
+            player.sn.star.stardust = E(0)
+            player.sn.star.growth = E(0)
+            player.sn.star.tier = E(0)
+            player.sn.time = 0
             player.ranks.asc = E(0)
             RANKS.doReset(asc)
 
@@ -58,5 +63,5 @@ function updateSupernovaHTML() {
 }
 
 function updateSupernovaTemp() {
-    
+    if (!tmp.sn) tmp.sn = {}
 }

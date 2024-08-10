@@ -45,7 +45,7 @@ const SCALING_RES = {
 const NAME_FROM_RES = {
     rank: "Rank",
     tier: "Tier",
-    pointUpg: "Point Upgrades 1-3"
+    pointUpg: "Point Upgrades 1-4"
 }
 const SCALE_FP = {}
 
@@ -55,7 +55,7 @@ const SCALE_FP = {}
 
 function updateScalingHTML() {
 	let s = SCALE_TYPE[player.scaling_ch]
-	// tmp.el.scaling_name.setTxt(FULL_SCALE_NAME[player.scaling_ch])
+	tmp.el.scaling_name.setTxt(FULL_SCALE_NAME[player.scaling_ch])
 	if (!tmp.scaling) return
 	for (let x = 0; x < SCALE_TYPE.length; x++) {
 		let type = SCALE_TYPE[x]

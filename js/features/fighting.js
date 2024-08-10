@@ -4,8 +4,8 @@ function getFightingSave() {
         bestStage: E(0),
         souls: E(0),
         fight_mult: E(0),
-        hp: FIGHTING.max_health,
-        dmg: FIGHTING.offense
+        hp: E(100),
+        dmg: E(1)
         
 
 
@@ -16,11 +16,13 @@ function getFightingSave() {
 
 const FIGHTING = {
     get offense() {
+        let stage = player.fighting.stage
         let x = E(1)
 
         return x
     },
     get max_health() {
+        let stage = player.fighting.stage
         let x = E(100)
 
         return x
@@ -87,7 +89,7 @@ function calcFighting(dt) {
 
 function setupFighting() {
     updateFightingTemp()
-    enemy_health = tmp.sol.enemy_max_health
+    enemy_health = tmp.fighting.enemy_max_health
 }
 
 function updateFightingTemp() {
