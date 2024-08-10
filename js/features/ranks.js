@@ -72,12 +72,15 @@ const RANKS = {
             '3': "unlock third point upgrade, points are boosted by ((x+1)^2)^0.8, where x is your rank.",
             '4': "first point upgrade's base is increased by its amount (x/20)",
             '5': "second point upgrade's base is increased by its amount (x/33)",
-            '10': "Gain even more points based on time! (x/10)"
+            '10': "Gain even more points based on time! (x/10)",
+            '25': "Point upgrades scale 20% slower",
+            '75': "Point upgrades scale another 20% slower"
         },
         tier: {
             '1': "unlock auto rank and The Time",
             '2': "Unlock passive prestige, you no longer need to manually buy point upgrades!",
-            '4': "Unlock the Dimensionalizer"
+            '4': "Unlock the Dimensionalizer",
+            '6': "Unlock the Void"
         },
         asc: {
 
