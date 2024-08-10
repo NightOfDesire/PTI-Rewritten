@@ -64,6 +64,8 @@ function getBaseData() {
         main_upg_msg: [0,0],
     }
 
+    player.sn = getSupernovaSave()
+
     for (let x in BUILDING_DATA) s.build[x] = {
         amt: E(0),
         auto: false

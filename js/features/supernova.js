@@ -21,9 +21,10 @@ const SUPERNOVA = {
 function getSupernovaSave() {
     const s = {
         unl: true,
-        supernovaTimes: E(0),
+        times: E(0),
         ions: E(0),
         elem: [],
+        time: 0,
         supernovaTier: E(0),
         star: {
             stardust: E(0),
