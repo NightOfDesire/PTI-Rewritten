@@ -91,7 +91,7 @@ const ELEMENTS = {
 
     getUnlLength() {
         let u = 4
-        let snt = player.sn.tier
+        let snt = player.sn.supernovaTier
         if (snt.gte(1)) u += 4
 
 
