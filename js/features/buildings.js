@@ -110,7 +110,7 @@ const BUILDING_DATA = {
     points_4: {
         name: "Dimensionalizer",
         icon: "dimensionalizer",
-        scale: "Dimensionalizer",
+        scale: "pointUpg",
         get start() { return E("1e42")},
         get inc() { return E("1e15")},
         get isUnlocked() { return player.ranks.tier.gte(4) },
