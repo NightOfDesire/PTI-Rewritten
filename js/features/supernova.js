@@ -20,6 +20,7 @@ const SUPERNOVA = {
 
 function getSupernovaSave() {
     const s = {
+        unl: true,
         supernovaTimes: E(0),
         ions: E(0),
         elem: [],
