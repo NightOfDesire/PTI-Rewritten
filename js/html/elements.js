@@ -343,7 +343,7 @@ function setupHTML() {
 		table += `</div><br><button id="main_upg_${x}_auto" class="btn" style="width: 80px;" onclick="player.auto_mainUpg.${id} = !player.auto_mainUpg.${id}">OFF</button></div>`
 	}
 	main_upgs_table.setHTML(table)
-	//setupSoftcapHTML()
+	setupSoftcapHTML()
 	setupStatsHTML()
 	setupElementsHTML()
     tmp.el = {}
@@ -381,7 +381,7 @@ function updateTabsHTML() {
 }
 
 function updateRanksRewardHTML() {
-	// tmp.el["ranks_reward_name"].setTxt(RANKS.fullNames[player.ranks_reward])
+	tmp.el["ranks_reward_name"].setTxt(RANKS.fullNames[player.ranks_reward])
 	for (let x = 0; x < RANKS.names.length; x++) {
 		let rn = RANKS.names[x]
 		tmp.el["ranks_reward_div_"+x].setDisplay(player.ranks_reward == x)
@@ -447,7 +447,7 @@ function updateHTML() {
 	if (player.stab[4] == 1) updateScalingHTML()
 	if (player.stab[3] == 1) updateElementsHTML()
 	TIME.updateHTML()
-	//updateSoftcapHTML()
+	updateSoftcapHTML()
 	/**@param hello */
 	//tmp.el.test.setHTML(SOFTCAPS.points.one())
 }
