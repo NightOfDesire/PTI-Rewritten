@@ -343,7 +343,6 @@ function setupHTML() {
 		table += `</div><br><button id="main_upg_${x}_auto" class="btn" style="width: 80px;" onclick="player.auto_mainUpg.${id} = !player.auto_mainUpg.${id}">OFF</button></div>`
 	}
 	main_upgs_table.setHTML(table)
-	setupSoftcapHTML()
 	setupStatsHTML()
 	setupElementsHTML()
     tmp.el = {}
@@ -447,7 +446,6 @@ function updateHTML() {
 	if (player.stab[4] == 1) updateScalingHTML()
 	if (player.stab[3] == 1) updateElementsHTML()
 	TIME.updateHTML()
-	updateSoftcapHTML()
 	/**@param hello */
 	//tmp.el.test.setHTML(SOFTCAPS.points.one())
 }
