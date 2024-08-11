@@ -7,6 +7,7 @@ const UPGS = {
                     let u = this[x][y]
                     if (!tmp.upgs) tmp.upgs = {}
                     if (!tmp.upgs.main) tmp.upgs.main = []
+                    if (!tmp.upgs.main.x) tmp.upgs.main.x = []
                     if (u.effDesc) tmp.upgs.main[x][y] = { effect: u.effect(), effDesc: u.effDesc() }
                 }
             }
